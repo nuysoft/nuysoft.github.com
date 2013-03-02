@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>nuysoft</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <script src="assets/js/jquery-1.8.3.js"></script>
+    <script src="assets/js/jquery.catalog.js"></script>
+    <style type="text/css">
+        h1, h2, h3, h4, h5, h6 { margin: 20px 0; }
+        h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { margin: 0 0 0 10px; }
+        code {
+            display: block;
+            padding: 8.5px;
+            margin: 0 0 9px;
+            font-size: 12.025px;
+            line-height: 18px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            white-space: pre;
+            white-space: pre-wrap;
+            word-break: break-all;
+            word-wrap: break-word;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"><h1><a href="http://zaach.github.com/jison/">Jison</a></h1>
+
+<p>Your friendly JavaScript parser generator!</p>
+
+<p>友好的 JavaScript 解析器生成器</p>
+
+<ul><li><a href="http://zaach.github.com/jison/docs/">docs 文档</a></li><li><a href="http://zaach.github.com/jison/demos/">demos 演示</a></li><li><a href="http://zaach.github.com/jison/try/">try 尝试</a></li><li><a href="http://zaach.github.com/jison/docs/#installation">install 安装</a></li><li><a href="http://zaach.github.com/jison/community/">community 社区</a></li></ul>
+
+<h1><a href="http://zaach.github.com/jison/docs/">Documentation 文档</a></h1>
+
+<p>Jison takes a context-free grammar as input and outputs a JavaScript file capable of parsing the language described by that grammar. You can then use the generated script to parse inputs and accept, reject, or perform actions based on the input. If you’re familiar with Bison or Yacc, or other clones, you’re almost ready to roll.</p>
+
+<p>Jison 接受一个上下文无关文法作为输入，输出一个可以解析文法所描述的语言的 JavaScript 文件。然后，你可以使用生成的脚本来解析、接受、拒绝输入，或基于输入执行动作。如果你熟悉 Bison 或 Yacc 或其他类似的工具，你差不多已经准备好了。</p>
+
+<h2>Installation</h2>
+
+<p>安装</p>
+
+<p>Jison can be installed for Node using npm</p>
+
+<p>Jison 可以使用 npm 安装</p>
+
+<p>Using npm:</p>
+
+<p>使用 npm:</p>
+
+<pre><code>npm install jison -g</code></pre>
+
+<h2>Usage from the command line</h2>
+
+<p>命令行用法</p>
+
+<p>Clone the github repository for examples:</p>
+
+<p>克隆 github 库，获取示例：</p>
+
+<pre><code>git clone git://github.com/zaach/jison.git
+cd jison/examples</code></pre>
+
+<p>Now you’re ready to generate some parsers:</p>
+
+<p>现在，你可以生成一些解析器：</p>
+
+<pre><code>jison calculator.jison</code></pre>
+
+<p>This will generate calculator.js in your current working directory. This script can be used to parse an input file, like so:</p>
+
+<p>这将在当前工作目录下生成 calculator.js。这个脚本可以用来解析一个输入文件，如下所示：</p>
+
+<pre><code>echo &quot;2^32 / 1024&quot; &gt; testcalc
+node calculator.js testcalc</code></pre>
+
+<p>This will print out 4194304.</p>
+
+<p>上面的脚本将打印 4194304。</p>
+
+<h2>Usage from a CommonJS Module</h2>
+
+<p>CommonJS 模块用法</p>
+
+<p>You can generate parsers programatically from JavaScript as well. Assuming Jison is in your commonjs environment’s load path:</p>
+
+<p>你也可以从 JavaScript 以编程的方法生成解析器。假设 Jison 在 CommonJS 环境的加载路径中：</p>
+
+<pre><code>// mygenerator.js
+var Parser = require(&quot;jison&quot;).Parser;
+
+var grammar = {
+    &quot;lex&quot;: {
+        &quot;rules&quot;: [
+           [&quot;\\s+&quot;, &quot;/* skip whitespace */&quot;],
+           [&quot;[a-f0-9]+&quot;, &quot;return &#39;HEX&#39;;&quot;]
+        ]
+    },
+
+    &quot;bnf&quot;: {
+        &quot;hex_strings&quot; :[ &quot;hex_strings HEX&quot;,
+                         &quot;HEX&quot; ]
+    }
+};
+
+var parser = new Parser(grammar);
+
+// generate source, ready to be written to disk
+var parserSource = parser.generate();
+
+// you can also use the parser directly from memory
+
+parser.parse(&quot;adfe34bc e82a&quot;);
+// returns true
+
+parser.parse(&quot;adfe34bc zxg&quot;);
+// throws lexical error</code></pre>
+
+<h2>Using the Generated Parser</h2>
+
+<p>使用生成的解析器</p>
+
+<p>Once you have generated the parser and saved it, you no longer need Jison or any other dependencies.</p>
+
+<p>一旦你生成并保存了生成的解析器，你不再需要 Jison 或任何其他依赖。</p>
+
+<p>As demonstrated before, the parser can be used from the command line:</p>
+
+<p>正如之前的示例，解析器可以在命令行中使用：</p>
+
+<pre><code>node calculator.js testcalc</code></pre>
+
+<p>Though, more ideally, the parser will be a dependency of another module. You can require it from another module like so:</p>
+
+<p>不过更理想的是，解析被其他模块所依赖。你可以从另一个模块加载解析器，像这样：</p>
+
+<pre><code>// mymodule.js
+var parser = require(&quot;./calculator&quot;).parser;
+
+function exec (input) {
+    return parser.parse(input);
+}
+
+var twenty = exec(&quot;4 * 5&quot;);</code></pre>
+
+<p>Or more succinctly:</p>
+
+<p>或者，更简洁的说：</p>
+
+<pre><code>// mymodule.js
+function exec (input) {
+    return require(&quot;./calculator&quot;).parse(input);
+}
+
+var twenty = exec(&quot;4 * 5&quot;);</code></pre>
+
+<h2>Using the Parser from the Web</h2>
+
+<p>在网页中使用解析器</p>
+
+<p>The generated parser script may be included in a web page without any need for a CommonJS loading environment. It’s as simple as pointing to it via a script tag:</p>
+
+<p>生成的解析器脚本可以被包含在一个网页中，不需要任何 CommonJS 加载环境。简单通过一个 script 标签指向解析器：</p>
+
+<pre><code>&lt;script src=&quot;calculator.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+<p>When you generate the parser, you can specify the variable name it will be declared as:</p>
+
+<p>生成解析器时，你可以通过下面的声明指定变量名：</p>
+
+<pre><code>// mygenerator.js
+var parserSource = generator.generate({moduleName: &quot;calc&quot;});
+// then write parserSource to a file called, say, calc.js</code></pre>
+
+<p>Whatever moduleName you specified will be the the variable you can access the parser from in your web page:</p>
+
+<p>声明的 moduleName 用于在网页中访问解析器：</p>
+
+<pre><code>&lt;script src=&quot;calc.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  calc.parse(&quot;42 / 0&quot;);
+&lt;/script&gt;</code></pre>
+
+<p>The moduleName you specify can also include a namespace, e.g:</p>
+
+<p>声明的 moduleName 也可以包含一个命名空间，例如：</p>
+
+<pre><code>// mygenerator.js
+var parserSource = parser.generate({moduleName: &quot;myCalculator.parser&quot;});</code></pre>
+
+<p>And could be used like so:</p>
+
+<p>然后可以这样使用：</p>
+
+<pre><code>&lt;script&gt;
+  var myCalculator = {};
+&lt;/script&gt;
+
+&lt;script src=&quot;calc.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  myCalculator.parser.parse(&quot;42 / 0&quot;);
+&lt;/script&gt;</code></pre>
+
+<p>Or something like that – you get the picture.</p>
+
+<p>或者类似的用法 - 你能想象到的。</p>
+
+<blockquote><p>you get the picture</p><p>对其有大致的了解</p><p>能想象出来</p></blockquote>
+
+<p>A demo of the calculator script used in a web page is <a href="http://zaach.github.com/jison/demos/calc/">here</a>.</p>
+
+<p>在网页中使用计算器脚本的演示在<a href="http://zaach.github.com/jison/demos/calc/">这里</a>。</p>
+
+<h2>The Concepts of Jison</h2>
+
+<p>Jison 的 概念</p>
+
+<p>Until the <a href="http://dinosaur.compilertools.net/bison/bison_4.html#SEC7">Bison guide</a> is properly ported for Jison, you can refer to it for the major concepts, which are equivalent (except for the bits about static typing of semantic values, and other obvious C artifacts.)</p>
+
+<p>Jison 移植自 <a href="http://dinosaur.compilertools.net/bison/bison_4.html#SEC7">Bision 指南</a>，你可以参考主要概念，它们是等价的（除了静态语义类型，和其他明显的 C 工件）。</p>
+
+<p>Other helpful sections:</p>
+
+<p>其他有用的部分：</p>
+
+<ul><li><a href="http://dinosaur.compilertools.net/bison/bison_6.html#SEC34">Bison Grammar Files</a></li><li><a href="http://dinosaur.compilertools.net/bison/bison_8.html#SEC68">The Bison Parser Algorithm</a></li><li><a href="http://dinosaur.compilertools.net/bison/bison_9.html#SEC81">Error Recovery</a> (alpha support, at this point)</li></ul>
+
+<h2>Specifying a Language</h2>
+
+<p>指定一门语言</p>
+
+<p>The process of parsing a language involves two phases: lexical analysis (tokenizing) and parsing, which the Lex/Yacc and Flex/Bison combinations are famous for. Jison lets you specify a parser much like you would using Bison/Flex, with separate files for tokenization rules and for the language grammar, or with the tokenization rules embedded in the main grammar.</p>
+
+<p>解析语言的过程包括两个阶段：词法分析（作标记）和解析，著名的组合有 Lex/Yacc 和 Flex/Bison。Jison 允许你用两个含有标记规则和语言语法的独立文件，或在主语法中嵌入标记规则，来指定一个解析器，就像使用 Bison/Flex 一样。</p>
+
+<p>For example, here is the grammar for the calculator parser:</p>
+
+<p>例如，下面是计算器解析器的语法：</p>
+
+<pre><code>/* description: Parses end executes mathematical expressions. */
+
+/* lexical grammar */
+%lex
+
+%%
+\s+                   /* skip whitespace */
+[0-9]+(&quot;.&quot;[0-9]+)?\b  return &#39;NUMBER&#39;;
+&quot;*&quot;                   return &#39;*&#39;;
+&quot;/&quot;                   return &#39;/&#39;;
+&quot;-&quot;                   return &#39;-&#39;;
+&quot;+&quot;                   return &#39;+&#39;;
+&quot;^&quot;                   return &#39;^&#39;;
+&quot;(&quot;                   return &#39;(&#39;;
+&quot;)&quot;                   return &#39;)&#39;;
+&quot;PI&quot;                  return &#39;PI&#39;;
+&quot;E&quot;                   return &#39;E&#39;;
+&lt;&lt;EOF&gt;&gt;               return &#39;EOF&#39;;
+
+/lex
+
+/* operator associations and precedence */
+
+%left &#39;+&#39; &#39;-&#39;
+%left &#39;*&#39; &#39;/&#39;
+%left &#39;^&#39;
+%left UMINUS
+
+%start expressions
+
+%% /* language grammar */
+
+expressions
+    : e EOF
+        {print($1); return $1;}
+    ;
+
+e
+    : e &#39;+&#39; e
+        {$$ = $1+$3;}
+    | e &#39;-&#39; e
+        {$$ = $1-$3;}
+    | e &#39;*&#39; e
+        {$$ = $1*$3;}
+    | e &#39;/&#39; e
+        {$$ = $1/$3;}
+    | e &#39;^&#39; e
+        {$$ = Math.pow($1, $3);}
+    | &#39;-&#39; e %prec UMINUS
+        {$$ = -$2;}
+    | &#39;(&#39; e &#39;)&#39;
+        {$$ = $2;}
+    | NUMBER
+        {$$ = Number(yytext);}
+    | E
+        {$$ = Math.E;}
+    | PI
+        {$$ = Math.PI;}
+    ;</code></pre>
+
+<p>which compiles down to this JSON representation used directly by Jison:</p>
+
+<p>将上面的语法编译为 Jison 可以直接使用的 JSON 格式：</p>
+
+<pre><code>{
+    &quot;lex&quot;: {
+        &quot;rules&quot;: [
+           [&quot;\\s+&quot;,                    &quot;/* skip whitespace */&quot;],
+           [&quot;[0-9]+(?:\\.[0-9]+)?\\b&quot;, &quot;return &#39;NUMBER&#39;;&quot;],
+           [&quot;\\*&quot;,                     &quot;return &#39;*&#39;;&quot;],
+           [&quot;\\/&quot;,                     &quot;return &#39;/&#39;;&quot;],
+           [&quot;-&quot;,                       &quot;return &#39;-&#39;;&quot;],
+           [&quot;\\+&quot;,                     &quot;return &#39;+&#39;;&quot;],
+           [&quot;\\^&quot;,                     &quot;return &#39;^&#39;;&quot;],
+           [&quot;\\(&quot;,                     &quot;return &#39;(&#39;;&quot;],
+           [&quot;\\)&quot;,                     &quot;return &#39;)&#39;;&quot;],
+           [&quot;PI\\b&quot;,                   &quot;return &#39;PI&#39;;&quot;],
+           [&quot;E\\b&quot;,                    &quot;return &#39;E&#39;;&quot;],
+           [&quot;$&quot;,                       &quot;return &#39;EOF&#39;;&quot;]
+        ]
+    },
+
+    &quot;operators&quot;: [
+        [&quot;left&quot;, &quot;+&quot;, &quot;-&quot;],
+        [&quot;left&quot;, &quot;*&quot;, &quot;/&quot;],
+        [&quot;left&quot;, &quot;^&quot;],
+        [&quot;left&quot;, &quot;UMINUS&quot;]
+    ],
+
+    &quot;bnf&quot;: {
+        &quot;expressions&quot; :[[ &quot;e EOF&quot;,   &quot;print($1); return $1;&quot;  ]],
+
+        &quot;e&quot; :[[ &quot;e + e&quot;,   &quot;$$ = $1 + $3;&quot; ],
+              [ &quot;e - e&quot;,   &quot;$$ = $1 - $3;&quot; ],
+              [ &quot;e * e&quot;,   &quot;$$ = $1 * $3;&quot; ],
+              [ &quot;e / e&quot;,   &quot;$$ = $1 / $3;&quot; ],
+              [ &quot;e ^ e&quot;,   &quot;$$ = Math.pow($1, $3);&quot; ],
+              [ &quot;- e&quot;,     &quot;$$ = -$2;&quot;, {&quot;prec&quot;: &quot;UMINUS&quot;} ],
+              [ &quot;( e )&quot;,   &quot;$$ = $2;&quot; ],
+              [ &quot;NUMBER&quot;,  &quot;$$ = Number(yytext);&quot; ],
+              [ &quot;E&quot;,       &quot;$$ = Math.E;&quot; ],
+              [ &quot;PI&quot;,      &quot;$$ = Math.PI;&quot; ]]
+    }
+}</code></pre>
+
+<p>Jison accepts both the Bison/Flex style format, or the raw JSON format, e.g:</p>
+
+<p>Jison 接受 Bison/Flex 风格的格式，或者原始的 JSON 格式，例如：</p>
+
+<pre><code>node bin/jison examples/calculator.jison</code></pre>
+
+<p>or</p>
+
+<p>或者</p>
+
+<pre><code>node bin/jison examples/calculator.json</code></pre>
+
+<p>When the lexical grammar resides in its own (.jisonlex) file, use that as the second argument to Jison, e.g.:</p>
+
+<p>如果词法语法存放在它自己的文件（.jisonlex）中，将它作为第 2 个参数传给 Jison，例如：</p>
+
+<pre><code>node bin/jison examples/classy.jison examples/classy.jisonlex</code></pre>
+
+<p>More examples can be found in the <a href="http://github.com/zaach/jison/tree/master/examples/">examples/</a> and <a href="http://github.com/zaach/jison/tree/master/tests/parser/">tests/parser/</a> directories.</p>
+
+<p>可以在目录 <a href="http://github.com/zaach/jison/tree/master/examples/">examples/</a> 和 <a href="http://github.com/zaach/jison/tree/master/tests/parser/">tests/parser/</a> 找到更多的例子。</p>
+
+<h2>Lexical Analysis</h2>
+
+<p>词法分析</p>
+
+<p>Jison includes a rather rudimentary scanner generator, though any module that supports the basic scanner API could be used in its place.</p>
+
+<p>Jison 包含一个相当基本的扫描器生成器，因此可以替换为支持基本扫描器 API 的任意模块。</p>
+
+<p>The format of the <a href="http://dinosaur.compilertools.net/flex/flex_6.html#SEC6">input file</a> (including macro support) and the style of the <a href="http://dinosaur.compilertools.net/flex/flex_7.html#SEC7">pattern matchers</a> are modeled after Flex. Several <a href="https://github.com/zaach/jison/wiki/Deviations-From-Flex-Bison">metacharacters have been added</a>, but there is also one minor inconvenience compared to Flex patterns, namely exact string patterns must be placed in quotes e.g.:</p>
+
+<p><a href="http://dinosaur.compilertools.net/flex/flex_6.html#SEC6">输入文件</a>（包括宏支持）的格式和<a href="http://dinosaur.compilertools.net/flex/flex_7.html#SEC7">模式匹配</a>的风格模仿自 Flex。几个<a href="https://github.com/zaach/jison/wiki/Deviations-From-Flex-Bison">元字符已被添加</a>，但是相比 Flex 模式有一个小小的不便，就是明确的字符串必须放入引号中，例如：</p>
+
+<p>Bad:</p>
+
+<pre><code>[0-9]+zomg    print(yytext)</code></pre>
+
+<p>Good:</p>
+
+<pre><code>[0-9]+&quot;zomg&quot;    print(yytext);</code></pre>
+
+<p>Actions that span multiple lines should be surrounded by braces:</p>
+
+<p>跨行的行为应该用花括号包裹：</p>
+
+<pre><code>[0-9]+&quot;zomg&quot;    %{ print(yytext);
+                   return &#39;ZOMG&#39;; %}</code></pre>
+
+<p>A recently added feature are <a href="http://dinosaur.compilertools.net/flex/flex_11.html">start conditions</a>, which allow certain rules to only match in certain states. If the lexer is not in that state, then the rule is ignored. The lexer starts in the INITIAL state, but can move to new states specified by you. Read that link for the run-down. An example below shows where Jison differs, namely <em>this.begin(&#39;state&#39;)</em> instead of <em>BEGIN(STATE)</em> for changing states within an action:</p>
+
+<p>最近添加的<a href="http://dinosaur.compilertools.net/flex/flex_11.html">启动条件</a>功能，允许某些规则只匹配某些状态。如果词法分析器不处于指定的状态，相应的规则被忽略。语法分析器开始于 INITIAL 状态，可以移动到指定的新状态。阅读纲要链接。下面的例子显示了 Jison 的不同之处，即在一个行动中用 <em>this.begin(&#39;state&#39;)</em> 代替 <em>BEGIN(STATE)</em> 来改变状态。</p>
+
+<pre><code>%s expect
+
+%%
+expect-floats        this.begin(&#39;expect&#39;);
+
+&lt;expect&gt;[0-9]+&quot;.&quot;[0-9]+      {
+            console.log( &quot;found a float, = &quot; + yytext );
+            }
+&lt;expect&gt;\n           %{
+            /* that&#39;s the end of the line, so
+             * we need another &quot;expect-number&quot;
+             * before we&#39;ll recognize any more
+             * numbers
+             */
+            this.begin(&#39;INITIAL&#39;);
+            %}
+
+[0-9]+      console.log( &quot;found an integer, = &quot; + yytext );
+
+&quot;.&quot;         console.log( &quot;found a dot&quot; );</code></pre>
+
+<p>Additionaly, use this.popState() within an action to revert to the previous state.</p>
+
+<p>另外，可以在一个行动中使用 this.popState() 恢复到前一个状态。</p>
+
+<h2>Tracking Locations</h2>
+
+<p>跟踪位置</p>
+
+<p>Jison’s lexical analyzer will track line number and column number information for each token and make them available within parser actions. The API is identical to Bison’s.</p>
+
+<p>Jison 的词法分析器将跟踪每个词法单元（token）的行号和列号信息，并且使它们在解析器的动作中可用。与 Bison 的 API 完全相同。</p>
+
+<h2>Custom Scanners</h2>
+
+<p>自定义扫描器</p>
+
+<p>You don’t have to use the builtin Jison lexical scanner. An object with a lex and a setInput function would suffice, e.g.:</p>
+
+<p>你不是必须使用 Jison 内置的词法扫描器。一个含有 lex 和 setInput 方法的对象就足够了，例如：</p>
+
+<pre><code>parser.lexer = {lex: function () { return &#39;NIL&#39;; }, setInput: function (str) {} }</code></pre>
+
+<p>This lexer would simply return NIL tokens ad infinitum.</p>
+
+<p>这个语法扫描器将一直返回词法单元 NIL。</p>
+
+<blockquote><p>ad infinitum [,ædinfi&#39;naitəm] 无限地；永久地；无止境地</p></blockquote>
+
+<p>TODO: more examples</p>
+
+<p>TODO：更多示例</p>
+
+<h2>Sharing Scope</h2>
+
+<p>共享范围</p>
+
+<p>In Bison, code is expected to be lexically defined within the scope of the semantic actions. E.g., chunks of code may be included in the generated parser source, which are available from semantic actions.</p>
+
+<p>在 Bison 中，代码被预期定义在语义行为的范围。例如，代码块可以被包含在生成的解析器源码中，语义行为中的代码块是有效的。</p>
+
+<p>Jison is more modular. Instead of pulling code into the generated module, the generated module is expected to be required and used by other modules. This means that if you want to expose functionality to the semantic actions, you can’t rely on it being available through lexical scoping. Instead, the parser has a yy property which is exposed to actions as the yy free variable. Any functionality attached to this property is available in both lexical and semantic actions through the yy free variable.</p>
+
+<p>Jison 更加模块化。不是向生成的模块插入代码，而是生成的模块期待被其他模块加载和使用。这意味着如果你想要向语义行为暴漏功能，你不能依赖词法范围。相反，解析器含有一个 yy 属性，该属性被暴露给语义行为，就像自由变量 yy 一样。任何绑定到该属性的功能可以在词法和语义行为中通过自由变量 yy 使用。</p>
+
+<p>An example from orderly.js:</p>
+
+<p>来自 orderly.js 的一个例子：</p>
+
+<pre><code>var parser = require(&quot;./orderly/parse&quot;).parser;
+
+// set parser&#39;s shared scope
+parser.yy = require(&quot;./orderly/scope&quot;);
+
+// returns the JSON object
+var parse = exports.parse = function (input) {
+    return parser.parse(input);
+};
+...</code></pre>
+
+<p>The scope module contains logic for building data structures, which is used within the semantic actions.</p>
+
+<p>范围模块包含用于创建数据结构的逻辑，在语义行为中使用。</p>
+
+<p>TODO: More on this.</p>
+
+<p>TODO：更多这方面的内容。</p>
+
+<h2>Parsing algorithms</h2>
+
+<p>解析算法</p>
+
+<p>Like Bison, Jison can recognize languages described by LALR(1) grammars, though it also has modes for LR(0), SLR(1), and LR(1). It also has a special mode for generating LL(1) parse tables (requested by my professor,) and could be extended to generate a recursive descent parser for LL(k) languages in the future. But, for now, Jison is geared toward bottom-up parsing.</p>
+
+<p>像 Bison 一样，Jison 可以识别 LALR(1) 文法描述的语言，也有支持 LR(0), SLR(1) 和 LR(1) 文法的模式。Jison 还有一个特殊模式用于生成 LL(1) 分析表（我的教授要求的），并且可以在将来扩展到生成一个解析 LL(k) 语言的递归下降解析器。但是，就目前而言，Jison 面向自底向上的语法分析。</p>
+
+<p>*LR(1) mode is currently not practical for use with anything other than toy grammars, but that is entirely a consequence of the algorithm used, and may change in the future.</p>
+
+<p>*LR(1) 模式在目前是不实用的，最多就是玩具语法，但它完全是所使用的算法的一个推论，并且可能在将来发生改变。</p>
+
+<h2>Projects using Jison</h2>
+
+<p>使用 Jison 的项目</p>
+
+<p>View them on the <a href="https://github.com/zaach/jison/wiki/ProjectsUsingJison">wiki</a>, or add your own.</p>
+
+<p>访问 <a href="https://github.com/zaach/jison/wiki/ProjectsUsingJison">wiki</a> 查看使用 Jison 的项目，或添加你自己的项目。</p>
+
+<h2>Contributors</h2>
+
+<p>贡献者</p>
+
+<p>via <a href="http://github.com/zaach/jison/contributors">github</a></p>
+
+<p>访问 <a href="http://github.com/zaach/jison/contributors">github</a></p>
+
+<h2>License</h2>
+
+<p>许可证</p>
+
+<p>Copyright (c) 2009 Zachary Carter</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<p>By Zach Carter, 2010. MIT Licensed.</p>    </div>
+</body>
+</html>
