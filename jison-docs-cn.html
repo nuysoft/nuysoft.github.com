@@ -124,7 +124,7 @@ var twenty = exec(&quot;4 * 5&quot;);</code></pre>
 
 <h2>在网页中使用解析器</h2>
 
-<p>生成的解析器脚本可以被包含在一个网页中，不需要任何 CommonJS 加载环境。简单通过一个 script 标签指向解析器：</p>
+<p>生成的解析器脚本可以被包含在一个网页中，不需要任何 CommonJS 加载环境。简单的通过一个 script 标签指向解析器：</p>
 
 <pre><code>&lt;script src=&quot;calculator.js&quot;&gt;&lt;/script&gt;</code></pre>
 
@@ -162,7 +162,7 @@ var parserSource = parser.generate({moduleName: &quot;myCalculator.parser&quot;}
 
 <p>在网页中使用计算器脚本的演示在<a href="http://zaach.github.com/jison/demos/calc/">这里</a>。</p>
 
-<h2>Jison 的 概念</h2>
+<h2>Jison 的概念</h2>
 
 <p>Jison 移植自 <a href="http://dinosaur.compilertools.net/bison/bison_4.html#SEC7">Bision 指南</a>，你可以参考主要概念，它们是等价的（除了静态语义类型，和其他明显的 C 工件）。</p>
 
@@ -172,7 +172,7 @@ var parserSource = parser.generate({moduleName: &quot;myCalculator.parser&quot;}
 
 <h2>指定一门语言</h2>
 
-<p>解析语言的过程包括两个阶段：词法分析（作标记）和解析，著名的组合有 Lex/Yacc 和 Flex/Bison。Jison 允许你用两个含有标记规则和语言语法的独立文件，或在主语法中嵌入标记规则，来指定一个解析器，就像使用 Bison/Flex 一样。</p>
+<p>解析语言的过程包括两个阶段：词法分析（词法单元）和解析，著名的组合有 Lex/Yacc 和 Flex/Bison。Jison 允许你用两个含有词法规则和语言语法的独立文件，或在主语法中嵌入词法规则，来指定一个解析器，就像使用 Bison/Flex 一样。</p>
 
 <p>例如，下面是计算器解析器的语法：</p>
 

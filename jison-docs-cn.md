@@ -103,9 +103,10 @@ Jison 可以使用 npm 安装：
 
     var twenty = exec("4 * 5");
 
+
 ## 在网页中使用解析器
 
-生成的解析器脚本可以被包含在一个网页中，不需要任何 CommonJS 加载环境。简单通过一个 script 标签指向解析器：
+生成的解析器脚本可以被包含在一个网页中，不需要任何 CommonJS 加载环境。简单的通过一个 script 标签指向解析器：
 
     <script src="calculator.js"></script>
 
@@ -144,7 +145,7 @@ Jison 可以使用 npm 安装：
 在网页中使用计算器脚本的演示在[这里](http://zaach.github.com/jison/demos/calc/)。
 
 
-## Jison 的 概念
+## Jison 的概念
 
 Jison 移植自 [Bision 指南](http://dinosaur.compilertools.net/bison/bison_4.html#SEC7)，你可以参考主要概念，它们是等价的（除了静态语义类型，和其他明显的 C 工件）。
 
@@ -156,7 +157,7 @@ Jison 移植自 [Bision 指南](http://dinosaur.compilertools.net/bison/bison_4.
 
 ## 指定一门语言
 
-解析语言的过程包括两个阶段：词法分析（作标记）和解析，著名的组合有 Lex/Yacc 和 Flex/Bison。Jison 允许你用两个含有标记规则和语言语法的独立文件，或在主语法中嵌入标记规则，来指定一个解析器，就像使用 Bison/Flex 一样。
+解析语言的过程包括两个阶段：词法分析（词法单元）和解析，著名的组合有 Lex/Yacc 和 Flex/Bison。Jison 允许你用两个含有词法规则和语言语法的独立文件，或在主语法中嵌入词法规则，来指定一个解析器，就像使用 Bison/Flex 一样。
 
 例如，下面是计算器解析器的语法：
 
@@ -276,6 +277,7 @@ Jison 接受 Bison/Flex 风格的格式，或者原始的 JSON 格式，例如�
     node bin/jison examples/classy.jison examples/classy.jisonlex
 
 可以在目录 [examples/](http://github.com/zaach/jison/tree/master/examples/) 和 [tests/parser/](http://github.com/zaach/jison/tree/master/tests/parser/) 找到更多的例子。
+
 
 ## 词法分析
 
