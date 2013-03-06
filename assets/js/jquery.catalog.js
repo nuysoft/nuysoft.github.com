@@ -1,5 +1,5 @@
 $(function() {
-    return;
+    // return;
     
     var header = $(':header').not('h1');
 
