@@ -32,7 +32,7 @@ $(function() {
     $('<div class="span2" style="margin-left: 0px; "></div>').empty() //
     .append('<h2>目录<h2>') //
     .append(html) //
-    .insertAfter('h1'); //
+    // .insertAfter('h1'); //
     // 自动加序号
     header.filter('h2').each(function(index, elem) {
         $(elem).prepend((index + 1) + '. ') //
