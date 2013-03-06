@@ -33,7 +33,7 @@ $(function() {
         show(name, function(err, repo){
             if( err ) {
                 // error request
-                li.text( err.request ? err.request.status + ', ' + err.request.statusText : err.error );
+                li.text( err.request ? err.request.status + ', ' + err.request.statusText : err.error ).hide();
                 return;
             }
             var text = 'Create: ' + repo.created_at.split('T')[0] + ', Star: ' + repo.watchers + ', Fork: ' + repo.forks
@@ -45,7 +45,7 @@ $(function() {
             }
         });
     })
-    
+
     // test
     // show('janl/mustache.js');
     // show('twitter/hogan.js');
