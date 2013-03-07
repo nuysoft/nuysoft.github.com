@@ -33,15 +33,20 @@ $(function() {
     .append('<h2>目录<h2>') //
     .append(html) //
     // .insertAfter('h1'); //
+
     // 自动加序号
     header.filter('h2').each(function(index, elem) {
         $(elem).prepend((index + 1) + '. ') //
         .filter(':gt(1)').before('<hr>');
     });
+
     // 回到顶部
     header.append('<small><a href="#">⬆</a></small>');
+
     // 栅格化
-    $('div.container').children().not('h1, .span2').wrapAll('<div class="span10"></div>');
+    $('div.container').children().not('h1, .span2')
+        // .wrapAll('<div class="span10"></div>');
+
     // h1
     $('h1').after('<hr>');
 
