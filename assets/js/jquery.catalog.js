@@ -45,4 +45,6 @@ $(function() {
     // h1
     $('h1').after('<hr>');
 
+    // title
+    $('title').text( $('h1').eq(0).text() );
 });
