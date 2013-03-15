@@ -75,11 +75,14 @@ define(function(require, exports) {
 					priority: _.random(0, 3),
 					progress: _.random(0, 100) + '%',
 					desc: 'MDN, dochub.io; pre"x all your JS searches with “mdn” (or !js on duckduckgo)'
-				}],
-				_priority: function(){
-					return ['', 'warning', 'success', 'error'][this.priority];
-				}
+				}]
 			};
+			data['_priority'] = function() {
+				return ['-', 'low', 'medium', 'high'][this.priority];
+			}
+			data['_priority_color'] = function() {
+				return ['', 'warning', 'success', 'error'][this.priority];
+			}
 			$(this.el).empty().append(Mustache.to_html(template, data));
 		}
 	});
