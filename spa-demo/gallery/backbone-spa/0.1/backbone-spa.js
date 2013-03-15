@@ -8,7 +8,7 @@ backbone-spa Backbone plugin for SPA
   通信：必须持有 View，才能通信
   加载：
   销毁：不需要
-  
+  404：
 */
 define(function(require, exports) {
     var Backbone = require('backbone'),
