@@ -1,14 +1,14 @@
 /*
-backbone-spa Backbone plugin for SPA
-1. Nested view parse and render.
-2. Update a partial area of DOM.
-3. Auto load HTML, JavaScript, and CSS from the web sever.
+    backbone-spa Backbone plugin for SPA
+    1. Nested view parse and render.
+    2. Update a partial area of DOM.
+    3. Auto load HTML, JavaScript, and CSS from the web sever.
 
-参考 Magix 功能列表：
-  通信：必须持有 View，才能通信
-  加载：
-  销毁：不需要
-  404：
+    参考 Magix 功能列表：
+      通信：必须持有 View，才能通信
+      加载：
+      销毁：不需要
+      404：
 */
 define(function(require, exports) {
     var Backbone = require('backbone'),

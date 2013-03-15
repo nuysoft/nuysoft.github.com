@@ -3,8 +3,8 @@
 
 <div class="btn-toolbar" style="margin: 10px 0; ">
     <div class="btn-group">
-        <a href="#!./app/demo/account-stat/" class="btn">Statistics</a>
         <a href="#!./app/demo/account-handle/" class="btn">Create</a>
+        <a href="#!./app/demo/account-stat/" class="btn">Statistics</a>
     </div>
 </div>
 
@@ -14,16 +14,18 @@
     <table class="table">
         <tr>
             <th>#</th>
+            <th>Date</th>
             <th>Count</th>
             <th>Type</th>
             <th>Description</th>
             <th></th>
         </tr>
         {{#list}}
-        <tr>
+        <tr class="{{_type_color}}">
             <td>{{id}}</td>
+            <td>{{date}}</td>
             <td>{{count}}</td>
-            <td>{{type}}</td>
+            <td>{{_type}}</td>
             <td>{{desc}}</td>
             <td><a href="#!./app/demo/account-handle/">Edit</a></td>
         </tr>
