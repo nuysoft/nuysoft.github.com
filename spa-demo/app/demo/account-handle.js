@@ -1,6 +1,5 @@
 define(function(require, exports) {
-	var _ = require('underscore'),
-		Backbone = require('backbone'),
+	var Backbone = require('backbone'),
 		Mustache = require('mustache'),
 		$ = require('$');
 	return Backbone.View.extend({
@@ -26,14 +25,14 @@ define(function(require, exports) {
 			var data = {
 				list: [{
 					id: 1,
-					count: '$' + _.random(0, 100),
+					count: Math.random(),
 					type: 1,
-					desc: '过夜费'
+					desc: 'hello'
 				}, {
 					id: 2,
-					count: '$' + _.random(0, 100),
+					count: Math.random(),
 					type: -1,
-					desc: '吃肉钱'
+					desc: 'account'
 				}]
 			};
 			$(this.el).empty().append(Mustache.to_html(template, data));

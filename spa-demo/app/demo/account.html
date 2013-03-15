@@ -3,12 +3,12 @@
 
 <div class="btn-toolbar" style="margin: 10px 0; ">
     <div class="btn-group">
-        <button id="statistics" class="btn">Statistics</button>
-        <button id="add" class="btn">Add</button>
-        <button id="back" class="btn">Back</button>
+        <a href="#!./app/demo/account-stat/" class="btn">Statistics</a>
+        <a href="#!./app/demo/account-handle/" class="btn">Create</a>
     </div>
 </div>
 
+<hr>
 <!-- 列表 -->
 <div class="list">
     <table class="table">
@@ -25,7 +25,7 @@
             <td>{{count}}</td>
             <td>{{type}}</td>
             <td>{{desc}}</td>
-            <td><a href="javascript: ">Edit</a></td>
+            <td><a href="#!./app/demo/account-handle/">Edit</a></td>
         </tr>
         {{/list}}
         {{^list}}
@@ -46,81 +46,4 @@
         <li><a href="#">Next</a></li>
       </ul>
     </div>
-</div>
-
-<hr>
-<!-- 编辑 -->
-<div class="edit">
-    <form class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="inputCount">Count</label>
-            <div class="controls">
-                <input type="text" id="inputCount" placeholder="Count">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="">Type</label>
-            <div class="controls">
-                <select id="" name="type">
-                    <option value=1>Input</option>
-                    <option value=-1>Output</option>
-                </select>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputDesc">Description</label>
-            <div class="controls">
-                <input type="text" id="inputDesc" placeholder="Description">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <button type="submit" class="btn">Submit</button>
-            </div>
-        </div>
-    </form>
-</div>
-
-<hr>
-<!-- 报表 -->
-<div class="statistics">
-    <form class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="inputFrom">From</label>
-            <div class="controls">
-                <input type="text" id="inputFrom" placeholder="From">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputTo">To</label>
-            <div class="controls">
-                <input type="text" id="inputTo" placeholder="To">
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <button type="submit" class="btn">Submit</button>
-                <button type="submit" class="btn">All</button>
-            </div>
-        </div>
-
-        <div class="control-group">
-            <label class="control-label" for="inputBalance">Balance</label>
-            <div class="controls">
-                <input type="text" id="inputBalance" placeholder="Balance">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputInput">Input</label>
-            <div class="controls">
-                <input type="text" id="inputInput" placeholder="inputInput">
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputOutput">Output</label>
-            <div class="controls">
-                <input type="text" id="inputOutput" placeholder="Output">
-            </div>
-        </div>
-    </form>
 </div>
