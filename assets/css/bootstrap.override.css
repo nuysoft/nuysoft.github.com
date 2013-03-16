@@ -5,3 +5,22 @@ body {
 li {
   line-height: 30px;
 }
+
+h1, h2, h3, h4, h5, h6 { margin: 20px 0; }
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small { margin: 0 0 0 10px; }
+
+code {
+    display: block;
+    padding: 8.5px;
+    margin: 0 0 9px;
+    font-size: 12.025px;
+    line-height: 18px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #333333;
+}
