@@ -1,0 +1,1023 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>jQuery Code Overview</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal"><div class="slides">
+
+
+<!--  -->
+<section>
+	<h1>jQuery</h1>
+	<h3>The Write Less, Do More, JavaScript Library</h3>
+	<p>
+		<small><a href="https://github.com/jquery/jquery">https://github.com/jquery/jquery</a></small>
+	</p>
+	<p>
+		<small>
+			<a href="?transition=cube#/transitions">Cube</a> -
+			<a href="?transition=page#/transitions">Page</a> -
+			<a href="?transition=concave#/transitions">Concave</a> -
+			<a href="?transition=zoom#/transitions">Zoom</a> -
+			<a href="?transition=linear#/transitions">Linear</a> -
+			<a href="?transition=none#/transitions">None</a> -
+			<a href="?#/transitions">Default</a>
+		</small>
+		<br>
+		<small>
+			<a href="?theme=sky#/themes">Sky</a> -
+			<a href="?theme=beige#/themes">Beige</a> -
+			<a href="?theme=simple#/themes">Simple</a> -
+			<a href="?theme=serif#/themes">Serif</a> -
+			<a href="?theme=night#/themes">Night</a> -
+			<a href="?#/themes">Default</a>
+		</small>
+	</p>
+	<p></p>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>总体架构</h2>
+		<h4>入口模块、底层模块、功能模块</h4>
+	</section>
+	<section>
+		<h3>设计理念</h3>
+		<ul>
+			<li>写更少的代码，做更多的事</li>
+			<li>提升 JavaScript 开发体验</li>
+			<li>以用为本</li>
+		</ul>
+	</section>
+	<section>
+		<h3>源码评价</h3>
+		精致、优雅、风骚
+	</section>
+	<section>
+		<h3>核心特性</h3>
+		<ul>
+			<li>兼容主流浏览器，支持 IE 6.0+, FF 3.6+, Safari 5.0+, Opera, Chrome</li>
+			<li>独特的链式语法、短小清晰的多功能接口</li>
+			<li>高效灵活的CSS选择器、以及对CSS选择器的扩展</li>
+			<li>便捷的插件扩展机制和丰富的插件</li>
+		</ul>
+	</section>
+	<section>
+		<h3>源码结构</h3>
+		<pre><code contenteditable>
+(function( window, undefined ) {
+    // 构造jQuery对象
+    var jQuery = (function() {
+        var jQuery = function( selector, context ) {
+                return new jQuery.fn.init( selector, context, rootjQuery );
+            }
+        return jQuery;
+    })();
+    // 工具函数 Utilities
+    // 回调函数对象 Callbacks Object
+    // 异步队列对象 Deferred Object
+    // 浏览器测试 Support
+    // 数据缓存 Data
+    // 队列 Queue
+    // 属性操作 Attributes
+    // 事件处理 Events
+    // 选择器 Sizzle
+    // DOM遍历 Traversing
+    // DOM操作 Manipulation
+    // 样式操作 CSS
+    // 异步请求 AJAX
+    // 动画 Effects
+    // 坐标 Offset 和 大小 Dimensions
+    window.jQuery = window.$ = jQuery;
+})(window);
+
+		</code></pre>
+	</section>
+	<section>
+		<h3>入口模块、底层模块、功能模块</h3>
+		<img src="img/jQuery1.7.1-总体架构-依赖关系.png">
+	</section>
+
+	<section>
+		<h3>自调用匿名函数</h3>
+		<pre><code contenteditable>
+(function( window, undefined ) {
+    // jQuery的所有代码
+})(window);
+		</code></pre>
+		<ol>
+			<li>为什么要创建这样一个自调用匿名函数呢？</li>
+			<li>为什么要传入 window 对象呢？</li>
+			<li>为什么要在在参数列表中增加 undefined 呢？</li>
+			<li>注意到源码最后的分号了吗？</li>
+		</ol>
+	</section>
+
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>构造 jQuery 对象</h2>
+		<h4>jQuery.fn.init()</h4>
+	</section>
+	<section>
+		<h3>构造函数 jQuery()</h3>
+		<img src="img/jQuery1.7.1-构造jQuery对象-构造函数.png">
+	</section>
+	<section>
+		<h3>总体结构</h3>
+		<pre><code>
+  16 (function( window, undefined ) {
+         // 构造 jQuery 对象
+  22     var jQuery = (function() {
+  25         var jQuery = function( selector, context ) {
+  27                 return new jQuery.fn.init( selector, context, rootjQuery );
+  28             },
+                 // 一堆局部变量声明
+  97         jQuery.fn = jQuery.prototype = {
+  98             constructor: jQuery,
+  99             init: function( selector, context, rootjQuery ) { ... },
+                 // 一堆原型属性和方法
+ 319         };
+ 322         jQuery.fn.init.prototype = jQuery.fn;
+ 324         jQuery.extend = jQuery.fn.extend = function() { ... };
+ 388         jQuery.extend({
+                 // 一堆静态属性和方法
+ 892         });
+ 955         return jQuery;
+ 957     })();
+          // 省略其他模块的代码 ...
+9246     window.jQuery = window.$ = jQuery;
+9266 })( window );
+		</code></pre>
+	</section>
+	<section>
+		<h3>为什么</h3>
+		<p>
+			为什么要在调用构造函数 jQuery() 内部用运算符 new 创建并返回另一个构造函数的实例？
+		</p>
+	</section>
+	<section>
+		<h3>为什么</h3>
+		<p>
+			为什么在第97行执行 jQuery.fn = jQuery.prototype，设置 jQuery.fn 指向构造函数 jQuery() 的原型对象 jQuery.prototype？
+		</p>
+	</section>
+	<section>
+		<h3>为什么</h3>
+		<p>
+			既然调用构造函数 jQuery() 返回的 jQuery 对象实际上是构造函数 jQuery.fn.init() 的实例，为什么能在构造函数 jQuery.fn.init() 的实例上调用构造函数 jQuery() 的原型方法和属性，例如： $('#id').length 和 $('#id').size()？
+		</p>
+	</section>
+	<section>
+		<h3>为什么</h3>
+		<p>
+			为什么要把第25~955行的代码包裹在一个自调用匿名函数中，然后把第25行定义的构造函数 jQuery() 作为返回值赋值给为第22行的 jQuery 变量？去掉这个自调用匿名函数，直接在第25行定义构造函数 jQuery() 不也可以吗？去掉了不是更容易阅读和理解吗？
+		</p>
+	</section>
+	<section>
+		<h3>为什么</h3>
+		<p>
+			为什么要覆盖构造函数 jQuery() 的原型对象 jQuery.prototype？
+		</p>
+	</section>
+	<section>
+		<h3>jQuery.fn.init( selector, context, rootjQuery )</h3>
+		<img src="img/jQuery1.7.1-构造jQuery对象-init.png">
+	</section>
+	<section>
+		<h3>原型属性和方法</h3>
+		<pre><code>
+  97 jQuery.fn = jQuery.prototype = {
+  98     constructor: jQuery,
+  99     init: function( selector, context, rootjQuery ) {}
+ 210     selector: "",
+ 213     jquery: "1.7.1",
+ 216     length: 0,
+ 219     size: function() {},
+ 223     toArray: function() {},
+ 229     get: function( num ) {},
+ 241     pushStack: function( elems, name, selector ) {},
+ 270     each: function( callback, args ) {},
+ 274     ready: function( fn ) {}, //
+ 284     eq: function( i ) {},
+ 291     first: function() {},
+ 295     last: function() {},
+ 299     slice: function() {},
+ 304     map: function( callback ) {},
+ 310     end: function() {},
+ 316     push: push,
+ 317     sort: [].sort,
+ 318     splice: [].splice
+ 319 };
+		</code></pre>
+	</section>
+	<section>
+		<h3>静态属性和方法</h3>
+		<pre><code>
+ 388 jQuery.extend({
+ 389     noConflict: function( deep ) {},
+ 402     isReady: false,
+ 406     readyWait: 1,
+ 409     holdReady: function( hold ) {},
+ 418     ready: function( wait ) {},
+ 444     bindReady: function() {},
+ 492     isFunction: function( obj ) {},
+ 496     isArray: Array.isArray || function( obj ) {},
+ 501     isWindow: function( obj ) {},
+ 505     isNumeric: function( obj ) {},
+ 509     type: function( obj ) {},
+ 515     isPlainObject: function( obj ) {},
+ 544     isEmptyObject: function( obj ) {},
+ 551     error: function( msg ) {},
+ 555     parseJSON: function( data ) {},
+ 581     parseXML: function( data ) {},
+ 601     noop: function() {},
+ 606     globalEval: function( data ) {},
+ 619     camelCase: function( string ) {},
+ 623     nodeName: function( elem, name ) {},
+ 628     each: function( object, callback, args ) {},
+ 669     trim: trim ? function( text ) {} : function( text ) {},
+ 684     makeArray: function( array, results ) {},
+ 702     inArray: function( elem, array, i ) {},
+ 724     merge: function( first, second ) {},
+ 744     grep: function( elems, callback, inv ) {},
+ 761     map: function( elems, callback, arg ) {},
+ 794     guid: 1,
+ 798     proxy: function( fn, context ) {},
+ 825     access: function( elems, key, value, exec, fn, pass ) {},
+ 852     now: function() {},
+ 858     uaMatch: function( ua ) {},
+ 870     sub: function() {},
+ 891     browser: {}
+ 892 });
+		</code></pre>
+	</section>
+	<section>
+		<h3>总结</h3>
+		<ul>
+			<li>构造函数的 7 种用法</li>
+			<li>源码总体结构</li>
+			<li>5 个为什么</li>
+			<li>构造函数 jQuery.fn.init() 的 12 个分支</li>
+			<li>原型属性和方法</li>
+			<li>静态属性和方法</li>
+		</ul>
+	</section>	
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>CSS选择器引擎 Sizzle</h2>
+		<h4>分割器、块查找、块内过滤、块间关系过滤</h4>
+	</section>
+	<section>
+		<h2>设计思路</h2>
+		<h4>div > p</h4>
+		<ol>
+			<li>解析块表达式</li>
+			<li>执行块表达式 div.red</li>
+			<li>处理块表达式之间的关系</li>
+		</ol>
+	</section>
+	<section>
+		<h2>设计思路</h2>
+		<ol>
+		<li>分割器 chunker正则</li>
+		<li>块查找 Sizzle.find( expr, context, isXML ) <br>
+   			块内过滤 Sizzle.filter( expr, set, inplace, not ) </li>
+		<li>块间关系过滤 Expr.relative </li>
+		</ol>
+	</section>
+	<section>
+		<h2>实现原理</h2>
+		<ul>
+			<li>从左向右：不断缩小上下文</li>
+			<li>从右向左：先查找再过滤</li>
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>异步队列 Deferred</h2>
+		<h4>解耦异步任务和回调函数</h4>
+		<h4>为 ajax 模块、队列模块、ready 事件提供基础功能。</h4>
+	</section>
+	<section>
+		<h3>jQuery 1.5 之前</h3>
+		<pre><code>
+$.ajax({
+    url: 'ajax/test.html',
+    success: function(data, status, xhr) { ... },
+    error: function(xhr, status, errMsg) { ... },
+    complete: function(xhr, status) { ... }
+});
+		</code></pre>
+	</section>
+	<section>
+		<h3>jQuery 1.5+</h3>
+		<pre><code>
+$.ajax( 'ajax/test.html' )
+   // 对应 success
+   .done(function(data, textStatus, jqXHR) { ... })
+   .done(function(data, textStatus, jqXHR) { ... })
+   // 对应 error
+   .fail(function(jqXHR, textStatus, errorThrown) { ... })
+   .fail(function(jqXHR, textStatus, errorThrown) { ... })
+   // 对应 complete
+   .complete(function(jqXHR, statusText){ ... }) 
+   .complete(function(jqXHR, statusText){ ... });
+		</code></pre>
+	</section>
+	<section>
+		<h3>源码结构</h3>
+		<pre><code>
+ 996 jQuery.Callbacks = function( flags ) {
+1181 };
+1189 jQuery.extend({
+1191     Deferred: function( func ) {
+1282     },
+1285     when: function( firstParam ) {
+1325     }
+1326 });
+		</code></pre>
+	</section>
+	<section>
+		<h3>调用关系</h3>
+		<img src="img/jQuery1.7.1-异步队列-结构.png">
+	</section>
+	<section>
+		<h3>jQuery.Callbacks( flags )</h3>
+		<p>
+			返回一个多功能链式对象，提供强大的回调函数列表管理功能，支持添加、移除、触发、锁定、禁用回调函数，为 jQuery.ajax()、jQuery.Deferred() 和 ready 事件提供基础功能，也可以基于它编写新的组件。
+		</p>
+		<p>
+			返回的多功能对象称为为“回调函数列表 Callbacks Object”，代码中用 callbacks 表示。
+		</p>
+	</section>
+	<section>
+		<h4>jQuery.Callbacks ( flags ) 支持的标记</h4>
+		<ul>
+			<li>once <br>
+				确保回调函数列表只能被触发一次。</li>
+			<li>memory <br>
+				记录上一次触发回调函数列表时的参数，之后添加的任何回调函数都将用记录的参数值立即调用。</li>
+			<li>unique <br>
+				确保一个回调函数只能被添加一次，回调函数列表中没有重复值。</li>
+			<li>stopOnFalse <br>
+				当某个回调函数返回 false 时中断执行。</li>
+		</ul>
+	</section>
+	<section>
+		<h4>回调函数列表的方法列表</h4>
+		<ul>
+			<li>添加 callbacks.add( callbacks )</li>
+			<li>移除 callbacks.remove( callbacks )</li>
+			<li>清空 callbacks.empty()</li>
+			<li>禁用 callbacks.disable()</li>
+			<li>锁定 callbacks.lock()</li>
+			<li>调用 callbacks.fireWith( [context] [, args] )</li>
+			<li>调用 callbacks.fire( arguments )</li>
+		</ul>
+	</section>
+	<section>
+		<h4>jQuery.Callbacks( flags ) 的实现原理</h4>
+		<p>
+			内部通过一个数组保存回调函数，其他方法则围绕这个数组进行操作和检测。
+		</p>
+	</section>
+	<section>
+		<h4>jQuery.Callbacks( flags ) 的源码结构</h4>
+		<pre><code>
+// 工具函数，将字符串格式的标记转换为对象格式
+function createFlags( flags ) { ... }
+
+jQuery.Callbacks = function( flags ) {
+    // 解析字符串标记 flags 为对象
+    flags = flags ? ( flagsCache[ flags ] || createFlags( flags ) ) : {};
+    // 声明局部变量，通过闭包机制引用
+    var list = [], // 存放回调函数的数组
+        stack = [], // 在可重复触发、正在执行的列表上，重复触发时，将上下文和参数放入数组 stack 中
+        memory, // memory 的可能值和用途有些复杂，在分析工具方法 fire( context, args ) 时详细分析
+        firing, // 是否正在执行中
+        firingStart, // 执行回调函数时的起始下标
+        firingLength, // 执行回调函数时的结束下标
+        firingIndex, // 正在执行的回调函数的下标
+        add = function( args ) { ... }, // 实际添加回调函数的工具函数
+        fire = function( context, args ) { ... }, // 实际触发回调函数的工具函数
+        // 回调函数列表，方法 jQuery.Callbacks( flags ) 的返回值
+        self = {
+            add: function() {}, // 添加回调函数
+            remove: function() { ... }, // 移除回调函数
+            has: function( fn ) { ...}, // 回调函数是否在列表中
+            empty: function() { ... }, // 清空列表
+            disable: function() { ... }, // 禁用列表
+            disabled: function() { ... }, // 是否已禁用列表
+            lock: function() { ... }, // 锁定列表
+            locked: function() { ... }, // 是否已锁定列表
+            fireWith: function( context, args ) { ... }, // 使用指定的上下文和参数调用回调函数
+            fire: function() { ... }, // 使用指定的参数调用回调函数，上下文为 self
+            fired: function() { ... } // 回调函数列表是否至少执行过一次
+        };
+    return self; // 返回回调函数列表 self
+};
+		</code></pre>
+	</section>
+	<section>
+		<h3>jQuery.Deferred( func )</h3>
+		<p>
+			基于 jQuery.Callbacks( flags ) 实现 ，返回一个链式工具对象，支持添加多个回调函数到回调函数列表、触发回调函数列表、传播任意同步或异步任务的成功或失败状态。
+		</p>
+		<p>
+			返回的链式工具对象称为“异步队列 Deferred Object”，代码中用 deferred 表示。
+		</p>
+	</section>
+	<section>
+		<h4>jQuery.Deferred( func ) 的用法</h4>
+		<ul>
+			<li>三种状态<br>
+				待定 pending、成功 resolved、失败 rejected。</li>
+			<li>deferred.done/fail/progress/then/allway()<br>
+				添加成功回调函数、失败回调函数、消息回调函数到对应的成功、失败、消息回调函数列表
+				</li>
+			<li>deferred.resolve/resolveWith/reject/rejectWith/notify/notifyWith()<br>
+				触发成功、失败、消息回调函数列表
+				</li>
+		</ul>
+	</section>
+	<section>
+		<h4>jQuery.Deferred( func ) 的实现原理</h4>
+		<p>
+			内部维护了三个回调函数列表：成功回调函数列表、失败回调函数列表、消息回调函数列表，其他方法则围绕这三个列表进行操作和检测。
+		</p>
+	</section>
+	<section>
+		<h4>jQuery.Deferred( func ) 的源码结构</h4>
+		<pre><code>
+jQuery.extend({
+
+    Deferred: function( func ) {
+            // 成功回调函数列表
+        var doneList = jQuery.Callbacks( "once memory" ),
+            // 失败回调函数列表
+            failList = jQuery.Callbacks( "once memory" ),
+            // 消息回调函数列表
+            progressList = jQuery.Callbacks( "memory" ),
+            // 初始状态
+            state = "pending",
+            // 异步队列的只读副本
+            promise = {
+                // done, fail, progress
+                // state, isResolved, isRejected
+                // then, always
+                // pipe
+                // promise           
+            },
+            // 异步队列
+            deferred = promise.promise({}),
+            key;
+        // 添加触发成功、失败、消息回调函列表的方法
+        for ( key in lists ) {
+            deferred[ key ] = lists[ key ].fire;
+            deferred[ key + "With" ] = lists[ key ].fireWith;
+        }
+        // 添加设置状态的回调函数
+        deferred.done( function() {
+            state = "resolved";
+        }, failList.disable, progressList.lock )
+        .fail( function() {
+            state = "rejected";
+        }, doneList.disable, progressList.lock );
+        // 如果传入函数参数 func，则执行。
+        if ( func ) {
+            func.call( deferred, deferred );
+        }
+
+        // 返回异步队列 deferred
+        return deferred;
+    },
+}
+		</code></pre>
+	</section>
+	<section>
+		<h3>jQuery.when( deferreds )</h3>
+		<p>
+			提供了基于一个或多个对象的状态来执行回调函数的功能，通常是基于具有异步事件的异步队列。
+		</p>
+	</section>
+	<section>
+		<h4>jQuery.when( deferreds ) 的用法</h4>
+		<p>
+			如果传入多个异步队列对象，方法 jQuery.when() 返回一个新的主异步队列对象的只读副本，只读副本将跟踪所传入的异步队列的最终状态。
+		</p>
+		<p>
+			一旦所有异步队列都变为成功状态，“主“异步队列的成功回调函数被调用；
+		</p>
+		<p>
+			如果其中一个异步队列变为失败状态，主异步队列的失败回调函数被调用。
+		</p>
+	</section>
+	<section>
+		<pre><code>
+/*
+请求 '/when.do?method=when1' 返回 {"when":1}
+请求 '/when.do?method=when2' 返回 {"when":2}
+请求 '/when.do?method=when3' 返回 {"when":3}
+*/
+var whenDone = function(){ console.log( 'done', arguments ); },
+    whenFail = function(){ console.log( 'fail', arguments ); };
+$.when(
+    $.ajax( '/when.do?method=when1', { dataType: "json" } ),
+    $.ajax( '/when.do?method=when2', { dataType: "json" } ),
+    $.ajax( '/when.do?method=when3', { dataType: "json" } )
+).done( whenDone ).fail( whenFail );
+		</code></pre>
+	</section>
+	<section>
+		<h4>jQuery.when( deferreds ) 的实现原理</h4>
+		<ul>
+			<li>内部创建一个“主”异步队列，并维护一个计数器。传入的异步队列参数称为“子”异步队列。</li>
+			<li>为了监听子异步队列的成功状态，在每个异步队列上添加会把计数器减一的成功状态监听函数。</li>
+			<li>为了监听传入的异步队列的失败状态，把主异步队列的方法 reject() 添加到每个子异步队列的失败队列上。</li>
+			<li>为了监听传入的异步队列的消息调用，在每个子异步队列上添加会记录消息参数的消息监听函数。</li>
+		</ul>
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>数据缓存 Data</h2>
+		<h4>为 DOM 元素和 JavaScript 对象附加任意类型的数据，避免内存泄漏</h4>
+		<h4>为队列模块、动画模块、样式模式、事件模块提供基础功能，维护这些模块运行时的内部数据。</h4>
+	</section>
+	<section>
+		<h3>数据缓存的用法</h3>
+		<ul>
+			<li>jQuery.hasData( elem ) <br>
+				是否有关联的数据。</li>
+			<li>jQuery.data( elem, name, data, pvt ) <br>
+				设置任意类型的数据，或返回指定名称的数据，或返回关联的数据缓存对象。</li>
+			<li>jQuery.removeData( elem, name, pvt ) <br>
+				移除设置的数据。</li>
+			<li>.data( key, value ) <br>
+				设置或读取自定义数据，解析 HTML5 属性 data-，并触发自定义事件 getData、setData、changeData。</li>
+			<li>.removeData( key ) <br>
+				移除设置的自定义数据。</li>
+		</ul>
+	</section>
+	<section>
+		<h3>数据缓存的实现原理</h3>
+		<h4>为 DOM 元素附加数据</h4>
+		<p>
+			对于 DOM 元素，通过分配一个唯一的关联 id 把 DOM 元素和该 DOM 元素的数据缓存对象关联起来，关联 id 被附加到以 jQuery.expando 的值命名的的属性上，数据存储在全局缓存对象 jQuery.cache 中。
+		</p>
+		<p>
+			读取、设置、移除数据时，通过关联 id 从全局缓存对象 jQuery.cache 中找到该 DOM 元素的数据缓存对象，然后读取或设置指定属性的值，或移除指定属性。
+		</p>
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-数据缓存-数据结构-cache.png">
+	</section>
+	<section>
+		<h3>数据缓存的实现原理</h3>
+		<h4>为 JavaScript 对象附加数据</h4>
+		<p>
+			对于 JavaScript 对象，数据直接存储在该 JavaScript 对象的属性 jQuery.expando 上。
+		</p>
+		<p>
+			读取、设置、移除数据时，直接从 JavaScript 对象的数据缓存对象中，读取或设置指定属性的值，或移除指定属性。
+		</p>
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-数据缓存-数据结构-Object.png">
+	</section>
+	<section>
+		<h3>数据缓存的实现原理</h3>
+		<h4>内部数据 vs 自定义数据</h4>
+		<p>
+			为了避免 jQuery 内部使用的数据和用户自定义的数据发生冲突，内部数据存储在数据缓存对象上，自定义数据则存储在数据缓存对象的属性 data 上。
+		</p>
+	</section>
+	<section>
+		<h3>数据缓存的总体结构</h3>
+		<pre><code>
+// 数据缓存 Data
+jQuery.extend({
+    // 全局缓存对象
+    cache: {},
+    // 唯一 id 种子
+    uuid: 0,
+    // 页面中 jQuery 的每个副本的唯一标识
+    expando: ...,
+    // 是否有关联的数据
+    hasData: function( elem )  { ... },
+    // 设置、读取自定义数据或内部数据
+    data: function( elem, name, data, pvt )  { ... },
+    // 移除自定义数据或内部数据
+    removeData: function( elem, name, pvt)  { ... },
+    // 设置、读取内部数据
+    _data: function( elem, name, data )  { ... },
+    // 是否可以设置数据
+    acceptData: function( elem )  { ... }
+});
+jQuery.fn.extend({
+    // 设置、读取自定义数据，解析 HTML5 属性 data-
+    data: function( key, value )  { ... },
+    // 移除自定义数据
+    removeData: function( key )  { ... }
+});
+// 解析 HTML5 属性 data- 
+function dataAttr( elem, key, data )  { ... }
+// 检查数据缓存对象是否为空
+function isEmptyDataObject( obj )  { ... }
+jQuery.extend({
+    // 清空数据缓存对象
+    cleanData: function( elems )  { ... }
+});
+		</code></pre>
+	</section>
+	<section>
+		<h3>数据缓存方法的调用关系</h3>
+		<img src="img/jQuery1.7.1-数据缓存-方法功能&依赖关系.png">
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>队列 Queue</h2>
+		<h4>顺序执行函数</h4>
+	</section>
+	<section>
+		<h2>队列 Queue</h2>
+		<h4>队头出队，队尾入队，先进先出。</h4>
+		<h4>为动画模块提供基础功能，负责存储动画函数、自动出队并执行动画函数、并确保动画函数的顺序执行。</h4>
+		<h4>可以应用于任何需要顺序执行函数的场景。</h4>
+	</section>
+	<section>
+		<h2>队列的实现原理</h2>
+		<ul>
+			<li>队列模块基于数据缓存模块和数组实现。</li>
+			<li>在队列模块中，用数组存储函数，通过数组方法 .push() 和 .shift() 实现入队和出队操作，通过函数方法 .call() 执行函数。</li>
+			<li>数组作为内部数据存储在关联的数据缓存对象上，数据名称为队列名称加字符串“queue”。对于 DOM 元素，存储在全局缓存对象 jQuery.cache 中；对于 JavaScript 对象，直接存储在该对象上。</li>
+		</ul>
+	</section>
+	<section>
+		<h2>队列的总体结构</h2>
+		<pre><code>
+// 队列 Queue
+// 检测函数队列和计数器是否完成
+function handleQueueMarkDefer( elem, type, src ) { ... }
+jQuery.extend({
+    // 计数器 type+mark 加一
+    _mark: function( elem, type )  { ... },
+    // 计数器 type+mark 减一
+    _unmark: function( force, elem, type )  { ... },
+    // 函数入队，并返回队列
+    queue: function( elem, type, data )  { ... },
+    // 函数出队，并执行
+    dequeue: function( elem, type )  { ... }
+});
+jQuery.fn.extend({
+    // 取出函数队列，或函数入队
+    queue: function( type, data )  { ... },
+    // 函数出队，并执行
+    dequeue: function( type )  { ... },
+    // 延迟函数出队执行
+    delay: function( time, type )  { ... },
+    // 清空函数队列
+    clearQueue: function( type )  { ... },
+    // 观察函数队列和计数器是否完成，返回异步队列只读副本
+    promise: function( type, object )  { ... }
+});
+		</code></pre>
+	</section>
+	<section>
+		<h2>队列的方法调用关系</h2>
+		<img src="img/jQuery1.7.1-数据缓存-队列-调用关系.png">
+	</section>
+	<section>
+		<h2>.delay( time, type )</h2>
+		<p>设置一个定时器，使得匹配元素关联的函数队列中后续的函数延迟出队和执行。</p>
+		<p>通过调用方法 .queue( type, data ) 向关联的函数队列中插入一个新函数，在该函数内通过 setTimeout 延迟下一个函数的出队时间。</p>
+	</section>
+	<section>
+		<h2>.promise( type, object )</h2>
+		<p>返回一个异步队列的只读副本，观察每个匹配元素关联的某个类型的队列和计数器是否完成。</p>
+		<p>当每个匹配元素关联的某个类型的函数队列（type +“queue”）变为空队列，计数器（type +“mark”）变为 0，则触发异步队列的成功回调函数，上下文和参数是调用方法 .promise() 的集合（即 jQuery 对象）；</p>
+		<p>如果队列和计数器不存在，则立即触发成功回调函数。</p>
+	</section>
+	<section>
+		<h2>实现原理</h2>
+		<ul>
+			<li>创建一个异步队列来存储成功回调函数，创建一个计数器来记录匹配元素关联的队列和计数器的状态，计数器的初始值为需要观察的元素的个数，创建一个会使计数器减一的特殊回调函数，并把该特殊回调函数添加到需要观察的元素所关联的回调函数列表中。</li>
+		</ul>
+	</section>
+	<section>
+		<h2>实现原理</h2>
+		<ul>
+			<li>当某个元素关联的函数队列成为空队列，关联的计数器变为 0，则触发关联的回调函数列表，特殊回调函数被执行，方法 .promise( type, object ) 的计数器减一。该功能由函数 handleQueueMarkDefer( elem, type, src ) 提供。</li>			
+		</ul>
+	</section>
+	<section>
+		<h2>实现原理</h2>
+		<ul>
+			<li>当方法 .promise( type, object ) 的计数器变为 0，表示所有需要观察的元素关联的函数队列和计数器都已经完成，则触发异步队列的成功回调函数。</li>
+		</ul>
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>浏览器测试 Support</h2>
+		<h4>提供了 34 个针对不同浏览器功能和 bug 的测试项</h4>
+		<h4>把测试结果封装在对象 jQuery.support 中</h4>
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-浏览器功能测试-分类.png">
+	</section>
+	<section>
+		<h2>34 个测试项</h2>
+		含义？
+		测试结果？
+		实现原理？
+		源码分析？
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-浏览器功能测试-结果.png">
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>属性操作 Attributes</h2>
+		<img src="img/jQuery1.7.1-属性操作-4部分.png">
+	</section>
+	<!-- <section>
+		<ul>
+			<li>HTML 属性操作指对文档中的属性进行读取、设置和移除操作，属性名是小写的连词符式字符串，属性值总是字符串。</li>
+			<li>DOM 属性操作则指对 DOM 元素的属性进行读取、设置和移除操作，属性名是驼峰式字符串，属性值可以是任意类型。</li>
+			<li>类样式操作指对 DOM 属性 className 进行添加、移除。</li>
+			<li>值操作指对 DOM 属性 value 进行读取和设置。</li>
+		</ul>
+	</section>
+	<section>
+		<h2>总体结构</h2>
+		<pre><code>
+// 属性操作
+jQuery.fn.extend({
+    // 设置或读取 HTML 属性
+    attr: function( name, value )  { ... },
+    // 移除 HTML 属性
+    removeAttr: function( name )  { ... },
+    // 设置或读取 DOM 属性
+    prop: function( name, value )  { ... },
+    // 移除 DOM 属性
+    removeProp: function( name )  { ... },
+    // 添加类样式
+    addClass: function( value )  { ... },
+    // 移除类样式
+    removeClass: function( value )  { ... },
+    // 切换类样式
+    toggleClass: function( value, stateVal )  { ... },
+    // 是否含有指定的类样式
+    hasClass: function( selector )  { ... },
+    // 读取或设置当前值
+    val: function( value )  { ... }
+});
+jQuery.extend({
+    // 值修正对象集
+    valHooks:  { ... },
+    // 与 HTML 属性同名的 jQuery 方法集
+    attrFn:  { ... },
+    // 设置或读取 HTML 属性
+    attr: function( elem, name, value, pass )  { ... },
+    // 移除 HTML 属性
+    removeAttr: function( elem, value )  { ... },
+    // 特殊 HTML 属性修正对象集
+    attrHooks:  { ... },
+    // DOM 属性名修正
+    propFix:  { ... },
+    // 设置或读取 DOM 属性
+    prop: function( elem, name, value )  { ... },
+    // 特殊 DOM 属性修正对象集
+    propHooks:  { ... }
+});
+/*
+初始化或扩展：
+布尔型 HTML 属性修正对象 boolHook
+针对 IE6/7 的通用 HTML 属性修正对象 nodeHook
+特殊 HTML 属性修正对象集 jQuery.attrHooks
+特殊 DOM 属性修正对象集 jQuery.propHooks
+值修正对象集 jQuery.valHooks
+*/
+		</code></pre>
+	</section> -->
+	<section>
+		<!-- <h2>方法功能和调用关系</h2> -->
+		<img src="img/jQuery1.7.1-属性操作-方法功能&调用关系.png">
+	</section>
+	<section>
+		<h2>实现原理</h2>
+		<ul>
+			<li>HTML 属性操作 <br>
+				原生方法 getAttrbiute() 和setAttribute() 的封装和简化，并解决了大量浏览器兼容性问题。</li>
+			<li>DOM 属性操作 <br>
+ 				DOM 属性原生读取、设置操作的封装和简化，并解决了少量浏览器兼容性问题。</li>
+ 			<li>类样式操作 <br>
+ 				通过修改 DOM 属性 className 来修改类样式，核心技巧：类样式前后分别加空格 + indexOf/replace()。</li>
+ 			<li>值操作 .val( value )<br>
+ 				对 DOM 属性 value 原生读取、设置操作的封装和扩展，并解决了少量浏览器兼容问题。</li>
+		</ul>
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>事件处理 Event</h2>
+		<h4>要求：兼容、正确、高效、便捷</h4>
+		<h4>源码：清晰、优雅</h4>
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-事件处理-总体结构-剪裁.png">
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>DOM遍历 Traversing</h2>
+		<h4>功能：父元素、祖先元素、兄弟元素、子元素</h4>
+		<h4>实现：遍历函数、工具函数、模版函数</h4>
+	</section>
+	<section>
+		<h2>总体结构</h2>
+		<pre><code>
+// DOM遍历
+jQuery.each({
+    // 遍历函数
+    parent: function( elem )  { ... },
+    parents: function( elem )  { ... },
+    parentsUntil: function( elem, i, until )  { ... },
+    next: function( elem )  { ... },
+    prev: function( elem )  { ... },
+    nextAll: function( elem )  { ... },
+    prevAll: function( elem )  { ... },
+    nextUntil: function( elem, i, until )  { ... },
+    prevUntil: function( elem, i, until )  { ... },
+    siblings: function( elem )  { ... },
+    children: function( elem )  { ... },
+    contents: function( elem )  { ... }
+}, function( name, fn ) {
+    // 公开方法，模板函数
+    jQuery.fn[ name ] = function( until, selector )  { ... };
+});
+
+jQuery.extend({
+    // 工具函数
+    filter: function( expr, elems, not )  { ... },
+    dir: function( elem, dir, until )  { ... },
+    nth: function( cur, result, dir, elem )  { ... },
+    sibling: function( n, elem )  { ... }
+});
+		</code></pre>
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-DOM遍历-方法功能&调用关系.png">
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>DOM操作 Manipulation</h2>
+		<img src="img/jQuery1.7.1-DOM操作-6部分.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-DOM操作-方法功能&调用关系.png">
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>CSS操作 CSS</h2>
+		<img src="img/jQuery1.7.1-CSS操作-5部分.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-CSS操作-内联样式&计算样式.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-CSS操作-坐标-方法功能&调用关系.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-CSS操作-尺寸-方法功能&调用关系.png">
+	</section>
+	
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>异步请求 AJAX</h2>
+		<img src="img/jQuery1.7.1-Ajax-公开方法-4个模块.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-Ajax-方法功能&调用关系.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-Ajax-实现.png">
+	</section>
+</section>
+
+<!--  -->
+<section>
+	<section>
+		<h2>动画 Effects</h2>
+		<img src="img/jQuery1.7.1-动画Effects-子模块.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-动画Effects-便捷方法样式集.png">
+	</section>
+	<section>
+		<img src="img/jQuery1.7.1-动画Effects-方法功能&调用关系.png">
+	</section>
+</section>
+<section>
+	<h1>THE END</h1>
+	<p>BY 一淘 UX 墨智</p>
+	<p><a href="mailto:mozhi.gyy@taobao.com">mozhi.gyy@taobao.com</a>
+	<a href="mailto:nuysoft@gmail.com">nuysoft@gmail.com</a></p>
+	<p><a href="http://cnblogs.com/nuysoft">http://cnblogs.com/nuysoft</a></p>
+	<p>jQuery 兴趣小组旺旺群：854304445</p>
+</section>
+
+</div></div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.js"></script>
+
+	<script>
+
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+
+	</script>
+
+</body>
+</html>
