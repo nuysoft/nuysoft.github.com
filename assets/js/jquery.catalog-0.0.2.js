@@ -31,6 +31,7 @@ function htree(headers) {
     }
 
     function _genHTML(tree) {
+        if (!tree || !tree.length) return '';
         var html = '<ul>';
         for (var i = 0, len = tree.length; i < len; i++) {
             html += '<li>{0} {1} {2}</li>'.format(tree[i].el.text(), tree[i].id, tree[i].parent);
@@ -63,17 +64,17 @@ function htree(headers) {
     }
     // 解析为树结构
     var tree = _parseChildren(-1); // 
-    console.dir(tree);
+    // console.dir(tree);
     // 生成测试 HTML
     var html = _genHTML(tree);
-    console.log(html);
-
-    $('body').append(html);
+    // console.log(html);
+    // $('body').append(html);
 
     return tree;
 }
 
 function hhtml(tree, level) {
+    if (!tree || !tree.length) return '';
     var html = '<ul>',
         text;
     for (var i = 0, len = tree.length; i < len; i++) {
@@ -103,14 +104,16 @@ $(function() {
     var tree = htree(headers);
     var html = hhtml(tree, 2);
 
-    // 插入目录
-    $('<div class="span2" style="margin-left: 0px; "></div>').empty() //
-    .append('<h2>目录<h2>') //
-    .append(html) //
-    .insertAfter('h1'); //
-    // 栅格化
-    $('div.container').children().not('h1, .span2')
-        .wrapAll('<div class="span10"></div>');
+    if (html) {
+        // 插入目录
+        $('<div class="span2" style="margin-left: 0px; "></div>').empty() //
+        .append('<h2>目录<h2>') //
+        .append(html) //
+        .insertAfter('h1'); //
+        // 栅格化
+        $('div.container').children().not('h1, .span2')
+            .wrapAll('<div class="span10"></div>');
+    }
 
     // 插入锚点
     headers.each(function(index, elem) {
