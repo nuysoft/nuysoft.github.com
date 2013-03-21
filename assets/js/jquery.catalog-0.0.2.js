@@ -106,13 +106,13 @@ $(function() {
 
     if (html) {
         // 插入目录
-        $('<div class="span2" style="margin-left: 0px; "></div>').empty() //
+        $('<div class="span3" style="margin-left: 0px; "></div>').empty() //
         .append('<h2>目录<h2>') //
         .append(html) //
         .insertAfter('h1'); //
         // 栅格化
-        $('div.container').children().not('h1, .span2')
-            .wrapAll('<div class="span10"></div>');
+        $('div.container').children().not('h1, .span3')
+            .wrapAll('<div class="span9"></div>');
     }
 
     // 插入锚点
