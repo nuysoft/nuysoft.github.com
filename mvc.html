@@ -36,14 +36,13 @@
 
 <ul><li>数据模型、业务模型不清晰</li><li>代码代码复用率低，很多时候是 Ctrl-C/V</li><li>代码可读性和可维护性低</li><li>难以满足需求的变化，特别是前端需求的频繁变化</li></ul>
 
-<p>jQuery 在很大程度上改善了这种状态，解决了原生JS代码写起来繁琐的问题；jQuery 的革命性特征可以总结为：
-    良好的浏览器兼容、独特的链式语法、高效 CSS 选择器、丰富的插件，以及更好的贯彻 HTML、CSS、JS 的分工。</p>
+<p>jQuery 在很大程度上改善了这种状态，解决了原生 JS 代码写起来繁琐的问题；jQuery 的革命性特征可以总结为：</p>
 
-<p>总体感觉 jQuery 是定位于 DOM 查找和操作为主的基础库，这样的定位使得 jQuery 的大型前端项目中只能作为底层支持库使用。</p>
+<pre><code>良好的浏览器兼容、独特的链式语法、高效 CSS 选择器、丰富的插件，以及更好的贯彻 HTML、CSS、JS 的分工。</code></pre>
 
-<p>应用代码依然是杂乱无章，不得不依赖于攻城师的技术水准和职业素养。</p>
+<p>不过，总体感觉 jQuery 是定位于 DOM 查找和操作为主的基础库，这样的定位使得 jQuery 的大型前端项目中只能作为底层支持库使用。应用代码依然是杂乱无章，从而不得不依赖于攻城师的技术水准和职业素养。</p>
 
-<p>MVC 模型通过细分模型、视图、控制器的职责，可以解耦合、提高代码复用、简化重构、适应变化已扩展、易读、较少维护代码、提高可维护性；因为是分层结构化、模块化开发，还可以实现代码自动生成。但是MVC也会导致复杂度上升、运行效率下降。</p>
+<p>MVC 模型则通过细分模型、视图、控制器的职责，可以解耦合、提高代码复用、简化重构、适应变化、易扩展、易读、较少维护代码、提高可维护性。同时，因为是分层结构化、模块化开发，还可以实现代码自动生成。但是MVC也会导致复杂度上升、运行效率下降。</p>
 
 <p>MVC 的优点可以概括为：可扩展性、可复用性、可维护性、有利于软件工程管理。</p>
 
@@ -53,94 +52,81 @@
 
 <p>导航使系统的脉络更加清晰，通过一个配置文件，即可把握整个系统各部分之间联系，便于维护。</p>
 
-<p>MVC 适合于事件驱动的场景，通过约定开发方式，可以使代码开发和代码管理变得有章可循。JS 应用程序运行的的本质是基于事件驱动，这与 MVC 不谋而合。MVC 在大部分语言的框架中都有实现，随着前端和 JS 越来越被认可和重视，JSMVC 框架的出现成为必然。</p>
+<p>MVC 特别适用于事件驱动的场景，通过约定开发方式，还可以使代码开发和代码管理变得有章可循。JS 应用程序运行的的本质是基于事件驱动，这与 MVC 不谋而合。并且，MVC 在大部分语言的框架中都有实现，随着前端和 JS 越来越被认可和重视，JSMVC 框架的出现成为必然。</p>
 
 <p>Backbone 正是 MVC 开发模型在浏览器环境中的实践，从目前看也是一款优秀的 JSMVC 框架。</p>
 
-<h3>传说中的单页面应用程序 OPOA（或一站式应用程序）</h3>
+<h3>传说中的单页面应用程序 SPA（或一站式应用程序）</h3>
 
-<p>OPOA One Page One Application，也可以称为 SPA Sigle-page Application、SPI Sigle-page Interface。</p>
+<p>SPA Sigle-page Application，也称为 OPOA One Page One Application、SPI Sigle-page Interface。</p>
 
-<p>OPOA 的优势相当诱人，可以共享框、库、数据，减少 HTTP 请求和流量，缩短加载事件、降低成本；不要重新加载整个页面，不会出现界面调整时的空白页面，加上合理的加载提示动画，可以实现不间断的用户体验。</p>
+<p>SPA 的优势相当诱人，可以共享框、库、数据，减少 HTTP 请求和流量，缩短加载时间、降低成本；不必重新加载整个页面，不会出现界面调整时的空白页面，加上合理的加载提示动画，可以实现不间断的用户体验。</p>
 
-<p>但是 OPOA 也带来了更多的挑战，比如：</p>
+<p>但是 SPA 也带来了更多的挑战，比如：</p>
 
-<ul><li>所有的 HTML、CSS、JS 都在一个页面中加载和销毁，需要安全、可靠、开发简单的内存管理，尤其是IE臭名昭著的内存泄漏；</li><li>事件管理会更加复杂，jQuery 提供的用事件缓存不能完全满足这种需求；</li><li>浏览器历史管理；</li><li>还有更多的难题，都会导致开发方式和成本的增加。</li></ul>
+<ul><li>所有的 HTML、CSS、JS 都在一个页面中加载和销毁，需要安全、可靠、开发简单的内存管理，尤其是IE臭名昭著的内存泄漏。</li><li>事件管理会更加复杂，jQuery 提供的事件缓存不能完全满足这种需求。</li><li>浏览器历史管理。</li><li>还有诸多难题，都会导致开发方式和成本的增加。</li></ul>
 
-<p>OPOA 传统的实现方式是使用分帧（frameset + frame + iframe），但 URL 不会变化，导致浏览器历史的前进、后退和收藏失效，因此局限于对 URL 不敏感的场合，比如 MIS 系统。    </p>
+<p>SPA 传统的实现方式是使用分帧（frameset + frame + iframe），但 URL 不会发生变化，这导致浏览器历史的前进、后退和收藏功能失效，因此在过去，SPA 仅局限于对 URL 不敏感的场合，比如 MIS 系统。    </p>
 
 <p>站在攻城师的角度，这种复杂性和局限性不是我们所乐意看到的，谁愿意受无谓的虐待呢？</p>
 
-<p>即使对 Ajax 的发掘也没有让 OPOA 真正变得可行，虽然 Ajax 拯救了曾经半死不活的 JavaScript。Ajax 可以实现无刷新加载界面（即动态加载），但同样不能修改 URL，只能用于延迟加载、异步加载等减少 HTTP 流量、加速网页打开速度、优化用户体验。</p>
+<p>即使对 Ajax 的发掘也没有让 SPA 真正变得可行，虽然 Ajax 拯救了曾经半死不活的 JavaScript。Ajax 可以实现无刷新加载界面（即动态加载），但同样不能修改 URL，只能通过延迟加载、异步加载等技巧，来减少 HTTP 流量、加速网页打开速度、优化用户体验。</p>
 
-<p>直到对 URL hash 的挖掘（location.hash），OPOA 才变得切实可行。location.hash 是一个可读写的字符串，指定了当前 URL 中的锚部分，包括前导散列符 #。hash 虽然不会在请求时传给服务器，但是在浏览器中，改变 hash 却可以支持前进、后退、收藏（在低版本的 IE 中可以通过 iframe 实现）。</p>
+<p>直到对 URL hash（即 location.hash）的挖掘，SPA 才变得切实可行。location.hash 是一个可读写的字符串，指定了当前 URL 中的锚部分，包括前导散列符 #。URL hash 虽然不会在请求时传给服务器，但是在浏览器中，改变 URL hash 却可以支持前进、后退、收藏（在低版本的 IE 中需要通过 iframe 实现）。</p>
 
-<p>hash 驱动正是 Backbone 事件驱动模型中一种，在某些应用中可能是最重要的一种，此外 Backbone 还有模型事件驱动和视图事件驱动。</p>
+<p>hash 驱动正是 Backbone 事件驱动模型中一种，在某些应用中甚至是最重要的一种，此外 Backbone 还有模型事件驱动和视图事件驱动。</p>
 
 <h3>结构化的 Web 应用程序</h3>
 
-<p>个人认为 OPPA 最能体现 MVC 设计思想，但是 Backbone 也适合应用在由多个页面组成的 Web 应用程序，每个页面分别基 于Backbone 进行设计和开发，同样可以增加可复用性、可扩展性、可维护性。</p>
+<p>个人认为 SPA 最能体现 MVC 设计思想，当然，MVC 也适合应用在由多个页面组成的 Web 应用程序中，以 Backbone 为例，每个页面分别基于 Backbone 的 Model 和 View 进行设计和开发，同样可以增加可复用性、可扩展性、可维护性。</p>
 
 <h3>还不够完美</h3>
 
-<p>模块化、模块依赖、动态载入、模板等概念和框架需要去研究和学习，虽然这些已不算也不是新鲜事务，但是如何将各种专注的库、框架、工具集成，变成完整、可靠、稳定、高效开发、可以成熟应用的系统解决方案，是前端领域需要继续研究和实践的课题。这方面推荐 <a href="http://weibo.com/lifesinger">@玉伯</a> 领导的 <a href="http://aralejs.org/">Arale</a> 项目。</p>
+<p>模块化、模块依赖、动态载入、模板等概念、库、框架需要去研究和学习，虽然这些已算不得什么新鲜事务，但是如何将各种专注的库、工具、框架无缝集成，变成完整、可靠、稳定、可以高效开发、可以成熟应用的系统解决方案，是目前前端领域需要继续研究和实践的课题。这方面推荐 <a href="http://weibo.com/lifesinger">@玉伯</a> 领导的 <a href="http://aralejs.org/">Arale</a> 项目。</p>
 
-<p>更少的代码量、更短的开发周期、更少的 BUG、易读、易维护、已扩展，是攻城师永恒的追求，不是吗？</p>
+<p>更少的代码、更短的开发周期、更少的 BUG、易读、易维护、易扩展，才是优秀攻城师的追求。</p>
 
-<p>回到本文的主题 MVC，模型与视图的关系在实际应用中的关系可能更加复杂，视图不仅要引用模型，负责渲染、交互，还需要模板引擎、数据解析、适配等等。</p>
+<p>回到本文的主题 MVC，模型与视图的关系在实际应用中的关系可能更加复杂，视图不仅要引用模型，负责渲染、交互，还会涉及模板引擎、数据解析、数据适配等等。</p>
 
-<p>为了更清醒的分析 JSMVC 的实现，非常必要再对 MVC 在 JS 中的职责进行梳理。</p>
+<p>为了更清晰的探讨和分析 JSMVC 的实现，非常必要对 MVC 在 JS 中的职责做一番梳理。</p>
 
 <h2>JSMVC</h2>
 
 <h3>JSMVC 职责划分</h3>
 
-<p>M 模型（数据和业务）</p>
-
-<ul><li>业务模型：业务逻辑、流程、状态、规则</li><li>数据模型（核心）：业务数据、数据校验、增删改查（Ajax）</li></ul>
-
-<p>V 视图（UI）</p>
-
-<ul><li>视图（核心）：定义、管理、配置</li><li>模板：定义、配置、管理</li><li>组件：定义、配置、管理</li><li>用户事件（核心）：配置、管理</li><li>用户输入校验、配置、管理</li></ul>
-
-<p>C 控制器/分发器</p>
-
-<ul><li>事件分发（核心）、模型分发、视图分发</li><li>不做数据处理、业务处理，即业务无关</li><li>扩展：权限控制、异常处理等</li><li>C 是 JSMVC 框架的核心，实现集中式配置和管理，可以有多个控制器</li></ul>
-
-<p>工具库</p>
-
-<ul><li>主要是异步请求、DOM 操作，可以依赖于 jQuery 等库</li></ul>
+<ul><li><p>M 模型（数据和业务）</p><ul><li>业务模型：业务逻辑、流程、状态、规则</li><li>数据模型（核心）：业务数据、数据校验、增删改查（Ajax、RESTful）</li></ul></li><li><p>V 视图（UI）</p><ul><li>视图（核心）：定义、管理、配置</li><li>模板：定义、配置、管理</li><li>组件：定义、配置、管理</li><li>交互事件（核心）：配置、管理</li><li>输入：校验、配置、管理</li><li>输出：更新</li></ul></li><li><p>C 控制器/分发器</p><ul><li>事件分发（核心）、模型分发、视图分发</li><li>不做数据处理和业务处理，即业务无关</li><li>扩展：权限控制、异常处理等</li><li>C 是 JSMVC 框架的核心，实现集中式配置和管理，并且可以有多个控制器</li></ul></li><li><p>工具库</p><ul><li>主要是异步请求、DOM 操作，可以依赖于 jQuery 等库</li></ul></li></ul>
 
 <h3>JSMVC 实现探讨</h3>
 
-<p>MVC 的模型 Model、视图 View、控制器 Control 三个相互独立又相互联系，C 作为其中的桥梁。</p>
+<p>MVC 的模型 Model、视图 View、控制器 Control 三个相互独立又相互联系，C 则是作为其中的桥梁。</p>
 
-<p>MVC 作为由来已久的成熟开发模型，有经典的实现可供参考，在浏览器和 JS 这个新的特定应用场景中，我们做如下探索：</p>
+<p>MVC 作为由来已久的成熟开发模型，已有大量经典的实现可供参考，在浏览器和 JS 这个新的特定应用场景中，我们权做如下探索：</p>
 
-<ul><li>M 模型是自包含的，可以嵌套包含，不会主动引用视图和控制器；可以是简单的 JSON 对象/数组，也可以用组合模式 Composite 实现嵌套包含。</li><li>V 视图是嵌套包含的，可以用组合 Composite 实现；视图需要引用模型（M-V），一个视图可以引用一个或多个模型，视图会收到模型的通知并自动更新，可以用观察者模式 Observer 实现；视图需要响应用户的交互，使用浏览器事件模型。</li><li>C 控制器作为 MVC 框架关注的核心，采取集中配置的策略（V-C）；可以有多个控制器（C + C），用策略模式 Strategy 实现；hash 事件驱动需要用到浏览器事件模型。</li></ul>
+<ul><li><strong>M</strong> 模型是自包含的，可以嵌套包含，不会主动引用视图和控制器；可以是简单的 JSON 对象/数组，也可以用组合模式 Composite 实现嵌套包含。</li><li><strong>V</strong> 视图是嵌套包含的，可以用组合 Composite 实现；视图需要引用模型（M-V），一个视图可以引用一个或多个模型，视图会收到模型的通知并自动更新，可以用观察者模式 Observer 实现；视图需要响应用户的交互，使用浏览器事件模型。</li><li><strong>C</strong> 控制器作为 MVC 框架关注的核心，采取集中配置的策略（V-C）；可以有多个控制器（C + C），用策略模式 Strategy 实现；hash 事件驱动则需要用到浏览器的事件模型。</li></ul>
 
-<p>M 模型和 C 控制器之间（M-C）一般我认为是不需要关联的；但是在有的框架中实现了 M 模型和 C 控制器的关联（例如一淘在用的 <a href="https://github.com/limu/magix">Magix</a>），也是一种值得参考和启发的实践。</p>
+<p>M 模型和 C 控制器之间（M-C）一般我认为是不需要关联的；但是在有的框架中实现了 M 模型和 C 控制器的关联（例如一淘在用的 <a href="https://github.com/limu/magix">Magix</a>），也是一类值得参考和启发的实践。</p>
 
 <h3>事件驱动</h3>
 
-<p>我们从理论上分析了模型、视图、控制器在 JS 中的职责定位、它们之间的引用关系，并尝试着用设计模式来探索 MVC 框架的实现。</p>
+<p>前面的小节中，我们形而上学的从理论上分析了模型 M、视图 V、控制器 C 在 JS 中的职责定位以及它们之间的引用关系，并尝试着用设计模式来探索和诠释 JSMVC 框架的实现思路。</p>
 
-<p>在学习 JSMVC 的过程中，还要认识到 JSMVC 的运行方式是基于事件驱动，因此对浏览器中可能的事件类型非常有必要先说明。</p>
+<p>此外，在学习 JSMVC 的过程中，还要认识到 JSMVC 的运行方式是基于事件驱动，这一点非常之重要，本节对在浏览器中可能用到的事件做简练的说明。</p>
 
-<p>在浏览器中 JSMVC 会用到三种事件类型，也就是说有三种事件驱动方式：</p>
+<p>在浏览器中，JSMVC 会用到三类事件，分别对应着三种事件驱动方式：</p>
 
-<ol><li><p>hash 事件，即 popstate/hashchange 事件，绑定在 window 上，用来驱动控制器；hash 变化触发 popstate/hashchange 事件后，控制器根据配置找到对应的回调函数并执行；配置是指存有 hash 与回调函数的映射关系的 Map 对象。</p><p>这个过程称为“hash驱动控制器”，在 Backbone 中由 Router 和 History 共同实现；</p></li><li><p>DOM 事件，即我们熟知的 click、focus 等浏览器事件，用来响应用户操作实现交互；DOM 事件被绑定在视图 View上，不同的是 Backbone 建议采用集中配置的方式，例如：</p><pre><code>events: {
+<ol><li><p>hash 事件，即 popstate/hashchange 事件，绑定在 window 对象上，用来驱动控制器。hash 变化触发 popstate/hashchange 事件之后，控制器根据配置找到相应的回调函数并执行；配置是指存有 hash 与回调函数的映射关系的 Map 对象。</p><p>这个过程称为“hash驱动控制器”，在 Backbone 中由 Router 和 History 共同实现。</p></li><li><p>DOM 事件，即我们熟知的 click、focus 等浏览器事件，用来响应用户操作、实现交互。DOM 事件被绑定在视图 View上，特别的是 Backbone 提倡采用集中配置的方式，例如下面的代码：</p><pre><code>events: {
     &quot;click .check&quot;              : &quot;toggleDone&quot;,
     &quot;dblclick div.todo-text&quot;    : &quot;edit&quot;,
     &quot;click span.todo-destroy&quot;   : &quot;clear&quot;,
     &quot;keypress .todo-input&quot;      : &quot;updateOnEnter&quot;
-}</code></pre><p>这个过程称为“DOM事件驱动视图“，在 Backbone 由 View 实现，事件的绑定、接触、销毁依赖于 jQuery 等库。</p></li><li><p>模型事件（业务模型事件和数据模型事件），用来驱动模型和模型集合，实现模型和视图之间的观察者模式；这个过程称之为”模型驱动“，在 Backbone 中由 Event 实现。</p></li></ol>
+}</code></pre><p>这个过程称为“DOM事件驱动视图“，在 Backbone 由 View 实现，事件的绑定、触发、销毁则依赖于 jQuery 等第三方库。</p></li><li><p>模型事件，包括业务模型事件和数据模型事件，用来驱动模型以及模型集合，实现模型和视图之间的观察者模式。
+这个过程称之为”模型驱动“，在 Backbone 中由 Model、Collection、Event 实现。</p></li></ol>
 
 <h3>应该关注什么</h3>
 
-<p>框架最关注的是控制器 C，部分视图 V。</p>
+<p>框架最应该关注的是控制器 C，部分视图 V。</p>
 
-<p>攻城师则关注 M 和 V，即业务、数据、展示；关注 M 复用和 V 变化。</p>
+<p>框架用户则主要关注模型 M 和视图 V，即业务、数据以及展示，并关注模型 M 的复用和视图 V 的变化。</p>
 
 <h2>Backbone 架构</h2>
 
@@ -148,7 +134,7 @@
 
 <h3>参考资料</h3>
 
-<ul><li>基于 Backbone 0.9.1</li><li><a href="http://documentcloud.github.com/backbone/">官方文档</a></li><li><a href="http://www.csser.com/tools/backbone/backbone.js.html">中文翻译</a></li></ul>
+<ul><li>基于 <a href="https://github.com/documentcloud/backbone/tree/0.9.1">Backbone 0.9.1</a></li><li><a href="http://documentcloud.github.com/backbone/">官方文档</a></li><li><a href="http://www.csser.com/tools/backbone/backbone.js.html">中文翻译</a></li></ul>
 
 <h3>官网介绍</h3>
 
@@ -156,11 +142,11 @@
 
 <p>通过以下方式实现分层结构：</p>
 
-<ul><li>模型 Model 绑定键值数据和自定义事件；</li><li>集合 Colection 是模型的有序或无序集合，带有丰富的可枚举 API；</li><li>视图 View 声明事件监听函数；</li><li>将模型、集合、视图与服务端的 RESTful JSON 接口连接。</li></ul>
+<ul><li>模型 Model 绑定键值数据和自定义事件。</li><li>集合 Colection 是模型的有序或无序集合，带有丰富的可枚举 API。</li><li>视图 View 声明事件监听函数。</li><li>将模型、集合、视图与服务端的 RESTful JSON 接口连接。</li></ul>
 
 <h3>自调用匿名函数</h3>
 
-<p>整个 Backbone 的源码用一个自调用匿名函数包裹，可以通过闭包特性引用变量（例如 previousBackbone、slice、splice 等），同时避免污染全局命名空间。</p>
+<p>整个 Backbone 的源码用一个自调用匿名函数包裹，通过闭包特性引用变量（例如 previousBackbone、slice、splice 等），同时避免污染全局命名空间。</p>
 
 <p>整体结构如下，还是很清晰的：</p>
 
@@ -182,17 +168,19 @@
 
 <h3>自定义事件模块 Backbone.Events</h3>
 
-<p>可以和任意对象合体（将方法赋值到其他对象或原型上），合体后的对象可以自定义事件，提供三个方法来绑定、移除、触发自定义事件：</p>
+<p>可以和任意对象合体（将方法赋值到其他对象或原型上），合体后的对象支持自定义事件，提供了三个方法来绑定、移除、触发自定义事件：</p>
 
-<pre><code>on(events, callback, context)   绑定一个或多个事件回调函数
-off(events, callback, context)  移除一个或多个事件回调函数
-triggle(events)                 触发一个或多个事件回调函数</code></pre>
+<pre><code>on(events, callback, context)   // 绑定一个或多个事件回调函数
+off(events, callback, context)  // 移除一个或多个事件回调函数
+triggle(events)                 // 触发一个或多个事件回调函数</code></pre>
+
+<p>方法功能和调用关系如下图所示：</p>
 
 <p><img alt="" src="assets/images/Backbone.Events.png"/></p>
 
 <h3>模型 Backbone.Model</h3>
 
-<p>模型是 JavaScript 应用程序的核心，包含业务数据和对业务数据的读写和持久化，模型的主要方法包括读写和持久化：</p>
+<p>模型是 JavaScript 应用程序的核心，包含了业务数据以及对业务数据的读写和持久化，模型的主要方法包括读写和持久化：</p>
 
 <pre><code>// 初始化
 initialize()                // 执行构造函数时会被自动调用     
@@ -214,7 +202,7 @@ fetch(options)              // 从服务器获取模块
 save(key, value, options)   // 将模块同步到服务器，create or update
 destroy(options)            // 在服务器上销毁这个模块</code></pre>
 
-<p>事件包括：</p>
+<p>支持的事件包括：</p>
 
 <pre><code>change:attr
 chage
@@ -222,16 +210,19 @@ sync
 destory
 error</code></pre>
 
+<p>方法功能和调用关系如下图所示：</p>
+
 <p><img alt="" src="assets/images/Backbone.Model.png"/></p>
 
 <h3>集合 Backbone.Collection</h3>
 
-<p>集合是模型的有序集合，可以在集合上绑定 &quot;change&quot; 事件，当集合中的任何模型发生变化时收到通知，集合也可以监听 &quot;add&quot; 和 “remove&quot; 事件， 从服务器获取数据，并能使用 Underscore.js 提供的全套方法。 为了方便，在集合中的模型上触发的任何事件都会在集合上直接触发。这样就可以监听集合中模型的指定属性的变化。 例如：Documents.on(&quot;change:selected&quot;, ...)。</p>
+<p>集合是模型的有序集合，可以在集合上绑定 &quot;change&quot; 事件，当集合中的任意模型发生变化时将收到通知，集合也可以监听 &quot;add&quot; 和 “remove&quot; 事件，从服务器获取数据，并能使用 Underscore.js 提供的全套方法。为了方便，在集合中的模型上触发的任何事件都会在集合上直接触发。这样就可以监听集合中模型的指定属性的变化。 例如：Documents.on(&quot;change:selected&quot;, ...)。</p>
 
 <p>集合的主要方法包括读写、维护和持久化：</p>
 
 <pre><code>// 初始化
 initialize() // 执行构造函数时会被自动调用
+
 // 读写、维护
 add(models, options)    // 添加一个一组模型对象到集合中
 remove(models, options) // 从集合中移除一个或一组模型对象
@@ -243,13 +234,14 @@ _reset(options)         // 重置所有状态
 _prepareModel(model, options) // 创建一个模型，用以添加到这个集合中
 _removeReference(model) // 移除模块与集合的关系
 _onModelEvent(ev, model, collection, options) // 集合中的元素每次触发事件时内部调用的方法
+
 // 持久化
 fetch(options)          // 获取集合的默认模块对象集合
 create(model, options)  // 在集合中创意一个新模型实例
 parse(resp, xhr)        // 将响应转换为模型对象列表
 // 其他借用 Underscore 的工具方法，借鸡生蛋</code></pre>
 
-<p>事件包括：</p>
+<p>支持的事件包括：</p>
 
 <pre><code>add
 remove
@@ -258,28 +250,30 @@ sync
 error
 (change:attr, chage, sync, destory)</code></pre>
 
+<p>方法功能和调用关系如下图所示：</p>
+
 <p><img alt="" src="assets/images/Backbone.Collection.png"/></p>
 
 <h3>路由配置器 Backbone.Router</h3>
 
-<p>Web应用程序通常需要为重要页面提供可链接、收藏、可分享的 URL。 直到最近， 锚文片段（hash #page）可以被用来提供这种固定链接；同时随着 History API 的到来，锚文现在可以用于处理标准 URLs （/page）。</p>
+<p>Web 应用程序通常需要为重要页面提供可链接、收藏、可分享的 URL。 直到最近， 锚文片段（hash #page）可以被用来提供这种固定链接；同时随着 History API 的到来，锚文现在可以用于处理标准 URLs（/page）。</p>
 
 <p>Backbone.Router 为客户端页面路由提供了许多方法，并能连接到指定的动作（actions）和事件（events）。</p>
 
 <p>对于不支持 History API 的旧浏览器（IE6、IE7），路由器提供了优雅的回调函数并可以透明的进行 URL 片段的转换。</p>
 
-<p>页面加载期间，当应用程序已经创建了所有的路由表，需要调用 Backbone.history.start()，或 Backbone.history.start({pushState : true}) 确保路由初始 URL。</p>
+<p>页面加载期间，当应用程序已经创建了所有的路由表，需要调用 Backbone.history.start() 或 Backbone.history.start({pushState : true}) 来确保路由初始 URL。</p>
 
-<p>主要方法有：</p>
+<p>提供了的主要方法有：</p>
 
-<pre><code>initialize() // 初始化，执行构造函数时会被自动调用。
+<pre><code>initialize()                 // 初始化，执行构造函数时会被自动调用。
 route(route, name, callback) // 手动绑定一个路由 到 一个回调函数
-navigate(fragment, options) // 手动到达应用程序中的某个位置
-_bindRoutes() // 绑定所有定义的映射关系给Backbone.history
-_routeToRegExp(route) // 将虚拟URL转换为正则表达式，用于与当前路径的hash部分匹配
+navigate(fragment, options)  // 手动到达应用程序中的某个位置
+_bindRoutes()                // 绑定所有定义的映射关系给Backbone.history
+_routeToRegExp(route)        // 将虚拟URL转换为正则表达式，用于与当前路径的hash部分匹配
 _extractParameters: function(route, fragment) // 正则匹配URL片段fragment，取出其中的参数部分</code></pre>
 
-<p>事件：</p>
+<p>支持的事件包括：</p>
 
 <pre><code>route:name
 route</code></pre>
@@ -288,47 +282,61 @@ route</code></pre>
 
 <p>作为全局路由器，用于处理 hashchange 或 pushState 事件，匹配适合的路由表，并触发回调函数。</p>
 
-<p>如果使用带有路由表的路由器，会自动创建一个History对象，此时不要再创建一个History对象，而是使用 Backbone.history。</p>
+<p>如果使用带有路由表的路由器，会自动创建一个 History 对象，此时，不要再创建一个 History 对象，而是直接使用 Backbone.history。</p>
 
 <p>Backbone 会自动判断浏览器对 pushState 的支持，以做内部的选择。 不支持 pushState 的浏览器将会继续使用基于锚点的 URL 片段。</p>
 
-<p>主要方法有：</p>
+<p>提供的主要方法有：</p>
 
-<pre><code>start(options) // 开始监听hash变化（绑定popstate事件 或 绑定hashchange事件 或 通过定时器监听hash变化）
-stop() // 临时性的停止Backbone.history
-route(route, callback) // 添加映射关系
-checkUrl(e) // 检查当前URL是否已改变，如果已改变，调用loadUrl
-loadUrl(fragmentOverride) // 检查是否有路由匹配
+<pre><code>start(options)              // 开始监听hash变化（绑定popstate事件 或 绑定hashchange事件 或 通过定时器监听hash变化）
+stop()                      // 临时性的停止Backbone.history
+route(route, callback)      // 添加映射关系
+checkUrl(e)                 // 检查当前URL是否已改变，如果已改变，调用loadUrl
+loadUrl(fragmentOverride)   // 检查是否有路由匹配
 navigate(fragment, options) // 保存URL片段到锚文历史（history.replaceState 或 history.pushState 或 location.replace 或 location.hash）
 _updateHash(location, fragment, replace) // 更新锚文路径（location.replace 或 location.hash）</code></pre>
+
+<p>方法功能和调用关系如下图所示：</p>
 
 <p><img alt="" src="assets/images/Backbone.Router+History.png"/></p>
 
 <h3>视图 Backbone.View</h3>
 
-<p>视图的使用相当方便，不需要判断任何HTML、CSS，可以任意JavaScript模板引擎集成。</p>
+<p>视图的使用相当方便，不需要判断任何 HTML、CSS，可以和任意 JavaScript 模板引擎集成。</p>
 
-<p>通用的做法是，将界面组织成基于模型的诗句，当模型改变时视图立即更新，而不需要重画整个页面。</p>
+<p>通用的做法是，将界面组织成基于模型的逻辑视图，当模型改变时视图立即更新，而不需要重画整个页面。</p>
 
-<p>不再需要纠结于 JSON 对象、查找 DOM 元素、手动更新 HTML，只需把视图 render 方法绑定到模型的 change 事件，模型数据会理解现在到 UI 上。</p>
+<p>不再需要纠结于 JSON 对象、查找 DOM 元素、手动更新 HTML，只需把视图 render 方法绑定到模型的 change 事件，模型数据会立即更新到界面上。</p>
+
+<p>方法功能和调用关系如下图所示：</p>
 
 <p><img alt="" src="assets/images/Backbone.View.png"/></p>
 
 <h3>扩展方法 extend</h3>
 
-<p>模型、集合、视图、路由器都一个extend方法，用于扩展原型属性和静态属性，创建自定义的视图、集合、视图、路由器类。</p>
+<p>模型、集合、视图、路由器都含有一个 extend(protoProps, classProps) 方法，用于扩展原型属性和静态属性，创建自定义的视图、集合、视图、路由器类。</p>
 
 <h2>事件 Event - 最佳基友</h2>
 
 <p>概述、使用、流程、事件、源码</p>
 
+<blockquote><p>TODO</p></blockquote>
+
 <h2>模型 Model - 自娱自乐</h2>
+
+<blockquote><p>TODO</p></blockquote>
 
 <h2>集合 Collection - 不是一个人在战斗</h2>
 
+<blockquote><p>TODO</p></blockquote>
+
 <h2>视图 View - 能者多劳</h2>
 
+<blockquote><p>TODO</p></blockquote>
+
 <h2>控制器 Route + History</h2>
+
+<blockquote><p>TODO</p></blockquote>
 
 <h2>Backbone 插件</h2>
 
@@ -368,35 +376,25 @@ _updateHash(location, fragment, replace) // 更新锚文路径（location.replac
 
 <p>版本、日期、编制人、说明、行为、备注</p>
 
-<pre><code>0.01 2012-02-18 nuysoft
-    文档结构，前言、技巧
+<p><strong>nuysoft 2012-02-18 0.01</strong></p>
 
-0.02 2013-01-31 nuysoft 
-    Markdown
+<ul><li>文档结构，前言、技巧</li></ul>
 
-0.03 2013-03-07 nuysoft
-    增加代码块
-    美化图片</code></pre>
+<p><strong>nuysoft 2013-01-31 0.02</strong></p>
+
+<ul><li>转换为 Markdown 格式</li></ul>
+
+<p><strong>nuysoft 2013-03-07 0.03</strong></p>
+
+<ul><li>增加代码块</li><li>美化图片</li></ul>
+
+<p><strong>nuysoft 2013-03-21 0.04</strong></p>
+
+<ul><li>校对已有内容</li></ul>
 
 <h2>Backbone 发布记录</h2>
 
-<pre><code>0.9.10  2013.01.15  
-0.9.9   2012.12.13
-0.9.2   2012.03.21
-0.9.1   2012.02.02
-0.9.0   2012.01.30
-0.5.3   2011.08.09
-0.5.2   2011.07.20
-0.5.1   2011.07.05
-0.5.0   2011.07.01
-0.3.3   2010.12.01
-0.3.2   2010.11.23
-0.3.1   2010.11.15
-0.3.0   2010.11.09
-0.2.0   2010.10.25
-0.1.2   2010.10.19
-0.1.1   2010.10.14
-0.1.0   2010.10.13</code></pre>    </div>
+<ul><li><a href="http://backbonejs.org/#changelog">Backbone Change Log</a></li><li><a href="https://github.com/documentcloud/backbone/tags">Backbone Tags</a></li></ul>    </div>
 </body>
 </html>
 <script type="text/javascript">
