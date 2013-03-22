@@ -11,13 +11,13 @@
     <script src="assets/js/jquery.catalog-0.0.2.js"></script>
 </head>
 <body>
-    <div class="container"><h1>自动化测试 <a href="http://weibo.com/u/1809037057?from=profile&amp;wvr=5&amp;loc=infdomain">@nuysoft</a></h1>
+    <div class="container"><h1>自动化测试 <a href="http://weibo.com/u/1809037057?from=profile&wvr=5&loc=infdomain">@nuysoft</a></h1>
 
-<h2>what - 什么是单元测试&amp;自动化测试？</h2>
+<h2>what - 什么是单元测试&自动化测试？</h2>
 
 <p>不用解释了吧。</p>
 
-<h2>what - 为什么要做单元测试&amp;自动化测试？</h2>
+<h2>what - 为什么要做单元测试&自动化测试？</h2>
 
 <ul><li>验证程序正确性</li><li>修复 bug 后的回归测试</li><li>安全的代码重构</li><li>缩短测试周期</li></ul>
 
@@ -31,7 +31,7 @@
 
 <ul><li><a href="http://wiki.commonjs.org/wiki/Unit_Testing/1.0">http://wiki.commonjs.org/wiki/Unit_Testing/1.0</a></li><li><a href="http://wiki.commonjs.org/wiki/Unit_Testing/1.1">http://wiki.commonjs.org/wiki/Unit_Testing/1.1</a></li></ul>
 
-<h3>Jasmine [&#39;dʒæzmɪn; &#39;dʒæs-]</h3>
+<h3>Jasmine ['dʒæzmɪn; 'dʒæs-]</h3>
 
 <ul><li><a href="https://github.com/pivotal/jasmine">https://github.com/pivotal/jasmine</a></li><li><a href="http://pivotal.github.com/jasmine/">http://pivotal.github.com/jasmine/</a></li><li><a href="https://github.com/mhevery/jasmine-node">https://github.com/mhevery/jasmine-node</a></li></ul>
 
@@ -43,8 +43,8 @@
 
 <h3>基本语法</h3>
 
-<pre><code>describe(&quot;A suite&quot;, function() {
-  it(&quot;contains spec with an expectation&quot;, function() {
+<pre><code>describe("A suite", function() {
+  it("contains spec with an expectation", function() {
     expect(true).toBe(true);
   });
 });</code></pre>
@@ -64,23 +64,23 @@ QUnit 的断言方法遵从 CommonJS Unit Test 规范，该规范在某种程度
 
 <h3>基本语法</h3>
 
-<pre><code>module( &quot;group a&quot; );
-test( &quot;a basic test example&quot;, function() {
-    ok( true, &quot;this test is fine&quot; );
+<pre><code>module( "group a" );
+test( "a basic test example", function() {
+    ok( true, "this test is fine" );
 });
-test( &quot;a basic test example 2&quot;, function() {
-    ok( true, &quot;this test is fine&quot; );
+test( "a basic test example 2", function() {
+    ok( true, "this test is fine" );
 });
 
-module( &quot;group b&quot; );
-test( &quot;a basic test example 3&quot;, function() {
-    ok( true, &quot;this test is fine&quot; );
+module( "group b" );
+test( "a basic test example 3", function() {
+    ok( true, "this test is fine" );
 });
-test( &quot;a basic test example 4&quot;, function() {
-    ok( true, &quot;this test is fine&quot; );
+test( "a basic test example 4", function() {
+    ok( true, "this test is fine" );
 });</code></pre>
 
-<h3>哪些开源库&amp;框架在用 QUnit？</h3>
+<h3>哪些开源库&框架在用 QUnit？</h3>
 
 <p><a href="https://github.com/twitter/bootstrap">bootstrap</a>、<a href="https://github.com/jquery/jquery">jquery</a>、<a href="https://github.com/documentcloud/backbone">backbone</a>、<a href="https://github.com/gruntjs/grunt">grunt</a>...</p>
 
@@ -99,7 +99,7 @@ test( &quot;a basic test example 4&quot;, function() {
 };
 function synchronize( callback, last ) {
     config.queue.push( callback );
-    if ( config.autorun &amp;&amp; !config.blocking ) {
+    if ( config.autorun && !config.blocking ) {
         process( last );
     }
 }</code></pre></li><li><p><strong>运行时</strong>：用一个 while 循环遍历数组 config.queue，从头部开始顺序执行：</p><pre><code>function process( last ) {
@@ -108,8 +108,8 @@ function synchronize( callback, last ) {
     }
     var start = new Date().getTime();
     config.depth = config.depth ? config.depth + 1 : 1;
-    while ( config.queue.length &amp;&amp; !config.blocking ) {
-        if ( !defined.setTimeout || config.updateRate &lt;= 0 || ( ( new Date().getTime() - start ) &lt; config.updateRate ) ) {
+    while ( config.queue.length && !config.blocking ) {
+        if ( !defined.setTimeout || config.updateRate <= 0 || ( ( new Date().getTime() - start ) < config.updateRate ) ) {
             config.queue.shift()();
         } else {
             window.setTimeout( next, 13 );
@@ -117,7 +117,7 @@ function synchronize( callback, last ) {
         }
     }
     config.depth--;
-    if ( last &amp;&amp; !config.blocking &amp;&amp; !config.queue.length &amp;&amp; config.depth === 0 ) {
+    if ( last && !config.blocking && !config.queue.length && config.depth === 0 ) {
         done();
     }
 }</code></pre></li><li><p><strong>异步操作</strong>：调用 stop() 后设置 config.blocking = true；调用 start() 后设置 config.blocking = false。如果 config.blocking 为 true，则会每隔 13ms 尝试恢复 while 循环。</p></li></ol>    </div>

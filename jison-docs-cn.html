@@ -13,7 +13,7 @@
 <body>
     <div class="container"><h1>[翻译] Jison 文档</h1>
 
-<blockquote><p>原文：<a href="http://zaach.github.com/jison/docs/">http://zaach.github.com/jison/docs/</a></p><p>翻译：<a href="http://weibo.com/u/1809037057?from=profile&amp;wvr=5&amp;loc=infdomain">@nuysoft</a></p></blockquote>
+<blockquote><p>原文：<a href="http://zaach.github.com/jison/docs/">http://zaach.github.com/jison/docs/</a></p><p>翻译：<a href="http://weibo.com/u/1809037057?from=profile&wvr=5&loc=infdomain">@nuysoft</a></p></blockquote>
 
 <p><a href="http://zaach.github.com/jison/">Jison</a> 友好的 JavaScript 解析器生成器。</p>
 
@@ -38,7 +38,7 @@ cd jison/examples</code></pre>
 
 <p>这将在当前工作目录下生成 calculator.js。这个脚本可以用来解析一个输入文件，如下所示：</p>
 
-<pre><code>echo &quot;2^32 / 1024&quot; &gt; testcalc
+<pre><code>echo "2^32 / 1024" > testcalc
 node calculator.js testcalc</code></pre>
 
 <p>上面的脚本将打印 4194304。</p>
@@ -48,19 +48,19 @@ node calculator.js testcalc</code></pre>
 <p>你也可以从 JavaScript 以编程的方法生成解析器。假设 Jison 在 CommonJS 环境的加载路径中：</p>
 
 <pre><code>// mygenerator.js
-var Parser = require(&quot;jison&quot;).Parser;
+var Parser = require("jison").Parser;
 
 var grammar = {
-    &quot;lex&quot;: {
-        &quot;rules&quot;: [
-           [&quot;\\s+&quot;, &quot;/* skip whitespace */&quot;],
-           [&quot;[a-f0-9]+&quot;, &quot;return &#39;HEX&#39;;&quot;]
+    "lex": {
+        "rules": [
+           ["\\s+", "/* skip whitespace */"],
+           ["[a-f0-9]+", "return 'HEX';"]
         ]
     },
 
-    &quot;bnf&quot;: {
-        &quot;hex_strings&quot; :[ &quot;hex_strings HEX&quot;,
-                         &quot;HEX&quot; ]
+    "bnf": {
+        "hex_strings" :[ "hex_strings HEX",
+                         "HEX" ]
     }
 };
 
@@ -71,10 +71,10 @@ var parserSource = parser.generate();
 
 // you can also use the parser directly from memory
 
-parser.parse(&quot;adfe34bc e82a&quot;);
+parser.parse("adfe34bc e82a");
 // returns true
 
-parser.parse(&quot;adfe34bc zxg&quot;);
+parser.parse("adfe34bc zxg");
 // throws lexical error</code></pre>
 
 <h2>使用生成的解析器</h2>
@@ -88,58 +88,58 @@ parser.parse(&quot;adfe34bc zxg&quot;);
 <p>不过更理想的是，解析被其他模块所依赖。你可以从另一个模块加载解析器，像这样：</p>
 
 <pre><code>// mymodule.js
-var parser = require(&quot;./calculator&quot;).parser;
+var parser = require("./calculator").parser;
 
 function exec (input) {
     return parser.parse(input);
 }
 
-var twenty = exec(&quot;4 * 5&quot;);</code></pre>
+var twenty = exec("4 * 5");</code></pre>
 
 <p>或者，更简洁的说：</p>
 
 <pre><code>// mymodule.js
 function exec (input) {
-    return require(&quot;./calculator&quot;).parse(input);
+    return require("./calculator").parse(input);
 }
 
-var twenty = exec(&quot;4 * 5&quot;);</code></pre>
+var twenty = exec("4 * 5");</code></pre>
 
 <h2>在网页中使用解析器</h2>
 
 <p>生成的解析器脚本可以被包含在一个网页中，不需要任何 CommonJS 加载环境。简单的通过一个 script 标签指向解析器：</p>
 
-<pre><code>&lt;script src=&quot;calculator.js&quot;&gt;&lt;/script&gt;</code></pre>
+<pre><code><script src="calculator.js"></script></code></pre>
 
 <p>生成解析器时，你可以通过下面的声明指定变量名：</p>
 
 <pre><code>// mygenerator.js
-var parserSource = generator.generate({moduleName: &quot;calc&quot;});
+var parserSource = generator.generate({moduleName: "calc"});
 // then write parserSource to a file called, say, calc.js</code></pre>
 
 <p>声明的 moduleName 用于在网页中访问解析器：</p>
 
-<pre><code>&lt;script src=&quot;calc.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-  calc.parse(&quot;42 / 0&quot;);
-&lt;/script&gt;</code></pre>
+<pre><code><script src="calc.js"></script>
+<script>
+  calc.parse("42 / 0");
+</script></code></pre>
 
 <p>声明的 moduleName 也可以包含一个命名空间，例如：</p>
 
 <pre><code>// mygenerator.js
-var parserSource = parser.generate({moduleName: &quot;myCalculator.parser&quot;});</code></pre>
+var parserSource = parser.generate({moduleName: "myCalculator.parser"});</code></pre>
 
 <p>然后可以这样使用：</p>
 
-<pre><code>&lt;script&gt;
+<pre><code><script>
   var myCalculator = {};
-&lt;/script&gt;
+</script>
 
-&lt;script src=&quot;calc.js&quot;&gt;&lt;/script&gt;
+<script src="calc.js"></script>
 
-&lt;script&gt;
-  myCalculator.parser.parse(&quot;42 / 0&quot;);
-&lt;/script&gt;</code></pre>
+<script>
+  myCalculator.parser.parse("42 / 0");
+</script></code></pre>
 
 <p>或者类似的用法 - 你能想象到的。</p>
 
@@ -166,25 +166,25 @@ var parserSource = parser.generate({moduleName: &quot;myCalculator.parser&quot;}
 
 %%
 \s+                   /* skip whitespace */
-[0-9]+(&quot;.&quot;[0-9]+)?\b  return &#39;NUMBER&#39;;
-&quot;*&quot;                   return &#39;*&#39;;
-&quot;/&quot;                   return &#39;/&#39;;
-&quot;-&quot;                   return &#39;-&#39;;
-&quot;+&quot;                   return &#39;+&#39;;
-&quot;^&quot;                   return &#39;^&#39;;
-&quot;(&quot;                   return &#39;(&#39;;
-&quot;)&quot;                   return &#39;)&#39;;
-&quot;PI&quot;                  return &#39;PI&#39;;
-&quot;E&quot;                   return &#39;E&#39;;
-&lt;&lt;EOF&gt;&gt;               return &#39;EOF&#39;;
+[0-9]+("."[0-9]+)?\b  return 'NUMBER';
+"*"                   return '*';
+"/"                   return '/';
+"-"                   return '-';
+"+"                   return '+';
+"^"                   return '^';
+"("                   return '(';
+")"                   return ')';
+"PI"                  return 'PI';
+"E"                   return 'E';
+<<EOF>>               return 'EOF';
 
 /lex
 
 /* operator associations and precedence */
 
-%left &#39;+&#39; &#39;-&#39;
-%left &#39;*&#39; &#39;/&#39;
-%left &#39;^&#39;
+%left '+' '-'
+%left '*' '/'
+%left '^'
 %left UMINUS
 
 %start expressions
@@ -197,19 +197,19 @@ expressions
     ;
 
 e
-    : e &#39;+&#39; e
+    : e '+' e
         {$$ = $1+$3;}
-    | e &#39;-&#39; e
+    | e '-' e
         {$$ = $1-$3;}
-    | e &#39;*&#39; e
+    | e '*' e
         {$$ = $1*$3;}
-    | e &#39;/&#39; e
+    | e '/' e
         {$$ = $1/$3;}
-    | e &#39;^&#39; e
+    | e '^' e
         {$$ = Math.pow($1, $3);}
-    | &#39;-&#39; e %prec UMINUS
+    | '-' e %prec UMINUS
         {$$ = -$2;}
-    | &#39;(&#39; e &#39;)&#39;
+    | '(' e ')'
         {$$ = $2;}
     | NUMBER
         {$$ = Number(yytext);}
@@ -222,43 +222,43 @@ e
 <p>将上面的语法编译为 Jison 可以直接使用的 JSON 格式：</p>
 
 <pre><code>{
-    &quot;lex&quot;: {
-        &quot;rules&quot;: [
-           [&quot;\\s+&quot;,                    &quot;/* skip whitespace */&quot;],
-           [&quot;[0-9]+(?:\\.[0-9]+)?\\b&quot;, &quot;return &#39;NUMBER&#39;;&quot;],
-           [&quot;\\*&quot;,                     &quot;return &#39;*&#39;;&quot;],
-           [&quot;\\/&quot;,                     &quot;return &#39;/&#39;;&quot;],
-           [&quot;-&quot;,                       &quot;return &#39;-&#39;;&quot;],
-           [&quot;\\+&quot;,                     &quot;return &#39;+&#39;;&quot;],
-           [&quot;\\^&quot;,                     &quot;return &#39;^&#39;;&quot;],
-           [&quot;\\(&quot;,                     &quot;return &#39;(&#39;;&quot;],
-           [&quot;\\)&quot;,                     &quot;return &#39;)&#39;;&quot;],
-           [&quot;PI\\b&quot;,                   &quot;return &#39;PI&#39;;&quot;],
-           [&quot;E\\b&quot;,                    &quot;return &#39;E&#39;;&quot;],
-           [&quot;$&quot;,                       &quot;return &#39;EOF&#39;;&quot;]
+    "lex": {
+        "rules": [
+           ["\\s+",                    "/* skip whitespace */"],
+           ["[0-9]+(?:\\.[0-9]+)?\\b", "return 'NUMBER';"],
+           ["\\*",                     "return '*';"],
+           ["\\/",                     "return '/';"],
+           ["-",                       "return '-';"],
+           ["\\+",                     "return '+';"],
+           ["\\^",                     "return '^';"],
+           ["\\(",                     "return '(';"],
+           ["\\)",                     "return ')';"],
+           ["PI\\b",                   "return 'PI';"],
+           ["E\\b",                    "return 'E';"],
+           ["$",                       "return 'EOF';"]
         ]
     },
 
-    &quot;operators&quot;: [
-        [&quot;left&quot;, &quot;+&quot;, &quot;-&quot;],
-        [&quot;left&quot;, &quot;*&quot;, &quot;/&quot;],
-        [&quot;left&quot;, &quot;^&quot;],
-        [&quot;left&quot;, &quot;UMINUS&quot;]
+    "operators": [
+        ["left", "+", "-"],
+        ["left", "*", "/"],
+        ["left", "^"],
+        ["left", "UMINUS"]
     ],
 
-    &quot;bnf&quot;: {
-        &quot;expressions&quot; :[[ &quot;e EOF&quot;,   &quot;print($1); return $1;&quot;  ]],
+    "bnf": {
+        "expressions" :[[ "e EOF",   "print($1); return $1;"  ]],
 
-        &quot;e&quot; :[[ &quot;e + e&quot;,   &quot;$$ = $1 + $3;&quot; ],
-              [ &quot;e - e&quot;,   &quot;$$ = $1 - $3;&quot; ],
-              [ &quot;e * e&quot;,   &quot;$$ = $1 * $3;&quot; ],
-              [ &quot;e / e&quot;,   &quot;$$ = $1 / $3;&quot; ],
-              [ &quot;e ^ e&quot;,   &quot;$$ = Math.pow($1, $3);&quot; ],
-              [ &quot;- e&quot;,     &quot;$$ = -$2;&quot;, {&quot;prec&quot;: &quot;UMINUS&quot;} ],
-              [ &quot;( e )&quot;,   &quot;$$ = $2;&quot; ],
-              [ &quot;NUMBER&quot;,  &quot;$$ = Number(yytext);&quot; ],
-              [ &quot;E&quot;,       &quot;$$ = Math.E;&quot; ],
-              [ &quot;PI&quot;,      &quot;$$ = Math.PI;&quot; ]]
+        "e" :[[ "e + e",   "$$ = $1 + $3;" ],
+              [ "e - e",   "$$ = $1 - $3;" ],
+              [ "e * e",   "$$ = $1 * $3;" ],
+              [ "e / e",   "$$ = $1 / $3;" ],
+              [ "e ^ e",   "$$ = Math.pow($1, $3);" ],
+              [ "- e",     "$$ = -$2;", {"prec": "UMINUS"} ],
+              [ "( e )",   "$$ = $2;" ],
+              [ "NUMBER",  "$$ = Number(yytext);" ],
+              [ "E",       "$$ = Math.E;" ],
+              [ "PI",      "$$ = Math.PI;" ]]
     }
 }</code></pre>
 
@@ -288,35 +288,35 @@ e
 
 <p>Good:</p>
 
-<pre><code>[0-9]+&quot;zomg&quot;    print(yytext);</code></pre>
+<pre><code>[0-9]+"zomg"    print(yytext);</code></pre>
 
 <p>跨行的行为应该用花括号包裹：</p>
 
-<pre><code>[0-9]+&quot;zomg&quot;    %{ print(yytext);
-                   return &#39;ZOMG&#39;; %}</code></pre>
+<pre><code>[0-9]+"zomg"    %{ print(yytext);
+                   return 'ZOMG'; %}</code></pre>
 
-<p>最近添加的<a href="http://dinosaur.compilertools.net/flex/flex_11.html">启动条件</a>功能，允许某些规则只匹配某些状态。如果词法分析器不处于指定的状态，相应的规则被忽略。语法分析器开始于 INITIAL 状态，可以移动到指定的新状态。阅读纲要链接。下面的例子显示了 Jison 的不同之处，即在一个行动中用 <em>this.begin(&#39;state&#39;)</em> 代替 <em>BEGIN(STATE)</em> 来改变状态。</p>
+<p>最近添加的<a href="http://dinosaur.compilertools.net/flex/flex_11.html">启动条件</a>功能，允许某些规则只匹配某些状态。如果词法分析器不处于指定的状态，相应的规则被忽略。语法分析器开始于 INITIAL 状态，可以移动到指定的新状态。阅读纲要链接。下面的例子显示了 Jison 的不同之处，即在一个行动中用 <em>this.begin('state')</em> 代替 <em>BEGIN(STATE)</em> 来改变状态。</p>
 
 <pre><code>%s expect
 
 %%
-expect-floats        this.begin(&#39;expect&#39;);
+expect-floats        this.begin('expect');
 
-&lt;expect&gt;[0-9]+&quot;.&quot;[0-9]+      {
-            console.log( &quot;found a float, = &quot; + yytext );
+<expect>[0-9]+"."[0-9]+      {
+            console.log( "found a float, = " + yytext );
             }
-&lt;expect&gt;\n           %{
-            /* that&#39;s the end of the line, so
-             * we need another &quot;expect-number&quot;
-             * before we&#39;ll recognize any more
+<expect>\n           %{
+            /* that's the end of the line, so
+             * we need another "expect-number"
+             * before we'll recognize any more
              * numbers
              */
-            this.begin(&#39;INITIAL&#39;);
+            this.begin('INITIAL');
             %}
 
-[0-9]+      console.log( &quot;found an integer, = &quot; + yytext );
+[0-9]+      console.log( "found an integer, = " + yytext );
 
-&quot;.&quot;         console.log( &quot;found a dot&quot; );</code></pre>
+"."         console.log( "found a dot" );</code></pre>
 
 <p>另外，可以在一个行动中使用 this.popState() 恢复到前一个状态。</p>
 
@@ -328,7 +328,7 @@ expect-floats        this.begin(&#39;expect&#39;);
 
 <p>你不是必须使用 Jison 内置的词法扫描器。一个含有 lex 和 setInput 方法的对象就足够了，例如：</p>
 
-<pre><code>parser.lexer = {lex: function () { return &#39;NIL&#39;; }, setInput: function (str) {} }</code></pre>
+<pre><code>parser.lexer = {lex: function () { return 'NIL'; }, setInput: function (str) {} }</code></pre>
 
 <p>这个语法扫描器将一直返回词法单元 NIL。</p>
 
@@ -342,10 +342,10 @@ expect-floats        this.begin(&#39;expect&#39;);
 
 <p>来自 orderly.js 的一个例子：</p>
 
-<pre><code>var parser = require(&quot;./orderly/parse&quot;).parser;
+<pre><code>var parser = require("./orderly/parse").parser;
 
-// set parser&#39;s shared scope
-parser.yy = require(&quot;./orderly/scope&quot;);
+// set parser's shared scope
+parser.yy = require("./orderly/scope");
 
 // returns the JSON object
 var parse = exports.parse = function (input) {

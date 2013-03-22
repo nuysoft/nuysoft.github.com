@@ -12,7 +12,9 @@ $(function() {
             level = parseInt(elem.nodeName.match(/h(\d)/i)[1]),
             anchor = $('<a>').attr('name', text);
 
+        // 插入锚点
         h.before(anchor);
+        // 目录
         text = '<a href="#' + text + '">' + text + '</a>';
 
         prev = prev || level;

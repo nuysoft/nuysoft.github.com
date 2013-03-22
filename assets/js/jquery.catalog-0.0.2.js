@@ -20,9 +20,9 @@ function htree(headers) {
     function _parseChildren(id) {
         var tree;
         var pid = 'p' + id;
-        if (pidMap[pid]) {
-            tree = pidMap[pid];
+        if (tree = pidMap[pid]) {
             for (var i = 0; tree && i < tree.length; i++) {
+                tree[i].index = i;
                 var tmp = _parseChildren(tree[i].id); // 
                 if (tmp && tmp.length > 0) tree[i].children = tmp; // 
             }
@@ -45,12 +45,13 @@ function htree(headers) {
     headers.each(function(index, elem) {
         var h = $(elem),
             level = parseInt(elem.nodeName.match(/h(\d)/i)[1]),
+            parentId = closest(level - 1, index),
             item = {
-                id: ++id,
+                id: index,
                 el: h,
                 level: level,
-                prefix: '',
-                parent: closest(level - 1, index)
+                parentId: parentId,
+                parent: re[parentId]
             };
         re.push(item);
     });
@@ -58,7 +59,7 @@ function htree(headers) {
     var idMap = {}, pidMap = {}, id, pid;
     for (var i = 0, len = re.length; i < len; i++) {
         id = re[i].id;
-        pid = 'p' + re[i].parent;
+        pid = 'p' + re[i].parentId;
         idMap[id] = re[i];
         (pidMap[pid] = pidMap[pid] || []).push(re[i]);
     }
@@ -73,11 +74,26 @@ function htree(headers) {
     return tree;
 }
 
+function hprefix(node) {
+    var orig = node,
+        indexes = [];
+    while (node.parent) {
+        indexes.push(node.parent.index + 1);
+        node = node.parent;
+    }
+    indexes.push(orig.index + 1)
+    prefix = indexes.length === 1 ? indexes[0] + '.' : indexes.join('.');
+    prefix += ' ';
+    return prefix;
+}
+
 function hhtml(tree, level) {
     if (!tree || !tree.length) return '';
     var html = '<ul>',
-        text;
+        text, prefix, node, indexes;
     for (var i = 0, len = tree.length; i < len; i++) {
+        prefix = hprefix(tree[i]);
+        tree[i].el.prepend(prefix);
         text = tree[i].el.text();
         text = '<a href="#' + text + '">' + text + '</a>';
         if (tree[i].level <= level) html += '<li>' + text + '</li>';
@@ -97,22 +113,25 @@ $(function() {
     var headers = $(':header').not('h1');
 
     // 自动加序号 <hr>
-    headers.filter('h2').each(function(index, elem) {
+    /*headers.filter('h2').each(function(index, elem) {
         $(elem).prepend((index + 1) + '. ');
-    });
+    });*/
 
     var tree = htree(headers);
-    var html = hhtml(tree, 2);
+    var html = hhtml(tree, 3);
 
+    var width = 3;
+    var catalog;
     if (html) {
         // 插入目录
-        $('<div class="span3" style="margin-left: 0px; "></div>').empty() //
+        catalog = $('<div class="span__width__" style="margin-left: 0px; "></div>'.replace('__width__', width)) // 
+        .empty() //
         .append('<h2>目录<h2>') //
         .append(html) //
         .insertAfter('h1'); //
         // 栅格化
-        $('div.container').children().not('h1, .span3')
-            .wrapAll('<div class="span9"></div>');
+        $('div.container').children().not('h1, .span' + width)
+            .wrapAll('<div class="span__width__"></div>'.replace('__width__', 12 - width));
     }
 
     // 插入锚点

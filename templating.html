@@ -14,7 +14,7 @@
     <script src="assets/js/jquery.github.js"></script>
 </head>
 <body>
-    <div class="container"><h1>前端模板引擎 <a href="http://weibo.com/u/1809037057?from=profile&amp;wvr=5&amp;loc=infdomain">@nuysoft</a></h1>
+    <div class="container"><h1>前端模板引擎 <a href="http://weibo.com/u/1809037057?from=profile&wvr=5&loc=infdomain">@nuysoft</a></h1>
 
 <h2>参考资料</h2>
 
@@ -47,35 +47,35 @@
 
 <p>把后记写在这里，是因为本文有点长，另外。。。</p>
 
-<p>本文是边看源码边记录而成，尚粗糙不堪，自己却又渐觉无味，也没有自己写一个模板引擎的颠覆性灵感和冲动，兴趣也转向了编译原理、Flex&amp;Bison、Jison，因此。。。估计就到这里了，也就是说要烂尾了，就像之前写的 <a href="http://www.cnblogs.com/nuysoft/archive/2012/03/14/2395260.html">Backbone 系列</a>，实在是惭愧。</p>
+<p>本文是边看源码边记录而成，尚粗糙不堪，自己却又渐觉无味，也没有自己写一个模板引擎的颠覆性灵感和冲动，兴趣也转向了编译原理、Flex&Bison、Jison，因此。。。估计就到这里了，也就是说要烂尾了，就像之前写的 <a href="http://www.cnblogs.com/nuysoft/archive/2012/03/14/2395260.html">Backbone 系列</a>，实在是惭愧。</p>
 
 <h2>Mustache</h2>
 
 <h3>解析</h3>
 
-<p>以 &lt;div&gt;{{foo}}&lt;/div&gt; 为例：</p>
+<p>以 <div>{{foo}}</div> 为例：</p>
 
 <ol><li><p>解析文本、标记、标记值。</p><pre><code>[
-    [&quot;text&quot;, &quot;&lt;&quot;, 0, 1],
-    [&quot;text&quot;, &quot;d&quot;, 1, 2],
-    [&quot;text&quot;, &quot;i&quot;, 2, 3],
-    [&quot;text&quot;, &quot;v&quot;, 3, 4],
-    [&quot;text&quot;, &quot;&gt;&quot;, 4, 5],
-    [&quot;name&quot;, &quot;foo&quot;, 5, 12],
-    [&quot;text&quot;, &quot;&lt;&quot;, 12, 13],
-    [&quot;text&quot;, &quot;/&quot;, 13, 14],
-    [&quot;text&quot;, &quot;d&quot;, 14, 15],
-    [&quot;text&quot;, &quot;i&quot;, 15, 16],
-    [&quot;text&quot;, &quot;v&quot;, 16, 17],
-    [&quot;text&quot;, &quot;&gt;&quot;, 17, 18]
+    ["text", "<", 0, 1],
+    ["text", "d", 1, 2],
+    ["text", "i", 2, 3],
+    ["text", "v", 3, 4],
+    ["text", ">", 4, 5],
+    ["name", "foo", 5, 12],
+    ["text", "<", 12, 13],
+    ["text", "/", 13, 14],
+    ["text", "d", 14, 15],
+    ["text", "i", 15, 16],
+    ["text", "v", 16, 17],
+    ["text", ">", 17, 18]
 ]</code></pre></li><li><p>合并连贯的 text 标记为一个标记。</p><pre><code>[
-    [&quot;text&quot;, &quot;&lt;div&gt;&quot;, 0, 5],
-    [&quot;name&quot;, &quot;foo&quot;, 5, 12],
-    [&quot;text&quot;, &quot;&lt;/div&gt;&quot;, 12, 18]
+    ["text", "<div>", 0, 5],
+    ["name", "foo", 5, 12],
+    ["text", "</div>", 12, 18]
 ]</code></pre></li><li><p>格式化给定的标记数组为一个嵌套的树状结构。</p><pre><code>[
-    [&quot;text&quot;, &quot;&lt;div&gt;&quot;, 0, 5],
-    [&quot;name&quot;, &quot;foo&quot;, 5, 12],
-    [&quot;text&quot;, &quot;&lt;/div&gt;&quot;, 12, 18]
+    ["text", "<div>", 0, 5],
+    ["name", "foo", 5, 12],
+    ["text", "</div>", 12, 18]
 ]</code></pre></li></ol>
 
 <h3>编译</h3>
@@ -84,7 +84,7 @@
 
 <pre><code>function(view, partials) {
     if(partials) {
-        if(typeof partials === &#39;function&#39;) {
+        if(typeof partials === 'function') {
             self._loadPartial = partials;
         } else {
             for(var name in partials) {
@@ -105,25 +105,25 @@
 <p>遍历语法树，根据词法单元的类型拼接字符串。</p>
 
 <pre><code>function renderTokens(tokens, writer, context, template) {
-    var buffer = &#39;&#39;;
+    var buffer = '';
     var token, tokenValue, value;
     // 遍历标记树，根据标记类型拼接字符串
-    for(var i = 0, len = tokens.length; i &lt; len; ++i) {
+    for(var i = 0, len = tokens.length; i < len; ++i) {
         token = tokens[i]; // 标记
         tokenValue = token[1]; // 标记值
         switch(token[0]) { // 标记类型
-        case &#39;#&#39;:
+        case '#':
             value = context.lookup(tokenValue);
 
-            if(typeof value === &#39;object&#39;) {
+            if(typeof value === 'object') {
                 if(isArray(value)) {
-                    for(var j = 0, jlen = value.length; j &lt; jlen; ++j) {
+                    for(var j = 0, jlen = value.length; j < jlen; ++j) {
                         buffer += renderTokens(token[4], writer, context.push(value[j]), template);
                     }
                 } else if(value) {
                     buffer += renderTokens(token[4], writer, context.push(value), template);
                 }
-            } else if(typeof value === &#39;function&#39;) {
+            } else if(typeof value === 'function') {
                 var text = template == null ? null : template.slice(token[3], token[5]);
                 value = value.call(context.view, text, function(template) {
                     return writer.render(template, context);
@@ -134,32 +134,32 @@
             }
 
             break;
-        case &#39;^&#39;:
+        case '^':
             value = context.lookup(tokenValue);
 
-            // Use JavaScript&#39;s definition of falsy. Include empty arrays.
+            // Use JavaScript's definition of falsy. Include empty arrays.
             // See https://github.com/janl/mustache.js/issues/186
-            if(!value || (isArray(value) &amp;&amp; value.length === 0)) {
+            if(!value || (isArray(value) && value.length === 0)) {
                 buffer += renderTokens(token[4], writer, context, template);
             }
 
             break;
             // 
-        case &#39;&gt;&#39;:
+        case '>':
             value = writer.getPartial(tokenValue);
-            if(typeof value === &#39;function&#39;) buffer += value(context);
+            if(typeof value === 'function') buffer += value(context);
             break;
             // 读取值、拼接字符串
-        case &#39;&amp;&#39;:
+        case '&':
             value = context.lookup(tokenValue);
             if(value != null) buffer += value;
             break;
             // 读取值、转义 HTML 字符，拼接字符串
-        case &#39;name&#39;:
+        case 'name':
             value = context.lookup(tokenValue); // 获取值
             if(value != null) buffer += exports.escape(value); // 转义 HTML 字符
             break;
-        case &#39;text&#39;:
+        case 'text':
             buffer += tokenValue;
             break;
         }
@@ -194,83 +194,83 @@
 
 <h3>关键步骤示例</h3>
 
-<p>以 &#39;&lt;div&gt;{{abc}}&lt;/div&gt;&#39; 为例：</p>
+<p>以 '<div>{{abc}}</div>' 为例：</p>
 
 <ol><li><p>var ast = Handlebars.parse(string);</p><pre><code>// var ast = Handlebars.parse(string);
 {
-    &quot;type&quot;: &quot;program&quot;,
-    &quot;statements&quot;: [{
-        &quot;type&quot;: &quot;content&quot;,
-        &quot;string&quot;: &quot;&lt;div&gt;&quot;
+    "type": "program",
+    "statements": [{
+        "type": "content",
+        "string": "<div>"
     }, {
-        &quot;type&quot;: &quot;mustache&quot;,
-        &quot;escaped&quot;: true,
-        &quot;hash&quot;: null,
-        &quot;id&quot;: {
-            &quot;type&quot;: &quot;ID&quot;,
-            &quot;original&quot;: &quot;foo&quot;,
-            &quot;parts&quot;: [&quot;foo&quot;],
-            &quot;string&quot;: &quot;foo&quot;,
-            &quot;depth&quot;: 0,
-            &quot;isSimple&quot;: true,
-            &quot;stringModeValue&quot;: &quot;foo&quot;
+        "type": "mustache",
+        "escaped": true,
+        "hash": null,
+        "id": {
+            "type": "ID",
+            "original": "foo",
+            "parts": ["foo"],
+            "string": "foo",
+            "depth": 0,
+            "isSimple": true,
+            "stringModeValue": "foo"
         },
-        &quot;params&quot;: [],
-        &quot;eligibleHelper&quot;: true,
-        &quot;isHelper&quot;: null
+        "params": [],
+        "eligibleHelper": true,
+        "isHelper": null
     }, {
-        &quot;type&quot;: &quot;content&quot;,
-        &quot;string&quot;: &quot;&lt;/div&gt;&quot;
+        "type": "content",
+        "string": "</div>"
     }]
 }</code></pre></li><li><p>var environment = new Handlebars.Compiler().compile(ast, options);</p><pre><code>// var environment = new Handlebars.Compiler().compile(ast, options);
 {
-    &quot;children&quot;: [],
-    &quot;depths&quot;: {
-        &quot;list&quot;: []
+    "children": [],
+    "depths": {
+        "list": []
     },
-    &quot;options&quot;: {
-        &quot;data&quot;: true,
-        &quot;knownHelpers&quot;: {
-            &quot;helperMissing&quot;: true,
-            &quot;blockHelperMissing&quot;: true,
-            &quot;each&quot;: true,
-            &quot;if&quot;: true,
-            &quot;unless&quot;: true,
-            &quot;with&quot;: true,
-            &quot;log&quot;: true
+    "options": {
+        "data": true,
+        "knownHelpers": {
+            "helperMissing": true,
+            "blockHelperMissing": true,
+            "each": true,
+            "if": true,
+            "unless": true,
+            "with": true,
+            "log": true
         }
     },
-    &quot;opcodes&quot;: [{
-        &quot;opcode&quot;: &quot;appendContent&quot;,
-        &quot;args&quot;: [&quot;&lt;div&gt;&quot;]
+    "opcodes": [{
+        "opcode": "appendContent",
+        "args": ["<div>"]
     }, {
-        &quot;opcode&quot;: &quot;getContext&quot;,
-        &quot;args&quot;: [0]
+        "opcode": "getContext",
+        "args": [0]
     }, {
-        &quot;opcode&quot;: &quot;pushProgram&quot;,
-        &quot;args&quot;: [null]
+        "opcode": "pushProgram",
+        "args": [null]
     }, {
-        &quot;opcode&quot;: &quot;pushProgram&quot;,
-        &quot;args&quot;: [null]
+        "opcode": "pushProgram",
+        "args": [null]
     }, {
-        &quot;opcode&quot;: &quot;invokeAmbiguous&quot;,
-        &quot;args&quot;: [&quot;foo&quot;, false]
+        "opcode": "invokeAmbiguous",
+        "args": ["foo", false]
     }, {
-        &quot;opcode&quot;: &quot;appendEscaped&quot;,
-        &quot;args&quot;: []
+        "opcode": "appendEscaped",
+        "args": []
     }, {
-        &quot;opcode&quot;: &quot;appendContent&quot;,
-        &quot;args&quot;: [&quot;&lt;/div&gt;&quot;]
+        "opcode": "appendContent",
+        "args": ["</div>"]
     }],
-    &quot;isSimple&quot;: false
+    "isSimple": false
 }</code></pre></li><li><p>var templateSpec = new Handlebars.JavaScriptCompiler().compile(environment, options, undefined, true);</p><pre><code>// var templateSpec = new Handlebars.JavaScriptCompiler().compile(environment, options, undefined, true);
 function anonymous(Handlebars, depth0, helpers, partials, data) {
     helpers = helpers || Handlebars.helpers;
     data = data || {};
-    var buffer = &quot;&quot;,
-        stack1, functionType = &quot;function&quot;,
+    var buffer = "",
+        stack1, functionType = "function",
         escapeExpression = this.escapeExpression;
-    buffer += &quot;&lt;div&gt;&quot;;
+    buffer += "<div>";
     if(stack1 = helpers.foo) {
         stack1 = stack1.call(depth0, {
             hash: {},
@@ -280,7 +280,7 @@ function anonymous(Handlebars, depth0, helpers, partials, data) {
         stack1 = depth0.foo;
         stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1;
     }
-    buffer += escapeExpression(stack1) + &quot;&lt;/div&gt;&quot;;
+    buffer += escapeExpression(stack1) + "</div>";
     return buffer;
 }</code></pre></li><li><p>Handlebars.template(templateSpec);</p><pre><code>// Handlebars.template(templateSpec);
 function(context, options) {
@@ -350,14 +350,14 @@ dust.load = function(name, chunk, context) {
 };
 function compile(ast, name) {
   // ...
-  return &quot;(function(){dust.register(&quot;
-    + (name ? &quot;\&quot;&quot; + name + &quot;\&quot;&quot; : &quot;null&quot;) + &quot;,&quot;
+  return "(function(){dust.register("
+    + (name ? "\"" + name + "\"" : "null") + ","
     + dust.compileNode(context, ast)
-    + &quot;);&quot;
+    + ");"
     + compileBlocks(context)
     + compileBodies(context)
-    + &quot;return body_0;&quot;
-    + &quot;})();&quot;;
+    + "return body_0;"
+    + "})();";
 }</code></pre>
 
 <h3>渲染</h3>
@@ -392,7 +392,7 @@ function compile(ast, name) {
 
 <h2>Underscore Templating</h2>
 
-<p>JavaScript micro-templating, similar to John Resig&#39;s implementation.</p>
+<p>JavaScript micro-templating, similar to John Resig's implementation.</p>
 
 <p>Underscore templating handles arbitrary delimiters, preserves whitespace, and correctly escapes quotes within interpolated code.</p>
 
@@ -447,7 +447,7 @@ function compile(ast, name) {
 <p>将数据中的所有属性作为顶层变量，在函数头部声明，用以替换 with()。</p>
 
 <pre><code>for(name in data) {
-    _template_varName += (&#39;var &#39; + name + &#39;=data[\&quot;&#39; + name + &#39;\&quot;];&#39;);
+    _template_varName += ('var ' + name + '=data[\"' + name + '\"];');
 };
 eval(_template_varName);</code></pre>
 

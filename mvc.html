@@ -4,16 +4,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>nuysoft</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.override.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
     <script src="assets/js/jquery-1.8.3.js"></script>
     <script src="assets/js/jquery.catalog-0.0.2.js"></script>
+    <script src="assets/js/github.js"></script>
+    <script src="assets/js/jquery.github.js"></script>
 </head>
 <body>
-    <div class="container"><h1>JavaScript MVC <a href="http://weibo.com/u/1809037057?from=profile&amp;wvr=5&amp;loc=infdomain">@nuysoft</a></h1>
+    <div class="container"><h1>JavaScript MVC <a href="http://weibo.com/u/1809037057?from=profile&wvr=5&loc=infdomain">@nuysoft</a></h1>
 
-<h2>前言开光 - 框架&gt;=本质</h2>
+<h2>参考资料</h2>
+
+<ul><li><a href="http://blog.stevensanderson.com/2012/08/01/rich-javascript-applications-the-seven-frameworks-throne-of-js-2012/">Rich JavaScript Applications – the Seven Frameworks</a><ul><li><a href="http://www.ituring.com.cn/article/8108">[翻译] JavaScript宝座：七大框架论剑</a></li><li>AngularJS、Backbone、Batman、CanJS、Ember、Meteor、Knockout、Spine</li></ul></li><li><a href="http://stackoverflow.com/questions/6530444/backbone-js-vs-spine-js">Backbone.js vs Spine.js</a></li><li><a href="http://ghbtns.com/">GitHub Buttons</a></li></ul>
+
+<h2>参考框架&库</h2>
+
+<ul><li><a href="https://github.com/documentcloud/backbone">Backbone</a> <ul><li>Backbone supplies structure to JavaScript-heavy applications by providing models key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing application over a RESTful JSON interface.</li><li>_github documentcloud/backbone</li></ul></li><li><a href="https://github.com/meteor/meteor">Meteor</a> <ul><li>Meteor is an ultra-simple environment for building modern web applications.</li><li>With Meteor you write apps:<ul><li>in pure Javascript</li><li>that send data over the wire, rather than HTML</li><li>using your choice of popular open-source libraries</li></ul></li><li>_github meteor/meteor</li></ul></li><li><a href="https://github.com/emberjs/ember.js">Ember.js</a><ul><li>Ember.js is a JavaScript framework that does all of the heavy lifting that you'd normally have to do by hand. There are tasks that are common to every web app; Ember.js does those things for you, so you can focus on building killer features and UI.</li><li>These are the three features that make Ember.js a joy to use:<ul><li>Bindings</li><li>Computed properties</li><li>Auto-updating templates</li></ul></li><li>_github emberjs/ember.js</li></ul></li><li><a href="https://github.com/angular/angular.js">AngularJS</a><ul><li>AngularJS lets you write client-side web applications as if you had a smarter browser. It lets you use good old HTML (or HAML, Jade and friends!) as your template language and lets you extend HTML’s syntax to express your application’s components clearly and succinctly. It automatically synchronizes data from your UI (view) with your JavaScript objects (model) through 2-way data binding. To help you structure your application better and make it easy to test, AngularJS teaches the browser how to do dependency injection and inversion of control. Oh yeah and it also helps with server-side communication, taming async callbacks with promises and deferreds; and make client-side navigation and deeplinking with hashbang urls or HTML5 pushState a piece of cake. The best of all: it makes development fun!</li><li>_github janl/mustache.js</li></ul></li><li><a href="https://github.com/SteveSanderson/knockout">Knockout</a> <ul><li>Knockout is a JavaScript MVVM (a modern variant of MVC) library that makes it easier to create rich, desktop-like user interfaces with JavaScript and HTML. It uses observers to make your UI automatically stay in sync with an underlying data model, along with a powerful and extensible set of declarative bindings to enable productive development.</li><li>_github SteveSanderson/knockout</li></ul></li><li><a href="https://github.com/spine/spine">Spine</a><ul><li>Spine is a lightweight framework for building JavaScript web applications. Spine gives you an MVC structure and then gets out of your way, allowing you to concentrate on the fun stuff, building awesome web applications.</li><li>_github spine/spine</li></ul></li><li><a href="https://github.com/Shopify/batman">batman.js</a> <ul><li>batman.js is a framework for building rich single-page browser applications. It is written in CoffeeScript and its API is developed with CoffeeScript in mind, but of course you can use plain old JavaScript too.</li><li>_github Shopify/batman</li></ul></li><li><a href="https://github.com/bitovi/canjs">CanJS</a> <ul><li>CanJS is a MIT-licensed, client-side, JavaScript framework that makes building rich web applications easy. Use it because it’s: Smaller, Faster, Safer, Easier, Library-er.</li><li>_github bitovi/canjs</li></ul></li><li><a href="https://github.com/addyosmani/todomvc">TodoMVC</a><ul><li>Helping you select an MV* framework - Todo apps for Backbone.js, Ember.js, AngularJS, Spine and many more</li><li>_github addyosmani/todomvc </li></ul></li></ul>
+
+<h2>前言开光 - 框架>=本质</h2>
 
 <p>先起个头谈谈对框架认识和学习吧。</p>
 
@@ -114,10 +123,10 @@
 <p>在浏览器中，JSMVC 会用到三类事件，分别对应着三种事件驱动方式：</p>
 
 <ol><li><p>hash 事件，即 popstate/hashchange 事件，绑定在 window 对象上，用来驱动控制器。hash 变化触发 popstate/hashchange 事件之后，控制器根据配置找到相应的回调函数并执行；配置是指存有 hash 与回调函数的映射关系的 Map 对象。</p><p>这个过程称为“hash驱动控制器”，在 Backbone 中由 Router 和 History 共同实现。</p></li><li><p>DOM 事件，即我们熟知的 click、focus 等浏览器事件，用来响应用户操作、实现交互。DOM 事件被绑定在视图 View上，特别的是 Backbone 提倡采用集中配置的方式，例如下面的代码：</p><pre><code>events: {
-    &quot;click .check&quot;              : &quot;toggleDone&quot;,
-    &quot;dblclick div.todo-text&quot;    : &quot;edit&quot;,
-    &quot;click span.todo-destroy&quot;   : &quot;clear&quot;,
-    &quot;keypress .todo-input&quot;      : &quot;updateOnEnter&quot;
+    "click .check"              : "toggleDone",
+    "dblclick div.todo-text"    : "edit",
+    "click span.todo-destroy"   : "clear",
+    "keypress .todo-input"      : "updateOnEnter"
 }</code></pre><p>这个过程称为“DOM事件驱动视图“，在 Backbone 由 View 实现，事件的绑定、触发、销毁则依赖于 jQuery 等第三方库。</p></li><li><p>模型事件，包括业务模型事件和数据模型事件，用来驱动模型以及模型集合，实现模型和视图之间的观察者模式。
 这个过程称之为”模型驱动“，在 Backbone 中由 Model、Collection、Event 实现。</p></li></ol>
 
@@ -127,15 +136,17 @@
 
 <p>框架用户则主要关注模型 M 和视图 V，即业务、数据以及展示，并关注模型 M 的复用和视图 V 的变化。</p>
 
-<h2>Backbone 架构</h2>
+<h2>Backbone</h2>
+
+<h3>Backbone 架构</h3>
 
 <p><img alt="" src="assets/images/Backbone.png"/></p>
 
-<h3>参考资料</h3>
+<h4>参考资料</h4>
 
 <ul><li>基于 <a href="https://github.com/documentcloud/backbone/tree/0.9.1">Backbone 0.9.1</a></li><li><a href="http://documentcloud.github.com/backbone/">官方文档</a></li><li><a href="http://www.csser.com/tools/backbone/backbone.js.html">中文翻译</a></li></ul>
 
-<h3>官网介绍</h3>
+<h4>官网介绍</h4>
 
 <p>Backbone 通过提供模型 Model、集合 Collection、视图 View 赋予了 Web 应用程序分层结构。</p>
 
@@ -143,7 +154,7 @@
 
 <ul><li>模型 Model 绑定键值数据和自定义事件。</li><li>集合 Colection 是模型的有序或无序集合，带有丰富的可枚举 API。</li><li>视图 View 声明事件监听函数。</li><li>将模型、集合、视图与服务端的 RESTful JSON 接口连接。</li></ul>
 
-<h3>自调用匿名函数</h3>
+<h4>自调用匿名函数</h4>
 
 <p>整个 Backbone 的源码用一个自调用匿名函数包裹，通过闭包特性引用变量（例如 previousBackbone、slice、splice 等），同时避免污染全局命名空间。</p>
 
@@ -161,11 +172,11 @@
     Backbone.Model.extend = Backbone.Collection.extend = Backbone.Router.extend = Backbone.View.extend = extend; // 自扩展方法
 }).call(this);</code></pre>
 
-<h3>依赖库</h3>
+<h4>依赖库</h4>
 
 <p>Backbone 必须依赖于 Underscore.js，DOM 操作和 Ajax 请求依赖于第三方 jQuery/Zepto/ender 之一，也可以通过方法 Backbone.setDomLibrary( lib ) 设置其他的第三方库。</p>
 
-<h3>自定义事件模块 Backbone.Events</h3>
+<h4>自定义事件模块 Backbone.Events</h4>
 
 <p>可以和任意对象合体（将方法赋值到其他对象或原型上），合体后的对象支持自定义事件，提供了三个方法来绑定、移除、触发自定义事件：</p>
 
@@ -177,7 +188,7 @@ triggle(events)                 // 触发一个或多个事件回调函数</code
 
 <p><img alt="" src="assets/images/Backbone.Events.png"/></p>
 
-<h3>模型 Backbone.Model</h3>
+<h4>模型 Backbone.Model</h4>
 
 <p>模型是 JavaScript 应用程序的核心，包含了业务数据以及对业务数据的读写和持久化，模型的主要方法包括读写和持久化：</p>
 
@@ -213,9 +224,9 @@ error</code></pre>
 
 <p><img alt="" src="assets/images/Backbone.Model.png"/></p>
 
-<h3>集合 Backbone.Collection</h3>
+<h4>集合 Backbone.Collection</h4>
 
-<p>集合是模型的有序集合，可以在集合上绑定 &quot;change&quot; 事件，当集合中的任意模型发生变化时将收到通知，集合也可以监听 &quot;add&quot; 和 “remove&quot; 事件，从服务器获取数据，并能使用 Underscore.js 提供的全套方法。为了方便，在集合中的模型上触发的任何事件都会在集合上直接触发。这样就可以监听集合中模型的指定属性的变化。 例如：Documents.on(&quot;change:selected&quot;, ...)。</p>
+<p>集合是模型的有序集合，可以在集合上绑定 "change" 事件，当集合中的任意模型发生变化时将收到通知，集合也可以监听 "add" 和 “remove" 事件，从服务器获取数据，并能使用 Underscore.js 提供的全套方法。为了方便，在集合中的模型上触发的任何事件都会在集合上直接触发。这样就可以监听集合中模型的指定属性的变化。 例如：Documents.on("change:selected", ...)。</p>
 
 <p>集合的主要方法包括读写、维护和持久化：</p>
 
@@ -253,7 +264,7 @@ error
 
 <p><img alt="" src="assets/images/Backbone.Collection.png"/></p>
 
-<h3>路由配置器 Backbone.Router</h3>
+<h4>路由配置器 Backbone.Router</h4>
 
 <p>Web 应用程序通常需要为重要页面提供可链接、收藏、可分享的 URL。 直到最近， 锚文片段（hash #page）可以被用来提供这种固定链接；同时随着 History API 的到来，锚文现在可以用于处理标准 URLs（/page）。</p>
 
@@ -277,7 +288,7 @@ _extractParameters: function(route, fragment) // 正则匹配URL片段fragment�
 <pre><code>route:name
 route</code></pre>
 
-<h3>路由器 Backbone.History</h3>
+<h4>路由器 Backbone.History</h4>
 
 <p>作为全局路由器，用于处理 hashchange 或 pushState 事件，匹配适合的路由表，并触发回调函数。</p>
 
@@ -299,7 +310,7 @@ _updateHash(location, fragment, replace) // 更新锚文路径（location.replac
 
 <p><img alt="" src="assets/images/Backbone.Router+History.png"/></p>
 
-<h3>视图 Backbone.View</h3>
+<h4>视图 Backbone.View</h4>
 
 <p>视图的使用相当方便，不需要判断任何 HTML、CSS，可以和任意 JavaScript 模板引擎集成。</p>
 
@@ -311,53 +322,63 @@ _updateHash(location, fragment, replace) // 更新锚文路径（location.replac
 
 <p><img alt="" src="assets/images/Backbone.View.png"/></p>
 
-<h3>扩展方法 extend</h3>
+<h4>扩展方法 extend</h4>
 
 <p>模型、集合、视图、路由器都含有一个 extend(protoProps, classProps) 方法，用于扩展原型属性和静态属性，创建自定义的视图、集合、视图、路由器类。</p>
 
-<h2>事件 Event - 最佳基友</h2>
+<h3>事件 Event - 最佳基友</h3>
 
-<p>概述、使用、流程、事件、源码</p>
+<blockquote><p>TODO 概述、使用、流程、事件、源码</p></blockquote>
 
-<blockquote><p>TODO</p></blockquote>
-
-<h2>模型 Model - 自娱自乐</h2>
+<h3>模型 Model - 自娱自乐</h3>
 
 <blockquote><p>TODO</p></blockquote>
 
-<h2>集合 Collection - 不是一个人在战斗</h2>
+<h3>集合 Collection - 不是一个人在战斗</h3>
 
 <blockquote><p>TODO</p></blockquote>
 
-<h2>视图 View - 能者多劳</h2>
+<h3>视图 View - 能者多劳</h3>
 
 <blockquote><p>TODO</p></blockquote>
 
-<h2>控制器 Route + History</h2>
+<h3>控制器 Route + History - ？</h3>
 
 <blockquote><p>TODO</p></blockquote>
 
-<h2>Backbone 插件</h2>
+<h3>Backbone 插件</h3>
 
-<ul><li><a href="https://github.com/rotundasoftware/backbone.subviews">Backbone.Subviews</a><ul><li>A minimalist view mixin for creating and managing named subviews (views within views) in your Backbone.js applications.</li></ul></li><li><a href="https://github.com/rotundasoftware/backbone.courier">Backbone.Courier</a><ul><li>Easily bubble events (&quot;messages&quot;) up your view hierarchy in your Backbone.js applications.</li></ul></li></ul>
+<ul><li><a href="https://github.com/rotundasoftware/backbone.subviews">Backbone.Subviews</a><ul><li>A minimalist view mixin for creating and managing named subviews (views within views) in your Backbone.js applications.</li></ul></li><li><a href="https://github.com/rotundasoftware/backbone.courier">Backbone.Courier</a><ul><li>Easily bubble events ("messages") up your view hierarchy in your Backbone.js applications.</li></ul></li></ul>
 
-<h2>可以学习的编码技巧 - 上士闻道</h2>
+<h3>可以学习的编码技巧 - 上士闻道</h3>
 
 <ol><li>字符串用单引号包裹，提高编码效率（高效）。</li><li>将对象包装成数组，统一处理，砍掉对象，什么都是数组的编程思想（多功能）。</li><li>总是预留一个选项对象，函数根据选项中的属性执行不同的逻辑（可扩展，增加策略）。</li><li>复制选项对象，避免在执行过程中改变选项对象中的属性，影响外围函数的执行逻辑（高内聚）。</li><li>等待策略：决定是立即在浏览器中生效，还是等到服务器响应根据响应结果决定是否生效（便于测试）。</li><li>细致的事件类型：应用开发虽然用不到，但是利于插件或基于 Backbone 开发。</li><li>设计模式：MVC模式、观察者模式。</li></ol>
 
-<h2>可以改进或扩展的地方 - 三省她身</h2>
+<h3>可以改进或扩展的地方 - 三省她身</h3>
 
 <ol><li>对其他库的依赖：jQuery/Zepto/Ender，Underscore，最讨厌库依赖！</li><li>深受 Rails 的影响，与 MVC 的理解和实现必然有其局限性，不过是一家之言。</li><li>仅仅是对 JSMVC 框架的探索，没有实现诸如嵌套模型、嵌套集合、嵌套视图的管理，虽然有诸多插件，但这又造成更多的依赖，诸多原因局限了它在实际项目中的应用，处于探索不成熟阶段。</li><li>代码行数不多且容易理解，是学习 JSMVC 的很好示例，但是会导致更多的工程师学习并创造自己的 MVC 框架（比如我、我所在的团队），一个不是革命性的框架导致的诸多模仿者，会让 MVC 框架更加泛滥（看看其他语言的发展历史，总是在重复）。</li></ol>
 
-<h2>待分类</h2>
+<h3>待分类</h3>
 
 <ol><li>使用了大量有副作用的表达式、语句，比如
 布尔表达式
 在 if 中调用设置方法</li><li>所有的方法都预留一个 options 对象参数，用于存放可以改变方法行为的参数。</li><li>将工具函数underscore和backbone分离，underscore负责提供基础工具函数，backbone则负责实现MVC框架；这种分离有利于两个库的复用。可以集成第三方库。</li><li>关于回调函数和触发事件的二选一，如果设置回调函数则不触发事件，未设置回调函数才会触发事件；这样会减少重复响应，在框架这一级避免出现这样的bug，更健壮，不会让新手遇到莫名其妙的问题。</li></ol>
 
+<h3>Backbone 发布记录</h3>
+
+<ul><li><a href="http://backbonejs.org/#changelog">Backbone Change Log</a></li><li><a href="https://github.com/documentcloud/backbone/tags">Backbone Tags</a></li></ul>
+
+<h2>AngularJS</h2>
+
+<h2>Knockout</h2>
+
+<h2>Meteor</h2>
+
+<h2>Ember.js</h2>
+
 <h2>何谈理解</h2>
 
-<p>在很多文章中会提到，学习开源框架最重要的学习它的思想、架构，这应该是最终的目标，也是最初的目标，但这两个境界截然不同。</p>
+<p>在很多文章中会提到，学习开源框架最重要的学习它的思想、架构，这应该是最终的目标，也是最初的动机，但这两个境界截然不同。</p>
 
 <p>姑且分为一、二、三层境界，第一层为了解思想架构，第二层为熟读源码细节，深刻体会思想架构；第三层将思想架构融入自己的体系和实践，收为己有运用自如。</p>
 
@@ -391,9 +412,9 @@ _updateHash(location, fragment, replace) // 更新锚文路径（location.replac
 
 <ul><li>校对已有内容</li></ul>
 
-<h2>Backbone 发布记录</h2>
+<p><strong>nuysoft 2013-03-22 0.05</strong></p>
 
-<ul><li><a href="http://backbonejs.org/#changelog">Backbone Change Log</a></li><li><a href="https://github.com/documentcloud/backbone/tags">Backbone Tags</a></li></ul>    </div>
+<ul><li>增加参考资料、参考库&框架</li></ul>    </div>
 </body>
 </html>
 <script type="text/javascript">
