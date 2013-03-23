@@ -9,23 +9,23 @@
     <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container"><h1>Configuring Tasks</h1>
+    <div class="container"><p><!-- # Configuring Tasks --></p>
 
 <h1>配置任务</h1>
 
-<p>This guide explains how to configure tasks for your project using a Gruntfile.  If you don't know what a Gruntfile is, please read the [[Getting Started]] guide and check out a [[Sample Gruntfile]].</p>
+<p><!-- This guide explains how to configure tasks for your project using a Gruntfile.  If you don't know what a Gruntfile is, please read the [[Getting Started]] guide and check out a [[Sample Gruntfile]]. --></p>
 
 <p>本指南介绍了如何在项目中使用文件 Gruntfile 配置任务。如果你不知道 Gruntfile 是什么，请阅读 <a href="http://gruntjs.com/getting-started/">Grunt 入门</a>指南，并检出一个 <a href="http://gruntjs.com/sample-gruntfile/">Gruntfile 示例</a>。</p>
 
-<h2>Grunt Configuration</h2>
+<p><!-- ## Grunt Configuration --></p>
 
 <h2>Grunt 配置</h2>
 
-<p>Task configuration is specified in your Gruntfile via the <code>grunt.initConfig</code> method. This configuration will mostly be under task-named properties, but may contain any arbitrary data. As long as properties don't conflict with properties your tasks require, they will be otherwise ignored.</p>
+<p><!-- Task configuration is specified in your Gruntfile via the <code>grunt.initConfig</code> method. This configuration will mostly be under task-named properties, but may contain any arbitrary data. As long as properties don't conflict with properties your tasks require, they will be otherwise ignored. --></p>
 
 <p>任务配置通过 Gruntfile 中的 <code>grunt.initConfig</code> 指定。配置通常挂在以任务命名的属性上，但是可以包含任意数据。只要这些属性与任务需要的属性不冲突，否则会被忽略。</p>
 
-<p>Also, because this is JavaScript, you're not limited to JSON; you may use any valid JavaScript here. You may even programmatically generate the configuration if necessary.</p>
+<p><!-- Also, because this is JavaScript, you're not limited to JSON; you may use any valid JavaScript here. You may even programmatically generate the configuration if necessary. --></p>
 
 <p>另外，因为是在 javaScript 文件中，就不局限于 JSON；你可以使用任何有效的 JavaScript。如有必要，你设置可以以编程的方法生成配置。</p>
 
@@ -43,13 +43,13 @@ grunt.initConfig({
 });
 </code></p>
 
-<h2>Task Configuration and Targets</h2>
+<p><!-- ## Task Configuration and Targets --></p>
 
 <h2>任务配置和目标</h2>
 
 <blockquote><p>Task 和 Target 似乎没必要翻译</p></blockquote>
 
-<p>When a task is run, Grunt looks for its configuration under a property of the same name. Multi-tasks can have multiple configurations, defined using arbitrarily named "targets." In the example below, the <code>concat</code> task has <code>foo</code> and <code>bar</code> targets, while the <code>uglify</code> task only has a <code>bar</code> target.</p>
+<p><!-- When a task is run, Grunt looks for its configuration under a property of the same name. Multi-tasks can have multiple configurations, defined using arbitrarily named "targets." In the example below, the <code>concat</code> task has <code>foo</code> and <code>bar</code> targets, while the <code>uglify</code> task only has a <code>bar</code> target. --></p>
 
 <p>当一个任务运行时，Grunt 在同名属性下查找该任务的配置。多个任务可以有多个配置，定义在任意命名的 "targets" 中。在下面的例子中，任务 <code>concat</code> 含有 <code>foo</code> 和 <code>bar</code> 两个目标，而任务 <code>uglify</code> 只有一个目标 <code>bar</code>。</p>
 
@@ -71,19 +71,19 @@ grunt.initConfig({
 });
 </code></p>
 
-<p>Specifying both a task and target like <code>grunt concat:foo</code> or <code>grunt concat:bar</code> will process just the specified target's configuration, while running <code>grunt concat</code> will iterate over <em>all</em> targets, processing each in turn.  Note that if a task has been renamed with <a href="https://github.com/gruntjs/grunt/wiki/grunt#wiki-grunt-renameTask">grunt.renameTask</a>, Grunt will look for a property with the <em>new</em> task name in the config object.</p>
+<p><!-- Specifying both a task and target like <code>grunt concat:foo</code> or <code>grunt concat:bar</code> will process just the specified target's configuration, while running <code>grunt concat</code> will iterate over <em>all</em> targets, processing each in turn.  Note that if a task has been renamed with <a href="https://github.com/gruntjs/grunt/wiki/grunt#wiki-grunt-renameTask">grunt.renameTask</a>, Grunt will look for a property with the <em>new</em> task name in the config object. --></p>
 
 <p>同时指定一个任务和目标，例如 <code>grunt concat:foo</code> 或 <code>grunt concat:bar</code> 将只处理指定目标的配置，而运行 <code>grunt concat</code> 则会遍历<em>所有</em>的目标，顺序处理。注意，如果一个任务已经通过 <a href="https://github.com/gruntjs/grunt/wiki/grunt#wiki-grunt-renameTask">grunt.renameTask</a> 重命名，Grunt 将在配置对象中查找以<em>新</em>任务名命名的属性。</p>
 
-<h2>Options</h2>
+<p><!-- ## Options --></p>
 
 <h2>选项</h2>
 
-<p>Inside a task configuration, an <code>options</code> property may be specified to override built-in defaults.  In addition, each target may have an <code>options</code> property which is specific to that target.  Target-level options will override task-level options.</p>
+<p><!-- Inside a task configuration, an <code>options</code> property may be specified to override built-in defaults.  In addition, each target may have an <code>options</code> property which is specific to that target.  Target-level options will override task-level options. --></p>
 
 <p>在一个任务配置中，可以指定属性 <code>options</code> 来覆盖内置的默认子。此外，每个目标可以含有一个特定该目标的 <code>options</code> 属性。Target 级别的选项将覆盖任务界别的选项。</p>
 
-<p>The <code>options</code> object is optional and may be omitted if not needed.</p>
+<p><!-- The <code>options</code> object is optional and may be omitted if not needed. --></p>
 
 <p>对象 <code>options</code> 时可选的，如果不需要的话还可以省略它。</p>
 
@@ -105,25 +105,32 @@ grunt.initConfig({
 });
 </code></p>
 
-<h2>Files</h2>
+<p><!-- ## Files --></p>
 
 <h2>文件集合</h2>
 
-<p>Because most tasks perform file operations, Grunt has powerful abstractions for declaring on which files the task should operate. There are several ways to define <strong>src-dest</strong> (source-destination) file mappings, offering varying degrees of verbosity and control. Any multi task will understand all the following formats, so choose whichever format best meets your needs.</p>
+<p><!-- Because most tasks perform file operations, Grunt has powerful abstractions for declaring on which files the task should operate. There are several ways to define <strong>src-dest</strong> (source-destination) file mappings, offering varying degrees of verbosity and control. Any multi task will understand all the following formats, so choose whichever format best meets your needs. --></p>
 
 <p>因为大部分任务执行的是文件操作，Grunt 拥有强大的抽象，用于声明任务应该操作哪些文件。有几种方式来定义 <strong>src-dest</strong> (源-目标) 文件映射，提供了不同程度的冗余和控制。任何任务都会明白以下所有格式，所以选择最能满足你的需求的格式。</p>
 
-<p>All files formats support <code>src</code> and <code>dest</code> but the "Compact" and "Files Array" formats support a few additional properties:</p>
+<p><!-- All files formats support <code>src</code> and <code>dest</code> but the "Compact" and "Files Array" formats support a few additional properties: --></p>
 
 <p>所有文件都支持 <code>src</code> 和 <code>dest</code>，但是“紧凑型”和“文件数组”格式支持一些额外的属性：</p>
 
-<ul><li><code>filter</code> Either a valid <a href="http://nodejs.org/docs/latest/api/fs.html#fs_class_fs_stats">fs.Stats method name</a> or a function that is passed the matched <code>src</code> filepath and returns <code>true</code> or <code>false</code>.</li><li><code>filter</code> 可以是一个有效的 <a href="http://nodejs.org/docs/latest/api/fs.html#fs_class_fs_stats">fs.Stats 方法名</a>，也可以是一个函数，接受匹配的文件路径 <code>src</code>，并返回 <code>true</code> 或 <code>false</code>。</li><li><code>nonull</code> When a match is not found, return a list containing the pattern itself. Otherwise, an empty list is returned if there are no matches. Combined with grunt's <code>--verbose</code> flag, this option can help debug file path issues.</li><li><code>nonull</code> 当没有找到任何匹配文件时，返回含有通配符的列表。否则，如果没有任何匹配文件，则返回一个空列表。结合 Grunt <code>--verbose</code> 标记，该选项可以帮助调试文件路径问题。</li><li><code>dot</code> Allow patterns to match filenames starting with a period, even if the pattern does not explicitly have a period in that spot.</li><li><code>dot</code> 允许通配符匹配以一段字符开头（？？）的文件名，及时是通配符没有明确指定那段字符的位置。</li><li><code>matchBase</code> If set, patterns without slashes will be matched against the basename of the path if it contains slashes. For example, a?b would match the path <code>/xyz/123/acb</code>, but not <code>/xyz/acb/123</code>.</li><li><code>matchBase</code> 如果设置了属性，不含斜杠的模式将不配路径名，如果该路径还有斜杠。例如，模式 a?b 将匹配路径 <code>/xyz/123/acb</code>，但是不匹配 <code>/xyz/acb/123</code>。</li><li><code>expand</code> Process a dynamic src-dest file mapping, see "Building the files object dynamically" for more information.</li><li><code>expand</code> 处理一个动态的源文件-目标文件的映射，更多信息请查看“动态构建文件集合对象”。</li><li>Other properties will be passed into the underlying libs as matching options. See the <a href="https://github.com/isaacs/node-glob">node-glob</a> and <a href="https://github.com/isaacs/minimatch">minimatch</a> documentation for more options.</li><li>其他属性会被作为匹配选项传递到底层库。更多选项查看文档 <a href="https://github.com/isaacs/node-glob">node-glob</a> 和 <a href="https://github.com/isaacs/minimatch">minimatch</a>。</li></ul>
+<p><!-- <em> <code>filter</code> Either a valid <a href="http://nodejs.org/docs/latest/api/fs.html#fs_class_fs_stats">fs.Stats method name</a> or a function that is passed the matched <code>src</code> filepath and returns <code>true</code> or <code>false</code>.
+</em> <code>nonull</code> When a match is not found, return a list containing the pattern itself. Otherwise, an empty list is returned if there are no matches. Combined with grunt's <code>--verbose</code> flag, this option can help debug file path issues.
+<em> <code>dot</code> Allow patterns to match filenames starting with a period, even if the pattern does not explicitly have a period in that spot.
+</em> <code>matchBase</code> If set, patterns without slashes will be matched against the basename of the path if it contains slashes. For example, a?b would match the path <code>/xyz/123/acb</code>, but not <code>/xyz/acb/123</code>.
+<em> <code>expand</code> Process a dynamic src-dest file mapping, see "Building the files object dynamically" for more information.
+</em> Other properties will be passed into the underlying libs as matching options. See the <a href="https://github.com/isaacs/node-glob">node-glob</a> and <a href="https://github.com/isaacs/minimatch">minimatch</a> documentation for more options. --></p>
 
-<h3>Compact Format</h3>
+<ul><li><code>filter</code> 可以是一个有效的 <a href="http://nodejs.org/docs/latest/api/fs.html#fs_class_fs_stats">fs.Stats 方法名</a>，也可以是一个函数，接受匹配的文件路径 <code>src</code>，并返回 <code>true</code> 或 <code>false</code>。</li><li><code>nonull</code> 当没有找到任何匹配文件时，返回含有通配符的列表。否则，如果没有任何匹配文件，则返回一个空列表。结合 Grunt <code>--verbose</code> 标记，该选项可以帮助调试文件路径问题。</li><li><code>dot</code> 允许通配符匹配以一段字符开头（？？）的文件名，及时是通配符没有明确指定那段字符的位置。</li><li><code>matchBase</code> 如果设置了属性，不含斜杠的模式将不配路径名，如果该路径还有斜杠。例如，模式 a?b 将匹配路径 <code>/xyz/123/acb</code>，但是不匹配 <code>/xyz/acb/123</code>。</li><li><code>expand</code> 处理一个动态的源文件-目标文件的映射，更多信息请查看“动态构建文件集合对象”。</li><li>其他属性会被作为匹配选项传递到底层库。更多选项查看文档 <a href="https://github.com/isaacs/node-glob">node-glob</a> 和 <a href="https://github.com/isaacs/minimatch">minimatch</a>。</li></ul>
+
+<p><!-- ### Compact Format --></p>
 
 <h3>紧凑型格式</h3>
 
-<p>This form allows a single <strong>src-dest</strong> (source-destination) file mapping per-target. It is most commonly used for read-only tasks, like <a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint</a>, where a single <code>src</code> property is needed, and no <code>dest</code> key is relevant. This format also supports additional properties per src-dest file mapping.</p>
+<p><!-- This form allows a single <strong>src-dest</strong> (source-destination) file mapping per-target. It is most commonly used for read-only tasks, like <a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint</a>, where a single <code>src</code> property is needed, and no <code>dest</code> key is relevant. This format also supports additional properties per src-dest file mapping. --></p>
 
 <p>该格式允许为每个目标设置一个单独的 <strong>src-dest</strong>（源-目标）文件映射。经常用于只读任务，例如 <a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint</a>，只需要一个单一的 <code>src</code> 属性，没有相关的 <code>dest</code> 属性。该格式还支持为每个 src-dest 文件映射附加额外属性。</p>
 
@@ -143,11 +150,11 @@ grunt.initConfig({
 });
 </code></p>
 
-<h3>Files Object Format</h3>
+<p><!-- ### Files Object Format --></p>
 
 <h3>文件对象格式</h3>
 
-<p>This form supports multiple src-dest mappings per-target, where the property name is the destination file, and its value is the source file(s). Any number of src-dest file mappings may be specified in this way, but additional properties may not be specified per mapping.</p>
+<p><!-- This form supports multiple src-dest mappings per-target, where the property name is the destination file, and its value is the source file(s). Any number of src-dest file mappings may be specified in this way, but additional properties may not be specified per mapping. --></p>
 
 <p>该格式支持为每个目标设置多个 src-dest 映射，此时属性名是目标文件，值是源文件。可以通过这种方法指定任意属性的 src-dest 文件映射，但是每对映射可以无法指定额外的属性。</p>
 
@@ -170,11 +177,11 @@ grunt.initConfig({
 });
 </code></p>
 
-<h3>Files Array Format</h3>
+<p><!-- ### Files Array Format --></p>
 
 <h3>文件数组格式</h3>
 
-<p>This form supports multiple src-dest file mappings per-target, while also allowing additional properties per mapping.</p>
+<p><!-- This form supports multiple src-dest file mappings per-target, while also allowing additional properties per mapping. --></p>
 
 <p>该格式支持为每个目标设置多个 src-dest 文件映射，也允许为每对映射指定额外的属性。</p>
 
@@ -197,16 +204,17 @@ grunt.initConfig({
 });
 </code></p>
 
-<h3>Older Formats</h3>
+<p><!-- ### Older Formats --></p>
 
 <h3>旧格式</h3>
 
-<p>The <strong>dest-as-target</strong> file format is a holdover from before multi tasks and targets existed, where the destination filepath is actually the target name. Unfortunately, because target names are filepaths, running <code>grunt task:target</code> can be awkward. Also, you can't specify target-level options or additional properties per src-dest file mapping.</p>
+<p><!-- The <strong>dest-as-target</strong> file format is a holdover from before multi tasks and targets existed, where the destination filepath is actually the target name. Unfortunately, because target names are filepaths, running <code>grunt task:target</code> can be awkward. Also, you can't specify target-level options or additional properties per src-dest file mapping. --></p>
 
 <p>文件格式 <strong>dest-as-target</strong> 多任务和多目标存在之前的剩余物，即目标文件就是目标名。不幸的是，由于目标名是文件路径，运行 <code>grunt task:target</code> 可能是尴尬的。此外，你不能执行目标级别的选项，或者为每对 src-dest 文件映射指定额外的属性。</p>
 
-<p>Consider this format deprecated, and avoid it where possible.
-思考一下这种过时的格式，并在可能的情况下避免它。</p>
+<p><!-- Consider this format deprecated, and avoid it where possible. --></p>
+
+<p>思考一下这种过时的格式，并在可能的情况下避免它。</p>
 
 <p><code>js
 grunt.initConfig({
@@ -217,11 +225,11 @@ grunt.initConfig({
 });
 </code></p>
 
-<h3>Custom Filter Function</h3>
+<p><!-- ### Custom Filter Function --></p>
 
 <h3>自定义过滤函数</h3>
 
-<p>The <code>filter</code> property can help you target files with a greater level of detail. Simply use a valid <a href="http://nodejs.org/docs/latest/api/fs.html#fs_class_fs_stats">fs.Stats method name</a>. The following will clean only if the pattern matches an actual file:</p>
+<p><!-- The <code>filter</code> property can help you target files with a greater level of detail. Simply use a valid <a href="http://nodejs.org/docs/latest/api/fs.html#fs_class_fs_stats">fs.Stats method name</a>. The following will clean only if the pattern matches an actual file: --></p>
 
 <p>属性 <code>filter</code> 可以帮助你定位文件，在更高的文件详细信息级别。只需使用一个有效的 <a href="http://nodejs.org/docs/latest/api/fs.html#fs_class_fs_stats">fs.Stats 方法名</a>。下面的例子将在模式匹配实际文件时清理。</p>
 
@@ -236,7 +244,7 @@ grunt.initConfig({
 });
 </code></p>
 
-<p>Or create your own <code>filter</code> function and return <code>true</code> or <code>false</code> whether the file should be matched. For example the following will only clean folders that are empty:</p>
+<p><!-- Or create your own <code>filter</code> function and return <code>true</code> or <code>false</code> whether the file should be matched. For example the following will only clean folders that are empty: --></p>
 
 <p>或者创建你自己的 <code>filter</code> 函数，当文件是否该匹配时返回 <code>true</code> 或 <code>false</code>。例如下面的例子将只清理空文件夹。</p>
 
@@ -253,80 +261,94 @@ grunt.initConfig({
 });
 </code></p>
 
-<h3>Globbing patterns</h3>
+<p><!-- ### Globbing patterns --></p>
 
 <h3>匹配模式</h3>
 
-<p>It is often impractical to specify all source filepaths individually, so Grunt supports filename expansion (also know as globbing) via the built-in <a href="https://github.com/isaacs/node-glob">node-glob</a> and <a href="https://github.com/isaacs/minimatch">minimatch</a> libraries.</p>
+<p><!-- It is often impractical to specify all source filepaths individually, so Grunt supports filename expansion (also know as globbing) via the built-in <a href="https://github.com/isaacs/node-glob">node-glob</a> and <a href="https://github.com/isaacs/minimatch">minimatch</a> libraries. --></p>
 
-<p>单独指定所有的源文件路径，往往时不切实际的，所以 Grunt 通过内置的 <a href="https://github.com/isaacs/node-glob">node-glob</a> 和 <a href="https://github.com/isaacs/minimatch">minimatch</a> 库支持文件名扩展（也称为通配符）。</p>
+<p>单独指定所有的源文件路径，往往是不切实际的，所以 Grunt 通过内置的 <a href="https://github.com/isaacs/node-glob">node-glob</a> 和 <a href="https://github.com/isaacs/minimatch">minimatch</a> 库支持文件名扩展（也称为通配符）。</p>
 
-<p>While this isn't a comprehensive tutorial on globbing patterns, know that in a filepath:</p>
+<p><!-- While this isn't a comprehensive tutorial on globbing patterns, know that in a filepath: --></p>
 
 <p>虽然这不是一个全面的匹配模式指南，但是要知道，在一个文件路径中：</p>
 
-<ul><li><code>*</code> matches any number of characters, but not <code>/</code></li><li><code>*</code> 匹配任意数量的字符，但是不匹配 <code>/</code></li><li><code>?</code> matches a single character, but not <code>/</code></li><li><code>?</code> 匹配单个字符，但是不匹配 <code>/</code></li><li><code>**</code> matches any number of characters, including <code>/</code>, as long as it's the only thing in a path part</li><li><code>**</code> 匹配任意数量的字符，包括 <code>/</code>，只要它是唯一的路径部分</li><li><code>{}</code> allows for a comma-separated list of "or" expressions</li><li><code>{}</code> 允许用逗号分割的“或”表达式列表</li><li><code>!</code> at the beginning of a pattern will negate the match</li><li><code>!</code> 在模式的开始处，将对匹配取反</li></ul>
+<p><!-- <em> <code>*</code> matches any number of characters, but not <code>/</code>
+</em> <code>?</code> matches a single character, but not <code>/</code>
+<em> <code>**</code> matches any number of characters, including <code>/</code>, as long as it's the only thing in a path part
+</em> <code>{}</code> allows for a comma-separated list of "or" expressions
+* <code>!</code> at the beginning of a pattern will negate the match --></p>
 
-<p>All most people need to know is that <code>foo/*.js</code> will match all files ending with <code>.js</code> in the <code>foo/</code> subdirectory, but <code>foo/**/*.js</code> will match all files ending with <code>.js</code> in the <code>foo/</code> subdirectory <em>and all of its subdirectories</em>.</p>
+<ul><li><code>*</code> 匹配任意数量的字符，但是不匹配 <code>/</code></li><li><code>?</code> 匹配单个字符，但是不匹配 <code>/</code></li><li><code>**</code> 匹配任意数量的字符，包括 <code>/</code>，只要它是唯一的路径部分</li><li><code>{}</code> 允许用逗号分割的“或”表达式列表</li><li><code>!</code> 在模式的开始处，将对匹配取反</li></ul>
 
-<p>大多数人都需要直到的是，<code>foo/*.js</code> 将匹配子目录 <code>foo/</code> 中所有以 <code>.js</code> 结尾的文件，但是 <code>foo/**/*.js</code> 将匹配子目录 <code>foo/</code> <em>和它的所有子目录</em>中所有以 <code>.js</code> 结尾的文件。</p>
+<p><!-- All most people need to know is that <code>foo/*.js</code> will match all files ending with <code>.js</code> in the <code>foo/</code> subdirectory, but <code>foo/**/*.js</code> will match all files ending with <code>.js</code> in the <code>foo/</code> subdirectory <em>and all of its subdirectories</em>. --></p>
 
-<p>Also, in order to simplify otherwise complicated globbing patterns, Grunt allows arrays of file paths or globbing patterns to be specified. Patterns are processed in-order, with <code>!</code>-prefixed matches excluding matched files from the result set. The result set is uniqued.</p>
+<p>大多数人都需要知道的是，<code>foo/*.js</code> 将匹配子目录 <code>foo/</code> 中所有以 <code>.js</code> 结尾的文件，但是 <code>foo/**/*.js</code> 将匹配子目录 <code>foo/</code> <em>和它的所有子目录</em>中所有以 <code>.js</code> 结尾的文件。</p>
+
+<p><!-- Also, in order to simplify otherwise complicated globbing patterns, Grunt allows arrays of file paths or globbing patterns to be specified. Patterns are processed in-order, with <code>!</code>-prefixed matches excluding matched files from the result set. The result set is uniqued. --></p>
 
 <p>此外，为了简化复杂的模式匹配，Grunt 允许指定文件路径数组或匹配模式。模式被顺序处理，以 <code>!</code> 为前缀的模式剔除结果集中匹配的文件。结果集是唯一的。</p>
 
 <p>For example:</p>
 
-<p><code></code>`js
+<p><code>js
 // You can specify single files:
 {src: 'foo/this.js', dest: ...}
 // Or arrays of files:
 {src: ['foo/this.js', 'foo/that.js', 'foo/the-other.js'], dest: ...}
 // Or you can generalize with a glob pattern:
-{src: 'foo/th*.js', dest: ...}</p>
-
-<p>// This single node-glob pattern:
+{src: 'foo/th*.js', dest: ...}
+// -----
+// This single node-glob pattern:
 {src: 'foo/{a,b}*.js', dest: ...}
 // Could also be written like this:
-{src: ['foo/a<em>.js', 'foo/b</em>.js'], dest: ...}</p>
-
-<p>// All .js files, in foo/, in alpha order:
+{src: ['foo/a*.js', 'foo/b*.js'], dest: ...}
+// -----
+// All .js files, in foo/, in alpha order:
 {src: ['foo/*.js'], dest: ...}
 // Here, bar.js is first, followed by the remaining files, in alpha order:
-{src: ['foo/bar.js', 'foo/*.js'], dest: ...}</p>
-
-<p>// All files except for bar.js, in alpha order:
+{src: ['foo/bar.js', 'foo/*.js'], dest: ...}
+// -----
+// All files except for bar.js, in alpha order:
 {src: ['foo/*.js', '!foo/bar.js'], dest: ...}
 // All files in alpha order, but with bar.js at the end.
-{src: ['foo/*.js', '!foo/bar.js', 'foo/bar.js'], dest: ...}</p>
-
-<p>// Templates may be used in filepaths or glob patterns:
+{src: ['foo/*.js', '!foo/bar.js', 'foo/bar.js'], dest: ...}
+// -----
+// Templates may be used in filepaths or glob patterns:
 {src: ['src/<%= basename %>.js'], dest: 'build/<%= basename %>.min.js'}
 // But they may also reference file lists defined elsewhere in the config:
 {src: ['foo/*.js', '<%= jshint.all.src %>'], dest: ...}
-<code></code>`</p>
+</code></p>
 
 <p>For more on glob pattern syntax, see the <a href="https://github.com/isaacs/node-glob">node-glob</a> and <a href="https://github.com/isaacs/minimatch">minimatch</a> documentation.</p>
 
 <p>关于匹配模式语法的更新信息，请查看 <a href="https://github.com/isaacs/node-glob">node-glob</a> 和 <a href="https://github.com/isaacs/minimatch">minimatch</a> 文档。</p>
 
-<h3>Building the files object dynamically</h3>
+<p><!-- ### Building the files object dynamically --></p>
 
 <h3>动态创建文件对象</h3>
 
 <blockquote><p>似乎应该保留 files，因为属性名就是 files</p></blockquote>
 
-<p>When you want to process many individual files, a few additional properties may be used to build a files list dynamically. These properties may be specified in both "Compact" and "Files Array" mapping formats.</p>
+<p><!-- When you want to process many individual files, a few additional properties may be used to build a files list dynamically. These properties may be specified in both "Compact" and "Files Array" mapping formats. --></p>
 
 <p>当你要处理许多单独文件时，一些额外的属性可以用来动态的创建一个文件列表。这些属性可能被指定在映射格式“紧凑型”和“文件数组”中。</p>
 
-<ul><li><code>expand</code> Set to <code>true</code> to enable the following options:</li><li><code>expand</code> 设置为 true，以启用以下选项：</li><li><code>cwd</code> All <code>src</code> matches are relative to (but don't include) this path.</li><li><code>cwd</code> 所有 <code>src</code> 相对于（但不包括）该路径进行匹配。</li><li><code>src</code> Pattern(s) to match, relative to the <code>cwd</code>.</li><li><code>src</code> 匹配模式，相对于 <code>cwd</code>。</li><li><code>dest</code> Destination path prefix.</li><li><code>dest</code> 目标路径前缀。</li><li><code>ext</code> Replace any existing extension with this value in generated <code>dest</code> paths.</li><li><code>ext</code> 在生成的 <code>dest</code> 路径中替换任何现有的扩展名。</li><li><code>flatten</code> Remove all path parts from generated <code>dest</code> paths.</li><li><code>flatten</code> 从生成的 <code>dest</code> 路径中移除所有的路径部分。</li><li><code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value.  If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it.</li><li><code>rename</code> 为每个匹配的 <code>src</code> 文件调用该函数，（在扩展名重命名和扁平化之后）。<code>dest</code> 和匹配的 <code>src</code> 被转入，该函数必须返回一个新 <code>dest</code> 值。如果多次返回同样的 <code>dest</code>，使用它的每个 <code>src</code> 将被添加到它一个源数组中。</li></ul>
+<p><!-- <em> <code>expand</code> Set to <code>true</code> to enable the following options:
+</em> <code>cwd</code> All <code>src</code> matches are relative to (but don't include) this path.
+<em> <code>src</code> Pattern(s) to match, relative to the <code>cwd</code>.
+</em> <code>dest</code> Destination path prefix.
+<em> <code>ext</code> Replace any existing extension with this value in generated <code>dest</code> paths.
+</em> <code>flatten</code> Remove all path parts from generated <code>dest</code> paths.
+* <code>rename</code> This function is called for each matched <code>src</code> file, (after extension renaming and flattening). The <code>dest</code> and matched <code>src</code> path are passed in, and this function must return a new <code>dest</code> value.  If the same <code>dest</code> is returned more than once, each <code>src</code> which used it will be added to an array of sources for it. --></p>
 
-<p>In the following example, the <code>minify</code> task will see the same list of src-dest file mappings for both the <code>static_mappings</code> and <code>dynamic_mappings</code> targets, because Grunt will automatically expand the <code>dynamic_mappings</code> files object into 4 individual static src-dest file mappings—assuming 4 files are found—when the task runs.</p>
+<ul><li><code>expand</code> 设置为 true，以启用以下选项：</li><li><code>cwd</code> 所有 <code>src</code> 相对于（但不包括）该路径进行匹配。</li><li><code>src</code> 匹配模式，相对于 <code>cwd</code>。</li><li><code>dest</code> 目标路径前缀。</li><li><code>ext</code> 在生成的 <code>dest</code> 路径中替换任何现有的扩展名。</li><li><code>flatten</code> 从生成的 <code>dest</code> 路径中移除所有的路径部分。</li><li><code>rename</code> 为每个匹配的 <code>src</code> 文件调用该函数，（在扩展名重命名和扁平化之后）。<code>dest</code> 和匹配的 <code>src</code> 被转入，该函数必须返回一个新 <code>dest</code> 值。如果多次返回同样的 <code>dest</code>，使用它的每个 <code>src</code> 将被添加到它一个源数组中。</li></ul>
+
+<p><!-- In the following example, the <code>minify</code> task will see the same list of src-dest file mappings for both the <code>static_mappings</code> and <code>dynamic_mappings</code> targets, because Grunt will automatically expand the <code>dynamic_mappings</code> files object into 4 individual static src-dest file mappings—assuming 4 files are found—when the task runs. --></p>
 
 <p>在下面的例子中，任务 <code>minify</code> 将得到相同的源-目标文件映射列表，对于目标 <code>static_mapping</code> 和 <code>dynamic_mapping</code>，因为 Grunt 将自动扩展 <code>dynamic_mappings</code> 文件对象为 4 个独立的静态的源-目标文件映射，假设任务运行时只找到 4 个文件。</p>
 
-<p>Any combination of static src-dest and dynamic src-dest file mappings may be specified.</p>
+<p><!-- Any combination of static src-dest and dynamic src-dest file mappings may be specified. --></p>
 
 <p>可以指定任意组合的静态和动态的源-目标文件映射。</p>
 
@@ -361,21 +383,24 @@ grunt.initConfig({
 });
 </code></p>
 
-<h2>Templates</h2>
+<p><!-- ## Templates --></p>
 
 <h2>模板</h2>
 
-<p>Templates specified using <code><% %></code> delimiters will be automatically expanded when tasks read them from the config. Templates are expanded recursively until no more remain.</p>
+<p><!-- Templates specified using <code><% %></code> delimiters will be automatically expanded when tasks read them from the config. Templates are expanded recursively until no more remain. --></p>
 
 <p>使用分隔符 <code><% %></code> 指定的模板将被自动扩展，当任务从配置中读取它们时。模板被递归扩展直到没有剩余。</p>
 
-<p>The entire config object is the context in which properties are resolved. Additionally, <code>grunt</code> and its methods are available inside templates, eg. <code><%= grunt.template.today('yyyy-mm-dd') %></code>.</p>
+<p><!-- The entire config object is the context in which properties are resolved. Additionally, <code>grunt</code> and its methods are available inside templates, eg. <code><%= grunt.template.today('yyyy-mm-dd') %></code>. --></p>
 
 <p>整个配置对象是上下文，在使用的属性下的。此外，在模板中，<code>grunt</code> 和它的方法也是有效的，例如 <code><%= grunt.template.today('yyyy-mm-dd') %></code>。</p>
 
-<ul><li><code><%= prop.subprop %></code> Expand to the value of <code>prop.subprop</code> in the config, regardless of type. Templates like this can be used to reference not only string values, but also arrays or other objects.</li><li><code><%= prop.subprop %></code> 扩展为配置中 <code>prop.subprop</code> 的值。像这样的模板可能用来不仅仅引用字符串值，也可以是数组或其他对象。</li><li><code><% %></code> Execute arbitrary inline JavaScript code. This is useful with control flow or looping.</li><li><code><% %></code> 执行任意的内联 JavaScript 代码。对于控制流程或循环非常有用。</li></ul>
+<p><!-- <em> <code><%= prop.subprop %></code> Expand to the value of <code>prop.subprop</code> in the config, regardless of type. Templates like this can be used to reference not only string values, but also arrays or other objects.
+</em> <code><% %></code> Execute arbitrary inline JavaScript code. This is useful with control flow or looping. --></p>
 
-<p>Given the sample <code>concat</code> task configuration below, running <code>grunt concat:sample</code> will generate a file named <code>build/abcde.js</code> by concatenating the banner <code>/* abcde */</code> with all files matching <code>foo/*.js</code> + <code>bar/*.js</code> + <code>baz/*.js</code>.</p>
+<ul><li><code><%= prop.subprop %></code> 扩展为配置中 <code>prop.subprop</code> 的值。像这样的模板可能用来不仅仅引用字符串值，也可以是数组或其他对象。</li><li><code><% %></code> 执行任意的内联 JavaScript 代码。对于控制流程或循环非常有用。</li></ul>
+
+<p><!-- Given the sample <code>concat</code> task configuration below, running <code>grunt concat:sample</code> will generate a file named <code>build/abcde.js</code> by concatenating the banner <code>/* abcde */</code> with all files matching <code>foo/*.js</code> + <code>bar/*.js</code> + <code>baz/*.js</code>. --></p>
 
 <p>下面给定简单任务 <code>concat</code> 的配置，运行 <code>grunt concat:sample</code> 将生成一个命名为 <code>build/abcde.js</code> 的文件，通过合并 <code>/* abcde */</code> 和所有匹配 <code>foo/*.js</code> + <code>bar/*.js</code> + <code>baz/*.js</code> 的文件。</p>
 
@@ -398,15 +423,15 @@ grunt.initConfig({
 });
 </code></p>
 
-<h2>Importing External Data</h2>
+<p><!-- ## Importing External Data --></p>
 
 <h2>导入外部数据</h2>
 
-<p>In the following Gruntfile, project metadata is imported into the Grunt config from a <code>package.json</code> file, and the <a href="http://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify plugin</a> <code>uglify</code> task is configured to minify a source file and generate a banner comment dynamically using that metadata.</p>
+<p><!-- In the following Gruntfile, project metadata is imported into the Grunt config from a <code>package.json</code> file, and the <a href="http://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify plugin</a> <code>uglify</code> task is configured to minify a source file and generate a banner comment dynamically using that metadata. --></p>
 
-<p>在下面的 Gruntfile 中，项目元数据从一个 <code>package.json</code> 文件被导入到 Grunt 配置，并且 <a href="http://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify 插件</a>任务被匹配为压缩源文件并且使用元数据动态生成一段顶部注释。</p>
+<p>在下面的 Gruntfile 中，项目元数据从一个 <code>package.json</code> 文件被导入到 Grunt 配置，并且 <a href="http://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify 插件</a>任务被配置为压缩源文件并且使用元数据动态生成一段顶部注释。</p>
 
-<p>Grunt has <code>grunt.file.readJSON</code> and <code>grunt.file.readYAML</code> methods for importing JSON and YAML data.</p>
+<p><!-- Grunt has <code>grunt.file.readJSON</code> and <code>grunt.file.readYAML</code> methods for importing JSON and YAML data. --></p>
 
 <p>Grunt 拥有方法 <code>grunt.file.readJSON</code> and <code>grunt.file.readYAML</code>，来导入 JSON 和 YAML 数据。</p>
 
