@@ -5,7 +5,23 @@ define(function(require, exports) {
 		$ = require('$');
 	return Backbone.View.extend({
 		events: {
-			'click #create': function(e) {}
+			'click #dialog': function(e) {
+				seajs.use(['./app/demo/dialog', './app/demo/dialog.html'], function(Dialog, template) {
+					var d = new Dialog({
+						title: 'Create Plan',
+						view: './app/demo/dialog-content',
+						content: 'test',
+						viewOptions: {
+							message: function(data) {
+								console.log(data);
+							},
+							name: Math.random(),
+							price: Math.random()
+						}
+					});
+					d.render(template);
+				});
+			}
 		},
 		render: function(template) {
 			var data = {
