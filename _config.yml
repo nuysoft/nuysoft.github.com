@@ -12,7 +12,7 @@ pygments: true
 title : nuysoft
 tagline: Site Tagline
 author :
-  name : nuysoft
+  name : Name Lastname
   email : blah@email.test
   github : username
   twitter : username
@@ -83,7 +83,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : nuysoft
     livefyre :
       site_id : 123
     intensedebate :
@@ -101,7 +101,7 @@ JB :
   analytics :
     provider : google 
     google : 
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-28472701-1'
     getclicky :
       site_id : 
     mixpanel :
