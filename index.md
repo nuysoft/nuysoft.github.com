@@ -10,6 +10,10 @@ tagline:
     {% continue %}
   {% endif %}
 
+  <p>
+    <span>[{{ post.category }}]</span>
+    
+  </p>
 
 {% endfor %}
 <hr>
