@@ -7,7 +7,7 @@ tagline:
 
 {% for post in site.posts %}
   {% if post.pgroup == null %}
-    <p>
+  <p>
       <span>[{{ post.category }}]</span>
       {% if post.link == null %}
         <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
@@ -33,7 +33,7 @@ tagline:
         {% endfor %}
       </p>
       {% endif %}
-    </p>
+  </p>
   {% endif %}
 {% endfor %}
 <hr>
