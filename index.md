@@ -14,7 +14,7 @@ tagline:
       {% else %}
         <a href="{{ post.link }}" target="_blank">{{ post.title }}</a>
       {% endif %}
-      &raquo; <span style="color: #999;">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <span style="color: #999;">{{ post.date | date: "%Y-%m-%d" }}</span>
 
       {% if post.description != null %}
       <p style="padding-left: 40px; ">{{ post.description }}</p>
