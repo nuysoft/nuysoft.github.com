@@ -6,9 +6,15 @@ tagline:
 {% include JB/setup %}
 
 {% for post in site.posts %}
+  {% if post.pgroup != null %}
+    {% continue %}
+  {% endif %}
+
   <p>
     <span>[{{ post.category }}]</span>
+    
   </p>
+
 {% endfor %}
 <hr>
 <p>[链接] 当年师友尽豪英</p>
