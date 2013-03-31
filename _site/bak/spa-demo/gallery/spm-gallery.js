@@ -1,0 +1,41 @@
+seajs.config({
+    "alias": {
+        "cookie": "gallery/cookie/1.0.2/cookie.js",
+        "jquery": "gallery/jquery/1.8.3/jquery.js",
+        "backbone": "gallery/backbone/0.9.9/backbone.js",
+        "mustache": "gallery/mustache/0.4.0/mustache.js",
+        "store": "gallery/store/1.3.5/store.js",
+        "marked": "gallery/marked/0.2.4/marked.js",
+        "raphael": "gallery/raphael/2.1.0/raphael.js",
+        "async": "gallery/async/0.1.23/async.js",
+        "socketio": "gallery/socketio/0.9.11/WebSocketMain.swf",
+        "ztree": "gallery/ztree/3.4.0/ztree.js",
+        "handlebars": "gallery/handlebars/1.0.0/handlebars.js",
+        "iscroll": "gallery/iscroll/4.1.9/iscroll.js",
+        "less": "gallery/less/1.3.1/less.js",
+        "zepto": "gallery/zepto/0.8.0/zepto.js",
+        "underscore": "gallery/underscore/1.4.3/underscore.js",
+        "keymaster": "gallery/keymaster/1.0.2/keymaster.js",
+        "swfobject": "gallery/swfobject/2.3.0/expressInstall.swf",
+        "jquery-color": "gallery/jquery-color/2.1.0/jquery-color.js",
+        "moment": "gallery/moment/1.7.2/moment.js",
+        "html5shiv": "gallery/html5shiv/3.6.1/html5shiv.js",
+        "expect": "gallery/expect/0.2.0/expect.js",
+        "jsuri": "gallery/jsuri/1.2.2/jsuri.js",
+        "selection": "gallery/selection/0.9.0/selection.js",
+        "impress": "gallery/impress/0.5.3/impress.js",
+        "mocha": "gallery/mocha/1.7.3/mocha-debug.css",
+        "juicer": "gallery/juicer/0.6.4/juicer.js",
+        "coffee": "gallery/coffee/1.2.0/coffee-script.js",
+        "zeroclipboard": "gallery/zeroclipboard/1.1.6/ZeroClipboard.swf",
+        "scrollmonitor": "gallery/scrollmonitor/1.0.0/scrollMonitor.js",
+        "expect.js": "gallery/expect.js/0.2.0/expect.js",
+        "sinon": "gallery/sinon/1.6.0/sinon.js",
+        "puerh": "gallery/puerh/0.1.0/puerh.js",
+        "$-debug": "gallery/jquery/1.8.3/jquery.js",
+        "$": "gallery/jquery/1.8.3/jquery.js"
+    },
+    "paths": {
+        "gallery": "http://modules.spmjs.org/gallery/"
+    }
+});

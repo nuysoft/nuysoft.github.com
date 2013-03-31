@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>nuysoft</title>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.override.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container"><p><!-- # Installing Grunt --></p>
+
+<h1>安装 Grunt</h1>
+
+<blockquote><p>原文：<a href="https://github.com/gruntjs/grunt/wiki/Installing-grunt">https://github.com/gruntjs/grunt/wiki/Installing-grunt</a></p><p>翻译：nuysoft</p></blockquote>
+
+<p><!-- This document explains how to install specific versions of grunt and grunt plugins.  If you haven't read the [[Getting Started]] guide, you should check that out first. --></p>
+
+<p>本文当介绍了如何安装特定版本的 grunt 和 grunt 插件。如果还没有读过<a href="Getting-started.html">入门</a>指南，你应该先读读它。</p>
+
+<p><!-- ## Overview --></p>
+
+<h2>概览</h2>
+
+<p><!-- Grunt and grunt plugins should be defined as <a href="https://npmjs.org/doc/json.html#devDependencies">devDependencies</a> in your project's <a href="https://npmjs.org/doc/json.html">package.json</a>.  This will allow you to install all of your project's dependencies with a single command: <code>npm install</code>.  The current stable and development versions of grunt are always listed on the wiki's <a href="https://github.com/gruntjs/grunt/wiki/">home page</a>. --></p>
+
+<p>Grunt 和 Grunt 插件应该被定义在项目的 <a href="https://npmjs.org/doc/json.html">package.json</a> 中的 <a href="https://npmjs.org/doc/json.html#devDependencies">devDependencies</a> 上。</p>
+
+<p><!-- ## Installing a specific version --></p>
+
+<h2>安装特定版本</h2>
+
+<p><!-- If you need a specific version of grunt or a grunt plugin, run <code>npm install grunt@VERSION --save-dev</code> where <code>VERSION</code> is the version you need.  This will install the specified version, adding it to your package.json devDependencies. --></p>
+
+<p>如果你需要特定版本的 Grunt 或 Grunt 插件，运行 <code>npm install grunt@VERSION --save-dev</code>，其中 <code>VERSION</code> 是你所需的版本号。这将安装特定的版本，同时添加到 package.json 的 devDependencies 中。</p>
+
+<p><!-- Note that a <a href="https://npmjs.org/doc/json.html#Tilde-Version-Ranges">tilde version range</a> will be used in your <code>package.json</code> when you add the <code>--save-dev</code> flag to <code>npm install</code>. This is typically good, as new patch releases of the specified version will automatically be upgraded as development continues, per <a href="http://semver.org">semver</a>. --></p>
+
+<p>需要注意的是，如果运行 <code>npm install</code> 添加了标记 <code>--save-dev</code>，<a href="https://npmjs.org/doc/json.html#Tilde-Version-Ranges">波浪号版本范围</a>将被用于你的 <code>package.json</code>。这么做非常好，因为随着开发继续，特定版本的新补丁发布会自动更新，按照 <a href="http://semver.org">semver</a> 规范。</p>
+
+<p><!-- ## Installing a published development version --></p>
+
+<h2>安装发布的开发版本</h2>
+
+<p><!-- Periodically, as new functionality is being developed, grunt builds may be published to npm. These builds will <em>never</em> be installable without explicitly specifying a version number, and will typically have a build number or alpha/beta/release candidate designation. --></p>
+
+<p>当开发新功能之后，Grunt 编译版本可能定期发布到 npm。如果不显示地指定一个版本号，这些版本<em>永远</em>不会被安装，并且通常会有一个编译版本号，或指定内侧/公测/发布候选版。</p>
+
+<blockquote><p><a href="http://baike.baidu.com/view/750252.htm">Build 版</a></p><p><a href="http://baike.baidu.com/view/707808.htm#1">命名风格和管理策略</a></p></blockquote>
+
+<p><!-- Like installing a specific version of grunt, run <code>npm install grunt@VERSION --save-dev</code> where <code>VERSION</code> is the version you need, and npm will install that version of grunt in your project folder, adding it to your <code>package.json</code> devDependencies. --></p>
+
+<p>就像安装特定版本的 Grunt 一样，运行 <code>npm install grunt@VERSION --save-dev</code>，其中 <code>VERSION</code> 所需的版本号，npm 将安装指定版本的 Grunt 到你的项目目录，同时添加到 <code>package.json</code> 的 devDependencies 中。</p>
+
+<p><!-- Note that regardless of the version you specify, a <a href="https://npmjs.org/doc/json.html#Tilde-Version-Ranges">tilde version range</a> will be specified in <code>package.json</code>. <strong>This is very bad</strong>, as new, possibly incompatible, patch releases of the specified development version may be installed by npm, breaking your build.
+ -->
+请注意，不管你指定的版本，一个<a href="https://npmjs.org/doc/json.html#Tilde-Version-Ranges">波浪号版本范围</a>将被指定到 <code>package.json</code>。<strong>这是非常糟糕的</strong>，因为指定的开发版本的新补丁发布能是不兼容的，通过 npm 安装后会破坏你的编译。</p>
+
+<p><!-- <em>In this case it is <strong>very important</strong> that you manually edit your <code>package.json</code> and remove the ~ (tilde) from the version number. This will lock in the exact development version that you have specified.</em> --></p>
+
+<p><em>在这种情况下，手动编辑你的 <code>package.json</code> 并从版本号中移除 ~（波浪号）<strong>非常重要</strong>。这将锁定在你所指定的精确的开发版本。</em></p>
+
+<p><!-- The same process may be used to install a published development version of a grunt plugin. --></p>
+
+<p>同样的过程可以用于安装 Grunt 插件发布的开发版本。</p>
+
+<p><!-- ## Installing directly from github --></p>
+
+<h2>直接从 github 安装</h2>
+
+<p><!-- If you want to install a bleeding-edge, unpublished version of grunt or grunt plugin, follow the instructions for specifying a <a href="https://npmjs.org/doc/json.html#Git-URLs-as-Dependencies">git URL as a dependency</a> and be sure to specify an actual commit SHA (not a branch name) as the <code>commit-ish</code>. This will guarantee that your project always uses that exact version of grunt. --></p>
+
+<p>如果想安装 Grunt 或 Grunt 插件的最新但是未发布的版本，按照[指定 git 地址作为依赖]的说明进行踩哦啊做，确保指定一个实际提交的 SHA（不是分支名）作为 <code>commit-ish</code>。这将保证你的项目总是使用精确版本的 Grunt。</p>
+
+<blockquote><p>bleeding-edge 前沿</p></blockquote>
+
+<p><!-- The specified git URL may be that of the official grunt repo or a fork. --></p>
+
+<p>指定的 git 地址可能是官方 grunt 库或一个分支。</p>    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28472701-1']);
+  _gaq.push(['_setDomainName', 'nuysoft.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>

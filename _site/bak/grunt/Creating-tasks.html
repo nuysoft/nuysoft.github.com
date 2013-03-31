@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>nuysoft</title>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.override.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container"><p><!-- # Creating Tasks --></p>
+
+<h1>创建任务</h1>
+
+<blockquote><p>原文：<a href="https://github.com/gruntjs/grunt/wiki/Creating-tasks">https://github.com/gruntjs/grunt/wiki/Creating-tasks</a></p><p>翻译：nuysoft</p></blockquote>
+
+<p><!-- Tasks are grunt's bread and butter. The stuff you do most often, like <code>jshint</code> or <code>nodeunit</code>. Every time Grunt is run, you specify one or more tasks to run, which tells Grunt what you'd like it to do. --></p>
+
+<p>任务是 Grunt 的面包和奶油。是你最常用的，例如 <code>jshint</code> 或 <code>nodeunit</code>。每次运行 Grunt 时，你可以指定一个或多个任务来运行，它告诉了 Grunt 你想要它做的事情。</p>
+
+<blockquote><p>bread and butter 基本生活资料，生计</p></blockquote>
+
+<p><!-- If you don't specify a task, but a task named "default" has been defined, that task will run (unsurprisingly) by default. --></p>
+
+<p>如果没有指定一个任务，但是已经定义了一个命名为“default”的任务，该任务将默认运行。</p>
+
+<p><!-- ## Alias Tasks --></p>
+
+<h2>别名任务</h2>
+
+<p><!-- If a task list is specified, the new task will be an alias for one or more other tasks. Whenever this "alias task" is run, every specified tasks in <code>taskList</code> will be run, in the order specified. The <code>taskList</code> argument must be an array of tasks. --></p>
+
+<p>如果指定了一个任务列表，新的任务将是其他一个或多个任务的别名。每当运行这个“别名任务”，在 <code>taskList</code> 中指定的每个任务将被执行，并按照指定的属性。参数 <code>taskList</code> 必须是一个任务数组。</p>
+
+<p><code>javascript
+grunt.registerTask(taskName, [description, ] taskList)
+</code></p>
+
+<p><!-- This example alias task defines a "default" task whereby the "jshint", "qunit", "concat" and "uglify" tasks are run automatically if Grunt is executed without specifying any tasks: --></p>
+
+<p>示例的别名任务定义了一个“default”任务，如果执行 Grunt 时没有指定任何任务，其中的“jshint”、“qunit”、“concat”和“uglify”任务被自动运行。</p>
+
+<p><code>javascript
+grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+</code></p>
+
+<p><!-- Task arguments can be specified as well. In this example, the alias "dist" runs both the "concat" and "min" tasks, each with a "dist" argument: --></p>
+
+<p>也可以为任务指定参数。在这个例子中，别名任务“dist”同时运行任务”concat“和”min“，并且各自带一个参数“dist”。</p>
+
+<p><code>javascript
+grunt.registerTask('dist', ['concat:dist', 'uglify:dist']);
+</code></p>
+
+<p><!-- ## Multi Tasks --></p>
+
+<h2>多任务</h2>
+
+<p><!-- When a multi task is run, Grunt looks for a property of the same name in the Grunt configuration. Multi-tasks can have multiple configurations, defined using arbitrarily named "targets." --></p>
+
+<p>当运行一个多任务时，Grunt 在配置中查找同名的属性。多任务可以有多个配置，通过任意命名的“targets”。</p>
+
+<blockquote><p>译注：Multi Tasks 理解为可以含有多个 Target 的 Task。</p></blockquote>
+
+<p><!-- Specifying both a task and target like <code>grunt concat:foo</code> or <code>grunt concat:bar</code> will process just the specified target's configuration, while running <code>grunt concat</code> will iterate over <em>all</em> targets, processing each in turn.  Note that if a task has been renamed with <a href="https://github.com/gruntjs/grunt/wiki/grunt#wiki-grunt-renameTask">grunt.renameTask</a>, Grunt will look for a property with the <em>new</em> task name in the config object. --></p>
+
+<p>同时指定一个任务和目标将只处理指定目标的配置，例如 <code>grunt concat:foo</code> 或 <code>grunt concat:bar</code>，而运行 <code>grunt concat</code> 将遍历<em>所有</em>目标，顺序处理每个目标。请注意，如果一个任务已经通过 <a href="https://github.com/gruntjs/grunt/wiki/grunt#wiki-grunt-renameTask">grunt.renameTask</a> 重命名，Grunt 将在配置对象查找<em>新</em>任务名对应的属性。</p>
+
+<p><!-- Most of the contrib tasks, including the <a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint plugin jshint task</a>, <a href="https://github.com/gruntjs/grunt-contrib-concat">concat task</a> and <a href="https://github.com/gruntjs/grunt-contrib-concat">grunt-contrib-concat plugin concat task</a> are multi tasks. --></p>
+
+<p>大部分扩展任务是多任务的，包括 <a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint plugin jshint task</a>、<a href="https://github.com/gruntjs/grunt-contrib-concat">concat task</a> 和 <a href="https://github.com/gruntjs/grunt-contrib-concat">grunt-contrib-concat plugin concat task</a>。</p>
+
+<p><code>javascript
+grunt.registerMultiTask(taskName, [description, ] taskFunction)
+</code></p>
+
+<p><!-- Given the specified configuration, this example multi task would log <code>foo: 1,2,3</code> if Grunt was run via <code>grunt log:foo</code>, or it would log <code>bar: hello world</code> if Grunt was run via <code>grunt log:bar</code>. If Grunt was run as <code>grunt log</code> however, it would log <code>foo: 1,2,3</code> then <code>bar: hello world</code> then <code>baz: false</code>. --></p>
+
+<p>下面的多任务示例被指定了配置，如果运行 <code>grunt log:foo</code> 将打印 <code>foo: 1,2,3</code>，或者如果运行 <code>gurnt log:bar</code> 将打印 <code>bar: hello world</code>。但是如果运行 <code>grunt log</code> 将顺序打印 <code>foo: 1,2,3</code>、<code>bar: hello world</code>、<code>baz: false</code>。</p>
+
+<p><code>javascript
+grunt.initConfig({
+  log: {
+    foo: [1, 2, 3],
+    bar: 'hello world',
+    baz: false
+  }
+});
+//
+grunt.registerMultiTask('log', 'Log stuff.', function() {
+  grunt.log.writeln(this.target + ': ' + this.data);
+});
+</code></p>
+
+<p><!-- ## "Basic" Tasks --></p>
+
+<h2>“基本”任务</h2>
+
+<p><!-- When a basic task is run, Grunt doesn't look at the configuration or environment—it just runs the specified task function, passing any specified colon-separated arguments in as function arguments. --></p>
+
+<p>当一项基本任务运行时，Grunt 仅仅是运行指定的任务函数，不会查找配置或环境，传入任意冒号分割的参数作为函数参数。</p>
+
+<p><code>javascript
+grunt.registerTask(taskName, [description, ] taskFunction)
+</code></p>
+
+<p><!-- This example task logs <code>foo, testing 123</code> if Grunt is run via <code>grunt foo:testing:123</code>. If the task is run without arguments as <code>grunt foo</code> the task logs <code>foo, no args</code>. --></p>
+
+<p>在这个例子中，如果运行 <code>grunt foo:testing:123</code> 将打印 <code>foo, testing 123</code>。如果不带参数运行 <code>grunt foo</code> 将打印 <code>foo, no args</code>。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'A sample task that logs stuff.', function(arg1, arg2) {
+  if (arguments.length === 0) {
+    grunt.log.writeln(this.name + ", no args");
+  } else {
+    grunt.log.writeln(this.name + ", " + arg1 + " " + arg2);
+  }
+});
+</code></p>
+
+<p><!-- ## Custom tasks --></p>
+
+<h2>自定义任务</h2>
+
+<p><!-- You can go crazy with tasks. If your tasks don't follow the "multi task" structure, use a custom task. --></p>
+
+<p>对于任务你可以发疯了。如果你的任务不遵循“多任务”结构，使用一个自定义任务。</p>
+
+<blockquote><p>You can go crazy with tasks. 汗颜，不知道怎么翻译。</p></blockquote>
+
+<p><code>javascript
+grunt.registerTask('default', 'My "default" task description.', function() {
+  grunt.log.writeln('Currently running the "default" task.');
+});
+</code></p>
+
+<p><!-- Inside a task, you can run other tasks. --></p>
+
+<p>在一个任务中，你可以运行其他任务。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'My "foo" task.', function() {
+  // Enqueue "bar" and "baz" tasks, to run after "foo" finishes, in-order.
+  grunt.task.run('bar', 'baz');
+  // Or:
+  grunt.task.run(['bar', 'baz']);
+});
+</code></p>
+
+<p><!-- Tasks can be asynchronous. --></p>
+
+<p>任务可能是异步的。</p>
+
+<p><code>javascript
+grunt.registerTask('asyncfoo', 'My "asyncfoo" task.', function() {
+  // Force task into async mode and grab a handle to the "done" function.
+  var done = this.async();
+  // Run some sync stuff.
+  grunt.log.writeln('Processing task...');
+  // And some async stuff.
+  setTimeout(function() {
+    grunt.log.writeln('All done!');
+    done();
+  }, 1000);
+});
+</code></p>
+
+<p><!-- Tasks can access their own name and arguments. --></p>
+
+<p>任务可以访问它们自己的名称和参数。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'My "foo" task.', function(a, b) {
+  grunt.log.writeln(this.name, a, b);
+});
+//
+// Usage:
+// grunt foo foo:bar
+//   logs: "foo", undefined, undefined
+//   logs: "foo", "bar", undefined
+// grunt foo:bar:baz
+//   logs: "foo", "bar", "baz"
+</code></p>
+
+<p><!-- Tasks can fail if any errors were logged. --></p>
+
+<p>如果打印了任何错误，任务可能会失败。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'My "foo" task.', function() {
+  if (failureOfSomeKind) {
+    grunt.log.error('This is an error message.');
+  }
+  //
+  // Fail by returning false if this task had errors
+  if (ifErrors) { return false; }
+  //
+  grunt.log.writeln('This is the success message');
+});
+</code></p>
+
+<p><!-- When tasks fail, all subsequent tasks will be aborted unless <code>--force</code> was specified. --></p>
+
+<p>当任务失败时，所有后续任务将被终止，除非指定了 <code>--force</code>。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'My "foo" task.', function() {
+  // Fail synchronously.
+  return false;
+});
+// 
+grunt.registerTask('bar', 'My "bar" task.', function() {
+  var done = this.async();
+  setTimeout(function() {
+    // Fail asynchronously.
+    done(false);
+  }, 1000);
+});
+</code></p>
+
+<p><!-- Tasks can be dependent on the successful execution of other tasks. Note that <code>grunt.task.requires</code> won't actually RUN the other task(s). It'll just check to see that it has run and not failed. --></p>
+
+<p>任务可以依赖于其他任务的成功执行。需要注意的是，<code>grunt.task.requires</code> 实际上不会执行其他任务。它会仅仅检查其他任务是否已运行，并且没有失败。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'My "foo" task.', function() {
+  return false;
+});
+// 
+grunt.registerTask('bar', 'My "bar" task.', function() {
+  // Fail task if "foo" task failed or never ran.
+  grunt.task.requires('foo');
+  // This code executes if the "foo" task ran successfully.
+  grunt.log.writeln('Hello, world.');
+});
+// 
+// Usage:
+// grunt foo bar
+//   doesn't log, because foo failed.
+// grunt bar
+//   doesn't log, because foo never ran.
+</code></p>
+
+<p><!-- Tasks can fail if required configuration properties don't exist. --></p>
+
+<p>如果需要的配置属性不存在，任务可能失败。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'My "foo" task.', function() {
+  // Fail task if "meta.name" config prop is missing.
+  grunt.config.requires('meta.name');
+  // Also fails if "meta.name" config prop is missing.
+  grunt.config.requires(['meta', 'name']);
+  // Log... conditionally.
+  grunt.log.writeln('This will only log if meta.name is defined in the config.');
+});
+</code></p>
+
+<p><!-- Tasks can access configuration properties. --></p>
+
+<p>任务可以访问配置属性。</p>
+
+<p><code>javascript
+grunt.registerTask('foo', 'My "foo" task.', function() {
+  // Log the property value. Returns null if the property is undefined.
+  grunt.log.writeln('The meta.name property is: ' + grunt.config('meta.name'));
+  // Also logs the property value. Returns null if the property is undefined.
+  grunt.log.writeln('The meta.name property is: ' + grunt.config(['meta', 'name']));
+});
+</code></p>
+
+<p><!-- Take a look at the <a href="https://github.com/gruntjs/">contrib tasks</a> for more examples. --></p>
+
+<p>更多例子请查看 <a href="https://github.com/gruntjs/">扩展任务</a>。</p>
+
+<h2>CLI options / environment</h2>
+
+<h2>CLI 选项/环境</h2>
+
+<p><em>TODO</em>
+(pull from FAQ, recommend process.env)</p>
+
+<h2>Why doesn't my asynchronous task complete?</h2>
+
+<h2>为什么我的异步任务不完成？</h2>
+
+<p><!-- Chances are this is happening because you have forgotten to call the <a href="grunt.task#wiki-this-async">this.async</a> method to tell Grunt that your task is asynchronous. For simplicity's sake, Grunt uses a synchronous coding style, which can be switched to asynchronous by calling <code>this.async()</code> within the task body. --></p>
+
+<p>可能会发生这种情况，因为你忘记了调用方法 <a href="http://gruntjs.com/grunt.task#wiki-this-async">this.async</a> 来告诉 Grunt 你的任务是异步的。为了简单起见，Grunt 使用一种同步编码风格，通过在任务体中调用 <code>this.async</code> 切换到异步。</p>
+
+<p><!-- Note that passing <code>false</code> to the <code>done()</code> function tells Grunt that the task has failed. --></p>
+
+<p>需要注意的是，通过为函数 <code>done()</code> 传入 <code>false</code> 来告诉 Grunt 任意已经失败。</p>
+
+<p><!-- For example: --></p>
+
+<p>例如：</p>
+
+<p><code>javascript
+grunt.registerTask('asyncme', 'My asynchronous task.', function() {
+  var done = this.async();
+  doSomethingAsync(done);
+});
+</code></p>    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28472701-1']);
+  _gaq.push(['_setDomainName', 'nuysoft.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>

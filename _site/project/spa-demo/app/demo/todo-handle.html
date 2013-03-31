@@ -1,0 +1,48 @@
+<h2>ToDo - {{state}}</h2>
+<hr>
+
+<div class="btn-toolbar" style="margin: 10px 0; ">
+    <a href="#!./app/demo/todo/" id="back" class="btn">Back</a>
+</div>
+
+<hr>
+<!-- 编辑 -->
+<div class="edit">
+    <form class="form-horizontal" type="POST">
+        <div class="control-group">
+            <label class="control-label" for="inputTitle">Title</label>
+            <div class="controls">
+                <input type="text" id="inputTitle" placeholder="Title">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="">Priority</label>
+            <div class="controls">
+                <select id="" name="priority">
+                    <option value=0>default</option>
+                    <option value=1>low</option>
+                    <option value=2>medium</option>
+                    <option value=3>high</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputProgress">Progress</label>
+            <div class="controls">
+                <input type="text" id="inputProgress" placeholder="Progress">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputDescription">Description</label>
+            <div class="controls">
+                <input type="text" id="inputDescription" placeholder="Description">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button id="submit" type="submit" class="btn">Submit</button>
+                <button id="submit" type="cancel" class="btn">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
