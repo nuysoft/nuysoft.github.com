@@ -1,9 +1,9 @@
 {% for node in pages_list %}
   {% if node.title != null %}
     {% if group == null or group == node.group %}
-    	{% if page.url == node.url %}
-    	<li class="active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></li>
-    	{% else %}
+      {% if page.url == node.url %}
+      <li class="active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></li>
+      {% else %}
       <li>
         {% if node.link == null %}
           <a href="{{ BASE_PATH }}{{ node.url }}">{{ node.title }}</a>
@@ -11,10 +11,10 @@
           <a href="{{ node.link }}" target="_blank">{{ node.title }}</a>
         {% endif %}
       </li>
-    	{% comment %}
+      {% comment %}
         <li><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
       {% endcomment %}
-    	{% endif %}
+      {% endif %}
     {% endif %}
   {% endif %}
 {% endfor %}

@@ -126,7 +126,7 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
-  pages_list :
-    provider : "custom"
-  posts_collate :
-    provider : "custom"
+pages_list :
+  provider : "custom"
+posts_collate :
+  provider : "custom"
