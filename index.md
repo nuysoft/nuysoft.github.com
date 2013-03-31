@@ -6,13 +6,8 @@ tagline:
 {% include JB/setup %}
 
 {% for post in site.posts %}
-  {% if post.pgroup != null %}
-    {% continue %}
-  {% endif %}
-
   <p>
     <span>[{{ post.category }}]</span>
-    
   </p>
 
 {% endfor %}
