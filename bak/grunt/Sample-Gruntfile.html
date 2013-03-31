@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>nuysoft</title>
+    <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.override.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container"><p><!-- Sample Gruntfile --></p>
+
+<h1>Gruntfile 示例</h1>
+
+<blockquote><p>原文：<a href="https://github.com/gruntjs/grunt/wiki/Sample-Gruntfile">https://github.com/gruntjs/grunt/wiki/Sample-Gruntfile</a></p><p>翻译：nuysoft</p></blockquote>
+
+<p><!-- Below we walk through a sample gruntfile which uses five grunt plugins: --></p>
+
+<p>下面我们介绍和分析一个 Gruntfile 示例，其中使用了 5 个 grunt 插件：</p>
+
+<ul><li><a href="https://github.com/gruntjs/grunt-contrib-uglify">grunt-contrib-uglify</a></li><li><a href="https://github.com/gruntjs/grunt-contrib-qunit">grunt-contrib-qunit</a></li><li><a href="https://github.com/gruntjs/grunt-contrib-concat">grunt-contrib-concat</a></li><li><a href="https://github.com/gruntjs/grunt-contrib-jshint">grunt-contrib-jshint</a></li><li><a href="https://github.com/gruntjs/grunt-contrib-watch">grunt-contrib-watch</a></li></ul>
+
+<p><!-- The entire Gruntfile is at the bottom of this page, but if you keep reading we'll walk through it a step at a time. --></p>
+
+<p>完整的 Gruntfile 在页面底部，但是如果你继续读下去，我们会每次只处理一步。</p>
+
+<p><!-- The first part is the "wrapper" function, which encapsulates your Grunt configuration. --></p>
+
+<p>第一个部分是”包裹“函数，封装你的 Grunt 配置。</p>
+
+<p><code>javascript
+module.exports = function(grunt) {
+}
+</code></p>
+
+<p><!-- Within there we can then initialize our configuration object: --></p>
+
+<p>在“包裹”函数中，我可以稍后初始化我们的配置对象：</p>
+
+<p><code>javascript
+grunt.initConfig({
+});
+</code></p>
+
+<p><!-- Next we can read in the project settings from the <code>package.json</code> file into the <code>pkg</code> property. This allows us to refer to the values of properties within our <code>package.json</code> file, as we'll see shortly. --></p>
+
+<p>接下来，我们可以从文件 <code>package.json</code> 读取项目配置到属性 <code>pkg</code>。这使得我们可以引用文件 <code>package.json</code> 中的属性值，我很快就会看到。</p>
+
+<p><code>javascript
+pkg: grunt.file.readJSON('package.json')
+</code></p>
+
+<p><!-- This leaves us with this so far: --></p>
+
+<p>到目前为止的 Gruntfile：</p>
+
+<p><code>javascript
+module.exports = function(grunt) {
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json');
+  });
+};
+</code></p>
+
+<p><!-- Now we can define configuration for each of the tasks we have. The configuration object for a task lives as a property on the configuration object, that's named the same as the task. So the "concat" task goes in our config object under the "concat" key. Below is my configuration object for the "concat" task. I --></p>
+
+<p>现在，我们可以为每个任务定义配置。一个任务的配置对象挂在整个配置对象的一个属性上，属性名与任务同名。因此，任务 “concat” 在配置对象中对应一个属性 “concat”。下面是任务“concat”的配置对象。</p>
+
+<p><code>javascript
+concat: {
+  options: {
+    // define a string to put between each file in the concatenated output
+    separator: ';'
+  },
+  dist: {
+    // the files to concatenate
+    src: ['src/**/*.js'],
+    // the location of the resulting JS file
+    dest: 'dist/<%= pkg.name %>.js'
+  }
+}
+</code></p>
+
+<p><!-- Note how I refer to the <code>name</code> property that's in the JSON file. We access this using <code>pkg.name</code> as earlier we defined the <code>pkg</code> property to be the result of loading the <code>package.json</code> file, which is then parsed to a JavaScript object. Grunt has simple template engine to output the values of properties in the configuration object. Here I tell the concat task to concatenate all files that exist within <code>src/</code> and end in <code>.js</code>. --></p>
+
+<p>请注意我是如何在 JSON 文件中应用属性 <code>name</code> 的。我们通过使用 <code>pkg.name</code> 来访问，在前面我们定义了属性 <code>pkg</code> 为文件 <code>package.json</code> 的加载结果，它被解析为一个 JavaScript 对象。Grunt 拥有简单的模板引擎，来输出配置对象中的属性值。在这里，我告诉任务 concat 合并 <code>src/</code> 下以 <code>.js</code> 结尾的所有文件。</p>
+
+<p><!-- Now lets configure the uglify plugin, which minifies our JavaScript: --></p>
+
+<p>现在，让我们配置 uglify 插件，它压缩我们的 JavaScript 代码：</p>
+
+<p><code>javascript
+uglify: {
+  options: {
+    // the banner is inserted at the top of the output
+    banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+  },
+  dist: {
+    files: {
+      'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+    }
+  }
+}
+</code></p>
+
+<p><!-- This tells uglify to create a file within <code>dist/</code> that contains the result of minifying the JavaScript files. Here I use <code><%= concat.dist.dest %></code> so uglify will minify the file that the concat task produces. --></p>
+
+<p>上面的配置告诉任务 uglify 在 <code>dist/</code> 下创建一个包含了压缩后的 JavaScript 的文件。在这里，我使用了 <code><%= concat.dist.dest %></code>，因此 uglify 将压缩任务 concat 产生的文件。</p>
+
+<p><!-- The QUnit plugin is really simple to set up. You just need to give it the location of the test runner files, which are the HTML files QUnit runs on. --></p>
+
+<p>QUnit 插件非常易于设置。你只需要给定测试运行文件的位置，QUnit 在这些 HTML 文件上运行。</p>
+
+<p><code>javascript
+qunit: {
+  files: ['test/**/*.html']
+},
+</code></p>
+
+<p><!-- The JSHint plugin is also very simple to configure: --></p>
+
+<p>JSHint 插件的配置也很简单：</p>
+
+<p><code>javascript
+jshint: {
+  // define the files to lint
+  files: ['gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+  // configure JSHint (documented at http://www.jshint.com/docs/)
+  options: {
+  	// more options here if you want to override JSHint defaults
+    globals: {
+      jQuery: true,
+      console: true,
+      module: true
+    }
+  }
+}
+</code></p>
+
+<p><!-- JSHint simply takes an array of files and then an object of options. These are all <a href="http://www.jshint.com/docs/">documented on the JSHint site</a>. If you're happy with the JSHint defaults, there's no need to redefine them in the Gruntfile. --></p>
+
+<p>JSHint 简单的接受一个文件数组和一个选项对象。<a href="http://www.jshint.com/docs/">JSHint 网站上的文档</a>描述了所有的选项。如果用 JSHint 默认值用的很开心，就没有必要在 Gruntfile 中重新它们。</p>
+
+<p><!-- Finally we have the watch plugin: --></p>
+
+<p>最后，我们还有 watch 插件：</p>
+
+<p><code>javascript
+watch: {
+  files: ['<%= jshint.files %>'],
+  tasks: ['jshint', 'qunit']
+}
+</code></p>
+
+<p><!-- This can be run on the command line with <code>grunt watch</code>. When it detects any of the files specified have changed (here, I just use the same files I told JSHint to check), it will run the tasks you specify, in the order they appear. --></p>
+
+<p>可以在命令行中通过 <code>grunt watch</code> 来运行它。当它检测到任何指定的文件发生变化时（在这里，我只是使用了与 JSHint 相同的文件），它将运行指定的任务，按照出现的顺序。</p>
+
+<p><!-- Finally, we have to load in the Grunt plugins we need. These should have all been installed through npm. --></p>
+
+<p>最后，我们必须加载所需的 Grunt 插件。它们应该已经通过 npm 安装了。</p>
+
+<p><code>javascript
+grunt.loadNpmTasks('grunt-contrib-uglify');
+grunt.loadNpmTasks('grunt-contrib-jshint');
+grunt.loadNpmTasks('grunt-contrib-qunit');
+grunt.loadNpmTasks('grunt-contrib-watch');
+grunt.loadNpmTasks('grunt-contrib-concat');
+</code></p>
+
+<p><!-- And finally set up some tasks. Most important is the default task: --></p>
+
+<p>并且在最后我们设置了一些任务。其中最重要的是 default 任务：</p>
+
+<p><code></code>`javascript
+// this would be run by typing "grunt test" on the command line
+grunt.registerTask('test', ['jshint', 'qunit']);</p>
+
+<p>// the default task can be run just by typing "grunt" on the command line
+grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+<code></code>`</p>
+
+<p><!-- And here's the finished <code>Gruntfile.js</code>: --></p>
+
+<p>下面是完成后的 <code>Gruntfile.js</code>：</p>
+
+<p><code>javascript
+module.exports = function(grunt) {
+  //
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+    concat: {
+      options: {
+        separator: ';'
+      },
+      dist: {
+        src: ['src/**/*.js'],
+        dest: 'dist/<%= pkg.name %>.js'
+      }
+    },
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+      dist: {
+        files: {
+          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    },
+    qunit: {
+      files: ['test/**/*.html']
+    },
+    jshint: {
+      files: ['gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
+      options: {
+        // options here to override JSHint defaults
+        globals: {
+          jQuery: true,
+          console: true,
+          module: true,
+          document: true
+        }
+      }
+    },
+    watch: {
+      files: ['<%= jshint.files %>'],
+      tasks: ['jshint', 'qunit']
+    }
+  });
+  //
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  //
+  grunt.registerTask('test', ['jshint', 'qunit']);
+  //
+  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+};
+</code></p>    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28472701-1']);
+  _gaq.push(['_setDomainName', 'nuysoft.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>

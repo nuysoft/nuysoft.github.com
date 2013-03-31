@@ -1,0 +1,40 @@
+<h2>Account - {{state}}</h2>
+<hr>
+
+<div class="btn-toolbar" style="margin: 10px 0; ">
+    <a href="#!./app/demo/account/" id="back" class="btn">Back</a>
+</div>
+
+<hr>
+<!-- 编辑 -->
+<div class="edit">
+    <form class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="inputCount">Count</label>
+            <div class="controls">
+                <input type="text" id="inputCount" placeholder="Count">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="">Type</label>
+            <div class="controls">
+                <select id="" name="type">
+                    <option value=1>收入</option>
+                    <option value=-1>支出</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputDesc">Description</label>
+            <div class="controls">
+                <input type="text" id="inputDesc" placeholder="Description">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

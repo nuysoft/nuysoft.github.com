@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Markdown Editor</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <script src="jquery-1.8.3.js"></script>
+    <script src="markdown.js"></script>
+    <style type="text/css">
+         code {
+            display: block;
+            padding: 8.5px;
+            margin: 0 0 9px;
+            font-size: 12.025px;
+            line-height: 18px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            white-space: pre;
+            white-space: pre-wrap;
+            word-break: break-all;
+            word-wrap: break-word;
+            color: #333333;
+        }
+        .editor {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            color: #7e7e7e;
+            background: #f8f8f8;
+            margin: 0px;
+            padding: 5px 0px 5px 10px;
+            border: 0px;
+            border-right: solid 1px #d2d2d2;
+            outline:none;
+        }
+         .preview { 
+            position: fixed;
+            right: 0px;
+            top: 0px;
+            overflow: auto;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+            var win = $(window),
+                editor = $('textarea.editor'),
+                preview = $('div.preview');
+
+            function resize(){
+                var w = win.width() / 2,
+                    h = win.height();
+                editor.width( w - 10 ).height(  h - 10 );
+                preview.width( w - 10).height(  h );
+                return resize;
+            }
+            win.on( 'resize', resize() );
+
+            editor.on('input', function(e){
+                preview.html( markdown.toHTML( editor.val() ) );
+            }).trigger('input');
+                
+        });
+    </script>
+</head>
+<body>
+
+<textarea class="editor">
+# Markdown Cheat Sheet
+
+## Format Text
+
+### Headers
+
+    # This is an <h1> tag
+    ## This is an <h2> tag
+    ###### This is an <h6> tag
+
+### Text styles
+
+*This text will be italic*
+
+_This will also be italic_
+
+ **This text will be bold**
+
+__This will also be bold__
+
+*You **can** combine them*
+
+
+## Lists
+
+### Unordered
+
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+
+### Ordered
+
+1. Item 1
+2. Item 2
+3. Item 3
+   * Item 3a
+   * Item 3b
+
+
+## Miscellaneous
+
+### Images
+
+![GitHub Logo](http://daringfireball.net/graphics/logos/)
+
+Format: ![Alt Text](http://daringfireball.net/graphics/logos/)
+
+### Links
+
+http://github.com - automatic!
+
+[GitHub](http://github.com)
+
+### Blockquotes
+
+As Kanye West said:
+
+> We're living the future so
+
+> the present is our past.
+
+
+## Code Examples in Markdown
+
+### Syntax highlighting with GFM
+
+```javascript
+function fancyAlert(arg) {
+  if(arg) {
+    $.facebox({div:'#foo'})
+  }
+}
+```
+
+### Or, indent your code 4 spaces
+
+Here is a Python code example
+without syntax highlighting:
+
+    def foo:
+      if not bar:
+        return true
+
+
+#### Inline code for comments
+
+I think you should use an 
+
+`<addr>` element here instead.
+
+
+</textarea>
+    <div class="preview"></div>
+
+</body>
+</html>
