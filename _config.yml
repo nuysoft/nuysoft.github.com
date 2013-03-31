@@ -9,13 +9,13 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : nuysoft
+title : nuysoft's blog
 tagline: Site Tagline
 author :
-  name : Name Lastname
-  email : blah@email.test
-  github : username
-  twitter : username
+  name : nuysoft
+  email : nuysoft@gmail.com
+  github : nuysoft
+  twitter : nuysoft
   feedburner : feedname
 
 # The production_url is only used when full-domain names are needed
@@ -126,3 +126,7 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+  pages_list :
+    provider : "custom"
+  posts_collate :
+    provider : "custom"
