@@ -7,9 +7,8 @@ tagline:
 
 {% for post in site.posts %}
   <p>
-    <span>[{{ post.category }}]</span>
+    <span>{{ post.category }}</span>
   </p>
-
 {% endfor %}
 <hr>
 <p>[链接] 当年师友尽豪英</p>
