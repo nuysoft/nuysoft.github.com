@@ -1,0 +1,5 @@
+{% if fullname != null %}
+  <span class="ghbtns" style="padding-left: 10px; float: right; " data-fullname="{{fullname}}"></span>
+{% endif %}
+{% assign user = nil %}
+{% assign repo = nil %}
