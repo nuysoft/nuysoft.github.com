@@ -38,4 +38,4 @@ tagline:
 {% endfor %}
 <hr>
 <p>[链接] 当年师友尽豪英</p>
-　　　[逸才](http://cyj.me/)、[逐飞](http://fizzwu.im/)、[凌征](http://yehao.diandian.com/)、[白汀](http://feliving.github.com/)、[崇志](http://www.ueder.net/)、[左莫]()、[黄龙]()，谁还有？
+　　　[逸才](http://cyj.me/)、[逐飞](http://fizzwu.im/)、[凌征](http://yehao.diandian.com/)、[白汀](http://feliving.github.com/)、[崇志](http://www.ueder.net/)、[左莫](http://xubo.me/)、[黄龙](http://blog.iblack7.com/)，谁还有？
