@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "es6 and method definitions"
+title: "ECMAScript 6 and Method Definitions"
 description: ""
 category: 翻译
 tags: []

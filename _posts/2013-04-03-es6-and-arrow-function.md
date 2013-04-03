@@ -11,7 +11,7 @@ pgroup: es6
 ---
 {% include JB/setup %}
 
-> 原文：http://ariya.ofilabs.com/2013/02/es6-and-arrow-function.html
+> 原文：[ECMAScript 6 and Arrow Function](http://ariya.ofilabs.com/2013/02/es6-and-arrow-function.html)
 
 > 译者：nuysoft
 

@@ -12,7 +12,7 @@ pgroup: es6
 {% include JB/setup %}
 
 
-> 原文：http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.md
+> 原文：[ECMAScript 6 and Array Comprehension](http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.md)
 
 > 译者：nuysoft
 

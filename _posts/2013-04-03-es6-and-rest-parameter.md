@@ -11,7 +11,7 @@ pgroup: es6
 ---
 {% include JB/setup %}
 
-> 原文：http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html
+> 原文：[ECMAScript 6 and Rest Parameter](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html)
 
 > 译者：nuysoft
 

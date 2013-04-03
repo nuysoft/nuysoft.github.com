@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "es6 and object literal property value shorthand"
+title: "ECMAScript 6 and Object Literal Property Value Shorthand"
 description: ""
 category: 翻译
 tags: []

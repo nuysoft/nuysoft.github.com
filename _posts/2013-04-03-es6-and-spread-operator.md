@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "es6 and spread operator"
+title: "ECMAScript 6 and Spread Operator"
 description: ""
 category: 翻译
 tags: []
 published: false
 
-short: "Method Definitions"
+short: "Spread Operator"
 pgroup: es6
 ---
 {% include JB/setup %}
