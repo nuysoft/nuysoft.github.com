@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Default Argument"
+title: "ECMAScript 6 and Default Argument"
 tagline: "默认参数"
 description: "一个函数声明可以为每个参数指定一个默认值"
 category: 翻译
-tags: [ECMAScript 6, JavasSript, Web]
+tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Default Argument"
 pgroup: es6

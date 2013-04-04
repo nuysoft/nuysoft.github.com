@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Spread Operator"
+title: "ECMAScript 6 and Spread Operator"
 tagline: "展开操作符"
 description: "把数组转换成连续的参数"
 category: 翻译
-tags: [ECMAScript 6, JavasSript, Web]
+tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Spread Operator"
 pgroup: es6

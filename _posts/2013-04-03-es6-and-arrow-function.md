@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Arrow Function"
+title: "ECMAScript 6 and Arrow Function"
 tagline: "箭头函数"
 description: "函数表达式的简写形式"
 category: 翻译
-tags: [ECMAScript 6, JavasSript, Web]
+tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Arrow Function"
 pgroup: es6

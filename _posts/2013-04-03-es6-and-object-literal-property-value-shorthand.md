@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Object Literal Property Value Shorthand"
+title: "ECMAScript 6 and Object Literal Property Value Shorthand"
 tagline: "对象字面属性值简写"
 description: "属性值与属性标识符同名"
 category: 翻译
-tags: [ECMAScript 6, JavasSript, Web]
+tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Object Literal Property Value Shorthand"
 pgroup: es6
