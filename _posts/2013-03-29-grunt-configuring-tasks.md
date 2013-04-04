@@ -5,7 +5,7 @@ short: "Configuring Tasks"
 description: ""
 category: 翻译
 group: Grunt
-tags: []
+tags: [Grunt, JavaScript, Web]
 
 pgroup: Grunt
 link: bak/grunt/Configuring-tasks.html

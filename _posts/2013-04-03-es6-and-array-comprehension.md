@@ -2,9 +2,9 @@
 layout: post
 title: "Array Comprehension"
 tagline: "数组推导式"
-description: ""
+description: "基于另一个数组创建数组的简洁方式"
 category: 翻译
-tags: [es6, javascript, web]
+tags: [ECMAScript 6, JavasSript, Web]
 
 short: "Array Comprehension"
 pgroup: es6
@@ -13,8 +13,6 @@ pgroup: es6
 
 
 > 原文：[ECMAScript 6 and Array Comprehension](http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.md)
-
-> 译者：nuysoft
 
 <!-- Many modern programming languages support [list comprehension](http://en.wikipedia.org/wiki/List_comprehension), a concise way to create a list based another list where each entry is the result of some operations. If comprehension is used properly, it eliminates the need for the traditional and error-prone manual iteration. Next-generation JavaScript will have the similar feature via **array comprehension**. -->
 

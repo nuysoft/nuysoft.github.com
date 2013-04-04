@@ -4,7 +4,7 @@ title: "Grunt 0.4.x Documentation"
 description: ""
 category: 翻译
 group: Grunt
-tags: []
+tags: [Grunt, JavaScript, Web]
 
 subgroup: Grunt
 link: ##

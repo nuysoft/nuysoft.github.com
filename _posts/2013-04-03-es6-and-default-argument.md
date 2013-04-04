@@ -2,9 +2,9 @@
 layout: post
 title: "Default Argument"
 tagline: "默认参数"
-description: ""
+description: "一个函数声明可以为每个参数指定一个默认值"
 category: 翻译
-tags: [es6, javascript, web]
+tags: [ECMAScript 6, JavasSript, Web]
 
 short: "Default Argument"
 pgroup: es6
@@ -12,8 +12,6 @@ pgroup: es6
 {% include JB/setup %}
 
 > 原文：[ECMAScript 6 and Default Argument](http://ariya.ofilabs.com/2013/02/es6-and-default-argument.html)
-
-> 译者：nuysoft
 
 <!-- Many programming languages support the concept of a [default argument](http://en.wikipedia.org/wiki/Default_argument) for a function parameter so that the caller does not always need to specify the argument value. Unfortunately, JavaScript does not have a default argument support in its syntax. This may soon change with the upcoming ECMAScript 6. -->
 
@@ -54,7 +52,7 @@ pgroup: es6
 
 <!-- All this fancy dance is not necessarily anymore once the syntax itself supports a default argument. In the [section 13](http://teramako.github.com/ECMAScript/ecma6th_syntax.html#13) of the [latest ECMAScript 6 draft](http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts), it is mentioned that the formal parameter (for a function) is not a simple list of identifiers anymore (as in ECMAScript 5) as it is generalized to allow *BindingElement*. While this new construct is there to permit the object and array pattern (see my previous blog post on [destructuring assignment](http://ariya.ofilabs.com/2013/02/es6-and-destructuring-assignment.html)), it is important to realize that BindingElement supports an optional initialization, pretty much like in a variable declaration. -->
 
-一旦语法本身支持默认参数，所有这一切花哨的技巧不再是必要的。在[最新的 ECMAScript 6 草稿](http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts)的 [13 节](http://teramako.github.com/ECMAScript/ecma6th_syntax.html#13)，提高（函数）的正式参数不再是一个简单的标识符列表（正如 ECMAScript 5 中定义的），因为参数被泛化为允许 *BindingElement*。虽然这种新结构允许对象或数组模式（参见我之前关于 [destructuring assignment](http://ariya.ofilabs.com/2013/02/es6-and-destructuring-assignment.html) 的博客文章），重要的是要认识到 BindingElement 支持一个可选的初始化，就像在一个变量声明。
+一旦语法本身支持默认参数，所有这一切花哨的技巧不再是必要的。在[最新的 ECMAScript 6 草稿](http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts)的 [13 节](http://teramako.github.com/ECMAScript/ecma6th_syntax.html#13)，提到（函数）的正式参数不再是一个简单的标识符列表（正如 ECMAScript 5 中定义的），因为参数被泛化为允许 *BindingElement*。虽然这种新结构允许对象或数组模式（参见我之前关于 [destructuring assignment](http://ariya.ofilabs.com/2013/02/es6-and-destructuring-assignment.html) 的博客文章），重要的是要认识到 BindingElement 支持一个可选的初始化，就像在一个变量声明。
 
 <!-- In plain English, this means that a function declaration can specify a default value for every parameter. The previous `runApp` function will turn into something as simple as: -->
 

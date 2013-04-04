@@ -2,9 +2,9 @@
 layout: post
 title: "Rest Parameter"
 tagline: "可变参数"
-description: ""
+description: "处理可变数目的函数参数"
 category: 翻译
-tags: [es6, javascript, web]
+tags: [ECMAScript 6, JavasSript, Web]
 
 short: "Rest Parameter"
 pgroup: es6
@@ -12,8 +12,6 @@ pgroup: es6
 {% include JB/setup %}
 
 > 原文：[ECMAScript 6 and Rest Parameter](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html)
-
-> 译者：nuysoft
 
 <!-- Handling a function with a variable number of arguments is always tricky in JavaScript. At least, we still have this `arguments` object which can be used to retrieve all arguments used to invoke a function. With the upcoming ECMAScript 6, no such hack is necessary anymore since we can start using its **rest parameter** feature. -->
 在 JavaScript 中处理一个带有可变数目的参数的函数始终是棘手的。至少，我们还有 `arguments` 对象可以用于获取所有调用函数时的所有参数。随着即将到来的 ECMAScript 6，不再需要这样的技巧，因为我们可以使用它的**可变参数**功能。

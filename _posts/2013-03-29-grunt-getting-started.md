@@ -5,7 +5,7 @@ short: "Getting Started"
 description: ""
 category: 翻译
 group: Grunt
-tags: []
+tags: [Grunt, JavaScript, Web]
 
 pgroup: Grunt
 link: bak/grunt/Getting-started.html
