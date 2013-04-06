@@ -14,7 +14,7 @@ pgroup: es6
 > 原文：[ECMAScript 6 and Object Literal Property Value Shorthand](http://ariya.ofilabs.com/2013/02/es6-and-object-literal-property-value-shorthand.html)
 
 <!-- Constructing an object using the literal syntax is something that is very familiar to every JavaScript developer, quite likely because this reminds everyone of [JSON](http://json.org/). While every object property needs to be either a key-value pair or getter/setter, this may change in the near future. Another syntactic sugar in the upcoming ECMAScript 6 is the **object literal property value shorthand**. -->
-对于每个 JavaScript 开发人员，使用字面量语法构造一个对象是非常熟悉的做法，这很可能是因为受到了 [JSON](http://json.org/) 的影响。而每个对象属性必须是一对 key-value 或 getter/setter，这可能会在不久的将来改变。即将到来的 ECMAScript 6 的另一个语法糖是**对象字面属性值简写**。
+对于每个 JavaScript 开发人员，使用字面量语法构造一个对象是非常熟悉的做法，这很可能是因为这种做法让人想起 [JSON](http://json.org/)。而每个对象属性必须是一对 key-value 或 getter/setter，这可能会在不久的将来改变。即将到来的 ECMAScript 6 的另一个语法糖是**对象字面属性值简写**。
 
 <!-- Consider the following ECMAScript 5 fragment: -->
 考虑下面的 ECMAScript 5 代码片段：
@@ -40,7 +40,7 @@ pgroup: es6
 正如你看到的，这段代码可以工作是因为属性值与属性标识符同名。这是最新的 [ECMAScript 6 草案 Rev 13](http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts) 对*对象初始化*语法（[11.1.5 节](http://teramako.github.com/ECMAScript/ecma6th_syntax.html#11.1.5)）新的补充。当然，就像 ECMAScript 3 的限制集合，你不能使用保留字作为属性名。
 
 <!-- What about real-world code which can use the shorthand notation? Somewhere in [Backbone.js](http://backbonejs.org/), we should be able to use the following form instead of its longer one: -->
-在现在世界的代码中使用这种简写符号会怎么样？在 [Backbone.js](http://backbonejs.org/) 的某个地方，我们可以使用下面的形式，代替它更长的形式：
+在现在世界的代码中使用这种简写符号会怎么样？在 [Backbone.js](http://backbonejs.org/) 的某个地方，我们可以使用下面的形式，代替它更长（旧）的形式：
 
     route: function(route, callback) {
       this.handlers.unshift({route, callback});
@@ -56,7 +56,7 @@ pgroup: es6
     });
 
 <!-- Such a shorthand won't dramatically change your code, it only makes everything a little bit sweeter! -->
-这种简写不会显著的改变你的代码，它仅仅是让事情变得有点“甜蜜”。
+这种简写不会显著的改变你的代码，它仅仅是让事情变得有点“甜蜜”（sweeter）。
 
 <!-- **Addendum**. While the literal shorthand is useful on its own, in many cases it would be more frequently encountered as it is combined with *object pattern* (see my previous post on [ECMAScript 6 destructuring](http://ariya.ofilabs.com/2013/02/es6-and-destructuring-assignment.html)). Thus, the following code fragment: -->
 

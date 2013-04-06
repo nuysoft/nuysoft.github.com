@@ -17,7 +17,7 @@ pgroup: es6
 我们已经看到了[可变参数](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html)可以帮助处理可变数目的函数参数。其他方式怎么样呢？我们可以把一个数组转换成连续的函数参数吗？显然地，ECMAScript 6 定义了一个称为**展开操作符**的新操作符，用于处理这个操作。
 
 <!-- Let us review again our [previous example](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html) with a supplier truck and a grocery store. Assuming the API of the store accepts a variable number of items for a particular category: -->
-让我们再次回顾[前面的例子](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html)，其中有一辆供货卡车和一间杂货铺。建设杂货铺的 API 接受一个特定类目和可变数目的货物。
+让我们再次回顾[前面的例子](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html)，其中有一辆供货卡车和一间杂货铺。假设杂货铺的 API 接受一个特定类目和可变数目的货物。
 
     store.add('fruit', 'apple');
     store.add('dairy', 'milk', 'cheese', 'yoghurt');
