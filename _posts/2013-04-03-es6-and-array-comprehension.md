@@ -16,7 +16,7 @@ pgroup: es6
 
 <!-- Many modern programming languages support [list comprehension](http://en.wikipedia.org/wiki/List_comprehension), a concise way to create a list based another list where each entry is the result of some operations. If comprehension is used properly, it eliminates the need for the traditional and error-prone manual iteration. Next-generation JavaScript will have the similar feature via **array comprehension**. -->
 
-很多现代编程语言支持[列表推导式](http://en.wikipedia.org/wiki/List_comprehension)，一种基于另一个列表创建列表的简洁方式，另一个列表中的每个条目是某些操作的结果。如果适当的使用推导式，将消除传统的、容易出错的手动迭代的需求。下一个 JavaScript 通过**数组推导式**提供类似的功能。
+很多现代编程语言支持[列表推导式](http://en.wikipedia.org/wiki/List_comprehension)，一种基于另一个列表创建列表的简洁方式，另一个列表中的每个条目是某些操作的结果。如果适当的使用推导式，将消除传统的、容易出错的手动迭代的需求。下一代 JavaScript 通过**数组推导式**提供类似的功能。
 
 <!-- First of all, let’s do a quick refresh on Array’s `map` and `filter` functions. -->
 
