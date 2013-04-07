@@ -12,7 +12,7 @@ pgroup: es6
 {% include JB/setup %}
 
 
-> 原文：[ECMAScript 6 and Array Comprehension](http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.md)
+> 原文：[ECMAScript 6 and Array Comprehension](http://ariya.ofilabs.com/2013/01/es6-and-array-comprehension.html)
 
 <!-- Many modern programming languages support [list comprehension](http://en.wikipedia.org/wiki/List_comprehension), a concise way to create a list based another list where each entry is the result of some operations. If comprehension is used properly, it eliminates the need for the traditional and error-prone manual iteration. Next-generation JavaScript will have the similar feature via **array comprehension**. -->
 
