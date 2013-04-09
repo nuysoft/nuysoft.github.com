@@ -133,7 +133,7 @@ Image Credit: Viktor Hertz -->
 <!-- This way, you can put all of your templates in the HTML document and prevent all the extra Ajax requests to those templates. -->
 通过这种方式，你可以把所有模板放在 HTML 文档中，并防止了对这些模板额外的 Ajax 请求。
 
-The content of such a script tag can then be used later in your JavaScript as a template. The following code example, this time using the Handlebars templating engine and a bit of jQuery, uses the previous `<script>` tag:
+<!-- The content of such a script tag can then be used later in your JavaScript as a template. The following code example, this time using the Handlebars templating engine and a bit of jQuery, uses the previous `<script>` tag: -->
 在你的 JavaScript 中，类似这样一个 script 标签的内容可以稍后作为模板使用。下面的代码示例使用了前面的 `<script>` 标签，注意这次我们使用了 Handlebars 模板引擎和一点点 jQuery：
 
     var template = $('#myTemplate').html();
@@ -143,7 +143,7 @@ The content of such a script tag can then be used later in your JavaScript as a 
 <!-- You can try this example as well at [jsFiddle](http://jsfiddle.net/webpro/9xwum/). -->
 你也可以在 [jsFiddle](http://jsfiddle.net/webpro/9xwum/) 上试试这个例子。
 
-The result here is the same as in our Mustache example. Handlebars can use Mustache templates as well, so we use the same template here. There is one (important) difference though, which is that Handlebars is using an intermediate step to get the HTML result. It first compiles the template into a JavaScript function (we named it `compiledTemplate` here). This function is then executed using the data as its only argument, returning the final output.
+<!-- The result here is the same as in our Mustache example. Handlebars can use Mustache templates as well, so we use the same template here. There is one (important) difference though, which is that Handlebars is using an intermediate step to get the HTML result. It first compiles the template into a JavaScript function (we named it `compiledTemplate` here). This function is then executed using the data as its only argument, returning the final output. -->
 生成的结果与 Mustache 示例相同。Handlebars 也可以使用 Mustache 模板，因为我们在这里使用了相同的模板。不过有一个重要的区别，Handlebars 使用一个中间步骤来得到 HTML 结果。它首先把模板编译为一个 JavaScript 函数（我们把它命名为 `compiledTemplate`）。然后该函数被执行，数据作为其唯一的参数，最后返回最终的输出。
 
 <!-- ### SCENARIO 2: PRECOMPILED TEMPLATES -->
@@ -166,7 +166,7 @@ The result here is the same as in our Mustache example. Handlebars can use Musta
 
     var result = myTemplates.templateB(data);
 
-This is generally a far better-performing approach than putting templates within `<script>` tags as discussed before, since the client can skip the compilation part. Depending on your application stack, this approach is not necessarily harder to accomplish, as we’ll see next.
+<!-- This is generally a far better-performing approach than putting templates within `<script>` tags as discussed before, since the client can skip the compilation part. Depending on your application stack, this approach is not necessarily harder to accomplish, as we’ll see next. -->
 较之前面讨论过的把模板放入 `<script>` 标签，通常这是一个性能更好的办法，因为客户端可以跳过编译部分。根据你的应用程序架构，这个方案很有必要并且不是难以完成，接下我们会看到如何实现。
 
 <!-- **Node.js example** -->
@@ -178,12 +178,13 @@ This is generally a far better-performing approach than putting templates within
 <!-- * read the template files,
 * compile the templates,
 * combine the resulting JavaScript functions in one or more files. -->
-* 读取模板文件，
-* 编译模板，
-* 把编译后的 JavaScript 函数合并到一个或多个文件。
-
+<ul>
+<li>读取模板文件，</li>
+<li>编译模板，</li>
+<li>把编译后的 JavaScript 函数合并到一个或多个文件。</li>
+</ul>
 <!-- The next basic Node.js script does all that (using the Hogan.js templating engine): -->
-下面的 Node.js 脚本实现上述所有步骤（使用 Hogan.js 模板引擎）：
+下面的 Node.js 脚本实现了上述所有步骤（使用 Hogan.js 模板引擎）：
 
     var fs = require('fs'),
         hogan = require('hogan.js');
@@ -239,13 +240,13 @@ RequireJS 的“text”插件允许你指定基于文本的依赖。AMD 依赖�
 <!-- This way, the advantage lies (only) in the ability to organize the templates in separate files. This is nice, but it needs an extra Ajax request to get the template, and it still needs to compile the template client-side. However, the extra request can be removed by using the `r.js` optimizer that comes with RequireJS. This resolves dependencies, and will “inline” the templates (or any dependency) into this module definition, vastly reducing the number of requests. -->
 这种方式的优势仅仅在于组织不同文件中的模板。这很不错，但是仍然需要一个额外的 Ajax 请求来获取模板，仍然需要在客户端编译模板。然而，额外的请求可以通过使用 RequireJS 的 `r.js` 优化器来避免。`r.js` 解析依赖关系，并且将模板（或任何依赖）内联在当前模块定义中，从而极大地降低请求数。
 
-The absence of a precompilation step can be solved in a couple of ways. It may come to mind to have the optimizer also precompile the templates (e.g. we could write a plugin for `r.js`). But that would require a change in the module definition as well, since we would be using a template string before optimization, and a template function afterwards. Yet this would not be terribly hard to deal with, either by checking for this variable type, or by abstracting away this logic (in either the plugin or the application).
+<!-- The absence of a precompilation step can be solved in a couple of ways. It may come to mind to have the optimizer also precompile the templates (e.g. we could write a plugin for `r.js`). But that would require a change in the module definition as well, since we would be using a template string before optimization, and a template function afterwards. Yet this would not be terribly hard to deal with, either by checking for this variable type, or by abstracting away this logic (in either the plugin or the application). -->
 预编译步骤的缺乏可以通过多种方式解决。你可以会考虑让优化器同时预编译模板（例如，我们可以为 `r.js` 编写一个插件）。但是，这同时需要改变模块的定义，因为在优先前我们使用的是模板字符串，优化之后使用又是模板函数。不过这不是非常难处理的问题，可以通过检查变量类型或者抽象这部分逻辑（或者在插件中，或者在应用程序中）解决。
 
 <!-- ### WATCHING TEMPLATES -->
 ### 监听模板
 
-In both scenarios #2 and #3, we can do even better by treating our templates as uncompiled source files. Just like CoffeeScript, or Less or SCSS files. We can have our template files watched for changes during development, and recompile them automatically when a file is changed, i.e. just like you would compile CoffeeScript into JavaScript. This way, we’re always dealing with precompiled templates in our code, and the optimizer effortlessly inlines the precompiled templates in the build process.
+<!-- In both scenarios #2 and #3, we can do even better by treating our templates as uncompiled source files. Just like CoffeeScript, or Less or SCSS files. We can have our template files watched for changes during development, and recompile them automatically when a file is changed, i.e. just like you would compile CoffeeScript into JavaScript. This way, we’re always dealing with precompiled templates in our code, and the optimizer effortlessly inlines the precompiled templates in the build process. -->
 在方案2和方案3中，通过把模板当作未编译的源文件，我们可以做的更好。就像 CoffeeScript、Less、SCSS 文件。我们可以在开发过程中监听模板的变化，当然文件改变时自动重编译它们，就像你会把 CoffeeScript 编译为 JavaScript 一样。这样一来，我们在代码中始终处理的是预编译后的模板，并且在构建过程中优化器可以毫不费力的内联预编译后的模板。
 
     define(['templates/myTemplate.js'], function(compiledTemplate) {
@@ -269,15 +270,16 @@ In both scenarios #2 and #3, we can do even better by treating our templates as 
 <!-- Rendering *UI* updates by using client-side templates is often the way to go. Still, the best performance for the initial *full page* load is achieved by serving that page as a whole. This allows the browser to render the HTML as is without requiring any JavaScript parsing or extra requests for data. This might be a challenge, especially for pages that are both dynamic and require the best initial loading times possible. Then, ideally, templates are being developed and reused on the client and the server to both support the best performance and still be maintainable. -->
 使用客户端模板更新 *UI* 往往是不可避免的事情。尽管如此，最佳性能仍然是作为一个整体由服务端提供*完整的初始化页面*。这样浏览器渲染 HTML 时不需要任何 JavaScript 解析或额外的数据请求。这可能是一个挑战，尤其当页面是动态的，同时又要求最佳的初始化时间。然后，理想情况下，模板可以在客户端和服务端之间开发和重用，提供最佳性能的同时仍然易于维护。
 
-Two questions to consider here are:
+<!-- Two questions to consider here are: -->
 这里需要考虑两个问题：
 
 <!-- * What part of my application is mostly dynamic, and what part requires the best possible initial loading times?
 * Do you want to move the processing to the client, or should the server do the heavy lifting? -->
-* 应用程序的哪部分是动态的，哪部分要求最佳初始化加载时间？
-* 是把处理过程转移到客户端，还是由服务端做繁重的工作？
-
-The answer can only be given by actually measuring different approaches. Yet by using precompiled templates, the client usually doesn’t have a very hard time rendering them on the fly. And in case you want to reuse templates on the client and server, you will find a logic-less template syntax to be the most versatile.
+<ul>
+<li>应用程序的哪部分是动态的，哪部分要求最佳初始化加载时间？</li>
+<li>是把处理过程转移到客户端，还是由服务端做繁重的工作？</li>
+</ul>
+<!-- The answer can only be given by actually measuring different approaches. Yet by using precompiled templates, the client usually doesn’t have a very hard time rendering them on the fly. And in case you want to reuse templates on the client and server, you will find a logic-less template syntax to be the most versatile. -->
 答案只能通过测试不同的方法给出。然后通过使用预编译模板，客户端渲染模板时通常不会花费很多时间。另外，如果你想要在客户端和服务端之间重用模板，你会发现弱逻辑模板语法会是最合适的。
 
 <!-- ## Conclusion -->
@@ -286,20 +288,21 @@ The answer can only be given by actually measuring different approaches. Yet by 
 We have seen many strengths of client-side templating, including:
 我们已经看到了客户端模板的许多优势，包括：
 
-<!-- Application servers and APIs are best at serving just the data (i.e. JSON); client-side templates fit in perfectly. -->
-* 应用程序服务端和 API 最擅长仅仅提供数据（例如 JSON）；而客户端模板实现了完美融合。
+<!-- 
+* Application servers and APIs are best at serving just the data (i.e. JSON); client-side templates fit in perfectly.
+* HTML and JavaScript naturally match the skills of client-side developers.
+* Using templates enforces a good practice of separating presentation and logic.
+* The templates can be fully precompiled and cached, this leaves only the actual data to be refreshed from server.
+* Moving the rendering phase from server to client may positively affect performance. 
+-->
 
-<!-- HTML and JavaScript naturally match the skills of client-side developers. -->
-* HTML 和 JavaScript 天然地匹配前端开发人员的技能。
-
-<!-- Using templates enforces a good practice of separating presentation and logic. -->
-* 使用模板强化了分离展现和逻辑这一最佳实践。
-
-<!-- The templates can be fully precompiled and cached, this leaves only the actual data to be refreshed from server. -->
-* 模板完全可以预编译和缓存，只剩下从服务端获取和更新实际的数据。
-
-<!-- Moving the rendering phase from server to client may positively affect performance. -->
-* 把渲染环节从服务端转移到客户端可以提升性能。
+<ul>
+<li>应用程序服务端和 API 最擅长仅仅提供数据（例如 JSON）；而客户端模板实现了完美融合。</li>
+<li>HTML 和 JavaScript 天然地匹配前端开发人员的技能。</li>
+<li>使用模板强化了分离展现和逻辑这一最佳实践。</li>
+<li>模板完全可以预编译和缓存，只剩下从服务端获取和更新实际的数据。</li>
+<li>把渲染环节从服务端转移到客户端可以提升性能。</li>
+</ul>
 
 <!-- We have been looking at quite some aspects of (client-side) templating. Hopefully by now you have a better understanding of the concept, and why you would use it. -->
 我们一直在考虑（客户端）模板的各个方面。希望你现在对模板的概念以及为什么要使用模板有了一个更好的理解。
@@ -307,4 +310,5 @@ We have seen many strengths of client-side templating, including:
 
 ## 作者 Lars Kappert
 ![](http://0.gravatar.com/avatar/24f5c266f0241825b12bed1a43120022?s=78&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D78&r=G)
+
 Lars Kappert is a freelance front-end developer at WebPro based in The Netherlands working as an architect, performance tuner, and developer.
