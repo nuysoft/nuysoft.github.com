@@ -23,7 +23,7 @@ Image Credit: Viktor Hertz -->
 通常，在视图中利用模板分离标记和逻辑是非常棒的做法，并且最大限度的提高了代码的可重用性和可维护性。使用近似于最终输出（即 HTML）的语法，你可以快速和清晰的把事情做好。虽然模板适用于任意类型的文本输出，不过在这篇文章中，我们使用 HTML 作为示例，因为这正是我们在客户端开发中想要的。
 
 <!-- In today’s dynamic applications, the client frequently needs to update the user interface (UI). This might be done by fetching an HTML fragment from the server that can be readily inserted into the document. Yet this requires the server to support delivering such fragments (as opposed to complete pages). Moreover, as a client-side developer who is responsible for the markup, **you want to have full control over your templates**. No need to know anything about Smarty, Velocity, ASP, some other obscure server-side syntax or even worse: dealing with spaghetti code such as HTML containing those infamous `< ?` or `< %` tags all over the place. -->
-在如今的动态应用程序中，客户端经常需要更新用户界面。这个需求可以通过从服务端获取一个易于插入文档的 HTML 片段实现。然而，这就要求服务端支持提供这样的片段（而不是完整的页面）。此外，作为负责这些标记的客户端开发人员，又**想对模板有完全的控制权**。客户端开发人员也没有必要知道关于 Smarty、Velocity、ASP 以及其他晦涩的服务端语法，甚至更糟糕的：处理意大利面条式的代码，例如 HTML 中到处包含着臭名昭著的 `<?` 或 `<%` 标签。
+在如今的动态应用程序中，客户端经常需要更新用户界面。这个需求可以通过从服务端获取一个易于插入文档的 HTML 片段实现。然而，这就要求服务端支持提供这样的片段（而不是完整的页面）。此外，作为负责这些标记的客户端开发人员，又**想对模板有完全的控制权**。客户端开发人员也没有必要知道关于 Smarty、Velocity、ASP 以及其他晦涩的服务端语法，甚至更糟糕的：处理意大利面条式的代码，例如 HTML 中到处充斥着臭名昭著的 `<?` 或 `<%` 标签。
 
 <!-- So let’s take a fresh look at a viable alternative: client-side templating. -->
 因此，让我们重新审视一个可行的替代方案：客户端模板。
@@ -40,12 +40,14 @@ Image Credit: Viktor Hertz -->
 <!-- Let’s observe an example, and see what a basic template might look like: -->
 让我们看一个例子，一个基本的模板可能看起来像是这样：
 
+    {% raw %}
     <h1>{{title}}</h1>
     <ul>
-        { { #names } }
-            <li>{ { name } }</li>
-        { { /names } }
+        {{#names}}
+            <li>{{name}}</li>
+        {{/names}}
     </ul>
+    {% endraw %}
 
 <!-- This probably looks pretty familiar if you know HTML. It contains HTML tags with some placeholders. We will replace them with some actual data. For instance with this simple object: -->
 这可能看起来很熟悉，如果你了解 HTML 的话。上面的例子包含了带有一些占位符的 HTML 标签。我们将用一些真实数据替换这些占位符。例如用下面的简单对象：
@@ -74,7 +76,7 @@ Image Credit: Viktor Hertz -->
 ## 模板引擎
 
 <!-- The syntax of the template (i.e. the format of the placeholders such as `{{title}}`) depends on the template engine you want to use. This engine takes care of parsing the templates, and replacing the placeholders (variables, functions, loops, etc.) with the actual data it is provided. -->
-模板的语法（即占位符的格式，例如 `{ { title } }`）取决于你想要使用的模板引擎。模板引擎负责解析模板，并且用提供的真实数据替换替换占位符（变量、函数、循环等）。
+模板的语法（即占位符的格式，例如 `{% raw %}{{title}}{% endraw %}`）取决于你想要使用的模板引擎。模板引擎负责解析模板，并且用提供的真实数据替换替换占位符（变量、函数、循环等）。
 
 <!-- Some template engines are `logic-less`. This doesn’t mean you can only have simple placeholders in a template, but the features are pretty limited to some intelligent tags (i.e. array iteration, conditional rendering, etc.). Other engines are more feature-rich and extensible. Without going into details here, a question to ask yourself is whether and how much logic you allow in your templates. -->
 某些模板引擎是`弱逻辑`的。虽然这并不意味着模板中只能有简单的占位符，但是某些智能标签（即数组迭代、条件渲染）的功能确实相当有限。其他模板引擎则有更丰富的功能，并且可扩展。在这里暂不纠结细节，你需要要考虑的问题是，在你的模板中是否允许出现逻辑，以及允许出现多少逻辑。
@@ -88,10 +90,12 @@ Image Credit: Viktor Hertz -->
 <!-- The production of the example above can be performed by using a template engine, e.g. `mustache.js`. This uses the popular **Mustache** templating syntax. More about them, and alternatives, later. Let’s take a look at a little JavaScript to produce some results: -->
 可以使用一个模板引擎生成上面例子中的结果，例如 `mustache.js`。上面的例子使用了时下流行的 **Mustache** 模板语法。稍后会讲到关于模板语法和替代品的更多内容，暂且按下不表。让我们先来看看如何用 JavaScript 生成同样的结果：
 
+    {% raw %}
     var template = '<h1>{{title}}</h1><ul>{{#names}}<li>{{name}}</li>{{/names}}</ul>';
     var data = {"title": "Story", "names": [{"name": "Tarzan"}, {"name": "Jane"}]};
 
     var result = Mustache.render(template, data);
+    {% endraw %}
 
 <!-- Now we want to show this in the page. In plain JavaScript this could be done like this: -->
 现在，我们想要把结果显示到页面中。在普通的 JavaScript 中，可以这样实现：
@@ -116,19 +120,21 @@ Image Credit: Viktor Hertz -->
 但是这会导致另一个问题。如果我们的项目包含了很多模板，而我们又不希望单独加载所有这些文件，因为这会导致很多（Ajax）请求。这对性能不利。
 
 <!-- ### SCENARIO 1: SCRIPT TAGS -->
-### 方案1：script 标签
+### 方案1：SCRIPT 标签
 
 <!-- An often seen solution is to put all the templates within `<script>` tags with an alternative `type` attribute, e.g. `type="text/template"` (which is ignored for rendering or parsing by the browser): -->
 经常看到的解决方案是把所有模板放入 `<script>` 标签，并为属性 `type` 设置一个另类的值，例如 `type="text/template"`（浏览器将忽略该标签，不渲染也不解析）：
 
+    {% raw %}
     <script id="myTemplate" type="text/x-handlebars-template">
-        <h1>{ { title } }</h1>
+        <h1>{{title}}</h1>
         <ul>
-            { { #names } }
-                <li>{ { name } }</li>
-            { { /names } }
+            {{#names}}
+                <li>{{name}}</li>
+            {{/names}}
         </ul>
     </script>
+    {% endraw %}
 
 <!-- This way, you can put all of your templates in the HTML document and prevent all the extra Ajax requests to those templates. -->
 通过这种方式，你可以把所有模板放在 HTML 文档中，并防止了对这些模板额外的 Ajax 请求。
@@ -285,7 +291,7 @@ RequireJS 的“text”插件允许你指定基于文本的依赖。AMD 依赖�
 <!-- ## Conclusion -->
 ## 结论
 
-We have seen many strengths of client-side templating, including:
+<!-- We have seen many strengths of client-side templating, including: -->
 我们已经看到了客户端模板的许多优势，包括：
 
 <!-- 
