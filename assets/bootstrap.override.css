@@ -30,3 +30,14 @@ code {
 }
 
 */
+
+.page-catalog > ul {
+    margin: 0;
+}
+.page-catalog ul {
+    list-style: none;
+}
+
+.gist .gist-file .gist-data .line-numbers {
+    line-height: 20px;
+}
