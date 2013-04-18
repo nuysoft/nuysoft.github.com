@@ -113,7 +113,7 @@ Linter 工具可以帮助查找代码中的错误和潜在问题。通常 Linter
 实际上有几种 JavaScript Linter 可供选择，其中我最喜欢的是 Anton Kovalyov 创建的 [JSHint]。JSHint 是社区共同努力的成果，前身是广受欢迎的 JSLint 库，由 Douglas Crockford 编写。关注这个项目的成长过程让我很享受。JSHint 有大量的选项，你可以选择开启或禁用，然后找出最适合团队的配置。
 
 [JSHint]: http://jshint.com/
-[@valueof]: (http://twitter.com/valueof)
+[@valueof]: http://twitter.com/valueof
 
 <!-- Some of the standard checks that JSHint can verify include... -->
 JSHint 可以执行的标准检查包括...
@@ -185,7 +185,7 @@ JSHint 在检查上面的代码片段后生成下面的错误：
 
 > 译注：Plato - 柏拉图（古希腊哲学家）。
 
-[Plato]: (https://github.com/jsoverson/plato)
+[Plato]: https://github.com/jsoverson/plato
 
 <!-- Once installed you can run the tool on the command line by `plato -r -d report myDirectory` , which will recursively analyse the code in the `myDirectory` folder and export the results to the `report` folder. -->
 安装 Plato 之后，你可以在命令行中运行 `plato -r -d report myDirectory`，将递归分析 `myDirectory` 目录中的代码，并将结果导出到 `report` 目录。
