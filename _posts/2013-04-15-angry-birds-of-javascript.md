@@ -3,7 +3,7 @@ layout: post
 title: "前端 JavaScript 架构"
 tagline: "JavaScript 之愤怒的小鸟系列"
 description: ""
-category: 翻译
+category-substitution: 翻译
 tags: ["Angry Birds of JavaScript", "JavaScript"]
 
 subgroup: "前端 JavaScript 架构"

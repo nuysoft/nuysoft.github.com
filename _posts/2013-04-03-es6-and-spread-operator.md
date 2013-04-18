@@ -3,7 +3,7 @@ layout: post
 title: "ECMAScript 6 and Spread Operator"
 tagline: "展开操作符"
 description: "把数组转换成连续的参数"
-category: 翻译
+category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Spread Operator"
@@ -16,7 +16,7 @@ pgroup: es6
 <!-- We have seen how a [rest parameter](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html) can help the handling of a variable number of function arguments. What about the other way around? Can we turn an array into a series of function arguments? Apparently, ECMAScript 6 defines a new type of operator called the **spread operator** which does exactly that. -->
 我们已经看到了[可变参数](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html)可以帮助处理可变数目的函数参数。其他方式怎么样呢？我们可以把一个数组转换成连续的函数参数吗？显然地，ECMAScript 6 定义了一个称为**展开操作符**的新操作符，用于处理这个操作。
 
-<!-- Let us review again our [previous example](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html) with a supplier truck and a grocery store. Assuming the API of the store accepts a variable number of items for a particular category: -->
+<!-- Let us review again our [previous example](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html) with a supplier truck and a grocery store. Assuming the API of the store accepts a variable number of items for a particular category : -->
 让我们再次回顾[前面的例子](http://ariya.ofilabs.com/2013/03/es6-and-rest-parameter.html)，其中有一辆供货卡车和一间杂货铺。假设杂货铺的 API 接受一个特定类目和可变数目的货物。
 
     store.add('fruit', 'apple');

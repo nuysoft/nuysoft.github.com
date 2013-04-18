@@ -3,7 +3,7 @@ layout: post
 title: "客户端模板"
 tagline: "从服务端到客户端"
 description: ""
-category: 翻译
+category-substitution: 翻译
 tags: [HTML, JavaScript, Template]
 ---
 {% include JB/setup %}

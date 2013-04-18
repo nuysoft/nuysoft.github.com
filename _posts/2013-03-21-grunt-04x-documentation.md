@@ -2,7 +2,7 @@
 layout: post
 title: "Grunt 0.4.x Documentation"
 description: ""
-category: 翻译
+category-substitution: 翻译
 group: Grunt
 tags: [Grunt, JavaScript, Web]
 

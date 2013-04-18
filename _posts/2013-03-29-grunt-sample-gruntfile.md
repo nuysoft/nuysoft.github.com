@@ -3,7 +3,7 @@ layout: post
 title: "Grunt - Sample Gruntfile"
 short: "Sample Gruntfile"
 description: ""
-category: 翻译
+category-substitution: 翻译
 group: Grunt
 tags: [Grunt, JavaScript, Web]
 

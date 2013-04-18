@@ -3,7 +3,7 @@ layout: post
 title: "ECMAScript 6 and Array Comprehension"
 tagline: "数组推导式"
 description: "基于另一个数组创建数组的简洁方式"
-category: 翻译
+category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Array Comprehension"

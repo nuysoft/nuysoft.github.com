@@ -3,7 +3,7 @@ layout: post
 title: "立即调用的函数表达式"
 tagline: "Immediately-invoked Function Expression"
 description: "防止全局变量扩展"
-category: 翻译
+category-substitution: 翻译
 tags: ["Angry Birds of JavaScript", "JavaScript"]
 published: true
 

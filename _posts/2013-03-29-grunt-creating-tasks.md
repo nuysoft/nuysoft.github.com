@@ -3,7 +3,7 @@ layout: post
 title: "Grunt - Creating Tasks"
 short: "Creating Tasks"
 description: ""
-category: 翻译
+category-substitution: 翻译
 group: Grunt
 tags: [Grunt, JavaScript, Web]
 

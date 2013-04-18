@@ -8,7 +8,19 @@ tagline:
 {% for post in site.posts %}
   {% if post.pgroup == null %}
   <p>
-      [{{ post.category-substitution }}]
+      {% if site.categories.first[0] == null %}
+        {% for category in site.categories %}
+          {% if category == post.category %}
+          [<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category }}-ref">{{ category | join: "/" }}</a>]
+          {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for category in site.categories %}
+          {% if category[0] == post.category %}
+          [<a href="{{ BASE_PATH }}{{ site.JB.categories_path }}#{{ category[0] }}-ref">{{ category[0] | join: "/" }}</a>]
+          {% endif %}
+        {% endfor %}
+      {% endif %}
 
       {% if post.link == null %}
         <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>

@@ -2,7 +2,7 @@
 layout: post
 title: "Front-end JavaScript Architecture"
 description: "前端 JavaScript 架构"
-category: 前端
+category-substitution: 前端
 tags: []
 published: false
 ---

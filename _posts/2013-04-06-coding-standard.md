@@ -2,7 +2,7 @@
 layout: post
 title: "Coding Standard"
 description: ""
-category: 原创
+category-substitution: 原创
 tags: []
 published: false
 ---

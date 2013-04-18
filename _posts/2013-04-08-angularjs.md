@@ -2,7 +2,7 @@
 layout: post
 title: "angularjs"
 description: ""
-category: 
+category-substitution: 
 tags: []
 published: false
 ---

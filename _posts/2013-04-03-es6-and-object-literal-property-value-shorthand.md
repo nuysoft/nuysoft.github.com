@@ -3,7 +3,7 @@ layout: post
 title: "ECMAScript 6 and Object Literal Property Value Shorthand"
 tagline: "对象字面属性值简写"
 description: "属性值与属性标识符同名"
-category: 翻译
+category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Object Literal Property Value Shorthand"

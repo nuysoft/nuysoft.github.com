@@ -3,7 +3,7 @@ layout: post
 title: "代码质量"
 tagline: "Coding Standard, Linting, Analysis"
 description: "前端 Web 应用可以很快变得相当复杂。如果开发人员不能达成共识，事情可能马上土崩瓦解，特别是在一个大型项目中。形成统一的代码标准和使用一些工具来避免问题，才能真正有助于项目成功。"
-category: 翻译
+category-substitution: 翻译
 tags: ["Angry Birds of JavaScript", "JavaScript"]
 published: true
 

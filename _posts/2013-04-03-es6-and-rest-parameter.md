@@ -3,7 +3,7 @@ layout: post
 title: "ECMAScript 6 and Rest Parameter"
 tagline: "可变参数"
 description: "处理可变数目的函数参数"
-category: 翻译
+category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Rest Parameter"

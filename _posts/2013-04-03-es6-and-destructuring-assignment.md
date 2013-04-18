@@ -3,7 +3,7 @@ layout: post
 title: "ECMAScript 6 and Destructuring Assignment"
 tagline: "解构赋值"
 description: "使用模式提取对象的部分"
-category: 翻译
+category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
 short: "Destructuring Assignment"

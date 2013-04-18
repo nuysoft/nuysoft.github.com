@@ -2,7 +2,7 @@
 layout: post
 title: "mvvm vs mvp vs mvc the differences explained"
 description: ""
-category: 
+category-substitution: 
 tags: []
 published: false
 ---
