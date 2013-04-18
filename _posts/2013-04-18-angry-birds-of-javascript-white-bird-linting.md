@@ -14,7 +14,7 @@ pgroup: "前端 JavaScript 架构"
 
 > 原文：[Angry Birds of JavaScript: White Bird Linting](http://www.elijahmanor.com/2013/04/angry-birds-of-javascript-white-bird.html)
 
-## Introduction
+<!-- ## Introduction -->
 ## 简介
 
 ![](http://4.bp.blogspot.com/-hbs_feLNzNE/UVx7DKXG-cI/AAAAAAAAZug/vDk6cFJ7Jgk/s1600/angry_birds_wall_decal_by_graphicwolf-d4fwzrc.jpg)    
@@ -42,7 +42,7 @@ Will the birds be successful in the end? Will they defeat their bacon flavored f
 * [Yellow Bird - RequireJS](http://www.elijahmanor.com/2013/04/angry-birds-of-javascript-yellow-bird.html)
 * [Black Bird - Backbone](http://www.elijahmanor.com/2013/04/angry-birds-of-javascript-yellow-bird.html)
 
-### White Bird Attacks
+<!-- ### White Bird Attacks -->
 ### 白鸟的攻击
 <!-- In this post we will take a look at the White Bird who appears to be seemingly harmless, but when it pulls out it's strict coding style and bursts of quality checks the hogs are sure to squeal. Slowly, one by one, the birds will take back what it theirs to keep! -->
 在这篇文章中，我们将看看白鸟，它看似无害，但当它祭出严格编码风格和质量突击检查时，猪群无疑要开始尖叫了。渐渐的，小鸟们将一个接一个地夺回属于它们的东西。
@@ -197,7 +197,7 @@ JSHint 在检查上面的代码片段后生成下面的错误：
 [![](http://2.bp.blogspot.com/-WfsE5xqGhjc/UV0Fi3Kd9vI/AAAAAAAAZvg/IWnkno7LaK8/s640/jquery-top-level.png)](http://2.bp.blogspot.com/-WfsE5xqGhjc/UV0Fi3Kd9vI/AAAAAAAAZvg/IWnkno7LaK8/s1600/jquery-top-level.png)
 
 <!-- If you drill into one of the particular files from above you'll see a view that looks like the following. The nice part about this report is that it breaks down each function into complexity and lines of code in a way that is easy to grasp. You can quickly jump to various parts of the file to review the concerns the tool is identifying. -->
-如果深入到某个文件，你将看到下面的视图。这份报告最棒的地方是用同一种容易掌握的方式展示了每个函数的复杂度和代码行数。你可以快速跳到文件的不同部分，审查该工具标识出的关注点。
+如果深入到某个文件，你将看到下面的视图。这份报告最棒的地方是用一种容易掌握的方式展示了每个函数的复杂度和代码行数。你可以快速跳到文件的不同部分，审查该工具标识出的关注点。
 
 [![](http://2.bp.blogspot.com/-GHHmjChHTdo/UV0Fn9yzTwI/AAAAAAAAZvo/qMwHcRxb3p8/s640/jquery-drill-complexity.png)](http://2.bp.blogspot.com/-GHHmjChHTdo/UV0Fn9yzTwI/AAAAAAAAZvo/qMwHcRxb3p8/s1600/jquery-drill-complexity.png)
 
