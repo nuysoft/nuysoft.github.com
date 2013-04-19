@@ -17,7 +17,7 @@ subgroup: "前端 JavaScript 架构"
         <li>
             <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
             <br>
-            <span>{{ post.tagline }}。{{ post.description }}。</span>
+            <span>{{ post.tagline }}。{{ post.description }}</span>
         </li>
       {% else %}
         <li><a href="{{ post.link }}" target="_blank">{{ post.title }}</a></li>

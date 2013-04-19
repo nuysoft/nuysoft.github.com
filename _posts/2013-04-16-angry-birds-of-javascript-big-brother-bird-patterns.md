@@ -2,7 +2,7 @@
 layout: post
 title: "模式"
 tagline: "Patterns"
-description: "成熟的设计模式和有限状态机"
+description: "成熟的设计模式和有限状态机。"
 category-substitution: 翻译
 tags: ["Angry Birds of JavaScript", "JavaScript", "jQuery"]
 published: true
@@ -265,7 +265,7 @@ There are far too many patterns for me to list here. Many have blogged about the
 好消息是，你不必知道所有的答案也顺利完成 Web 前端开发，但多少了解一些开发中反复遇到的通用模式确实很有帮助。一旦你习惯了这些模式，谈论架构方案将变得更容易，也可以更快的找出解决方案。花一些时间浏览前面推荐的资源，然后仔细考虑那些适合你的模式。
 
 <!-- There is one more front-end architecture technique that has been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa! -->
-还有更多的前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟继续报复偷走鸟蛋的肥猪们。Dun, dun, daaaaaaa!
+还有更多的前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!
 
 
 

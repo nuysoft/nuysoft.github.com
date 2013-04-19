@@ -2,7 +2,7 @@
 layout: post
 title: "立即调用的函数表达式"
 tagline: "Immediately-invoked Function Expression"
-description: "防止全局变量扩展"
+description: "防止全局变量扩展。"
 category-substitution: 翻译
 tags: ["Angry Birds of JavaScript", "JavaScript"]
 published: true
@@ -169,6 +169,6 @@ You may dismiss this reason because you have rigid code reviews and all your dev
 这些技术对一个前端应用程序是至关重要的，因为它可以保护自己免受其他代码的干扰，并且可以通过封装的方式组织你的代码。
 
 <!-- There are many other frotn-end architecture techniques that have been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa! -->
-还有很多其他的前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟继续报复偷走鸟蛋的肥猪们。Dun, dun, daaaaaaa!
+还有很多其他的前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!
 
 

@@ -156,7 +156,7 @@ Mockjax 和 mockJSON 返回的数据看起来就像下面的截图...
 独立开发前端和后端可能有些困难。然而庆幸的是，现在前端开发人员可以借助一些技术和库，从而独立于后端的进度进行开发和构建原型。模拟静态数据这一技术还可以帮助构建单元测试。
 
 <!-- There are many other front-end architecture techniques that have been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa! -->
-还有很多其他的前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟继续报复偷走鸟蛋的肥猪们。Dun, dun, daaaaaaa!
+还有很多其他的前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!
 
 
 

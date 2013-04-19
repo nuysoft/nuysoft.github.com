@@ -228,7 +228,7 @@ JSHint 在检查上面的代码片段后生成下面的错误：
 前端 Web 应用可以很快变得相当复杂。如果开发人员不能达成共识，事情可能马上土崩瓦解，特别是在一个大型项目中。形成统一的代码标准和使用一些工具来避免问题，才能真正有助于项目成功。
 
 <!-- There are many other front-end architecture techniques that have been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa! -->
-还有很多其他前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟继续报复偷走鸟蛋的肥猪们。Dun, dun, daaaaaaa!
+还有很多其他前端架构技术被猪偷走了。在下篇文章中，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!
 
 
 
