@@ -18,7 +18,7 @@ pgroup: "前端 JavaScript 架构"
 ## 简介
 
 ![](http://4.bp.blogspot.com/-hbs_feLNzNE/UVx7DKXG-cI/AAAAAAAAZug/vDk6cFJ7Jgk/s1600/angry_birds_wall_decal_by_graphicwolf-d4fwzrc.jpg)    
-![](http://4.bp.blogspot.com/-hbs_feLNzNE/UVx7DKXG-cI/AAAAAAAAZug/vDk6cFJ7Jgk/s400/angry_birds_wall_decal_by_graphicwolf-d4fwzrc.jpg)
+<!-- ![](http://4.bp.blogspot.com/-hbs_feLNzNE/UVx7DKXG-cI/AAAAAAAAZug/vDk6cFJ7Jgk/s400/angry_birds_wall_decal_by_graphicwolf-d4fwzrc.jpg) -->
 
 <!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
 一群无法无天的猪从无辜的小鸟那里偷走了所有的前端架构，现在小鸟们要把它们夺回来！一队特殊的小鸟英雄将攻击这些卑鄙的猪，直到夺回原本属于它们的前端 JavaScript 架构！

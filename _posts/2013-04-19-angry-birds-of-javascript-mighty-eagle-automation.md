@@ -16,7 +16,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Introduction -->
 ## 简介
 ![](http://2.bp.blogspot.com/-N7kG4eOFXzA/UWED8Hv6eiI/AAAAAAAAZ2g/bzakzkoKQgc/s1600/Angry-Birds-for-iOS-Mighty-Eagle-screenshot.png)
-![](http://2.bp.blogspot.com/-N7kG4eOFXzA/UWED8Hv6eiI/AAAAAAAAZ2g/bzakzkoKQgc/s400/Angry-Birds-for-iOS-Mighty-Eagle-screenshot.png)
+<!-- ![](http://2.bp.blogspot.com/-N7kG4eOFXzA/UWED8Hv6eiI/AAAAAAAAZ2g/bzakzkoKQgc/s400/Angry-Birds-for-iOS-Mighty-Eagle-screenshot.png) -->
 
 <!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
 一群无法无天的猪从无辜的小鸟那里偷走了所有的前端架构，现在小鸟们要把它们夺回来！一队特殊的小鸟英雄将攻击这些卑鄙的猪，直到夺回原本属于它们的前端 JavaScript 架构！
@@ -25,7 +25,7 @@ pgroup: "前端 JavaScript 架构"
 小鸟们最终会成功吗？它们会打败那些咸猪敌人吗？让我们一起揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！
 
 <!-- > Check out the **[series introduction post]** for a list of all the birds and their attack powers. -->
-> 阅读**[系列介绍文章]**，查看所有小鸟以及它们的攻击力。
+> 阅读**[系列介绍文章](http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html)**，查看所有小鸟以及它们的攻击力。
 
 [系列介绍文章]: http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html
 
@@ -83,7 +83,7 @@ Grunt 是一个基于任务的命令行工具，用 JavaScript 语言编写，�
 
 #### Gruntfile.js
 <!-- You can create your own `Gruntfile.js` from scratch, you can copy a starter Gruntfile.js from the documentation, or there is a use a `grunt-init gruntfile` project scaffold. To install the scaffold follow the instructions from Grunt's [Project Scaffolding](http://gruntjs.com/project-scaffolding) page. The following Gruntfile.js is an example from Grunt's [Get Started](http://gruntjs.com/getting-started) page... -->
-你可以从头创建自己的 `Gruntfile.js`，也可以从文件中拷贝一份初始 Gruntfile.js，或者使用项目脚手架 `grunt-init gruntfile`。如何安装脚手架请参阅 Grunt 的[项目脚手架]页面的介绍。下面的 Gruntfile.js 示例来自 Grunt 的[入门指南]页面...
+你可以从头创建自己的 `Gruntfile.js`，也可以从文件中拷贝一份初始 Gruntfile.js，或者使用项目脚手架 `grunt-init gruntfile`。如何安装脚手架请参阅 Grunt 的[项目脚手架](http://gruntjs.com/project-scaffolding)页面的介绍。下面的 Gruntfile.js 示例来自 Grunt 的[入门指南](http://gruntjs.com/getting-started)页面...
 
 [项目脚手架]: http://gruntjs.com/project-scaffolding
 [入门指南]: http://gruntjs.com/getting-started
@@ -195,7 +195,7 @@ Twitter Bower 项目旨在通过 Web（HTML、CSS 和 JavaScript）提供一套�
 ### Bower 资源
 
 <!-- If you want to find out more about bower then I encourage you to check out some of the nice resources below. -->
-如果想更多的了解 Bower，我鼓励你去看看下面的这些好资源。
+如果想更多的了解 Bower，建议去看看下面的这些好资源。
 
 * [Meet Bower: A Package Manager For The Web](http://net.tutsplus.com/tutorials/tools-and-tips/meet-bower-a-package-manager-for-the-web/) by Andrew Burgess ([@andrew8088](http://twitter.com/andrew8088))
 * [A RequireJS, Backbone, and Bower Starter Template](http://net.tutsplus.com/tutorials/javascript-ajax/a-requirejs-backbone-and-bower-starter-template/) by Jeffrey Way ([@jeffrey_way](http://twitter.com/jeffrey_way))
@@ -216,11 +216,10 @@ Yeoman 安装之后，你可以生成各种不同类型的项目。在下面的�
 [![](http://1.bp.blogspot.com/-hgpccVDN7Gg/UWLB_oM2gWI/AAAAAAAAZ4g/_XFTx_MJsTw/s640/yo-webapp.png)](http://1.bp.blogspot.com/-hgpccVDN7Gg/UWLB_oM2gWI/AAAAAAAAZ4g/_XFTx_MJsTw/s1600/yo-webapp.png)
 
 <!-- There are other scaffolds such as [Backbone](https://github.com/yeoman/generator-backbone), [AngularJS](https://github.com/yeoman/generator-angular), etc... that you can install and get your project underway. You can view a list of [more generators](https://github.com/yeoman) from the Yeoman GitHub page. -->
-还有其他的脚手架，例如 [Backbone]、[AngularJS] 等，你可以安装它们，然后开始你的项目。可以在 Yeoman 的 GitHub 页面看到[更多的生成器]列表。
+还有其他的脚手架，例如 [Backbone]、[AngularJS] 等，你可以安装它们，然后开始你的项目。可以在 Yeoman 的 GitHub 页面看到[更多的生成器](https://github.com/yeoman)列表。
 
 [Backbone]: https://github.com/yeoman/generator-backbone
 [AngularJS]: https://github.com/yeoman/generator-angular
-[更多的生成器]: https://github.com/yeoman
 
 <!-- For example in the following screenshots I first create a new Backbone app and then immediately create a new `bird` model. -->
 例如在下面的截图中，我先创建了一个新的 Backbone 应用，然后立即创建了一个新的 `bird` 模型。
