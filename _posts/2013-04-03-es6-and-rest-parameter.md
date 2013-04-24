@@ -6,7 +6,7 @@ description: "处理可变数目的函数参数"
 category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
-short: "Rest Parameter"
+short: "可变参数"
 pgroup: es6
 ---
 {% include JB/setup %}

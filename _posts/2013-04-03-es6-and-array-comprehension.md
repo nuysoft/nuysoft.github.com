@@ -6,7 +6,7 @@ description: "基于另一个数组创建数组的简洁方式"
 category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
-short: "Array Comprehension"
+short: "数组推导式"
 pgroup: es6
 ---
 {% include JB/setup %}

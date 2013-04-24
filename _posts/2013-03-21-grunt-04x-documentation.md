@@ -3,7 +3,6 @@ layout: post
 title: "Grunt 0.4.x Documentation"
 description: ""
 category-substitution: 翻译
-group: Grunt
 tags: [Grunt, JavaScript, Web]
 
 subgroup: Grunt
@@ -11,6 +10,23 @@ link: ##
 ---
 {% include JB/setup %}
 
+<ul>
+  {% for post in site.posts %}
+    {% if post.pgroup == "Grunt" %}
+      {% if post.link == null %}
+        <li>
+            <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+            <br>
+            <span>{{ post.tagline }}。{{ post.description }}</span>
+        </li>
+      {% else %}
+        <li><a href="{{ post.link }}" target="_blank">{{ post.title }}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</ul>
+
+<!-- 
 ## Documentation
 * [Getting Started]
 * [Configuring Tasks]
@@ -24,7 +40,8 @@ link: ##
 * [Project Scaffolding]
 
 ## API
-* Inside Tasks
+* Inside Tasks 
+-->
 
 [Getting Started]:      /bak/grunt/Getting-started.html
 [Configuring Tasks]:    /bak/grunt/Configuring-tasks.html

@@ -6,7 +6,7 @@ description: "函数表达式的简写形式"
 category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
-short: "Arrow Function"
+short: "箭头函数"
 pgroup: es6
 ---
 {% include JB/setup %}

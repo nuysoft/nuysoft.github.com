@@ -6,7 +6,7 @@ description: "使用模式提取对象的部分"
 category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
-short: "Destructuring Assignment"
+short: "解构赋值"
 pgroup: es6
 ---
 {% include JB/setup %}

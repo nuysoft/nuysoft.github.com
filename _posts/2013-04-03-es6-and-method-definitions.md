@@ -6,7 +6,7 @@ description: "定义一个属性方法，而不使用关键字 function"
 category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
-short: "Method Definitions"
+short: "方法定义"
 pgroup: es6
 ---
 {% include JB/setup %}

@@ -6,7 +6,7 @@ description: "一个函数声明可以为每个参数指定一个默认值"
 category-substitution: 翻译
 tags: [ECMAScript 6, JavaScript, Web]
 
-short: "Default Argument"
+short: "默认参数"
 pgroup: es6
 ---
 {% include JB/setup %}
