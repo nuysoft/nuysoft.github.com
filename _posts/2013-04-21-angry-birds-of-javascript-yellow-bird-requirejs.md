@@ -68,7 +68,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- The above code looks pretty straightforward, but when I end up running the page I get the following error in the dev tool's console... -->
 上面的代码看起来相当简单，但当我运行这个网页时，开发工具的控制台打印了下面的错误...
 
-![](http://1.bp.blogspot.com/-ry8ojeQF3OI/UVZosPNPtVI/AAAAAAAAY94/0Catr-PQzbo/s1600/3-29-2013+10-36-11+PM.png)
+<!-- ![](http://1.bp.blogspot.com/-ry8ojeQF3OI/UVZosPNPtVI/AAAAAAAAY94/0Catr-PQzbo/s1600/3-29-2013+10-36-11+PM.png) -->
 ![](http://1.bp.blogspot.com/-ry8ojeQF3OI/UVZosPNPtVI/AAAAAAAAY94/0Catr-PQzbo/s1600/3-29-2013+10-36-11+PM.png)
 
 <!-- Fictitious Internal Dialog: "WHAT!?! I don't see any `each` method anywhere. What's up with that? Ohh man, it looks like the exception occurred in postal.min.js somewhere. FOUND A BUG... see if I use that library again. But, wait!?! Ohh, maybe something else is going on here." -->
