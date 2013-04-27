@@ -14,6 +14,8 @@ pgroup: "前端 JavaScript 架构"
 
 > 原文：[Angry Birds of JavaScript: White Bird Linting](http://www.elijahmanor.com/2013/04/angry-birds-of-javascript-white-bird.html)
 
+> 私货：[nuysoft/Aristotle](https://github.com/nuysoft/Aristotle)
+
 <!-- ## Introduction -->
 ## 简介
 

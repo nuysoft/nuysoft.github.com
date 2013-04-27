@@ -15,6 +15,8 @@ pgroup: "前端 JavaScript 架构"
 
 > 原文：[Angry Birds of JavaScript: Green Bird - Mocking](http://www.elijahmanor.com/2013/04/angry-birds-of-javascript-green-bird.html)
 
+> 私货：[nuysoft/Mock](https://github.com/nuysoft/Mock)
+
 <!-- ## Introduction -->
 ## 简介
 
