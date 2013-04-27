@@ -156,7 +156,7 @@ If you look closely you'll notice they update their git submodules, build a vers
 > 译注：[PhantomJS](http://phantomjs.org/), [PhantomJS 中文主页](http://www.cnblogs.com/ziyunfei/archive/2012/09/28/2706061.html)
 
 ![](http://1.bp.blogspot.com/-XvfSNrxCTMQ/UWJLxIfNMPI/AAAAAAAAZ4M/AXAjvelHjZQ/s1600/grunt-modernizr.png)
-![](http://1.bp.blogspot.com/-XvfSNrxCTMQ/UWJLxIfNMPI/AAAAAAAAZ4M/AXAjvelHjZQ/s640/grunt-modernizr.png)
+<!-- ![](http://1.bp.blogspot.com/-XvfSNrxCTMQ/UWJLxIfNMPI/AAAAAAAAZ4M/AXAjvelHjZQ/s640/grunt-modernizr.png) -->
 
 <!-- ### Grunt Resources -->
 ### Grunt 资源

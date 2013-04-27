@@ -62,8 +62,8 @@ pgroup: "前端 JavaScript 架构"
 <!-- Let's first start with a simple little web page that contains just a few scripts. You'll notice that I'm loading 3 popular libraries (jQuery, Underscore, and Postal) and some custom code at the end. -->
 我们先从一个简单的小网页开始，其中包含了几个脚本文件。你会看到，我加载了 3 个常用库（jQuery、Underscore、Postal），并且在结尾处加载了一些自定义代码。
 
-    <script src="https://gist.github.com/elijahmanor/5275285.js?file=broken-dependency.html">
-    </script>
+  <script src="https://gist.github.com/elijahmanor/5275285.js?file=broken-dependency.html">
+  </script>
 
 <!-- The above code looks pretty straightforward, but when I end up running the page I get the following error in the dev tool's console... -->
 上面的代码看起来相当简单，但当我运行这个网页时，开发工具的控制台打印了下面的错误...
@@ -87,24 +87,24 @@ pgroup: "前端 JavaScript 架构"
 <!-- In order to create a module you need a name, a list of dependencies, and a callback function. -->
 创建一个模块需要一个名字、一个依赖关系列表和一个回调函数。
 
-    <script src="https://gist.github.com/elijahmanor/5275285.js?file=define.js">
-    </script>
+  <script src="https://gist.github.com/elijahmanor/5275285.js?file=define.js">
+  </script>
 
 <!-- ### require method -->
 ### 请求方法
 <!-- At some point in your application you will need to use the `require` function to kick things off. -->
 在应用的某些地方，你需要使用 `require` 函数来开始执行代码。
 
-    <script src="https://gist.github.com/elijahmanor/5275285.js?file=require.js">
-    </script>
+  <script src="https://gist.github.com/elijahmanor/5275285.js?file=require.js">
+  </script>
 
 <!-- ## Fixed Application -->
 ## 修正后的应用
 <!-- Using RequireJS I took the above little application and rearranged some things. You should notice that the following markup removes all the script tags except one, which points to the require.js library. RequireJS knows where to start because we add an HTML5 data-main attribute describing where the main script is located. -->
 我用 RequireJS 重新调整了下面的小应用。你应该注意到，下面的代码移除了所有 script 标签，除了指向 require.js 库的标签。RequireJS 直到从哪里开始，因为我们添加了一个 HTML5 属性 data-main，它描述了主脚本的位置。
 
-    <script src="https://gist.github.com/elijahmanor/5275285.js?file=requirejs.html">
-    </script>
+  <script src="https://gist.github.com/elijahmanor/5275285.js?file=requirejs.html">
+  </script>
 
 <!-- The main script has a configuration section inside of it where you can assign aliases to existing AMD modules and also shim libraries that were not previously defined. Although jQuery and Postal define themselves as AMD modules we included them in our configuration because they are not located alongside `main.js`. -->
 主脚本有一段配置部分，可以在其中为现有的 AMD 模块指定别名，也可以为未预定义的库应用垫片。尽管 jQuery 和 Postal 定义自身为 AMD 模块，我们仍然要在配置中包含它们，因为它们没有被放在 `main.js` 的旁边。
@@ -112,8 +112,8 @@ pgroup: "前端 JavaScript 架构"
 <!-- You don't have to include in your config any custom modules you define in your application. You can refer to those by their file path and name. -->
 你不必在配置中包含应用程序中的所有自定义模块。你可以通过文件路径和名称引用它们。
 
-    <script src="https://gist.github.com/elijahmanor/5275285.js?file=main.js">
-    </script>
+  <script src="https://gist.github.com/elijahmanor/5275285.js?file=main.js">
+  </script>
 
 <!-- ## Optimize -->
 ## 优化
@@ -130,14 +130,14 @@ pgroup: "前端 JavaScript 架构"
 
 [完整的选项列表]: https://github.com/jrburke/r.js/blob/master/build/example.build.js
 
-    <script src="https://gist.github.com/elijahmanor/5275285.js?file=build.js">
-    </script>
+  <script src="https://gist.github.com/elijahmanor/5275285.js?file=build.js">
+  </script>
 
 <!-- Once you've defined your `build.js` file then you let `r.js` know you want to use it. The following command will get you going... `r.js -o build.js`. You can see the output of the tool in the output below. -->
 定义 `build.js` 文件之后，你可以把这个文件作为参数传给 `r.js`。运行这条命令 `r.js -o build.js`，你可以在控制台看到这个工具的输出，就像下面这样。
 
-    <script src="https://gist.github.com/elijahmanor/5275285.js?file=optimize.sh">
-    </script>
+  <script src="https://gist.github.com/elijahmanor/5275285.js?file=optimize.sh">
+  </script>
 
 <!-- ## Additional Resources -->
 ## 其他资源
