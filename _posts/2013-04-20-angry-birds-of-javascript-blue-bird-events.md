@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "事件和消息"
+title: "事件 &amp; 消息"
 tagline: "Events &amp; Messaging"
 description: "在 Web 引用中可以使用事件和消息实现组件通信。事件允许一个组件同自身通信，消息则允许一个组件以非硬编码的方式监听其他组件。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "jQuery"]
+tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "jQuery", "postal.js"]
 
-short: "事件和消息"
+short: "事件 &amp; 消息"
 pgroup: "前端 JavaScript 架构"
 ---
 {% include JB/setup %}
@@ -17,7 +17,8 @@ pgroup: "前端 JavaScript 架构"
 ## 简介
 <!-- Blue Bird - Events & Messaging http://jsfiddle.net/LrFVp/14/ http://jsfiddle.net/LrFVp/20/ -->
 
-![](http://2.bp.blogspot.com/-6ILPSz-pyp0/UVEnzs_iVfI/AAAAAAAAYVE/yXkm3RWutRs/s320/angry-birds-game-for-windows-1.png)
+![](http://2.bp.blogspot.com/-6ILPSz-pyp0/UVEnzs_iVfI/AAAAAAAAYVE/yXkm3RWutRs/s1600/angry-birds-game-for-windows-1.png)
+<!-- ![](http://2.bp.blogspot.com/-6ILPSz-pyp0/UVEnzs_iVfI/AAAAAAAAYVE/yXkm3RWutRs/s320/angry-birds-game-for-windows-1.png) -->
 
 <!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
 一群无法无天的猪从无辜的小鸟那里偷走了所有的前端架构，现在小鸟们要把它们夺回来！一队特殊的小鸟英雄将攻击这些卑鄙的猪，直到夺回原本属于它们的前端 JavaScript 架构！

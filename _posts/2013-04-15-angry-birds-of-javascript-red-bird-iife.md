@@ -2,9 +2,9 @@
 layout: post
 title: "立即调用的函数表达式"
 tagline: "Immediately-invoked Function Expression"
-description: "防止全局变量扩展。"
+description: "保护代码免受其他代码的干扰，并且通过封装的方式组织你的代码。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript"]
+tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "IIFE"]
 published: true
 
 short: "立即调用的函数表达式"
@@ -17,7 +17,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Introduction -->
 ## 简介
 ![](http://3.bp.blogspot.com/-gdPxI78dJRM/UUPoi2KHFkI/AAAAAAAAX94/M6gVKm4DN64/s1600/Loading_screen.png)
-![](http://3.bp.blogspot.com/-gdPxI78dJRM/UUPoi2KHFkI/AAAAAAAAX94/M6gVKm4DN64/s320/Loading_screen.png)
+<!-- ![](http://3.bp.blogspot.com/-gdPxI78dJRM/UUPoi2KHFkI/AAAAAAAAX94/M6gVKm4DN64/s320/Loading_screen.png) -->
 
 <!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
 一群无法无天的猪从无辜的小鸟那里偷走了所有的前端架构，现在小鸟们要把它们夺回来！一队特殊的小鸟英雄将攻击这些卑鄙的猪，直到夺回原本属于它们的前端 JavaScript 架构！

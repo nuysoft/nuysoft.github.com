@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Backbone"
+title: "应用分层 &amp; 解耦合"
 tagline: "Model &amp; Collection &amp; View"
 description: "Web 前端应用可以快速变得相当复杂。在你知道这点之前，如果你不小心，就会导致关系混乱。值得庆幸的是，Backbone.js 提供了组件来帮助你把应用分割为可用的小模块，每个小模块各司其职。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "Backbone"]
+tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "Backbone"]
 
-short: "Backbone"
+short: "应用分层 &amp; 解耦合"
 pgroup: "前端 JavaScript 架构"
 ---
 {% include JB/setup %}
@@ -16,8 +16,8 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Introduction -->
 ## 简介
 
-<!-- ![](http://2.bp.blogspot.com/-efyDWffod9w/UVpR-LEJYyI/AAAAAAAAZgE/w6UXvXY3u9w/s1600/000001611.jpg) -->
-![](http://2.bp.blogspot.com/-efyDWffod9w/UVpR-LEJYyI/AAAAAAAAZgE/w6UXvXY3u9w/s200/000001611.jpg)
+![](http://2.bp.blogspot.com/-efyDWffod9w/UVpR-LEJYyI/AAAAAAAAZgE/w6UXvXY3u9w/s1600/000001611.jpg)
+<!-- ![](http://2.bp.blogspot.com/-efyDWffod9w/UVpR-LEJYyI/AAAAAAAAZgE/w6UXvXY3u9w/s200/000001611.jpg) -->
 
 <!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
 一群无法无天的猪从无辜的小鸟那里偷走了所有的前端架构，现在小鸟们要把它们夺回来！一队特殊的小鸟英雄将攻击这些卑鄙的猪，直到夺回原本属于它们的前端 JavaScript 架构！
@@ -62,7 +62,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Tangled Smorgasbord of Worms -->
 ## 纠结的蠕虫大杂烩
 <!-- Let's take a look again at the following application that the <a href="http://draft.blogger.com/blogger.g?blogID=30404818"> Blue Bird </a> dealt with in a previous attack. Instead of adding messages to untangle the mess we are going to introduce how using Backbone.js can help us out. Here is the running application below... -->
-让我们再看看下面的应用，[Blue Bird](http://draft.blogger.com/blogger.g?blogID=30404818) 在之前的攻击中处理过。通过增加消息可以理清混乱，但这里要介绍的是如何使用 Backbone.js 达到同样的目的。下面是正在运行的程序...
+让我们再看看下面的应用，[Blue Bird](http://draft.blogger.com/blogger.g?blogID=30404818) 在之前的攻击中已经处理过。通过增加消息可以理清混乱，但这里要介绍的是如何使用 Backbone.js 达到同样的目的。下面是正在运行的程序...
 
 <!-- > It appears <a href="http://plnkr.co/">Plunker</a> is not embedding correctly at the moment. The application is a simple Netflix search interface that will show the results from Netflix. If Plunker doesn't start working soon I will move the demo somewhere else. Sorry for the inconvenience. -->
 > 有时 [Plunker](http://plnkr.co/) 不能正确的嵌入。这个应用是一个简单的 Netflix 搜索接口，会展示 Netflix 返回的结果。如果 Plunker 不能开始工作，我会把这个演示很快转移到别处。很抱歉给你带来不便。
@@ -71,7 +71,7 @@ pgroup: "前端 JavaScript 架构"
   </iframe>
 
 <!-- And to refresh your memory, here is the supporting code used for the above web application. You should notice that a lot of concerns are all being mixed together (DOM events, Modifying the View, AJAX Communication, etc...) -->
-再次提醒你，这是上面的 Web 应用的实现代码。你应该注意的是，很多关注点被混合在一起（DOM 事件、修改视图、Ajax 通信等）
+再次提醒你，这是上面的 Web 应用的实现代码。你应该注意的是，很多关注点被混合在了一起（DOM 事件、修改视图、Ajax 通信等）
 
   <script src="https://gist.github.com/elijahmanor/5283260.js?file=jquery-worms.js">
   </script>

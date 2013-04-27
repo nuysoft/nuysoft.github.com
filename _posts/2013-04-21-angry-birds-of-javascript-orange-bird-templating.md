@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "模板"
+title: "模板 - 分离展现和逻辑"
 tagline: "Templating"
 description: "在代码中混入标记会导致一些让人讨厌的代码，这样的代码繁琐、单调，并且难以维护。像 Underscore 和 Handlebars 这样的库提供了一种清晰的方式，将展现描述从逻辑中分离出来。你可以自由选择使用什么库，但是我鼓励你多进行一些比较，找到最适合你的库。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "Templating"]
+tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "Templating"]
 
-short: "模板"
+short: "模板 - 分离展现和逻辑"
 pgroup: "前端 JavaScript 架构"
 ---
 {% include JB/setup %}
@@ -16,13 +16,10 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Introduction -->
 ## 简介
 ![](http://1.bp.blogspot.com/-EoYTO-3jfeY/UV-WOmhaF3I/AAAAAAAAZ0g/S1oYMzsOg2w/s1600/angrybirds_620_121112.jpg)
-![](http://1.bp.blogspot.com/-EoYTO-3jfeY/UV-WOmhaF3I/AAAAAAAAZ0g/S1oYMzsOg2w/s320/angrybirds_620_121112.jpg)
+<!-- ![](http://1.bp.blogspot.com/-EoYTO-3jfeY/UV-WOmhaF3I/AAAAAAAAZ0g/S1oYMzsOg2w/s320/angrybirds_620_121112.jpg) -->
 
-<!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back!  -->
-一群无法无天的猪从无辜的小鸟那里偷走了所有的前端架构，现在小鸟们要把它们夺回来！
-
-<!-- A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
-一队特殊的小鸟英雄将攻击这些卑鄙的猪，直到夺回原本属于它们的前端 JavaScript 架构！
+<!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
+一群无法无天的猪从无辜的小鸟那里偷走了所有的前端架构，现在小鸟们要把它们夺回来！一队特殊的小鸟英雄将攻击这些卑鄙的猪，直到夺回原本属于它们的前端 JavaScript 架构！
 
 <!-- Will the birds be successful in the end? Will they defeat their bacon flavored foe? Let's find out together in another nail biting episode of Angry Birds of JavaScript! -->
 小鸟们最终会成功吗？它们会打败那些咸猪敌人吗？让我们一起揭示 JavaScript 之愤怒的小鸟系列的另一个扣人心弦的章节！
@@ -77,7 +74,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## What Was Stolen by the Pigs? -->
 ## 猪偷走了什么？
 <!-- For the last several years we have seen a trend that more and more work is being done on the front-end of web development. We communicate to the back-end via Ajax or Web Sockets and then display the data somehow in the UI. The birds found themselves mostly using string concatenation to build up the rich user interfaces, which resulted in a lot of code that was boring and also prone for errors. Thankfully an Orange Bird came along and said, "Hey, isn't there something better than this? Can't we separate our view from our data somehow?", and that is how templates became to be in the bird world. The Orange Bird borrowed templating libraries from the humans such as Underscore.js and [Handlebar.js](http://handlebarsjs.com/) to help fit this need among the foul. -->
-在过去的几年里，我们已经看到一个趋势：越来越多的 Web 开发工作在前端完成。我们通过 Ajax 或 Web Sockets 与后端通信，然后在以某种方式在 UI 中显示数据。小鸟们发现它们主要使用字符串拼接来构建富用户界面，从而导致大量让人讨厌的代码，并且容易出现错误。庆幸的是，一只橙色小鸟站了出来，它说，“有没有比这更好的方式？我们不能通过某种方式把展示从数据中分离出来吗？”，就这样，模板进入了小鸟的世界。橙色小鸟通过借用人类的模板库，例如 Underscore.js 和 [Handlebar.js](http://handlebarsjs.com/)来满足这种需求。
+在过去的几年里，我们已经看到一个趋势：越来越多的 Web 开发工作在前端完成。我们通过 Ajax 或 Web Sockets 与后端通信，然后在以某种方式在 UI 中显示数据。小鸟们发现它们主要使用字符串拼接来构建富用户界面，从而导致大量让人讨厌的代码，并且容易出现错误。庆幸的是，一只橙色小鸟站了出来，它说，“有没有比这更好的方式？我们不能通过某种方式把展示从数据中分离出来吗？”，就这样，模板进入了小鸟的世界。橙色小鸟通过借用人类的模板库，例如 Underscore.js 和 [Handlebar.js](http://handlebarsjs.com/) 来满足这种需求。
 
 <!-- However, during a recent invasion the pigs stole the birds' templating libraries! As a result, one of the Orange Birds has been tasked to reclaim what has been stolen. He will use his exploding power to help destroy the pigs in order to take back what is theirs. -->
 然而，在最近的一次入侵中，猪群偷走了小鸟们的模板库！现在，一只橙色小鸟被派去夺回失窃的模板库。它将用爆炸性的力量摧毁猪群，夺回属于它们的东西。
@@ -91,7 +88,7 @@ pgroup: "前端 JavaScript 架构"
   </script>
 
 <!-- Yeah, I don't like all of the string concatenation either. I prefer not to have a bunch of presentation inside of my code if I can help it. On the plus side, it does work. You can see the output of the code in the following embedded jsFiddle. -->
-是的，我不喜欢所有的字符串拼接。如果可能的话，我不希望在我的代码里出现一堆展现。好的一面是它可以工作。你可以在下面的内嵌 jsFiddle 中看到这段代码的输出。
+是的，我不喜欢所有的字符串拼接。如果可能的话，我不希望在我的代码里出现一堆展现。唯一好的一面是它可以工作。你可以在下面的内嵌 jsFiddle 中看到这段代码的输出。
 
   <iframe allowfullscreen="allowfullscreen" frameborder="0" height="200" src="http://jsfiddle.net/B4fJB/embedded/result,js,html" width="100%">
   </iframe>

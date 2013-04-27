@@ -4,7 +4,7 @@ title: "模式"
 tagline: "Patterns"
 description: "成熟的设计模式和有限状态机。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "jQuery"]
+tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "jQuery"]
 published: true
 
 short: "模式"

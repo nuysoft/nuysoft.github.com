@@ -4,7 +4,7 @@ title: "代码质量"
 tagline: "Coding Standard, Linting, Analysis"
 description: "前端 Web 应用可以很快变得相当复杂。如果开发人员不能达成共识，事情可能马上土崩瓦解，特别是在一个大型项目中。形成统一的代码标准和使用一些工具来避免问题，才能真正有助于项目成功。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript"]
+tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "JSHint"]
 published: true
 
 short: "代码质量"
@@ -32,7 +32,7 @@ Will the birds be successful in the end? Will they defeat their bacon flavored f
 [series introduction post]: http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html
 [系列介绍文章]: http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html
 
-![](http://3.bp.blogspot.com/-c3JawpCl3ys/UVx7L_dMWxI/AAAAAAAAZuo/YEClyACJaZg/s1600/white-bird.png)
+<!-- ![](http://3.bp.blogspot.com/-c3JawpCl3ys/UVx7L_dMWxI/AAAAAAAAZuo/YEClyACJaZg/s1600/white-bird.png) -->
 ![](http://3.bp.blogspot.com/-c3JawpCl3ys/UVx7L_dMWxI/AAAAAAAAZuo/YEClyACJaZg/s1600/white-bird.png)
 
 <!-- ### Previous Attacks -->
@@ -88,7 +88,7 @@ Disagreements about who is "right" will lessen
 * ** jQuery's [JavaScript Style Guide ](http://contribute.jquery.org/style-guide/js/?rdfrom=http%3A%2F%2Fdocs.jquery.com%2Fmw%2Findex.php%3Ftitle%3DJQuery_Core_Style_Guidelines%26redirect%3Dno) &#8592; Recommended**
 * Google's [JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml) -->
 
-* Douglas Crockford 的[JavaScript 编程语言代码约定]
+* Douglas Crockford 的 [JavaScript 编程语言代码约定]
 * **Rich Waldron（[@rwaldron]）的 [Idiomatic.js - 通用一致的 JavaScript 编写原则](https://github.com/rwldrn/idiomatic.js) &#8592; 推荐**
 * **[jQuery 的 JavaScript 风格指南] &#8592; 推荐**
 * [Google 的 JavaScript 风格指南]
@@ -124,7 +124,7 @@ JSHint 可以执行的标准检查包括...
 * Declaring functions inside of loops
 * And lots more... -->
 <ul>
-<li>用 `===` 代替 `==`</li>
+<li>用 <code>===</code> 代替 <code>==</code></li>
 <li>使用未定义的变量</li>
 <li>声明未使用的变量</li>
 <li>在循环中声明函数</li>
