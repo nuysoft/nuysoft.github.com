@@ -39,7 +39,7 @@ pgroup: "前端 JavaScript 架构"
 </ul>
 <br />
 
-![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png)
+<!-- ![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png) -->
 ![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png)
 
 <!-- ### Yellow Bird Attacks -->
