@@ -121,7 +121,7 @@ pgroup: "前端 JavaScript 架构"
 我们的应用只包含了 5 个脚本文件，但你也知道，我们的应用只会持续添加额外的脚本。所以，理想的做法是用一种简单的方式将脚本合并和压缩，从而达到更好的生产性能。通过使用 RequireJS 定义应用的依赖关系可以实现这一目标。
 
 <!-- Thankfully there is a tool called `[r.js](http://requirejs.org/docs/1.0/docs/optimization.html)` that takes this dependency information and uses it to generate a combined and minified script. You can install the tool with the Node Package Manager `npm install requirejs` -->
-值得庆幸的是，有一个称为 [r.js](http://requirejs.org/docs/1.0/docs/optimization.html) 工具可以收集依赖信息，并用这些信息生成一个合并和压缩过的脚本文件。你可以通过 Node 包管理器 `npm install requirejs` 安装这个工具。
+值得庆幸的是，有一个称为 [r.js](http://requirejs.org/docs/1.0/docs/optimization.html) 的工具可以收集依赖信息，并用这些信息生成一个合并和压缩过的脚本文件。你可以通过 Node 包管理器 `npm install requirejs` 安装这个工具。
 
 [r.js]: http://requirejs.org/docs/1.0/docs/optimization.html
 
