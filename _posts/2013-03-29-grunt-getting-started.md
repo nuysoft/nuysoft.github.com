@@ -115,6 +115,7 @@ _在 Grunt 0.3.x 版本中，该文件被命名为 `grunt.js`。_
 * [npm init] 命令会创建一个基本的 `package.json` 文件。
 * 从下面的例子开始，需要时扩展，遵循这个[规范][json]。
 
+<p></p>
     {
       "name": "my-project-name",
       "version": "0.1.0",
@@ -130,11 +131,9 @@ _在 Grunt 0.3.x 版本中，该文件被命名为 `grunt.js`。_
 ### 安装 Grunt 和 插件
 
 <!-- The easiest way to add Grunt and gruntplugins to an existing `package.json` is with the command `npm install <module> --save-dev`.  Not only will this install `<module>` locally, but it will automatically be added to the [devDependencies] section, using a [tilde version range]. -->
-
 向一个已存在的 `package.json` 添加 Grunt 和插件的最简单的方式是使用命令 `npm install <module> --save-dev`。不仅会本地安装 `<module>`，还会被自动添加到 [devDependencies]，使用[波浪号版本范围][tilde version range]。
 
-For example, this will install the latest version of Grunt in your project folder, adding it to your devDependencies:
-
+<!-- For example, this will install the latest version of Grunt in your project folder, adding it to your devDependencies: -->
 下面的例子将安装最新版本的 Grunt 到你的项目文件夹中，并且添加到你的 devDependencies：
 
     npm install grunt --save-dev

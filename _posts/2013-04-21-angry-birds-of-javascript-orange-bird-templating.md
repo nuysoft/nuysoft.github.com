@@ -74,7 +74,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- In this post we will take a look at the Orange Bird. He first starts out small with a simple template, but then expands itself into a DOM blast that will surely send the message that the birds mean business. Slowly, one by one, the birds will take back what it theirs to keep! -->
 在这篇文章中，我们将看看橙色小鸟。他开始时是一个简单的小模板，但随之扩大为一场 DOM 爆炸，这么做明确的传达了一个消息，那就是小鸟们是认真的。渐渐的，小鸟们将一个接一个地夺回属于它们的东西。
 
-## What Was Stolen by the Pigs?
+<!-- ## What Was Stolen by the Pigs? -->
 ## 猪偷走了什么？
 <!-- For the last several years we have seen a trend that more and more work is being done on the front-end of web development. We communicate to the back-end via Ajax or Web Sockets and then display the data somehow in the UI. The birds found themselves mostly using string concatenation to build up the rich user interfaces, which resulted in a lot of code that was boring and also prone for errors. Thankfully an Orange Bird came along and said, "Hey, isn't there something better than this? Can't we separate our view from our data somehow?", and that is how templates became to be in the bird world. The Orange Bird borrowed templating libraries from the humans such as Underscore.js and [Handlebar.js](http://handlebarsjs.com/) to help fit this need among the foul. -->
 在过去的几年里，我们已经看到一个趋势：越来越多的 Web 开发工作在前端完成。我们通过 Ajax 或 Web Sockets 与后端通信，然后在以某种方式在 UI 中显示数据。小鸟们发现它们主要使用字符串拼接来构建富用户界面，从而导致大量让人讨厌的代码，并且容易出现错误。庆幸的是，一只橙色小鸟站了出来，它说，“有没有比这更好的方式？我们不能通过某种方式把展示从数据中分离出来吗？”，就这样，模板进入了小鸟的世界。橙色小鸟通过借用人类的模板库，例如 Underscore.js 和 [Handlebar.js](http://handlebarsjs.com/)来满足这种需求。
