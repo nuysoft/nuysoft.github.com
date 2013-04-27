@@ -162,7 +162,7 @@ JSHint 可以执行的标准检查包括...
 JSHint 在检查上面的代码片段后生成下面的错误：
 
 ![](http://1.bp.blogspot.com/-Jj5KYftluoQ/UVz04mayIXI/AAAAAAAAZvQ/P9diYW0g8UE/s1600/4-3-2013+10-33-12+PM.png)
-![](http://1.bp.blogspot.com/-Jj5KYftluoQ/UVz04mayIXI/AAAAAAAAZvQ/P9diYW0g8UE/s640/4-3-2013+10-33-12+PM.png)
+<!-- ![](http://1.bp.blogspot.com/-Jj5KYftluoQ/UVz04mayIXI/AAAAAAAAZvQ/P9diYW0g8UE/s640/4-3-2013+10-33-12+PM.png) -->
 
 <!-- Thankfully you don't have to run JSHint from the website every time to check your code. There are several ways to integrate it into your code editor of choice: -->
 幸运的是， 你不必每次都运行 JSHint 来检查整个网站的代码。有几种方式可以将 JSHint 集成到你的代码编辑器：
