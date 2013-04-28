@@ -29,9 +29,6 @@ pgroup: "前端 JavaScript 架构"
 
 [系列介绍文章]: http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html
 
-![](http://4.bp.blogspot.com/-9CHfr07ovWs/UWEETqEvgSI/AAAAAAAAZ2w/baqRjP09l1c/s1600/angrybirds-eagle.png)
-![](http://4.bp.blogspot.com/-9CHfr07ovWs/UWEETqEvgSI/AAAAAAAAZ2w/baqRjP09l1c/s320/angrybirds-eagle.png)
-
 <!-- ### Previous Attacks -->
 ### 战报
 * [Red Bird - IIFE](http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-red-bird.html)
@@ -45,6 +42,9 @@ pgroup: "前端 JavaScript 架构"
 
 <!-- ### Mighty Eagle Bird Attacks -->
 ### 神鹰的攻击
+<!-- ![](http://4.bp.blogspot.com/-9CHfr07ovWs/UWEETqEvgSI/AAAAAAAAZ2w/baqRjP09l1c/s1600/angrybirds-eagle.png) -->
+![](http://4.bp.blogspot.com/-9CHfr07ovWs/UWEETqEvgSI/AAAAAAAAZ2w/baqRjP09l1c/s320/angrybirds-eagle.png)
+
 <!-- In this post we will take a look at the Mightly Eagle who uses the most superior weapon of them all, a suite of tools that can organize and deploy all the other birds into battle against their soon to be vanquished foe. Slowly, one by one, the birds will take back what it theirs to keep! -->
 在这篇文章中，我们将看看使用超级武器的神鹰，它用一套工具快速组织和部署其他小鸟到征服猪群的战斗中。渐渐的，小鸟们将一个接一个的夺回属于它们的东西！
 
@@ -57,10 +57,11 @@ However, during a recent invasion the pigs stole the birds' Gang of Foul book! A
 
 > 译注：这段原文应该有错误，本文介绍的是神鹰的自动化工具，不是大鸟哥的设计模式和有限自动机，因此暂不翻译。
 
+
+## Grunt
 ![](http://3.bp.blogspot.com/-CXGuzyWVyk8/UWELb7hUEQI/AAAAAAAAZ3g/joO4tCJ_eyc/s1600/toolset+2.png)
 ![](http://3.bp.blogspot.com/-CXGuzyWVyk8/UWELb7hUEQI/AAAAAAAAZ3g/joO4tCJ_eyc/s200/toolset+2.png)
 
-## Grunt
 <!-- Grunt is a task-based command line tool that is written in JavaScript and helps automate the build of your front-end application. The community has really grabbed on to this tool and as a result there are tons of plugins that you can choose from to automate things like CoffeeScript, handlebars precompilation, less support, JSHint checking, etc... -->
 Grunt 是一个基于任务的命令行工具，用 JavaScript 语言编写，用于自动执行前端应用的构建过程。社区被这个工具深深吸引，并产出了大量插件可供选择，例如自动化 CoffeeScript 编译、Handlebars 预编译、Less 支持、JSHint 检查等等...
 
@@ -141,7 +142,7 @@ Grunt 是一个基于任务的命令行工具，用 JavaScript 语言编写，�
 我从 GitHub 上拉去了一份 jQuery，用来查看 jQuery 是如何使用 Grunt 的，下面是执行 Grunt 时得到的输出。
 
 ![](http://2.bp.blogspot.com/-qdV01Mu1uO4/UWJLrncu2WI/AAAAAAAAZ4A/bges3xKOJ_o/s1600/grunt-jquery.png)
-![](http://2.bp.blogspot.com/-qdV01Mu1uO4/UWJLrncu2WI/AAAAAAAAZ4A/bges3xKOJ_o/s640/grunt-jquery.png)
+<!-- ![](http://2.bp.blogspot.com/-qdV01Mu1uO4/UWJLrncu2WI/AAAAAAAAZ4A/bges3xKOJ_o/s640/grunt-jquery.png) -->
 
 If you look closely you'll notice they update their git submodules, build a version of jQuery from it's modules, run JSHint against the built jquery.js and tests files, creates sourcemaps, and runs a special compare file size task. If you dig deep into their Gruntfile you'll find they've also setup a custom way to run their unit tests against Browserstack, which is pretty cool if you ask me ;)
 如果你仔细上面的图看会发现执行了以下任务：更新 Git 子模块（Sizzle、QUnit），构建 jQuery 的一个版本，对构建的 jquery.js 执行 JSHint 检查，创建 Source Maps，并运行一个比较指定的文件大小的任务。如果你深挖 Gruntfile.js 的话，你还会发现它自定义了一种不同于 Browserstack 的方式来运行单元测试。
@@ -169,11 +170,12 @@ If you look closely you'll notice they update their git submodules, build a vers
 * [Grunt.js Workflow](http://merrickchristensen.com/articles/gruntjs-workflow.html) by Merrick Christensen ([@iammerrick](http://twitter.com/iammerrick))
 * [Meet Grunt: The Build Tool for JavavScript](http://net.tutsplus.com/tutorials/javascript-ajax/meeting-grunt-the-build-tool-for-javascript/) by Andrew Burgess ([@andrew8088](http://twitter.com/andrew8088))
 
-[![](http://1.bp.blogspot.com/-L7pXsxuBnVA/UWELyS9lG0I/AAAAAAAAZ3w/ptGkkE9j1ms/s200/toolset+3.png)](http://1.bp.blogspot.com/-L7pXsxuBnVA/UWELyS9lG0I/AAAAAAAAZ3w/ptGkkE9j1ms/s1600/toolset+3.png)
 
 ## Twitter Bower
-
 > 译注：bower - 凉亭，树阴处
+
+![](http://1.bp.blogspot.com/-L7pXsxuBnVA/UWELyS9lG0I/AAAAAAAAZ3w/ptGkkE9j1ms/s1600/toolset+3.png)
+![](http://1.bp.blogspot.com/-L7pXsxuBnVA/UWELyS9lG0I/AAAAAAAAZ3w/ptGkkE9j1ms/s200/toolset+3.png)
 
 <!-- For those of you that have used Node or Ruby you'll be familiar with npm or gems, however, there hasn't been anything like that for front-end browser scripts and styles... at least until now!  -->
 使用 Node 或 Ruby 的开发人员可能已经熟悉了 npm 或 gems，但是对于浏览器脚本和样式没有类似的工具...至少到目前为止！
@@ -189,8 +191,6 @@ Twitter Bower 项目旨在通过 Web（HTML、CSS 和 JavaScript）提供一套�
 
 [![](http://3.bp.blogspot.com/-s8ERF-X_x70/UWLBuSeWcpI/AAAAAAAAZ4Y/uWUIb5eWuLg/s640/bower-install-jquery.png)](http://3.bp.blogspot.com/-s8ERF-X_x70/UWLBuSeWcpI/AAAAAAAAZ4Y/uWUIb5eWuLg/s1600/bower-install-jquery.png)
 
-[![](http://3.bp.blogspot.com/-Rp0_He-oQgI/UWELh24_5kI/AAAAAAAAZ3o/J8F2Jj_LV4w/s200/toolset+1.png)](http://3.bp.blogspot.com/-Rp0_He-oQgI/UWELh24_5kI/AAAAAAAAZ3o/J8F2Jj_LV4w/s1600/toolset+1.png)
-
 <!-- ### Bower Resources -->
 ### Bower 资源
 
@@ -201,8 +201,11 @@ Twitter Bower 项目旨在通过 Web（HTML、CSS 和 JavaScript）提供一套�
 * [A RequireJS, Backbone, and Bower Starter Template](http://net.tutsplus.com/tutorials/javascript-ajax/a-requirejs-backbone-and-bower-starter-template/) by Jeffrey Way ([@jeffrey_way](http://twitter.com/jeffrey_way))
 
 ## Yeoman
-
 > 译注：yeoman -  自耕农，自由民，仆人
+
+![](http://3.bp.blogspot.com/-Rp0_He-oQgI/UWELh24_5kI/AAAAAAAAZ3o/J8F2Jj_LV4w/s1600/toolset+1.png)
+![](http://3.bp.blogspot.com/-Rp0_He-oQgI/UWELh24_5kI/AAAAAAAAZ3o/J8F2Jj_LV4w/s200/toolset+1.png)
+
 
 <!-- The yeoman project is a scaffolding engine that works along with Grunt and Bower. You can think of yeoman as the scaffolding piece that can get your applications going quickly. In order to get started you need to install yeoman by using the following syntax... -->
 Yeoman 项目是一款与 Grunt 和 Bower 协同工作的脚手架引擎。可以让你的应用快速运行起来。要使用 Yeoman，你需要先用下面的语法安装它...
