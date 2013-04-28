@@ -2,7 +2,7 @@
 layout: post
 title: "事件 &amp; 消息"
 tagline: "Events &amp; Messaging"
-description: "在 Web 引用中可以使用事件和消息实现组件通信。事件允许一个组件同自身通信，消息则允许一个组件以非硬编码的方式监听其他组件。"
+description: "在 Web 应用中可以使用事件和消息实现组件通信。事件允许一个组件同自身通信，消息则允许一个组件以非硬编码的方式监听其他组件。"
 category-substitution: 翻译
 tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "jQuery", "postal.js"]
 
@@ -168,7 +168,7 @@ Jim 在他的文章中提出的另一项技术是提升观察者事件为中介�
 <!-- ## Conclusion -->
 ## 结论
 <!-- Using events and messages across your web application can help with communication. Events allow a component to communicate with itself and messages can enable other components to listen in without having a hard dependency. -->
-在 Web 引用中可以使用事件和消息实现组件通信。事件允许一个组件同自身通信，消息则允许一个组件以非硬编码的方式监听其他组件。
+在 Web 应用中可以使用事件和消息实现组件通信。事件允许一个组件同自身通信，消息则允许一个组件以非硬编码的方式监听其他组件。
 
 <!-- There are many other front-end architecture techniques that have been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa! -->
 还有许多其他的前端架构技术被猪群偷走了。在下篇文章中，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!

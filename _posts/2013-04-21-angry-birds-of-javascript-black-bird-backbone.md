@@ -2,7 +2,7 @@
 layout: post
 title: "应用分层 &amp; 解耦合"
 tagline: "Model &amp; Collection &amp; View"
-description: "Web 前端应用可以快速变得相当复杂。在你知道这点之前，如果你不小心，就会导致关系混乱。值得庆幸的是，Backbone.js 提供了组件来帮助你把应用分割为可用的小模块，每个小模块各司其职。"
+description: "Web 前端应用可以快速变得相当复杂。在你知道这点之前，如果你不小心就会导致关系混乱。值得庆幸的是，Backbone.js 提供了组件来帮助你把应用分割为可用的小模块，并且每个小模块各司其职。"
 category-substitution: 翻译
 tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "Backbone"]
 
@@ -287,7 +287,7 @@ I see the View as more of a Presenter than the typical MVC View you might normal
 <!-- ## Conclusion -->
 ## 结论
 <!-- Front-end web applications can get complicated quickly. Before you know it you have a pile of interconnected mess if you are not careful. Thankfully Backbone.js provides components to help you split out your application into consumable pieces that each have their own purpose. Thank you Black Bird for returning Backbone back to the birds. They will be able to rest easier knowing things are organized and in their proper place. -->
-Web 前端应用可以快速变得相当复杂。在你知道这点之前，如果你不小心就会导致关系混乱。值得庆幸的是，Backbone.js 提供了组件来帮助你把应用分割为可用的小模块，每个小模块各司其职。感谢黑色小鸟为小鸟们夺回了 Backbone。事情被有条理地组织起来，并安排在合适的位置上，现在，小鸟们可以安心休息了。
+Web 前端应用可以快速变得相当复杂。在你知道这点之前，如果你不小心就会导致关系混乱。值得庆幸的是，Backbone.js 提供了组件来帮助你把应用分割为可用的小模块，并且每个小模块各司其职。感谢黑色小鸟为小鸟们夺回了 Backbone。事情被有条理地组织起来，并安排在合适的位置上，现在，小鸟们可以安心休息了。
 
 <!-- There are many other front-end architecture techniques that have been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa! -->
 还有许多其他的前端架构技术被猪群偷走了。在下篇文章中，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!
