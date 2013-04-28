@@ -39,11 +39,11 @@ pgroup: "前端 JavaScript 架构"
 </ul>
 <br />
 
+<!-- ### Yellow Bird Attacks -->
+### 黄色小鸟的攻击
 <!-- ![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png) -->
 ![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png)
 
-<!-- ### Yellow Bird Attacks -->
-### 黄色小鸟的攻击
 <!-- In this post we will take a look at the Yellow Bird who comes with a [RequireJS](http://requirejs.org/) speed booster and dynamically injects scripts against those pesky swine. Slowly, one by one, the birds will take back what it theirs to keep! -->
 在这片文章中，我们将看看黄色小鸟，它用速度助推器 [RequireJS] 和动态注入脚本攻击那些讨厌的猪。渐渐地，小鸟们将一个接一个地夺回属于它们的东西！
 
@@ -101,7 +101,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Fixed Application -->
 ## 修正后的应用
 <!-- Using RequireJS I took the above little application and rearranged some things. You should notice that the following markup removes all the script tags except one, which points to the require.js library. RequireJS knows where to start because we add an HTML5 data-main attribute describing where the main script is located. -->
-我用 RequireJS 重新调整了下面的小应用。你应该注意到，下面的代码移除了所有 script 标签，除了指向 require.js 库的标签。RequireJS 直到从哪里开始，因为我们添加了一个 HTML5 属性 data-main，它描述了主脚本的位置。
+我用 RequireJS 重新调整了上面的小应用。你应该注意到，下面的代码移除了所有 script 标签，除了指向 require.js 库的标签。RequireJS 知道从哪里开始执行，因为我们添加了一个 HTML5 属性 data-main，它描述了主脚本的位置。
 
   <script src="https://gist.github.com/elijahmanor/5275285.js?file=requirejs.html">
   </script>
@@ -126,7 +126,7 @@ pgroup: "前端 JavaScript 架构"
 [r.js]: http://requirejs.org/docs/1.0/docs/optimization.html
 
 <!-- You could provide all the command line argument to the tool in the console, but I prefer making a build config file like the following to define all of its settings before I run it. You can find a [comprehensive list of settings](https://github.com/jrburke/r.js/blob/master/build/example.build.js) from the official GitHub repository. -->
-你可以在控制台中把命令行参数都传给这个工具，但我喜欢在运行这个工具之前创建一个构建配置文件，来定义所以的选项，就像下面的示例。你可以在官方 GitHub 库中找到[完整的选项列表]。
+你可以在控制台中把命令行参数都传给这个工具，但我更喜欢在运行这个工具之前先创建一个构建配置文件，来定义所以的选项，就像下面的示例。你可以在官方 GitHub 库中找到[完整的选项列表]。
 
 [完整的选项列表]: https://github.com/jrburke/r.js/blob/master/build/example.build.js
 
@@ -142,7 +142,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Additional Resources -->
 ## 其他资源
 <!-- I only scratched the surface on all the things you can do with RequireJS and the r.js optimization tool. If you are interesting in learning more about these concepts you may want to look at some of the following resources.  -->
-关于 RequireJS 和优化工具 r.js 所能的所有事情，我仅仅触及到了皮毛。如果你有兴趣了解关于这些概念的更多信息，你可能向看看下面这些资源。
+关于 RequireJS 和优化工具 r.js 所能的所有事情，我仅仅触及到了皮毛。如果你有兴趣了解关于这些概念的更多信息，你可能想看看下面这些资源。
 
 <ul>
   <li>
@@ -179,10 +179,10 @@ pgroup: "前端 JavaScript 架构"
 
 <!-- ## Conclusion -->
 ## 结论
-Front-end web applications can get complicated quickly. It is nice to have a way to provide some structure, dependency management, and an easy way to optimize the final result. Thanks to the power of Yellow the birds have regained their trusty RequireJS tool for use in their next application.
+<!-- Front-end web applications can get complicated quickly. It is nice to have a way to provide some structure, dependency management, and an easy way to optimize the final result. Thanks to the power of Yellow the birds have regained their trusty RequireJS tool for use in their next application. -->
 Web 前端应用可以快速变得相当复杂。理想的做法是提供某种结构和依赖关系管理，以及用一种简单的方式优化最终结果。由于黄色小鸟的努力，小鸟们已经夺回了值得信赖的 RequireJS 工具，并会在它们的下一个应用程序中使用它。
 
-There are many other front-end architecture techniques that have been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa!
+<!-- There are many other front-end architecture techniques that have been stolen by the pigs. Tune in next time as the next Angry Bird takes its revenge! Dun, dun, daaaaaaa! -->
 还有许多其他的前端架构技术被猪群偷走了。在下篇文章中，另一只愤怒的小鸟将继续复仇！Dun, dun, daaaaaaa!
 
 
