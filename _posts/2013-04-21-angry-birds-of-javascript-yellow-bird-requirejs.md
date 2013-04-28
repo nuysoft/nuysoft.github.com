@@ -43,7 +43,7 @@ pgroup: "前端 JavaScript 架构"
 ![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png)
 
 <!-- ### Yellow Bird Attacks -->
-### 红色小鸟的攻击
+### 黄色小鸟的攻击
 <!-- In this post we will take a look at the Yellow Bird who comes with a [RequireJS](http://requirejs.org/) speed booster and dynamically injects scripts against those pesky swine. Slowly, one by one, the birds will take back what it theirs to keep! -->
 在这片文章中，我们将看看黄色小鸟，它用速度助推器 [RequireJS] 和动态注入脚本攻击那些讨厌的猪。渐渐地，小鸟们将一个接一个地夺回属于它们的东西！
 
