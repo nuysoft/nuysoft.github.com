@@ -35,7 +35,7 @@ pgroup: "前端 JavaScript 架构"
 
 [系列介绍文章]: http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html
 
-![](http://4.bp.blogspot.com/-wqME_pIXlMg/UWCKU5PVcVI/AAAAAAAAZ2A/yoODl8TYwKU/s1600/big-brother-bird.png)
+<!-- ![](http://4.bp.blogspot.com/-wqME_pIXlMg/UWCKU5PVcVI/AAAAAAAAZ2A/yoODl8TYwKU/s1600/big-brother-bird.png) -->
 ![](http://4.bp.blogspot.com/-wqME_pIXlMg/UWCKU5PVcVI/AAAAAAAAZ2A/yoODl8TYwKU/s1600/big-brother-bird.png)
           
 <!-- ### Previous Attacks -->
@@ -130,7 +130,7 @@ pgroup: "前端 JavaScript 架构"
 
 <!-- ### Bridge -->
 ### 桥接模式
-In the following snippet of code we are creating a small bridge between an event handler and the code that will be executed. By creating a little bridge it will enabled the executed code to be tested easier since it won't have a dependency on the element context that was passed by jQuery.
+<!-- In the following snippet of code we are creating a small bridge between an event handler and the code that will be executed. By creating a little bridge it will enabled the executed code to be tested easier since it won't have a dependency on the element context that was passed by jQuery. -->
 在下面的代码片段中，我们在事件处理函数和将要执行的代码（`getUrl( url, callback )`）之间建立了一个简单的桥接。从而使得被执行的代码（`getUrl( url, callback )`）更易于测试，因为它不再依赖于 jQuery 传入的上下文元素。
 
   <script src="https://gist.github.com/elijahmanor/5328936.js?file=bridge.js">
@@ -138,7 +138,7 @@ In the following snippet of code we are creating a small bridge between an event
 
 <!-- ### Facade -->
 ### 外观模式
-A facade is common place in front-end web development since there is so much cross-browser inconsistencies. A facade brings a common API to something that could vary under the covers. In the following snippet we abstract the addEventListener logic for various browser implementations.
+<!-- A facade is common place in front-end web development since there is so much cross-browser inconsistencies. A facade brings a common API to something that could vary under the covers. In the following snippet we abstract the addEventListener logic for various browser implementations. -->
 外观模式在 Web 前端开发中很普遍，因为有如此多的跨浏览器不一致问题。外观模式为这种不一致提供了一个统一的 API。在下面的代码中，我们将 addEventListener 在不同浏览器中的实现进行逻辑抽象。
 
   <script src="https://gist.github.com/elijahmanor/5328936.js?file=facade.js">
@@ -236,7 +236,7 @@ A facade is common place in front-end web development since there is so much cro
 
 <!-- ## Additional Resources -->
 ## 其他资源
-There are far too many patterns for me to list here. Many have blogged about these before me and will continue to. If I have missed any good ones please let me know.
+<!-- There are far too many patterns for me to list here. Many have blogged about these before me and will continue to. If I have missed any good ones please let me know. -->
 已经有太多的模式以至我无法在这里一一列出。在我之前，已经有许多人撰写了关于这些模式的博客，并且以后还会有。如果我错过了什么好模式，请告诉我。
 
 * [JavaScript Design Patterns](http://www.joezimjs.com/javascript/javascript-design-patterns-singleton/) by Joe Zim ([@JoeZimJS](http://twitter.com/JoeZimJS))
