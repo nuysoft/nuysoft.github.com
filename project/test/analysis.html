@@ -40,7 +40,7 @@
                 function render(support, version){
                     var uas = _.map(support, function(item, key){
                         var ua = $.uaMatch( item.userAgent )
-                        console.log(item.userAgent);
+                        window.console && console.log(item.userAgent);
                         return ua.browser + '<br>' + ua.version
                         return item.userAgent;
                     });

@@ -28,7 +28,7 @@
                         img = new Image()
                     }
                 }
-                if (debug) console.log($.param(obj))
+                if (debug) window.console && console.log($.param(obj))
                 img.src = server + '&' + $.param(obj)
             }
         };
@@ -47,7 +47,7 @@
 
     $(function(){
       while( $ ) {
-        console.log($.fn.jquery);
+        window.console && console.log($.fn.jquery);
         test($);
         $.noConflict()
       }
