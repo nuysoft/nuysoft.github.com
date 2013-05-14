@@ -17,16 +17,14 @@
   
   <script>
     // 
-    var img, server = 'http://nuyproxy.appspot.com/log?action=insert',
+    var server = 'http://nuyproxy.appspot.com/log?action=insert',
         // server = 'http://localhost:8888/log?action=insert'
         Test = {
             send: function(obj, debug) {
-                if (!img) {
+                var img = new Image()
+                img.onerror = function(e) {
+                    img = null
                     img = new Image()
-                    img.onerror = function(e) {
-                        img = null
-                        img = new Image()
-                    }
                 }
                 if (debug) window.console && console.log($.param(obj))
                 img.src = server + '&' + $.param(obj)

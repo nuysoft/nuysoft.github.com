@@ -3,7 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>jQuery.support</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://twitter.github.io/bootstrap/assets/css/docs.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="http://underscorejs.org/underscore.js"></script>
     <style>
@@ -11,18 +14,111 @@
     </style>
     <script>
         $(function(){
+            String.prototype.format = function( ) {
+                var args = arguments;
+                if ( args.length == 0 ) return this;
+                return this.replace( /{(\d+)?}/g, function( $0, $1 ) {
+                    return args[ parseInt( $1 ) ] + '';
+                } );
+            };
+
+            function nav(){
+                var h1s = $('h1').each(function(i, h1){
+                    var $el = $(this);
+                    $el.before('<a name="{0}"></a>'.format( $.trim( $el.text() ) ));
+                    $('#nav').append('<li><a href="#{0}">{0}</a></li>'.format( $.trim( $el.text() ) ));
+                });
+
+                var btns = $('#nav > a');
+                $(window).on('scroll', function(e){
+                    var top = $(window).scrollTop();
+                        
+                    for( var i = 0; i < h1s.length; i++ ){
+                        if( i == h1s.length - 1 ) return btns.removeClass('btn-primary').eq(-1).addClass('btn-primary');
+                        if( ( h1s.eq(i).offset().top + h1s.eq(i).height() )> top ) return btns.removeClass('btn-primary').eq(i).addClass('btn-primary');
+                    }
+                });
+            }
+
+            function uaMatch(ua){
+                var re = $.uaMatch( ua )
+                if( re.browser === 'webkit' ){
+                    debugger
+                    var rchrome = / Chrome\/([\d.]+) /i,
+                        rsafari = / Version\/([\d.]+) /
+                    var match;
+                    if( match = rchrome.exec(ua) ) {
+                        re.browser = 'Chrome'
+                        re.version = match[1]
+                    }
+                    if( match = rsafari.exec(ua) ) {
+                        re.browser = 'Safari'
+                        re.version = match[1]
+                    }
+                }
+                if( re.browser == 'msie' ) re.browser = 'IE'
+                if( re.browser == 'mozilla' ) re.browser = 'Firefox'
+                if( re.browser == 'opera' ) re.browser = 'Opera'
+                return re;
+            }
+
+            function render(support, version){
+                var uas = _.map(support, function(item, key){
+                    var ua = uaMatch( item.userAgent )
+                    window.console && console.log(version, item.userAgent);
+                    return ua.browser + '<br>' + ua.version
+                    return item.userAgent;
+                });
+                var rs = {};
+                _.each(support, function(item, index){
+                    _.each(item, function(value, name){
+                        if(/^(date|version|type|action|userAgent|lib)$/.test(name)) return;
+                        rs[name] = rs[name] || [];
+                        rs[name].push(value)
+                    });
+                })
+
+                // render
+                var table = $('<table>').addClass('table table-bordered'),
+                    thead = $('<thead>').appendTo(table)
+                    tbody = $('<tbody>').appendTo(table),
+                    tr = $('<tr>');
+
+                var ths = tr.clone().appendTo(thead).append('<th>#</th><th>support</th>');
+                _.each(uas, function(item, index){
+                    $('<th>').html(item)
+                        .css('width', 75)
+                        .appendTo(ths);
+                })
+                
+                var count = 1;
+                _.each(rs, function(value, name){
+                    var row = tr.clone().appendTo(tbody)
+                        .append('<td>' + (count++) + '</td>')
+                        .append('<td>' + name + '</td>')
+                    _.each(value, function(item, index){
+                        $('<td>').text(item)
+                            .addClass(item == 'true' ? 'alert-success': 'alert-error')
+                            .appendTo(row)
+                    })
+                })
+
+                $('#result')
+                    .append('<h1>jQuery ' + version + '</h1>')
+                    .append(table)
+            }
+
             var url = 'http://nuyproxy.appspot.com/log?action=list'
             // url = 'http://localhost:8888/log?action=list'
             $.ajax(url)
             .done(function(data){
-                // 
-                data = eval(data);
-                data.sort(function(a, b){
-                    return parseFloat(a.version) - parseFloat(b.version)
+                data = eval(data).sort(function(a, b){
+                    return a.version > b.version ? 1 : -1;
                 })
                 var repeat = {};
                 var unique = $.map(data, function(item, i){
-                    var id = item.userAgent + item.version;
+                    console.log(item.version);
+                    var id = item.userAgent + item.version + item.lib + item.type;
                     if( !repeat[id] ) {
                         repeat[id] = true
                         return item
@@ -36,60 +132,22 @@
                 _.each(versions, function(support, version){
                     render(support, version)
                 });
-
-                function render(support, version){
-                    var uas = _.map(support, function(item, key){
-                        var ua = $.uaMatch( item.userAgent )
-                        window.console && console.log(item.userAgent);
-                        return ua.browser + '<br>' + ua.version
-                        return item.userAgent;
-                    });
-                    var rs = {};
-                    _.each(support, function(item, index){
-                        _.each(item, function(value, name){
-                            if(/^(date|version|type|action|userAgent|lib)$/.test(name)) return;
-                            rs[name] = rs[name] || [];
-                            rs[name].push(value)
-                        });
-                    })
-
-                    // render
-                    var table = $('<table>').addClass('table table-bordered'),
-                        thead = $('<thead>').appendTo(table)
-                        tbody = $('<tbody>').appendTo(table),
-                        tr = $('<tr>');
-
-                    var ths = tr.clone().appendTo(thead).append('<th>#</th><th>support</th>');
-                    _.each(uas, function(item, index){
-                        $('<th>').html(item)
-                            .css('width', 75)
-                            .appendTo(ths);
-                    })
-                    
-                    var count = 1;
-                    _.each(rs, function(value, name){
-                        var row = tr.clone().appendTo(tbody)
-                            .append('<td>' + (count++) + '</td>')
-                            .append('<td>' + name + '</td>')
-                        _.each(value, function(item, index){
-                            $('<td>').text(item)
-                                .addClass(item == 'true' ? 'alert-success': 'alert-error')
-                                .appendTo(row)
-                        })
-                    })
-
-                    $('.container')
-                        .append('<h2>jQuery ' + version + '</h2>')
-                        .append(table)
-                }
-                
+                nav()
             })
         });
+    </script>
+    <script>
+        
     </script>
 </head>
 <body>
     <div class="container">
-
+        <div class="row">
+            <div class="span2 bs-docs-sidebar">
+                <ul id="nav" class="nav nav-list bs-docs-sidenav affix" style="width: 172px;"></ul>
+            </div>
+            <div id="result" class="span10"></div>
+        </div>    
     </div>
 </body>
 </html>
