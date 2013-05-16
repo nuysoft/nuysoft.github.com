@@ -98,10 +98,12 @@
                     tr = $('<tr>');
 
                 // thead
-                var ths = tr.clone().appendTo(thead).append('<th>#</th><th>support</th>');
+                var ths = tr.clone().appendTo(thead)
+                    .append( $('<th>#</th>').css('width', 25) )
+                    .append( $('<th>support</th>').css('width', 250) );
                 _.each(uas, function(ua, index){
                     $('<th>').html(ua.sua)
-                        .css('width', 75)
+                        .css('width', 100)
                         .appendTo(ths);
                 })
 
@@ -130,7 +132,7 @@
             }
 
             var url = 'http://nuyproxy.appspot.com/log?action=list&type=support'
-            url = 'http://localhost:8888/log?action=list&type=support'
+            // url = 'http://localhost:8888/log?action=list&type=support'
             $.ajax(url)
             .done(function(data){
                 data = eval(data).sort(function(a, b){
