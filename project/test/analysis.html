@@ -9,9 +9,6 @@
     <link href="http://twitter.github.io/bootstrap/assets/css/docs.css" rel="stylesheet">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
     <script type="text/javascript" src="http://underscorejs.org/underscore.js"></script>
-    <style>
-        * { font-family: 微软雅黑; }
-    </style>
     <script>
         $(function(){
             String.prototype.format = function( ) {
@@ -43,7 +40,6 @@
             function uaMatch(ua){
                 var re = $.uaMatch( ua )
                 if( re.browser === 'webkit' ){
-                    debugger
                     var rchrome = / Chrome\/([\d.]+) /i,
                         rsafari = / Version\/([\d.]+) /
                     var match;
@@ -62,54 +58,79 @@
                 return re;
             }
 
-            function render(support, version){
-                var uas = _.map(support, function(item, key){
-                    var ua = uaMatch( item.userAgent )
-                    window.console && console.log(version, item.userAgent);
-                    return ua.browser + '<br>' + ua.version
-                    return item.userAgent;
-                });
-                var rs = {};
-                _.each(support, function(item, index){
-                    _.each(item, function(value, name){
-                        if(/^(date|version|type|action|userAgent|lib)$/.test(name)) return;
-                        rs[name] = rs[name] || [];
-                        rs[name].push(value)
-                    });
+            function render(supports, version){
+                var uas = {}, uaMap = {};
+                for(var i = 0; i < supports.length; i++ ){
+                    var ua = uaMatch( supports[i].userAgent )
+                    ua.sua = ua.browser + '<br>' + ua.version
+                    supports[i].ua = ua;
+                    supports[i].sua = ua.sua
+                    if( !uas[ua.sua] ) {
+                        uas[ua.sua] = ua;
+                        uaMap[ua.sua] = supports[i];
+                    }
+                }
+                var _arr = _.map(uas, function(value, name){
+                    return name;
+                }).sort(function(a, b){
+                    return a > b ? 1 : -1;
                 })
+                var _uas = {};
+                _.each(_arr, function(item, index){
+                    _uas[item] = uas[item];
+                })
+                uas = _uas;
+                debugger
 
+                var tests = {};
+                _.each(supports, function(support, index){
+                    for(var name in support){
+                        if(/^(lib|version|type|date|action|userAgent|ua|sua)$/.test(name)) continue;
+                        tests[name] = true;
+                    }
+                });
+
+               
                 // render
                 var table = $('<table>').addClass('table table-bordered'),
                     thead = $('<thead>').appendTo(table)
                     tbody = $('<tbody>').appendTo(table),
                     tr = $('<tr>');
 
+                // thead
                 var ths = tr.clone().appendTo(thead).append('<th>#</th><th>support</th>');
-                _.each(uas, function(item, index){
-                    $('<th>').html(item)
+                _.each(uas, function(ua, index){
+                    $('<th>').html(ua.sua)
                         .css('width', 75)
                         .appendTo(ths);
                 })
-                
+
+                // tbody
                 var count = 1;
-                _.each(rs, function(value, name){
+                for(var test in tests){
                     var row = tr.clone().appendTo(tbody)
                         .append('<td>' + (count++) + '</td>')
-                        .append('<td>' + name + '</td>')
-                    _.each(value, function(item, index){
-                        $('<td>').text(item)
-                            .addClass(item == 'true' ? 'alert-success': 'alert-error')
-                            .appendTo(row)
-                    })
-                })
+                        .append('<td>' + test + '</td>')
+                    for(var sua in uas){
+                        var record = uaMap[sua];
+                        if( test in record) {
+                            $('<td>').text(record[test])
+                                .addClass(record[test] === 'true' && 'alert-success' || record[test] === 'false' && 'alert-error' || '')
+                                .appendTo(row)
+                        } else {
+                            $('<td>').text('-')
+                                .appendTo(row)
+                        }
+                    }
+                }
 
                 $('#result')
                     .append('<h1>jQuery ' + version + '</h1>')
                     .append(table)
             }
 
-            var url = 'http://nuyproxy.appspot.com/log?action=list'
-            // url = 'http://localhost:8888/log?action=list'
+            var url = 'http://nuyproxy.appspot.com/log?action=list&type=support'
+            url = 'http://localhost:8888/log?action=list&type=support'
             $.ajax(url)
             .done(function(data){
                 data = eval(data).sort(function(a, b){
