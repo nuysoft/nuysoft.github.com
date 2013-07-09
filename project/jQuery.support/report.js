@@ -131,7 +131,7 @@ function render(data) {
             tcMap[tc] = ++count
         })
     })
-
+    delete tcMap.version
     return table(uas, tcMap, data)
 }
 

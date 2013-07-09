@@ -34,6 +34,7 @@
   
   <script>
     function log($){
+      $('body').append($.fn.jquery + '<br>')
       var obj = $.extend({
           userAgent: navigator.userAgent,
           version: $.fn.jquery
@@ -50,7 +51,9 @@
       while( $ ) {
         window.console && console.log($.fn.jquery);
         log($);
-        $.noConflict()
+        // setTimeout(function(){
+          $.noConflict()  
+        // },1000)
       }
     });
   

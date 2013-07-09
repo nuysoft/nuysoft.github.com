@@ -9,16 +9,6 @@ var http = require("http"),
 // 切换到当前目录
 process.chdir(path.dirname(process.argv[1]));
 
-function write(file, content) {
-
-}
-
-function read(file) {
-    var content = fs.readFileSync(file, 'utf8');
-    var fn = new Function('return ' + content);
-    return fn();
-}
-
 var db = 'records.db',
     records = {};
 
@@ -27,8 +17,17 @@ fs.exists(db, function(exists) {
     fs.readFile(db, function(error, content) {
         if (error) return
         records = JSON.parse(content);
+
+        // reset ie
+        /*for (var v in records) {
+            for (var ua in records[v]) {
+                if (ua.indexOf('MSIE ') > -1) delete records[v][ua]
+            }
+        }*/
     });
 });
+
+
 
 function onRequest(request, response) {
     // parts: search query pathname path href
@@ -53,7 +52,7 @@ function onRequest(request, response) {
             version = parts.query.version,
             id = version + ' ' + userAgent;
         delete parts.query.userAgent
-        delete parts.query.version
+        // delete parts.query.version
 
         records[version] = records[version] || {}
         records[version][userAgent] = parts.query
