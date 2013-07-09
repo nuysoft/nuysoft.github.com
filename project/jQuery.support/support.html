@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>test</title>
+  <!--[if gte IE 9]><!-->
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.1.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.2.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.js"></script>
+  <!--<![endif]-->
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.2.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.3.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.js"></script>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.js"></script>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.1.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.0.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  
+  <script>
+    function log($){
+      var obj = $.extend({
+          userAgent: navigator.userAgent,
+          version: $.fn.jquery
+      }, $.support)
+      var img = new Image()
+      try{
+        img.src = '/support?' + $.param(obj)
+      }catch(error){
+        window.console && console.error(error);
+      }
+    }
+
+    $(function(){
+      while( $ ) {
+        window.console && console.log($.fn.jquery);
+        log($);
+        $.noConflict()
+      }
+    });
+  
+  </script>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+</body>
+</html>
