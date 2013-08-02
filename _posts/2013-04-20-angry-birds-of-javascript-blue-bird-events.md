@@ -61,8 +61,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- The first version of the above application was coded using the following JavaScript code. Take a look at the code and let it start to sink in for a little bit. It may be painful, but please bar with me for a moment ;) -->
 上面应用的第一个版本使用下面的 JavaScript 代码实现。看看这段代码，试着理解它。这可能很痛苦，但还是先忍一下 ;)
 
-  <script src="https://gist.github.com/elijahmanor/5235011.js?file=tightly-coupled.js">
-  </script>
+  <script src="https://gist.github.com/elijahmanor/5235011.js?file=tightly-coupled.js"></script>
 
 <!-- The above code sample is a typical jQuery example that you can find across the internet. The snippet works, but there is a lot of different things happening all in the same place. You can find event handling, data retrieval, and data manipulation all mixed together. You can imagine that over time this code might continue to grow and grow and become more and more prone for errors. -->
 上面的代码示例是一个典型的 jQuery 示例，在互联网上随处可见。这段代码可以工作，但是在一个地方放置了很多不同功能的代码。事件处理、数据检索和数据处理都混在一起。你可以想象一下，这段代码可能会继续增长，从而变得越来越容易出现错误。

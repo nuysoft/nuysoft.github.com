@@ -41,3 +41,6 @@ code {
 .gist .gist-file .gist-data .line-numbers {
     line-height: 20px;
 }
+.gist .gist-file .gist-data .line-data {
+    line-height: 20px;
+}

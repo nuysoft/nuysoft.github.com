@@ -30,9 +30,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- > Check out the **[series introduction post](http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html)** for a list of all the birds and their attack powers. -->
 > 阅读**[系列介绍文章](http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html)**，查看所有小鸟以及它们的攻击力。
 
-<a href="http://4.bp.blogspot.com/-wjhQKJKNuks/UVdeWffTYoI/AAAAAAAAZNY/XpHY_8R3tQs/s1600/black-bird.png" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;">
-    <img border="0" src="http://4.bp.blogspot.com/-wjhQKJKNuks/UVdeWffTYoI/AAAAAAAAZNY/XpHY_8R3tQs/s1600/black-bird.png" />
-</a>
+<span href="" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" src="http://4.bp.blogspot.com/-wjhQKJKNuks/UVdeWffTYoI/AAAAAAAAZNY/XpHY_8R3tQs/s1600/black-bird.png" /></span>
 
 <!-- ### Previous Attacks -->
 ### 战报
