@@ -3,7 +3,7 @@
 permalink: /:categories/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-# markdown: rdiscount
+markdown: rdiscount
 auto: true
 server: true
 pygments: true
