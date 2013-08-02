@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Front End Architecture</title>
+    <link href="architecture/bootstrap.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            background-color: #e6e6e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FRONT END ARCHITECTURE  <small>Competency Model &amp; Solution</small></h1>
+        <hr>
+    </div>
+    <script type="text/javascript" src="architecture/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="architecture/underscore.js"></script>
+    <script type="text/template" id="tpl">
+        <% for( var key in data ) {%>
+        <h2><%=key%></h2>
+        <div class="row">
+            <% for( var j = 0, p; p = data[key][j]; j++ ) { %>
+            <div class="col-lg-3 well">
+                <a href="<%=p.home || '#'%>">
+                    <h4><%=p.name%></h4>
+                </a>
+                <div><%=p.desc || 'TODO'%></div>
+            </div>
+            <% } %>
+        </div>
+        <% } %>
+    </script>
+    <script type="text/javascript" src="architecture/data.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var tpl = $('#tpl').html()
+            var result = _.template(tpl, {
+                data: data
+            })
+            $('.container').append(result)
+        })
+    </script>
+</body>
+</html>
