@@ -1,6 +1,12 @@
 /*
     参考资料：
     样式参考 http://emmet.io/download/
+
+    TODO
+    https://gist.github.com/dypsilon
+    https://github.com/dypsilon/frontend-dev-bookmarks
+    http://pinterest.com/eanakashima/learn-the-front-end/
+    http://hikejun.com/blog/2011/09/25/d2%E6%8A%80%E6%9C%AF%E5%98%89%E5%B9%B4%E5%8D%8E%E5%88%86%E4%BA%AB%EF%BC%9A%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E8%B7%B5%E5%92%8C%E6%80%9D%E8%80%83/
 */
 var data = {
     'Specifications': [{
@@ -170,7 +176,8 @@ var data = {
         }, {
             name: '有限状态机'
         }, {
-            name: 'coding style'
+            name: 'Coding Style',
+            desc: ['<a href="https://github.com/airbnb/javascript">airbnb/javascript</a>'].join(' ')
         }
     ],
     Beautifier: [{
@@ -283,7 +290,45 @@ var data = {
         }
     ],
     'Email Group': [{
-            name: 'JavaScript Weekly'
+            name: 'JavaScript Weekly',
+            home: 'http://javascriptweekly.com/',
+            desc: 'A free, once–weekly e-mail round-up of JavaScript news and articles.'
+        }, {
+            name: 'Responsive Design Weekly',
+            home: 'http://responsivedesignweekly.com/',
+            desc: 'A free, once–weekly round-up of responsive design articles, tools, tips, tutorials and inspirational links.'
+        }, {
+            name: 'Sidebar',
+            home: 'http://sidebar.io/',
+            desc: 'The 5 best design links, every day'
+        }, {
+            name: 'CSS Weekly',
+            home: 'http://css-weekly.com/',
+            desc: 'weekly e-mail roundup of css articles, tutorials, experiments and tools'
+        }, {
+            name: 'Web Design Weekly News',
+            home: 'http://web-design-weekly.com/',
+            desc: 'A once a week email with no spam, no rambling. Just pure awesome links to the best news and articles to hit the interweb during the week.'
+        }, {
+            name: 'HTML5 Weekly',
+            home: 'http://html5weekly.com/',
+            desc: 'Top browser technology news and links straight to your inbox, weekly'
+        }, {
+            name: 'Front-end Weekly',
+            home: 'http://www.frontendweekly.net/',
+            desc: ''
+        }, {
+            name: 'Web Tools Weekly',
+            home: 'http://webtoolsweekly.com/',
+            desc: 'A weekly newsletter for front-end developers'
+        }, {
+            name: 'Frontend Weekly',
+            home: 'http://netzartist.de/blog/',
+            desc: ''
+        }, {
+            name: 'Frontend Weekly',
+            home: 'http://www.scoop.it/t/netzartist',
+            desc: ''
         }
     ],
     Browser: [{
@@ -303,6 +348,9 @@ var data = {
             desc: 'Improving the Design & Existing Code'
         }, {
             name: 'Head First Design Patterns'
+        }, {
+            name: 'Eloquent JavaScript',
+            desc: 'A Modern Introduction to Programming'
         }
     ],
     Reference: [{
@@ -322,13 +370,59 @@ var data = {
             desc: 'Designer & Developer Front End Technology Forum'
         }
     ],
-    Blog: [{
-            name: ''
+    Blog: [],
+    Resources: [{
+            name: 'Echo JS',
+            home: 'http://www.echojs.com/',
+            desc: ''
+        }, {
+            name: 'HOW TO KEEP UP TO DATE ON FRONT-END TECHNOLOGIES',
+            home: 'http://uptodate.frontendrescue.org/',
+            desc: ''
         }
     ],
     Other: [{
             name: 'MANIFESTO',
+            home: 'http://www.manifesto.asia/',
+            desc: 'A declaration of fashion, design and pop culture'
+        }, {
+            name: '',
+            home: 'https://github.com/dypsilon/frontend-dev-bookmarks',
             desc: ''
+        }
+    ],
+    'Compatibility': [{
+            name: 'Can I use...',
+            home: 'http://caniuse.com/',
+            desc: 'Compatibility tables for support of HTML5, CSS3, SVG and more in desktop and mobile browsers.'
+        }, {
+            name: 'QuirksMode.org',
+            home: 'http://www.quirksmode.org/',
+            desc: 'the prime source for browser compatibility information on the Internet. '
+        }
+    ],
+    'Read List': [{
+            name: 'Web Design and Web Development Agency',
+            home: 'http://www.ma-no.org/',
+            desc: ''
+        }
+    ],
+    'Learn': [{
+            name: 'Learn the Front End',
+            home: 'http://pinterest.com/eanakashima/learn-the-front-end/',
+            desc: 'Resources for HTML, CSS, JavaScript, and other front-end learning.'
+        }, {
+            name: 'Codecademy',
+            home: 'http://www.codecademy.com/',
+            desc: 'Learn to code interactively, for free.'
+        }, {
+            name: 'Code School',
+            home: 'http://www.codeschool.com/',
+            desc: 'Learn by Doing'
+        }, {
+            name: 'JavaScript Garden',
+            home: 'http://bonsaiden.github.io/JavaScript-Garden/',
+            desc: 'a growing collection of documentation about the most quirky parts of the JavaScript programming language.'
         }
     ]
 }
