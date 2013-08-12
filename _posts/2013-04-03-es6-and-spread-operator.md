@@ -62,18 +62,18 @@ pgroup: es6
       store.aisle[category].push(...items);
     };
 
-(This is of course unnecessary if you choose to change the API to simply accept a single array for the items, instead of a rest parameter combined with spreading).
+<!-- (This is of course unnecessary if you choose to change the API to simply accept a single array for the items, instead of a rest parameter combined with spreading). -->
 
 （当然，如果你改变 API 以简单的接受一个货物数组，而不是使用了展开操作符的可变参数，上面的做法是不必要的。）
 
-The use of a spread operator can lead to a different way of combining arrays:
+<!-- The use of a spread operator can lead to a different way of combining arrays: -->
 展开操作符的使用可以延伸出一种合并数组的不同方式：
 
     var x = [1, 2];
     var y = [3, 4];
     x.push(...y);  // x is [1, 2, 3, 4]
 
-What other tricks do you have in mind once you have the spread operator ready to abuse?
+<!-- What other tricks do you have in mind once you have the spread operator ready to abuse? -->
 一旦滥用展开操作符，你头脑中会有什么其他的技巧？
 
 
