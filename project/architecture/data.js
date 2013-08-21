@@ -7,6 +7,7 @@
     https://github.com/dypsilon/frontend-dev-bookmarks
     http://pinterest.com/eanakashima/learn-the-front-end/
     http://hikejun.com/blog/2011/09/25/d2%E6%8A%80%E6%9C%AF%E5%98%89%E5%B9%B4%E5%8D%8E%E5%88%86%E4%BA%AB%EF%BC%9A%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E8%B7%B5%E5%92%8C%E6%80%9D%E8%80%83/
+    [Nicholas Zakas: Scalable JavaScript Application Architecture](http://www.youtube.com/watch?v=vXjVFPosQHw)
 */
 var data = {
     'Specifications': [{
@@ -335,6 +336,7 @@ var data = {
             name: 'Old App'
         }
     ],
+    // https://leanpub.com/oopinjavascript
     Book: [{
             name: 'The Definitive Guide'
         }, {
@@ -368,6 +370,10 @@ var data = {
             name: 'D2 前端技术论坛',
             home: '',
             desc: 'Designer & Developer Front End Technology Forum'
+        },{
+            name:'London JS',
+            home:'http://lanyrd.com/series/londonjs/',
+            desc:''
         }
     ],
     Blog: [],

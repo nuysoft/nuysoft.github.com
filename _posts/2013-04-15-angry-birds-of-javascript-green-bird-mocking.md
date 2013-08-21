@@ -58,7 +58,7 @@ pgroup: "前端 JavaScript 架构"
 大多数小鸟是纯粹的 Web 前端开发人员，压根儿就不关注后端。然后小鸟们和水牛（Water Buffalo）就形成了一种共生关系。水牛编写应用的后端，小鸟们则开发前端。这种分工导致的问题是，当后端被开发时，小鸟们只能留下来摆弄自己的羽毛，一直到水牛完工。可是一旦后端完工，交付的压力就落在了小鸟们的身上，而水牛则闲坐在水坑边的树荫下无所事事。幸运的是，一段时间后一只绿鸟提出了模拟后端服务的想法，这样在原本需要等待水牛完工的阶段，小鸟们就可以同步进行开发！这只绿鸟还引入了一些便捷库，使得模拟更加容易。
 
 <!-- However, during a recent invasion the pigs stole the birds' mocking libraries! As a result, one of the Green Birds has been tasked to reclaim what has been stolen. He will use his overwhelming power of trickery to help destroy the pigs in order to take back what is theirs. -->
-然而在最近的一次入侵中，猪群偷走了小鸟们的模拟库！现在，一只绿鸟被派去找回被盗的模拟库。它将用压到一切诡计的力量摧毁族群，夺回属于它们的东西。
+然而在最近的一次入侵中，猪群偷走了小鸟们的模拟库！现在，一只绿鸟被派去找回被盗的模拟库。它将用压倒一切诡计的力量摧毁族群，夺回属于它们的东西。
 
 <!-- ## The Twitter Application -->
 ## Twitter 应用
