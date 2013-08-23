@@ -911,6 +911,7 @@ Mock.mockjax = function mockjax(jQuery) {
                 if (!mock.rurl.test(options.url)) continue
             }
 
+            options.dataFilter = convert(mock)
             options.converters['text json'] = convert(mock)
             options.xhr = mockxhr
             break
