@@ -6,7 +6,7 @@
 */
 (function(undefined) {
 	var Mock = {
-		VERSION: '0.1.1',
+		version: '0.1.1',
 		_mocked: {}
 	}
 
@@ -997,6 +997,14 @@ if (typeof KISSY != 'undefined') {
     }, {
         requires: ['ajax']
     })
+
+    KISSY.add('mock/dist/mock', function(S) {
+        Mock.mockjax(S)
+        return Mock
+    }, {
+        requires: ['ajax']
+    })
+
 }
 
 // src/mock/mock-suffix.js

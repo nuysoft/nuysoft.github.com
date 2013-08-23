@@ -405,10 +405,11 @@
 
 
     /*
-    Expose Internal API
-*/
+        Expose Internal API
+    */
 
     var Facade = {
+        version: '0.0.1',
         _: Mock4XTpl,
         mock: function(input, options, helpers, partials) {
             return Mock4XTpl.mock(input, options, helpers, partials)
@@ -449,6 +450,13 @@
         }, {
             requires: ['mock', 'xtemplate']
         })
+
+        KISSY.add('mock/dist/mock4xtpl', function() {
+            return Facade
+        }, {
+            requires: ['mock', 'xtemplate']
+        })
+        
     }
 
 }).call(this);

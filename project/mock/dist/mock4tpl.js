@@ -7,7 +7,7 @@
 */
 (function(undefined) {
     var Mock4Tpl = {
-        VERSION: '0.0.1',
+        version: '0.0.1',
     }
     var Random = Mock.Random
     var Util = Mock.Util
@@ -1377,6 +1377,13 @@ if (typeof KISSY != 'undefined') {
     }, {
         requires: ['mock']
     })
+
+    KISSY.add('mock/dist/mock4tpl', function() {
+        return Mock4Tpl
+    }, {
+        requires: ['mock']
+    })
+
 }
 
 // src/tpl/mock4tpl-suffix.js
