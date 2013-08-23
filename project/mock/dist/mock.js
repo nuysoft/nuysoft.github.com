@@ -682,6 +682,9 @@ var rkey = /(.+)\|(?:\+(\d+)|(\d+-?\d*)?(?:\.(\d+-?\d*))?)/,
 
 Mock.extend = Util.extend
 
+/*
+    
+*/
 Mock.mock = function(rurl, template) {
     if (arguments.length === 1) return Handle.gen(rurl)
     Mock._mocked[rurl] = {
@@ -897,7 +900,7 @@ Mock.mockjax = function mockjax(jQuery) {
         }
     }
 
-    jQuery.ajaxPrefilter("*", function(options) {
+    function prefilter(options) {
         for (var surl in Mock._mocked) {
             var mock = Mock._mocked[surl]
 
@@ -912,7 +915,11 @@ Mock.mockjax = function mockjax(jQuery) {
             options.xhr = mockxhr
             break
         }
-    })
+    }
+
+    jQuery.ajaxPrefilter("*", prefilter)
+    jQuery.ajaxPrefilter("json", prefilter)
+    jQuery.ajaxPrefilter("jsonp", prefilter)
 
     return Mock
 }
