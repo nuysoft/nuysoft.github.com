@@ -158,8 +158,8 @@ pgroup: "异步编程"
 1. *can* substitute a new exception in place of one thrown by `recoverFromFailure`. That is, if both `recoverFromFailure` and `alwaysCleanup` throw exceptions, the one thrown by `alwaysCleanup` will propagate to the caller, and the one thrown by `recoverFromFailure` *will not*. -->
 
 1. 总是在 `thisMightFail` 和/或 `recoverFromFailure` 之后执行
-2. 没有机会访问 `thisMightFail` 返回的值或抛出的异常 `e`，也没有机会访问 `recoverFromFailure` 返回的值[^1]。
-3. 在这种情况下，不能把 `recoverFromFailure` 抛出的异常转换回成功结果[^2]。
+2. <a name="footnote-1-ref"></a>没有机会访问 `thisMightFail` 返回的值或抛出的异常 `e`，也没有机会访问 `recoverFromFailure` 返回的值[^1]。
+3. <a name="footnote-2-ref"></a>在这种情况下，不能把 `recoverFromFailure` 抛出的异常转换回成功结果[^2]。
 4. 如果 `alwaysCleanup` 抛出一个异常，*可以*把成功结果（由 `thisMightFail` 或 `recoverFromFailure`）转换为一个失败。
 5. *可以*用一个新异常替换掉 `recoverFromFailure` 抛出的异常。也就是说，如果 `recoverFromFailure` 和 `alwaysCleanup` 都抛出了异常，`alwaysCleanup` 抛出的异常将传播到调用者，而由 `recoverFromFailure` 抛出的却*不会*。
 
@@ -439,10 +439,15 @@ pgroup: "异步编程"
 <hr>
 
 <!--[^1]: You might be wondering why we want this property. For this article, we're choosing to try to model `finally` as closely as possible. The intention of synchronous `finally` is to cause *side effects*, such as closing a file or database connection, and not to transform the result or error by applying a function to it. Also, passing something that *might be a result or might be an error* to `alwaysCleanup` can be a source of hazards without *also* telling `alwaysCleanup` what kind of thing it is receiving. The fact that `finally` doesn't have a "parameter", like `catch` means that the burden is on the developer to grant access to the result or error, usually by storing it in a local variable before execution enters the `finally`. That approach will work for these promise-based approaches as well.-->
-[^1]: 你可能会奇怪于为什么我们需要这个特性。在这篇文章中，我们选择尝试尽可能近似地模拟 `finally`。同步 `finally` 的意图是引发某种*副作用*，例如关闭一个文件或数据库连接，并不是执行一个函数来转换结果或错误。而且，向 `alwaysCleanup` 传入一个*可能是结果或错误*的参数，*却*不告诉 `alwaysCleanup` 正在接受的参数什么类型，可能是一个危害源。事实上，`finally` 没有”参数“，不像 `catch`，这意外着开发人员需要承担授权访问结果或错误的烦扰，通常的做法是在进入 `finally` 之前把结果或错误存储到一个局部变量中。这种做法也可以应用在基于 Promise 的方式中。
 
 <!--[^2]: Note that `finally` *is* allowed to squelch exceptions by *explicitly* returning a value. However, in this case, we are not returning anything explicitly. I've never seen a realistic and useful case for squelching an exception that way.-->
-[^2]: 需要注意的是，`finally`*可以*通过*明确地*返回一个值消除异常。但是在这种情况下，我们没有明确地返回任何东西。我从来没有在现实中见过需要用这种方式来消除异常的情况。
+
+[^1]: #footnote-1
+[^2]: #footnote-2
+
+1. <a name="footnote-1"></a>你可能会奇怪于为什么我们需要这个特性。在这篇文章中，我们选择尝试尽可能近似地模拟 `finally`。同步 `finally` 的意图是引发某种*副作用*，例如关闭一个文件或数据库连接，并不是执行一个函数来转换结果或错误。而且，向 `alwaysCleanup` 传入一个*可能是结果或错误*的参数，*却*不告诉 `alwaysCleanup` 正在接受的参数什么类型，可能是一个危害源。事实上，`finally` 没有”参数“，不像 `catch`，这意外着开发人员需要承担授权访问结果或错误的烦扰，通常的做法是在进入 `finally` 之前把结果或错误存储到一个局部变量中。这种做法也可以应用在基于 Promise 的方式中。<a href="#footnote-1-ref">↩</a>
+
+2. <a name="footnote-2"></a>需要注意的是，`finally`*可以*通过*明确地*返回一个值消除异常。但是在这种情况下，我们没有明确地返回任何东西。我从来没有在现实中见过需要用这种方式来消除异常的情况。<a href="#footnote-2-ref">↩</a>
 
 <hr>
 > 原文：[Mastering Async Error Handling with Promises](http://know.cujojs.com/tutorials/async/mastering-async-error-handling-with-promises)
