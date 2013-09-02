@@ -12,6 +12,7 @@
     ## Promises
     http://wiki.commonjs.org/wiki/Promises/A#Proposal
     http://promises-aplus.github.io/promises-spec/
+    http://jsbooks.revolunet.com/
 */
 var data = {
     'Specifications': [{
@@ -218,7 +219,8 @@ var data = {
     'Automation & Build': [{
             name: 'Grunt'
         }, {
-            name: 'Twitter Bower'
+            name: 'Twitter Bower',
+            home: ''
         }, {
             name: 'Yeoman'
         }, {

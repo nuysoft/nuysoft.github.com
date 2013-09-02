@@ -267,7 +267,7 @@ pgroup: "异步编程"
 ## 圆满了吗？
 
 <!-- With this latest refactor, we've created an asynchronous construct that behaves like its familiar, synchronous `try/catch/finally` analog. -->
-有了最新的重构代码，我们已经创建这样一个异步结构，它行为就像友好的同步 `try/catch/finally` 的模拟。
+通过最新重构的代码，我们已经创建了这样一个异步结构，它的行为就像友好的同步 `try/catch/finally` 的模拟。
 
 <!-- ### More sugar -->
 ### 更多语法糖
