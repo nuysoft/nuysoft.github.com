@@ -4,7 +4,7 @@ title: "ECMAScript 6 and Rest Parameter"
 tagline: "可变参数"
 description: "处理可变数目的函数参数"
 category-substitution: 翻译
-tags: [ECMAScript 6, JavaScript, Web]
+tags: [翻译, ECMAScript 6, JavaScript, Web]
 
 short: "可变参数"
 pgroup: es6

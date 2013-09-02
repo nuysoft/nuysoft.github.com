@@ -4,7 +4,7 @@ title: "模块化 &amp; 依赖管理 &amp; 性能优化"
 tagline: "RequireJS"
 description: "Web 前端应用可以快速变得相当复杂。理想的做法是提供某种结构和依赖关系管理，以及用一种简单的方式优化最终结果。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "RequireJS"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "RequireJS"]
 
 short: "模块化 &amp; 依赖管理 &amp; 性能优化"
 pgroup: "前端 JavaScript 架构"

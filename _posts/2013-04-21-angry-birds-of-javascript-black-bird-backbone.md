@@ -4,7 +4,7 @@ title: "应用分层 &amp; 解耦合"
 tagline: "Model &amp; Collection &amp; View"
 description: "Web 前端应用可以快速变得相当复杂。在你知道这点之前，如果你不小心就会导致关系混乱。值得庆幸的是，Backbone.js 提供了组件来帮助你把应用分割为可用的小模块，并且每个小模块各司其职。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "Backbone"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "Backbone"]
 
 short: "应用分层 &amp; 解耦合"
 pgroup: "前端 JavaScript 架构"

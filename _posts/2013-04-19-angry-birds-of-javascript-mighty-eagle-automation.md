@@ -4,7 +4,7 @@ title: "自动化"
 tagline: "Automation"
 description: "拥抱 Grunt、Bower 和 Yeoman 可以帮助自动化开发、测试、部署过程中的各个环节。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "Web"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web"]
 
 short: "自动化"
 pgroup: "前端 JavaScript 架构"

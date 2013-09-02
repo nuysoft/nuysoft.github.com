@@ -4,7 +4,7 @@ title: "客户端模板"
 tagline: "从服务端到客户端"
 description: ""
 category-substitution: 翻译
-tags: [HTML, JavaScript, Template]
+tags: [翻译, HTML, JavaScript, Template]
 ---
 {% include JB/setup %}
 

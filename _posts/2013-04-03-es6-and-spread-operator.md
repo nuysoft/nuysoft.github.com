@@ -4,7 +4,7 @@ title: "ECMAScript 6 and Spread Operator"
 tagline: "展开操作符"
 description: "把数组转换成连续的参数"
 category-substitution: 翻译
-tags: [ECMAScript 6, JavaScript, Web]
+tags: [翻译, ECMAScript 6, JavaScript, Web]
 
 short: "展开操作符"
 pgroup: es6

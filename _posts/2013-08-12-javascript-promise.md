@@ -4,7 +4,7 @@ title: "Javascript Promise"
 tagline: ""
 description: ""
 category-substitution: 翻译
-tags: [JavaScript, Promise, Web]
+tags: [翻译, JavaScript, Promise, Web]
 ---
 {% include JB/setup %}
 

@@ -1,11 +1,10 @@
 ---
 layout: post
 title: "大型 JavaScript 应用架构中的模式"
-tagline: "Architecture"
+tagline: "Patterns For Large-Scale JavaScript Application Architecture"
 description: ""
 category-substitution: 翻译
-tags: [JavaScript, Architecture, Web]
-published: false
+tags: [翻译, JavaScript, Architecture, Web]
 ---
 {% include JB/setup %}
 
@@ -59,7 +58,7 @@ published: false
 > 如果开发一个大型 JavaScript 应用程序，记得要投入**足够的时间**来规划基础架构，这是最有意义的事情。它往往比你最初想象的要更复杂。
 
 <!-- I can't stress the importance of this enough - some developers I've seen approach larger applications have stepped back and said 'Okay. Well, there are a set of ideas and patterns that worked well for me on my last medium-scale project. Surely they should mostly apply to something a little larger, right?'. Whilst this may be true to an extent, please don't take it for granted - **larger apps generally have greater concerns that need to be factored in**. I'm going to discuss shortly why spending a little more time planning out the structure to your application is worth it in the long run. -->
-我无法再强调基础架构的重要性 - 我见过一些开发人员在遇到大型应用程序时，先退后几步，然后说：“好吧。恩，在我最近的中型项目中已经有一套思路和模式工作的不错。当然，它们也应该大致适用于稍大一点的项目，对吧？”。虽然在某种程度上这么说可能是正确的，但是请不要想当然 - **大型应用程序通常需要考虑更大的问题**。我稍后要讨论为什么多花点时间来为你的应用程序规划结构在长远来看是值得的。
+我无法再强调基础架构的重要性——我见过一些开发人员在遇到大型应用程序时，先退后几步，然后说：“好吧。恩，在我最近的中型项目中已经有一套思路和模式工作的不错。当然，它们也应该大致适用于稍大一点的项目，对吧？”。虽然在某种程度上这么说可能是正确的，但是请不要想当然 - **大型应用程序通常需要考虑更大的问题**。我稍后要讨论为什么多花点时间来为你的应用程序规划结构在长远来看是值得的。
 
 <!-- Most JavaScript developers likely use a mixed combination of the following for their current architecture: -->
 大部分 JavaScript 开发人员可能在他们的当前架构中混合使用下面的概念：
@@ -94,7 +93,7 @@ published: false
 ##### 1. 这种架构有多少是可立即复用的？
 
 <!-- Can single modules exist on their own independently? Are they self-contained? Right now if I were to look at the codebase for a large application you or your team were working on and selected a random module, would it be possible for me to easily just drop it into a new page and start using it on its own?. You may question the rationale behind wanting to do this, however I encourage you to think about the future. What if your company were to begin building more and more non-trivial applications which shared some cross-over in functionality?. If someone said, 'Our users love using the chat module in our mail client. Let's drop that into our new collaborative editing suite', would this be possible without significantly altering the code?. -->
-单个模块可以对立存在吗？它们是自包含的吗？如果我现在要看看你或你的团队所工作的大型应用程序的代码库，并且随机选择一个模块，我可以简单地把它放入一个新页面，然后开始使用它吗？你可能会质疑这么做背后的理由，但是我鼓励你多想想未来。假使你的公司开始构建越来越多的非凡应用，而它们之间在功能上共享某些交叉点，情形将会怎么样呢？如果有人说，“我们的用户喜欢在我们的邮件客户端中使用聊天模块。让我们把它放到协同编辑套件”，不显著修改代码可以做到这点吗？
+单个模块可以独立存在吗？它们是自包含的吗？如果我现在要看看你或你的团队所工作的大型应用程序的代码库，并且随机选择一个模块，我可以简单地把它放入一个新页面，然后开始使用它吗？你可能会质疑这么做背后的理由，但是我鼓励你多想想未来。假使你的公司开始构建越来越多的非凡应用，而它们之间在功能上共享某些交叉点，情形将会怎么样呢？如果有人说，“我们的用户喜欢在我们的邮件客户端中使用聊天模块。让我们把它放到协同编辑套件”，不显著修改代码可以做到这点吗？
 
 <!-- ##### 2. How much do modules depend on other modules in the system? -->
 ##### 2. 在这个系统中，模块之间的依赖有多少？
@@ -105,12 +104,12 @@ published: false
 <!-- ##### 3. If specific parts of your application fail, can it still function? -->
 ##### 3. 如果应用程序的特定部分崩溃了，应用程序仍然可以运行吗？
 <!-- If you're building a GMail-like application and your webmail module (or modules) fail, this shouldn't block the rest of the UI or prevent users from being able to use other parts of the page such as chat. At the same time, as per before, modules should ideally be able to exist on their own outside of your current application architecture. In my talks I mention dynamic dependency (or module) loading based on expressed user-intent as something related. For example, in GMail's case they might have the chat module collapsed by default without the core module code loaded on page initialization. If a user expressed an intent to use the chat feature, only then would it be dynamically loaded. Ideally, you want this to be possible without it negatively affecting the rest of your application. -->
-如果你正在构建一个类似 GMail 的应用程序，并且你的 webmail 模块崩溃了，此时不应该阻塞 UI 的其余部分，或者阻止用户使用页面上的其他部分，例如 聊天。同时，按照之前说的，模块最好可以在当前应用程序的架构之外独立存在。在我的演讲中，我提到了基于用户意图的动态依赖（或模块）加载，用户意图则以相关的事务来表达。例如，在 GMail 中，聊天模块默认是收起的，在页面初始化时不需要核心模块代码已经加载完毕。如果用户表示出使用聊天特性的意图，只需要动态加载即可。理想情况下，你期望不受应用程序其余部分的负面影响是可能的。
+如果你正在构建一个类似 GMail 的应用程序，并且你的 webmail 模块崩溃了，此时不应该阻塞 UI 的其余部分，或者阻止用户使用页面上的其他部分，例如聊天模块。同时，按照之前说的，模块最好可以在当前应用程序的架构之外独立存在。在我的演讲中，我提到了基于用户意图的动态依赖（或模块）加载，用户意图以相关的事件来表达。例如，在 GMail 中，聊天模块默认是收起的，在页面初始化时不需要核心模块代码已经加载完毕。如果用户表示出使用聊天特性的意图，只需要动态加载即可。理想情况下，你期望不受应用程序其余部分的负面影响是可能的。
 
 <!-- ##### 4. How easily can you test individual modules? -->
 ##### 4. 可以轻松地测试各个模块吗？
 <!-- When working on systems of significant scale where there's a potential for millions of users to use (or mis-use) the different parts it, it's essential that modules which may end up being re-used across a number of different applications be sufficiently tested. Testing needs to be possible for when the module both inside and outside of the architecture for which it was initially built. In my view, this provides the most assurance that it shouldn't break if dropped into another system. -->
-当在一个有着显著规模的系统上工作，而且这个系统有数以百万计的潜在用户使用或误用系统的不同部分时，模块必然会被多个经过充分测试的应用程序所复用。既需要对模块在（负责初始化它的）架构内部的情况进行测试，也需要对模块在架构之外的情况进行测试。在我看来，测试为模块应用在另一个模块时不会崩溃提供了最大限度的保证。
+当在一个有着显著规模的系统上工作，而且这个系统有数以百万计的潜在用户使用或误用系统的不同部分时，模块必然会被多个经过充分测试的应用程序所复用。既需要对模块在（负责初始化它的）架构内部的情况进行测试，也需要对模块在架构之外的情况进行测试。在我看来，当模块应用在另一个系统时，测试为模块不会崩溃提供了最大限度的保证。
 
 <!-- ### Think Long Term -->
 ### 想得长远一些
@@ -118,7 +117,7 @@ published: false
 当为你的大型项目设计架构时，最重要的是超前思考。不仅仅是从现在开始的一个月或一年，比这要久的多。会改变什么吗？猜测你的应用程序会如何成长当然是不可能的，但是肯定有空间来考虑什么是可能的。在这节内容中，至少会思考应用程序的某个特定方面。
 
 <!-- Developers often couple their DOM manipulation code quite tightly with the rest of their application - even when they've gone to the trouble of separating their core logic down into modules. Think about it..why is this not a good idea if we're thinking long-term? -->
-开发人员经常把 DOM 操作代码与应用程序的其他部分耦合地相当紧密 - 甚至在他们已经把核心业务分离为模块时。想想为什么这么做不是一个好主意，如果我们正在做长期规划的话。
+开发人员经常把 DOM 操作代码与应用程序的其他部分耦合地相当紧密——甚至在他们已经把核心业务分离为模块时。想想为什么这么做不是一个好主意，如果我们正在做长期规划的话。
 
 <!-- One member of my audience suggested that it was because a rigid architecture defined in the present may not be suitable for the future. Whilst certainly true, there's another concern that may cost even more if not factored in. -->
 我的观众之一认为原因是，现在定义的这种僵硬架构在未来可能不再合适。这种观点千真万确，而且还有另一层担忧，就是如果现在不考虑进来的话，将来花费的成本甚至可能会更多。
@@ -133,7 +132,7 @@ published: false
 在较小的代码库中，这是一个比较琐碎（容易）的决定，但是对于大型应用程序，拥有一个灵活到可以不关心模块所用库的架构，从财政和节省时间的角度来看，都可以带来很大的好处。
 
 <!-- To summarize, if you reviewed your architecture right now, could a decision to switch libraries be made without rewriting your entire application?. If not, consider reading on because I think the architecture being outlined today may be of interest. -->
-总之，如果你现在回顾你的架构，能够做出无需重写整个应用程序就可以切换库的决定吗？如果不能，请继续读下去，因为我觉得今天介绍的架构可能是你所感兴趣的。
+总之，如果你现在回顾你的架构，能够做出无需重写整个应用程序就可以切换库的决定吗？如果不能，请继续读下去，因为我觉得今天介绍的架构可能正是你所感兴趣的。
 
 <!-- There are a number of influential JavaScript developers who have previously outlined some of the concerns I've touched upon so far. Three key quotes I would like to share from them are the following: -->
 到目前为止，对于我所关注的问题，一些有影响力的 JavaScript 开发人员已经有所涉猎。我想要分享他们的三个关键观点，引文如下所示：
@@ -151,7 +150,7 @@ published: false
 “彼此紧密绑定的组件，较少复用的组件，以及因为会影响到其他组件而变得更难改变的组件” - **Rebecca Murphey, 《jQuery Fundamentals》的**
 
 <!-- These principles are essential to building an architecture that can stand the test of time and should always be kept in mind. -->
-这些原则是构建架构的关键，能够经得起时间的考虑，应该始终牢记。
+这些原则是构建架构的关键，能够经得起时间的考验，应该始终牢记。
 
 <!-- ### Brainstorming -->
 ### 头脑风暴
@@ -245,10 +244,10 @@ Applying To Your Architecture
 模块模式是一种流行的设计模式，通过使用闭包来封装“隐私”、状态和结构。它可以包裹公开和私有的方法和变量，避免它们污染全局作用域，以及避免与其他开发人员的接口冲突。这种模式只会返回公开的 API，此外的一切则是封闭和私有的。
 
 <!-- This provides a clean solution for shielding logic doing the heavy lifting whilst only exposing an interface you wish other parts of your application to use. The pattern is quite similar to an immediately-invoked functional expression (IIFE) except that an object is returned rather than a function. -->
-模块模式提供了一种清爽的解决方案，屏蔽了承担繁重任务的逻辑，只向应用程序的其他部分暴露它们希望使用的接口。这种模式与立即调用的函数表达式（IIFE）非常相似，只不过前者返回的是一个对象，而后者返回的是一个函数。。
+模块模式提供了一种清爽的解决方案，屏蔽了承担繁重任务的逻辑，只向应用程序的其他部分暴露希望它们使用的接口。这种模式与立即调用的函数表达式（IIFE）非常相似，只不过前者返回的是一个对象，而后者返回的是一个函数。。
 
 <!-- It should be noted that there isn't really a true sense of 'privacy' inside JavaScript because unlike some traditional languages, it doesn't have access modifiers. Variables can't technically be declared as being public nor private and so we use function scope to simulate this concept. Within the module pattern, variables or methods declared are only available inside the module itself thanks to closure. Variables or methods defined within the returning object however are available to everyone. -->
-应该指出的是，在 JavaScript 中并不存在真正意义上的“隐私”，因为它不像一些传统语言一样具有访问修师傅。从技术的角度，变量不能被声明为公开或私有，所以我们用函数作用域来模拟这个概念。在模块模式中，仰赖与闭包机制，声明的变量或方法只在模块自身内部有效。而返回的对象中的变量或方法对所有人都是可用的。
+应该指出的是，在 JavaScript 中并不存在真正意义上的“隐私”，因为它不像一些传统语言一样具有访问修饰符。从技术的角度，变量不能被声明为公开或私有，所以我们用函数作用域来模拟这个概念。在模块模式中，仰赖于闭包机制，声明的变量或方法只在模块自身内部有效。而返回的对象中的变量或方法对所有人都是可用的。
 
 <!-- Below you can see an example of a shopping basket implemented using the pattern. The module itself is completely self-contained in a global object called `basketModule`. The `basket` array in the module is kept private and so other parts of your application are unable to directly read it. It only exists with the module's closure and so the only methods able to access it are those with access to its scope (ie. `addItem()`, `getItem()` etc). -->
 你可以在下面看到一个购物车示例，其中使用了模块模式。该模块自身被包含在一个称为`basketModule` 的全局对象中，完全自给自足。模块中的数组 `basket` 是私有的，应用程序的其他部分无法直接读取它。它只存在于这个模块的闭包中，因此，只有可以访问它所属作用域的方法（即 `addItem()`、`getItem()` 等），才可以访问它。
@@ -291,7 +290,7 @@ Applying To Your Architecture
 上面的方法被有效的限制在命名空间 basketModule 中。
 
 <!-- From a historical perspective, the module pattern was originally developed by a number of people including Richard Cornford in 2003. It was later popularized by Douglas Crockford in his lectures and re-introduced by Eric Miraglia on the YUI blog. -->
-从历史的角度来看，模块模式最初是由一些人发现的，包括 Richard Cornford（2013年）。它后来被 Douglas Crockford 在他的演讲中推广，并被 Eric Miraglia 在 YUI 的博客中再次介绍。
+从历史的角度看，模块模式最初是由一些人发现的，包括 Richard Cornford（2013年）。后来被 Douglas Crockford 在他的演讲中推广，并被 Eric Miraglia 在 YUI 的博客中再次介绍。
 
 <!-- How about the module pattern in specific toolkits or frameworks? -->
 在具体的工具库或框架中，模块模式是什么样的情况呢？
@@ -299,7 +298,7 @@ Applying To Your Architecture
 **Dojo**
 
 <!-- Dojo attempts to provide 'class'-like functionality through `dojo.declare`, which can be used for amongst other things, creating implementations of the module pattern. For example, if we wanted to declare `basket` as a module of the `store` namespace, this could be achieved as follows: -->
-Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类似的功能。例如，如果我们想把 `basket` 声明为命名空间 `store` 下的一个模块，可以做如下实现：
+Dojo 尝试通过 `dojo.declare` 来实现模块模式，提供与“class”类似的功能。例如，如果我们想把 `basket` 声明为命名空间 `store` 下的一个模块，可以做如下实现：
 
     //traditional way
     var store = window.store || {};
@@ -469,7 +468,7 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 从使用的角度看，RequireJS 提供了一些包装方法，来简化静态模块的创建过程和异步加载。它可以很容易的加载模块以及模块的依赖，然后在模块就绪时执行模块的内容。
 
 <!-- There are some developers that however claim CommonJS modules aren't suitable enough for the browser. The reason cited is that they can't be loaded via a script tag without some level of server-side assistance. We can imagine having a library for encoding images as ASCII art which might export a `encodeToASCII` function. A module from this could resemble: -->
-有些开发人员声称 CommonJS 模块不太适合在浏览器。原因是无法通过 script 标签加载，除非有服务端协助。我们假设有一个把图片编码为 ASCII 的库，它暴露出一个 `encodeToASCII` 函数。它的模块类似于：
+有些开发人员声称 CommonJS 模块不太适用在浏览器中。原因是 CommonJS 模块无法通过 script 标签加载，除非有服务端协助。我们假设有一个把图片编码为 ASCII 的库，它暴露出一个 `encodeToASCII` 函数。它的模块类似于：
 
     var encodeToASCII = require("encoder").encodeToASCII;
     exports.encodeSomeSource = function(){
@@ -477,7 +476,7 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
     }
 
 <!-- This type of scenario wouldn't work with a script tag because the scope isn't wrapped, meaning our `encodeToASCII` method would be attached to the `window`, `require` wouldn't be as such defined and exports would need to be created for each module separately. A client-side library together with server-side assistance or a library loading the script with an XHR request using `eval()` could however handle this easily. -->
-在这类情况下，script 标签将无法正常工作，因为作用域不匹配，这就意味着方法 `encodeToASCII` 将被绑定到 `window`，`require` 未定义，并且需要为每个模块单独创建 exports。但是，客户端库在服务端的协助下，或者库通过 XHR 请求加载脚本并使用了 `eval()`，都可以很容易地处理这种情况，
+在这类情况下，script 标签将无法正常工作，因为作用域不匹配，这就意味着方法 `encodeToASCII` 将被绑定到 `window` 对象、`require` 未定义，并且需要为每个模块单独创建 exports。但是，客户端库在服务端的协助下，或者库通过 XHR 请求加载脚本并使用了 `eval()`，都可以很容易地处理这种情况，
 
 <!-- Using RequireJS, the module from earlier could be rewritten as follows: -->
 使用 RequireJS，该模块的早期版本可以重写为下面这样：
@@ -506,10 +505,10 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 接下来，我们要看看外观模式，这个设计模式在今天定义的架构中扮演着关键角色。
 
 <!-- When you put up a facade, you're usually creating an outward appearance which conceals a different reality. The facade pattern provides a convenient **higher-level interface** to a larger body of code, hiding its true underlying complexity. Think of it as simplifying the API being presented to other developers. -->
-当构造一个外观时，通常是创建一个掩盖了不同现实的外在表现。外观模式为更大的代码块提供了一个方便的**高层接口**，通过隐藏其真正复杂的底层。把它看成是简化提交给其他开发人员的 API。
+当构造一个外观时，通常是创建一个掩盖了不同现实的外在表现。外观模式为更大的代码块提供了一个方便的**高层接口**，通过隐藏其真正复杂的底层。把它看成是提交给其他开发人员的简化版 API。
 
 <!-- Facades are a **structural pattern** which can often be seen in JavaScript libraries and frameworks where, although an implementation may support methods with a wide range of behaviors, only a 'facade' or limited abstract of these methods is presented to the client for use. -->
-外观是**结构模式**的一种，经常可以在 JavaScript 库和框架中看到它，它的内部实现虽然可以提供各种行为的方法，但是只有一个外观或这些方法的有限抽象被提交给客户使用。
+外观是**结构模式**的一种，经常可以在 JavaScript 库和框架中看到它，它的内部实现虽然可以提供各种行为的方法，但是只有一个“外观”或这些方法的有限抽象被提交给客户使用。
 
 <!-- This allows us to interact with the facade rather than the subsystem behind the scenes. -->
 这样一来，我们是与外观交互，而不是与幕后的子系统交互。
@@ -521,7 +520,7 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 通过维护一个统一的外观（简化后的 API），对模块是否使用 dojo、jQuery、YUI、zepto 或者别的东西的担心就显得不太重要。只要交互层不改变，就保留了在将来切换库（例如用 jQuery 替换 Dojo）的能力，而不会影响系统的其他部分。
 
 <!-- Below is a very basic example of a facade in action. As you can see, our module contains a number of methods which have been privately defined. A facade is then used to supply a much simpler API to accessing these methods: -->
-下面是一个非常简单的外观行为示例。正如你可以看到的，我们的模块包含了一些定位为私有的方法。然后用一个外观提供的更简单的 API 来访问这些方法。
+下面是一个非常简单的外观行为示例。正如你可以看到的，我们的模块包含了一些定位为私有的方法。然后用外观提供的更简单的 API 来访问这些方法。
 
     var module = (function() {
         var _private = {
@@ -566,13 +565,13 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 ### 中介者模式
 
 <!-- The mediator pattern is best introduced with a simple analogy - think of your typical airport traffic control. The tower handles what planes can take off and land because all communications are done from the planes to the control tower, rather than from plane-to-plane. A centralized controller is key to the success of this system and that's really what a mediator is. -->
-介绍中介者模式的最佳方式是用一个简单的比喻 - 想象机场交通管制。塔台处理哪些飞机可以起飞或降落，因为所有的通信都由飞机和控制塔完成，而不是由飞机之间。集中控制是这个系统成功的关键，而这就是一个中介者。
+介绍中介者模式的最佳方式是用一个简单的比喻——想象一下机场交通管制。塔台处理哪些飞机可以起飞或降落，因为所有的通信都由飞机和控制塔完成，而不是由飞机之间。集中控制是这个系统成功的关键，而这就是一个中介者。
 
 <!-- > Mediators are used when the communication between modules may be complex, but is still **well defined**. If it appears a system may have too many relationships between modules in your code, it may be time to have a central point of control, which is where the pattern fits in. -->
-> 当模块之间的通信有可能复杂时，请使用中介者，但是这一点**不易鉴定**。如果有这样一个系统，代码中的模块之间有大多的关系，那么就该有一个中央控制点了，这就是这个模式的用武之地。
+> 当模块之间的通信有可能是复杂的，请使用中介者，但是这一点**不易鉴定**。如果有这样一个系统，代码中的模块之间有大多的关系，那么就该有一个中央控制点了，这就是这个模式的用武之地。
 
 <!-- In real-world terms, a mediator **encapsulates** how disparate modules **interact** with each other by acting as an intermediary. The pattern also promotes loose coupling by preventing objects from referring to each other explicitly - in our system, this helps to solve our module inter-dependency issues. -->
-一个中介者**封装**了不同模块之间的**交互**行为，就像现实世界中的中间人。该模式阻止了对象彼此之间直接应用，从而促进了松耦合 - 这有助于我们解决系统中模块互相依赖的问题。
+一个中介者**封装**了不同模块之间的**交互**行为，就像现实世界中的中间人。该模式阻止了对象彼此之间直接引用，从而促进了松耦合——这有助于我们解决系统中模块互相依赖的问题。
 
 <!-- What other advantages does it have to offer? Well, mediators allow for actions of each module to vary independently, so it’s extremely flexible. If you've previously used the Observer (Pub/Sub) pattern to implement an event broadcast system between the modules in your system, you'll find mediators relatively easy to understand. -->
 它还必须提供什么其他的优势呢？恩，中介者允许每个模块的行为可以独立变化，所以它非常灵活。如果你曾经在你的系统使用过观察者（发布/订阅）模式来实现模块之间的事件广播系统，你将会发现中介者相对而言比较容易理解。
@@ -586,7 +585,7 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 模块是发布者，中介者则既是发布者又是订阅者。模块 1 广播一个事件了通知中介者有事要做。中介者捕获这个消息，继而启动需要完成这项任务的模块 2，模块 2 执行模块 1 要求的任务，并向中介者广播一个完成事件。与此同时，模块 3 也会被中介者启动，记录从中介者传来的任何通知。
 
 <!-- Notice how at no point do any of the modules **directly communicate** with one another. If Module 3 in the chain were to simply fail or stop functioning, the mediator could hypothetically 'pause' the tasks on the other modules, stop and restart Module 3 and then continue working with little to no impact on the system. This level of decoupling is one of the main strengths the pattern has to offer. -->
-任何模块没有机会与其他模块**直接通信**，请注意是如何做到这点的。如果调用链中的模块 3 失败或停止运行，中介者可以假装“暂停”其他模块的任务，停止模块 3 并重启它，然后继续工作，对系统而言几乎没有影响。这种程度的解耦是中介者模块提供的主要优势之一。
+任何模块没有机会与其他模块**直接通信**，请注意是如何做到这点的。如果调用链中的模块 3 失败或停止运行，中介者可以假装“暂停”其他模块的任务，停止模块 3 并重启它，然后继续工作，这对系统而言几乎没有影响。这种程度的解耦是中介者模块提供的主要优势之一。
 
 <!-- To review, the advantages of the mediator are that: -->
 回复一下，中介者的优势如下：
@@ -601,7 +600,7 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 但它的缺点是：
 
 <!-- By adding a mediator between modules, they must always communicate indirectly. This can cause a very minor performance drop - because of the nature of loose coupling, its difficult to establish how a system might react by only looking at the broadcasts. At the end of the day, tight coupling causes all kinds of headaches and this is one solution. -->
-通过在模块之间增加中介者，模块必须总是间接地通信。这可能会导致轻微的性能下降 - 因为松耦合的性质所然，而且很难预期一个关注广播的系统会如何响应。紧耦合令人各种头疼，而中介者正是一条解决之道。
+通过在模块之间增加中介者，模块必须总是间接地通信。这可能会导致轻微的性能下降——因为松耦合的性质所然，而且很难预期一个关注广播的系统会如何响应。紧耦合令人各种头疼，而中介者正是一条解决之道。
 
 <!-- **Example:** This is a possible implementation of the mediator pattern based on previous work by [@rpflorence] -->
 **示例：**这是中介者模式在 [@rpflorence] 早先工作基础上的一种可能实现。
@@ -679,7 +678,7 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 架构建议：
 
 <!-- A facade serves as an **abstraction** of the application core which sits between the mediator and our modules - it should ideally be the only other part of the system modules are aware of. -->
-一个外观作为应用程序核心的**抽象**，位于中介者和模块之间 - 理想情况下，它应该是系统中唯一可以感知其他模式的模块。
+一个外观作为应用程序核心的**抽象**，位于中介者和模块之间——理想情况下，它应该是系统中唯一可以感知其他模式的模块。
 
 <!-- The responsibilities of the abstraction include ensuring a **consistent interface** to these modules is available at all times. This closely resembles the role of the **sandbox controller** in the excellent architecture first suggested by Nicholas Zakas. -->
 这个抽象的职责包括了为这些模块提供**统一的接口**，以及确保在任何时候都是可用的。这一点非常类似于杰出架构中**沙箱控制器**的角色，它由 Nicholas Zakas 首次提出。
@@ -688,7 +687,7 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 组件将通过外观与中介者通信，所以外观必须是可靠的。应该澄清的是，当我说“通信”时实际上是指与外观进行通信，外观是中介者的抽象，将监听模块的广播，再把广播回传给中介者。
 
 <!-- In addition to providing an interface to modules, the facade also acts as a security guard, determining which parts of the application a module may access. Components only call their own methods and shouldn't be able to interface with anything they don't have permission to. For example, a module may broadcast `dataValidationCompletedWriteToDB`. The idea of a security check here is to ensure that the module has permissions to request database-write access. What we ideally want to avoid are issues with modules accidentally trying to do something they shouldn't be. -->
-除了提供为模块提供接口，中介者还扮演者安保的角色，确定一个模式可以访问应用程序的哪些部分。组件只能访问它们自己的方法，对于它没有权限的任何事务，则不能与之行交互。假设一个模块可以广播 `dataValidationCompletedWriteToDB`。此时，安全检查的概念是指确保有权限的模块才能请求数据写操作。我们最好避免让模块意外地试图做一些它们本不该做的事情。
+除了为模块提供接口，中介者还扮演者安保的角色，确定一个模块可以访问应用程序的哪些部分。组件只能访问它们自己的方法，对于它没有权限的任何东西，则不能与之行交互。假设一个模块可以广播 `dataValidationCompletedWriteToDB`。此时，安全检查的概念是指确保有权限的模块才能请求数据写操作。我们最好避免让模块意外地试图做一些它们本不该做的事情。
 
 <!-- To review in short, the mediator remains a type of pub/sub manager but is only passed interesting messages once they've cleared permission checks by the facade. -->
 总之，中介者是发布/订阅的管理者，不过，只有通过外观权限检查的感兴趣事件才会被传给中介者。
@@ -700,43 +699,43 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 中介者扮演的角色是应用程序的核心。我们已经简要介绍了一些它的职责，不过还是要澄清下它的所有职责。
 
 <!-- The core's primary job is to manage the module **lifecycle**. When the core detects an **interesting message** it needs to decide how the application should react - this effectively means deciding whether a module or set of modules needs to be **started** or **stopped**. -->
-核心的主要任务是管理模块的**生命周期**。当核心侦测到一个**刚兴趣的事件**时，它需要决定应用程序该如何响应 - 这实际上意味着决定是否需要**启动**或**停止**一个或一组模块。
+核心的主要任务是管理模块的**生命周期**。当核心侦测到一个**感兴趣的事件**时，它需要决定应用程序该如何响应——这实际上意味着决定是否需要**启动**或**停止**一个或一组模块。
 
 <!-- Once a module has been started, it should ideally execute **automatically**. It's not the core's task to decide whether this should be when the DOM is ready and there's enough scope in the architecture for modules to make such decisions on their own. -->
 理想情况下，一旦某个模块被启动，它应该**自动**执行。模块是否在 DOM 就绪时运行，以及运行条件是否全部满足，决定这些并不是核心的任务，而是由架构中的模块指定决定。
 
 <!-- You may be wondering in what circumstance a module might need to be 'stopped' - if the application detects that a particular module has failed or is experiencing significant errors, a decision can be made to prevent methods in that module from executing further so that it may be restarted. The goal here is to assist in reducing disruption to the user experience. -->
-你可能想知道一个模块在什么情况下可能需要“停止” - 如果应用程序侦测到某个特定模块出现故障或正处于严重的错误中，可以决定让这个模块中的方法停止继续执行，并且可能会重新启动它。这么做的目的是帮助降低对用户体验的破坏。
+你可能想知道一个模块在什么情况下可能需要“停止”——如果应用程序侦测到某个特定模块出现故障或正处于严重的错误中，可以决定让这个模块中的方法停止继续执行，并且可能会重新启动它。这么做的目的是帮助降低对用户体验的破坏。
 
 <!-- In addition, the core should enable **adding or removing** modules without breaking anything. A typical example of where this may be the case is functionality which may not be available on initial page load, but is dynamically loaded based on expressed user-intent eg. going back to our GMail example, Google could keep the chat widget collapsed by default and only dynamically load in the chat module(s) when a user expresses an interest in using that part of the application. From a performance optimization perspective, this may make sense. -->
-此外，核心应该可以**添加或移除**模块而不破坏任何东西。一个典型的应用场景是，功能在页面初始化时尚不可用，而是需要基于用户的意图动态加载，例如，回到 GMail 的例子，Google 可以让聊天部件默认收起，只有在用户表现出使用它的兴趣时才会动态加载。从性能优化的角度看，这么做是有意义的。
+此外，核心应该可以**添加或移除**模块而不破坏任何东西。一个典型的应用场景是，功能在页面初始化时尚不可用，而是基于用户的意图动态加载，例如，回到 GMail 的例子，Google 可以让聊天部件默认收起，只有在用户表现出使用它的兴趣时才会动态加载。从性能优化的角度看，这么做是有意义的。
 
 <!-- Error management will also be handled by the application core. In addition to modules broadcasting messages of interest they will also broadcast any errors experienced which the core can then react to accordingly (eg. stopping modules, restarting them etc).It's important that as part of a decoupled architecture there to be enough scope for the introduction of new or better ways of handling or displaying errors to the end user without manually having to change each module. Using publish/subscribe through a mediator allows us to achieve this. -->
-错误管理应该由应用程序的核心处理。模块除了广播感兴趣的事件外，也会广播方发生的任何错误，然后核心可以做出相应的反馈（例如停止模块、重启模块等）。提供足够的上下文，以便用更新或更好的方式来处理或者向终端用户显示错误，而不必手动改变每个模块，是解耦架构中重要的一环。通过中介者使用发布/订阅机制，可以做到这一点。
+错误管理应该由应用程序的核心处理。模块除了广播感兴趣的事件外，也会广播发生的任何错误，然后核心可以做出相应的反馈（例如停止模块、重启模块等）。提供足够的上下文，以便用更新或更好的方式来处理或者向终端用户显示错误，而不必手动改变每个模块，是解耦架构中重要的一环。通过中介者使用发布/订阅机制，可以做到这一点。
 
 <!-- ### Tying It All Together -->
 ### 整合
 
 <!-- **Modules** contain specific pieces of functionality for your application. They publish notifications informing the application whenever something interesting happens - this is their primary concern. As I'll cover in the FAQs, modules can depend on DOM utility methods, but ideally shouldn't depend on any other modules in the system. They should not be concerned with: -->
-**模块** 为应用程序提供特定的功能。每个发生了感兴趣的事情，模块发布消息通知应用程序 - 这是它们的主要关注点。正如我在 FAQ（常见问题）中介绍的，模块可以依赖 DOM 工具方法，但是理想情况下不应该依赖系统的任何其他模块。它们不应该关注：
+**模块** 为应用程序提供特定的功能。每当发生了感兴趣的事情，模块发布消息通知应用程序——这是它们的主要关注点。正如我在 FAQ（常见问题）中介绍的，模块可以依赖 DOM 工具方法，但是理想情况下不应该依赖系统的任何其他模块。它们不应该关注：
 
 <!-- * what objects or modules are subscribing to the messages they publish
 * where these objects are based (whether this is on the client or server)
 * how many objects subscribe to notifications -->
 
-* 什么对象或模块订阅它们发布的消息
+* 什么对象或模块将订阅它们发布的消息
 * 这些对象在哪里（是否在客户端或服务端）
-* 有多少对象订阅通知
+* 有多少对象订阅了消息
 
 ![](http://addyosmani.com/largescalejavascript/assets/img/chart1a.gif)
 
 <!-- **The Facade** abstracts the core to avoid modules touching it directly. It subscribes to interesting events (from modules) and says 'Great! What happened? Give me the details!'. It also handles module security by checking to ensure the module broadcasting an event has the necessary permissions to pass such events that can be accepted. -->
-**外观** 抽象核心，以避免模块直接接触核心。它订阅（从模块来的）感兴趣的事情，并且说“干得好！发生了什么事？把详细资料给我！”。它还复杂检查模块的安全性，以确保发布消息的模块具备必要的权限来传递可接受的事件。
+**外观** 抽象核心，用于避免模块直接接触核心。它订阅（从模块来的）感兴趣的事情，并且说“干得好！发生了什么事？把详细资料给我！”。它还负责检查模块的安全性，以确保发布消息的模块具备必要的权限来传递可接受的事件。
 
 ![](http://addyosmani.com/largescalejavascript/assets/img/chart2a.gif)
 
 <!-- **The Mediator (Application Core)** acts as a 'Pub/Sub' manager using the mediator pattern. It's responsible for module management and starts/stops modules as needed. This is of particular use for dynamic dependency loading and ensuring modules which fail can be centrally restarted as needed. -->
-**中介者（应用程序的核心）** “发布/订阅”管理者的角色。负责管理模块，在需要时启动或停止模块。特别适用于动态依赖加载，并确保失败的模块可以在需要时集中重启。
+**中介者（应用程序的核心）** 扮演“发布/订阅”管理者的角色。负责管理模块，在需要时启动或停止模块。特别适用于动态依赖加载，并确保失败的模块可以在需要时集中重启。
 
 ![](http://addyosmani.com/largescalejavascript/assets/img/chart3a.gif)
 
@@ -747,13 +746,11 @@ Dojo 尝试通过 `dojo.declare` 来实现创建模式，提供与“class”类
 ### 超越发布/订阅：自动注册事件
 
 <!-- As previously mentioned by Michael Mahemoff, when thinking about large-scale JavaScript, it can be of benefit to exploit some of the more dynamic features of the language. You can read more about some of the concerns highlighted on Michael's [G+](https://plus.google.com/106413090159067280619/posts/hDZkVrDXZR6) page, but I would like to focus on one specifically - automatic event registration (AER). -->
-正如 Michael Mahemoff 在前面提到的，当考虑大型 JavaScript 时，适当利用这门语言的动态特性是会有好处的。关于详细内容请阅读 Michael 的 [G+](https://plus.google.com/106413090159067280619/posts/hDZkVrDXZR6) 页面，但是我想关注一个特例 - 自动注册事件（AER）。
+正如 Michael Mahemoff 在前面提到的，当考虑大型 JavaScript 时，适当利用这门语言的动态特性是有益的。关于详细内容请阅读 Michael 的 [G+](https://plus.google.com/106413090159067280619/posts/hDZkVrDXZR6) 页面，我特别关注其中一个概念——自动注册事件（AER Automatic Event Registration）。
 
-> TODO: 译注：前面是哪里？演讲吗？
+<!-- TODO: 译注：前面是哪里？演讲吗？-->
 
-> TODO: concerns highlighted 高亮？强调？
-
-正如前面提到的由迈克尔Mahemoff，大型的JavaScript思考时，它可以是有益的，利用一些动态语言特性。 你可以阅读更多关于迈克尔的G+页面上的一些突出的关注，但我想专注于一个特别-自动事件登记（AER）。
+<!-- TODO: concerns highlighted 高亮？强调？-->
 
 <!-- AER solves the problem of wiring up subscribers to publishers by introducing a pattern which auto-wires based on naming conventions. For example, if a module publishes an event called `messageUpdate`, anything with a `messageUpdate` method would be automatically called. -->
 AER 通过引入基于命名约定的自动连接模式，解决了订阅者到发布者的连接问题。例如，如果某个模块发布一个称为 `messageUpdate` 的事件，所有相关的 `messageUpdate` 方法将被自动调用。
@@ -764,7 +761,7 @@ AER 通过引入基于命名约定的自动连接模式，解决了订阅者到�
 这种模式的结构涉及到：注册所有可能订阅事件的模块，注册所有可能被订阅的事件，最后为组件库中的每个订阅者注册方法。对于这篇文章所讨论的架构来说，这是一个非常有趣的方法，但也确实带来一些有趣的挑战。
 
 <!-- For example, when working dynamically, objects may be required to register themselves upon creation. Please feel free to check out Michael's [post](http://softwareas.com/automagic-event-registration) on AER as he discusses how to handle such issues in more depth. -->
-例如，当动态的执行时，对象可以被要求在创建时注册自身。请阅读 Michael 关于 AER 的[文章](http://softwareas.com/automagic-event-registration)，他更深入地讨论了如何处理这类问题。
+例如，当动态地执行时，对象可以被要求在创建时注册自身。请阅读 Michael 关于 AER 的[文章](http://softwareas.com/automagic-event-registration)，他更深入地讨论了如何处理这类问题。
 
 <!-- ### Frequently Asked Questions -->
 ### 常问问题
@@ -779,9 +776,9 @@ AER 通过引入基于命名约定的自动连接模式，解决了订阅者到�
 #### 问：你提到了模块没有任何依赖。是否包括对第三方库的依赖（例如 jQuery）？
 
 <!-- A: I'm specifically referring to dependencies on other modules here. What some developers opting for an architecture such as this opt for is actually abstracting utilities common to DOM libraries -eg. one could have a DOM utility class for query selectors which when used returns the result of querying the DOM using jQuery (or, if you switched it out at a later point, Dojo). This way, although modules still query the DOM, they aren't directly using hardcoded functions from any particular library or toolkit. There's quite a lot of variation in how this might be achieved, but the takeaway is that ideally core modules shouldn't depend on other modules if opting for this architecture. -->
-答：我特别指对其他模块的依赖。一些开发人员为架构做出的选择实际是等同于 DOM 库的的公用抽象 - 例如，可以一个构建 DOM 公用类，使用 jQuery 来查询选择起表达式并返回查找到的 DOM（或者 Dojo，如果将来切换了的话）。通过这种方式，尽管模块依然会查询 DOM，但不会以硬编码的方式直接使用任何特定的库或工具。有相当多的方式可以实现这一点，但要选择的话，理想情况下核心模块都不应该依赖其他模块。
+答：我特别指对其他模块的依赖。一些开发人员为架构做出的选择实际上等同于 DOM 库的的公用抽象——例如，可以一个构建 DOM 公用类，使用 jQuery 来查询选择起表达式并返回查找到的 DOM（或者 Dojo，如果将来切换了的话）。通过这种方式，尽管模块依然会查询 DOM，但不会以硬编码的方式直接使用任何特定的库或工具。有相当多的方式可以实现这一点，但要选择的话，它们的共同点是核心模块（理想情况下）不应该依赖其他模块。
 
-> TODO the takeaway is 共同点？
+<!-- TODO the takeaway is 共同点？-->
 
 <!-- You'll find that when this is the case it can sometimes be more easy to get a complete module from one project working in another with little extra effort. I should make it clear that I fully agree that it can sometimes be significantly more sensible for modules to extend or use other modules for part of their functionality, however bear in mind that this can in some cases increase the effort required to make such modules 'liftable' for other projects. -->
 在这种情况下，你会发现，有时只需要一点额外的工作量，就可以让一个项目的完整模块运行在另一个项目中。我应该说清楚的是，我完全同意对模块进行扩展或者只使用模块的部分功能，而且有时可能是更明智的选择，但是记住，在某些情况下，想要把这样的模块应用到其他项目会增加工作量。
@@ -789,9 +786,9 @@ AER 通过引入基于命名约定的自动连接模式，解决了订阅者到�
 <!-- #### Q: I'd like to start using this architecture today. Is there any boilerplate code around I can work from? -->
 #### 问：我想开始使用这种架构。是否有可供参考的样板代码？
 <!-- A: I plan on releasing a free boilerplate pack for this post when time permits, but at the moment, your best bet is probably the '[Writing Modular JavaScript](http://bit.ly/orGVOL)' premium tutorial by Andrew Burgees (for complete disclosure, this is a referral link as any credits received are re-invested into reviewing material before I recommend it to others). Andrew's pack includes a screencast and code and covers most of the main concepts outlined in this post but opts for calling the facade a 'sandbox', as per Zakas. There's some discussion regarding just how DOM library abstraction should be ideally implemented in such an architecture - similar to my answer for the second question, Andrew opts for some interesting patterns on generalizing query selectors so that at most, switching libraries is a change that can be made in a few short lines. I'm not saying this is the right or best way to go about this, but it's an approach I personally also use. -->
-答：如果时间允许的话，我打算为这篇文章发布一个样板包，但目前你最好的选择是 Andrew Burgees 的超值教程 '[Writing Modular JavaScript](http://bit.ly/orGVOL)'（在推荐之前需要完全披露的是，这仅仅是一个推荐链接，收到的任何反馈都将有助于审核素材）。Andrew 的样板包包含一张屏幕截屏以及代码，覆盖了这篇文章的的大部分主要观点，但选择把外观称作“沙箱”，就像 Zakas。还有一些讨论是关于如何理想地在这样一个架构中实现 DOM 抽象库 - 类似于我对第二个问题的回答，Andrew 在实现选择器表达式查询时采用了一些有趣的模式，使得在大多数情况下，用短短几行代码就可以做到切换库。我并不是说它是正确的或最好的实现方式，但是它是一种可能，而且我个人也在使用它。
+答：如果时间允许的话，我打算为这篇文章发布一个样板包，但目前你最好的选择是 Andrew Burgees 的超值教程 [Writing Modular JavaScript](http://bit.ly/orGVOL)（在推荐之前需要完全披露的是，这仅仅是一个推荐链接，收到的任何反馈都将有助于完善内容）。Andrew 的样板包包含一张屏幕截屏以及代码，覆盖了这篇文章的的大部分主要观点，但选择把外观称作“沙箱”，就像 Zakas。还有一些讨论是关于如何理想地在这样一个架构中实现 DOM 抽象库———类似于我对第二个问题的回答，Andrew 在实现选择器表达式查询时采用了一些有趣的模式，使得在大多数情况下，用短短几行代码就可以做到切换库。我并不是说它是正确的或最好的实现方式，但是它是一种可能，而且我个人也在使用它。
 
-> reviewing material 材料审核？bit.ly ？
+<!-- reviewing material 材料审核？bit.ly ？-->
 
 <!-- #### Q: If the modules need to directly communicate with the core, is this possible? -->
 #### 问：如果模块需要直接与核心通信，这么做可能吗？
@@ -799,7 +796,22 @@ AER 通过引入基于命名约定的自动连接模式，解决了订阅者到�
 <!-- A: As Zakas has previously hinted, there's technically no reason why modules shouldn't be able to access the core but this is more of a best practice than anything. If you want to strictly stick to this architecture you'll need to follow the rules defined or opt for a looser architecture as per the answer to the first question. -->
 答：正如 Zakas 之前暗示的，为什么模块不应该访问核心在技术上没有理由，但这是最佳实现，比其他任何事情都重要。如果你想严格地坚持这种架构，你需要遵循定义的这些规则，或者选择一个更松散的结构，就像第一个问题的答案。
  
-### Credits
-Thanks to Nicholas Zakas for his original work in bringing together many of the concepts presented today; Andrée Hansson for his kind offer to do a technical review of the post (as well as his feedback that helped improve it); Rebecca Murphey, Justin Meyer, John Hann, Peter Michaux, Paul Irish and Alex Sexton, all of whom have written material related to the topics discussed in the past and are a constant source of inspiration for both myself and others.
+<!--### Credits
+Thanks to Nicholas Zakas for his original work in bringing together many of the concepts presented today; Andrée Hansson for his kind offer to do a technical review of the post (as well as his feedback that helped improve it); Rebecca Murphey, Justin Meyer, John Hann, Peter Michaux, Paul Irish and Alex Sexton, all of whom have written material related to the topics discussed in the past and are a constant source of inspiration for both myself and others.-->
 
+<hr>
 > 原文：[Patterns For Large-Scale JavaScript Application Architecture](http://addyosmani.com/largescalejavascript/) by [@Addy Osmani](https://twitter.com/addyosmani)
+
+<link href="/assets/codemirror/lib/codemirror.css" rel="stylesheet">
+<link href="/assets/codemirror/theme/neat.css" rel="stylesheet">
+<script src="/assets/codemirror/lib/codemirror.js"></script>
+<script src="/assets/codemirror/addon/runmode/runmode.js"></script>
+<script src="/assets/codemirror/mode/javascript/javascript.js"></script>
+<script type="text/javascript">
+    $('pre').each(function(index, el){
+        $(this).hide()
+        var ctn = $('<pre class="cm-s-neat">').insertAfter(this)
+        CodeMirror.runMode($(this).find('code').text(), 'javascript',
+                 ctn.get(0));
+    })
+</script>

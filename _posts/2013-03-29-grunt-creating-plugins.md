@@ -5,7 +5,7 @@ tagline: "Creating Plugins"
 description: "如何创建插件以及注意事项。"
 category-substitution: 翻译
 group: Grunt
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 short: "创建插件"
 pgroup: Grunt

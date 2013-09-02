@@ -5,7 +5,7 @@ tagline: "Installing Grunt"
 description: "介绍如何安装特定版本的 grunt 和 grunt 插件。"
 category-substitution: 翻译
 group: Grunt
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 short: "安装 Grunt"
 pgroup: Grunt

@@ -4,7 +4,7 @@ title: "ECMAScript 6 and Default Argument"
 tagline: "默认参数"
 description: "一个函数声明可以为每个参数指定一个默认值"
 category-substitution: 翻译
-tags: [ECMAScript 6, JavaScript, Web]
+tags: [翻译, ECMAScript 6, JavaScript, Web]
 
 short: "默认参数"
 pgroup: es6

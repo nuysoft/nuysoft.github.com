@@ -7,7 +7,7 @@ tagline:
 
 {% for post in site.posts %}
 {% if post.pgroup == null %}
-<p>
+<div>
     [{{ post.category-substitution }}]
 
     {% if post.link == null %}
@@ -18,23 +18,31 @@ tagline:
     <span style="color: #999;">{{ post.date | date: "%Y-%m-%d" }}</span>
 
     {% if post.description != null %}
-    <p style="padding-left: 40px; ">{{ post.description }}</p>
+    <p style="padding-left: 40px; " class="_description">{{ post.description }}</p>
     {% endif %}
 
     {% if post.subgroup != null %}
-    <p style="padding-left: 40px; ">
+    <p style="padding-left: 40px; " class="_subgroup">
       {% for subpost in site.posts %}
         {% if subpost.pgroup == post.subgroup %}
           {% if subpost.link == null %}
-            <a href="{{ BASE_PATH }}{{ subpost.url }}">{{ subpost.short }}</a>、
+            <a href="{{ BASE_PATH }}{{ subpost.url }}">
+              {% if subpost.short != null %} {{ subpost.short }}
+              {% else %} {{ subpost.title }}
+              {% endif %}
+            </a>、
           {% else %}
-            <a href="{{ subpost.link }}" target="_blank">{{ subpost.short }}</a>、
+            <a href="{{ subpost.link }}" target="_blank">
+              {% if subpost.short != null %} {{ subpost.short }}
+              {% else %} {{ subpost.title }}
+              {% endif %}
+            </a>、
           {% endif %}
         {% endif %}
       {% endfor %}
     </p>
     {% endif %}
-</p>
+</div>
 {% endif %}
 {% endfor %}
 <hr>

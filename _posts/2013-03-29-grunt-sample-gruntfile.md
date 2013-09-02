@@ -5,7 +5,7 @@ tagline: "Sample Gruntfile"
 description: "介绍和分析一个 Gruntfile 示例，其中使用了 5 个 grunt 插件"
 category-substitution: 翻译
 group: Grunt
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 short: "Gruntfile 示例"
 pgroup: Grunt

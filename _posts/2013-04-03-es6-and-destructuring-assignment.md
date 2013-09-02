@@ -4,7 +4,7 @@ title: "ECMAScript 6 and Destructuring Assignment"
 tagline: "解构赋值"
 description: "使用模式提取对象的部分"
 category-substitution: 翻译
-tags: [ECMAScript 6, JavaScript, Web]
+tags: [翻译, ECMAScript 6, JavaScript, Web]
 
 short: "解构赋值"
 pgroup: es6

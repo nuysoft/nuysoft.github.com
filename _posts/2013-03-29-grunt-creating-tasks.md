@@ -5,7 +5,7 @@ tagline: "Creating Tasks"
 description: "每次运行 Grunt 时，你可以指定一个或多个任务来运行，任务告诉了 Grunt 你想要它做的事情。"
 category-substitution: 翻译
 group: Grunt
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 short: "创建任务"
 pgroup: Grunt

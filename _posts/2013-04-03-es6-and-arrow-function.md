@@ -4,7 +4,7 @@ title: "ECMAScript 6 and Arrow Function"
 tagline: "箭头函数"
 description: "函数表达式的简写形式"
 category-substitution: 翻译
-tags: [ECMAScript 6, JavaScript, Web]
+tags: [翻译, ECMAScript 6, JavaScript, Web]
 
 short: "箭头函数"
 pgroup: es6

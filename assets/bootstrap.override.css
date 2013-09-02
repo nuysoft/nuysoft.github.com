@@ -3,7 +3,9 @@ body {
 }
 
 code, pre {
+	font-family: monospace;
     font-size: 13px;
+    line-height: 19px;
 }
 
 .page-catalog > ul {

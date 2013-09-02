@@ -5,7 +5,7 @@ tagline: "Configuring Tasks"
 description: "介绍如何在项目中使用文件 Gruntfile 配置任务。"
 category-substitution: 翻译
 group: Grunt
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 short: "配置任务"
 pgroup: Grunt

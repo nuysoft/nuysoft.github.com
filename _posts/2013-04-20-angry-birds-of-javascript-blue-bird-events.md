@@ -4,7 +4,7 @@ title: "事件 &amp; 消息"
 tagline: "Events &amp; Messaging"
 description: "在 Web 应用中可以使用事件和消息实现组件通信。事件允许一个组件同自身通信，消息则允许一个组件以非硬编码的方式监听其他组件。"
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "Web", "jQuery", "postal.js"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "jQuery", "postal.js"]
 
 short: "事件 &amp; 消息"
 pgroup: "前端 JavaScript 架构"

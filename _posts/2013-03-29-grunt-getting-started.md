@@ -5,7 +5,7 @@ tagline: "Getting Started"
 description: ""
 category-substitution: 翻译
 group: Grunt
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 short: "Grunt 入门"
 pgroup: Grunt

@@ -4,7 +4,7 @@ title: "前端 JavaScript 架构"
 tagline: "之愤怒的小鸟系列"
 description: ""
 category-substitution: 翻译
-tags: ["Angry Birds of JavaScript", "JavaScript", "Web"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web"]
 
 subgroup: "前端 JavaScript 架构"
 ---

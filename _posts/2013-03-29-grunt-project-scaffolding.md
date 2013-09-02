@@ -5,7 +5,7 @@ tagline: "Project Scaffolding"
 description: "grunt-init 是一个脚手架工具，用于自动创建项目。基于当前的环境和几个问题的答案创建一个完整的目录结构。确切的文件和内容取决于所选的模板，和模板提出的问题的答案。"
 category-substitution: 翻译
 group: Grunt
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 short: "项目脚手架"
 pgroup: Grunt

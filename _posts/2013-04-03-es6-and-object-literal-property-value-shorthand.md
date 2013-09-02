@@ -4,7 +4,7 @@ title: "ECMAScript 6 and Object Literal Property Value Shorthand"
 tagline: "对象字面属性值简写"
 description: "属性值与属性标识符同名"
 category-substitution: 翻译
-tags: [ECMAScript 6, JavaScript, Web]
+tags: [翻译, ECMAScript 6, JavaScript, Web]
 
 short: "对象字面属性值简写"
 pgroup: es6

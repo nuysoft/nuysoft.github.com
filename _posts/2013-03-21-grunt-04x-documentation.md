@@ -3,7 +3,7 @@ layout: post
 title: "Grunt 0.4.x Documentation"
 description: ""
 category-substitution: 翻译
-tags: [Grunt, JavaScript, Web]
+tags: [翻译, Grunt, JavaScript, Web]
 
 subgroup: Grunt
 link: ##
