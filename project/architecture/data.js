@@ -13,6 +13,7 @@
     http://wiki.commonjs.org/wiki/Promises/A#Proposal
     http://promises-aplus.github.io/promises-spec/
     http://jsbooks.revolunet.com/
+    http://www.nczonline.net/
 */
 var data = {
     'Specifications': [{
@@ -204,6 +205,9 @@ var data = {
         }, {
             name: 'JS Bin',
             home: 'http://jsbin.com/'
+        }, {
+            name: 'Plunker',
+            home: 'http://plnkr.co/'
         }
     ],
     Testing: [{
@@ -376,10 +380,10 @@ var data = {
             name: 'D2 前端技术论坛',
             home: '',
             desc: 'Designer & Developer Front End Technology Forum'
-        },{
-            name:'London JS',
-            home:'http://lanyrd.com/series/londonjs/',
-            desc:''
+        }, {
+            name: 'London JS',
+            home: 'http://lanyrd.com/series/londonjs/',
+            desc: ''
         }
     ],
     Blog: [],
@@ -435,6 +439,27 @@ var data = {
             name: 'JavaScript Garden',
             home: 'http://bonsaiden.github.io/JavaScript-Garden/',
             desc: 'a growing collection of documentation about the most quirky parts of the JavaScript programming language.'
+        }, {
+            name: 'John Resig\'s Learning app',
+            home: 'http://ejohn.org/apps/learn' // http://ejohn.org/
+        }, {
+            name: 'art-of-node',
+            home: 'https://github.com/maxogden/art-of-node',
+            desc: 'a short introduction to node.js'
         }
     ]
 }
+/*
+https://github.com/novus/nvd3
+    chart doc
+https://github.com/facebook/react
+    library framework doc
+https://github.com/trifacta/vega
+    chart demo
+https://github.com/1602/compound
+    MVC 
+http://linkedin.github.io/hopscotch/
+
+http://h5bp.github.io/
+    团队官网
+*/

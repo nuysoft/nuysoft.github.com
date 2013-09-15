@@ -16,3 +16,5 @@ published: false
 * [Browserify and the Universal Module Definition](http://dontkry.com/posts/code/browserify-and-the-universal-module-definition.html#how-i-learned-to-stop-worrying-and-love-the-browserify)
 * [chrisdickinson/beefy](https://github.com/chrisdickinson/beefy)
 * [component/component/](https://github.com/component/component/)
+* [Package Managers: An Introductory Guide For The Uninitiated Front-End Developer](http://tech.pro/tutorial/1190/package-managers-an-introductory-guide-for-the-uninitiated-front-end-developer)
+* [Meet Bower: A Package Manager For The Web](http://net.tutsplus.com/tutorials/tools-and-tips/meet-bower-a-package-manager-for-the-web/)

@@ -12,10 +12,11 @@ published: false
 
 * 需求：
 * 设计：API Manager
-* 开发：JBoss Service, Nginx, Mock.js
+* 开发：JBoss Service, Nginx, Mock.js, Auto Deploy, Brackets
+    * https://github.com/BlueJeansAndRain/proxima.git
 * 测试：
 * 联调：
-* 压缩：5份代码，
+* 压缩：Grunt 5份代码，
 * 上线：Gitlab, Git Hooks
 * 示例：ux-scaffold
 
