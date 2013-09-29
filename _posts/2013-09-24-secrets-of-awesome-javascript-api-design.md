@@ -8,7 +8,7 @@ tags: [翻译, api, javascript]
 ---
 {% include JB/setup %}
 
-> 原文：[Secrets of Awesome JavaScript API Design](http://webstandardssherpa.com/reviews/secrets-of-awesome-javascript-api-design), [YouTube](http://www.youtube.com/watch?v=QlQm786MClE), [PDF](http://riagora.com/appliness/Appliness-April-2013.pdf)
+> 原文：[Secrets of Awesome JavaScript API Design](http://webstandardssherpa.com/reviews/secrets-of-awesome-javascript-api-design), [YouTube](http://www.youtube.com/watch?v=QlQm786MClE), [PDF](http://riagora.com/appliness/Appliness-April-2013.pdf)，[其他翻译版本](http://www.oschina.net/translate/secrets-of-awesome-javascript-api-design)
 
 <!-- , [Designing Better JavaScript APIs](http://coding.smashingmagazine.com/2012/10/09/designing-javascript-apis-usability/) -->
 
@@ -307,7 +307,7 @@ For the most part, these are loosely related features that have been stuffed int
 * 为接口设计太多的重载是引入不相衬性的最快方式。留心观察入口方法，以及在方法重载背后隐藏了功能的接口。
 
 <!-- ### THINGS TO DO -->
-### 上士闻道 勤而勉子
+### 上士闻道 勤而勉之
 <!-- 要做的事情 -->
 > 原文标题是“THINGS TO DO”，可直译为“要做的事情”。
 
