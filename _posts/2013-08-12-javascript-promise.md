@@ -2,7 +2,7 @@
 layout: post
 title: "Javascript Promise"
 tagline: ""
-description: ""
+description: "我想谈论的是一些 JavaScript 库中用到的 Promise 概念，包括 AngularJS、jQuery、Dojo 和 WinJS。"
 category-substitution: 翻译
 tags: [翻译, JavaScript, Promise, Web]
 ---
@@ -13,7 +13,7 @@ tags: [翻译, JavaScript, Promise, Web]
 ![](http://wildermuth.com/images/pinky-promise_2.jpg)
 
 <!-- No I am not talking the promise that JavaScript will fix everything if you use it. I don't even believe that ;) I am talking about the concept of a promise object that several JavaScript libraries use (including [AngularJS](http://angularjs.org/), [jQuery](http://jquery.com/), [Dojo](http://dojotoolkit.org/) and [WinJS](http://msdn.microsoft.com/en-us/library/windows/apps/br229773.aspx)). -->
-哦不，我不是在谈论使用了 Promise 后，JavaScript 就可以解决所有问题，这点连我自己也不相信。我想谈论的是一些 JavaScript 库中用到的 Promise 概念，包括 [AngularJS](http://angularjs.org/), [jQuery](http://jquery.com/), [Dojo](http://dojotoolkit.org/) and [WinJS](http://msdn.microsoft.com/en-us/library/windows/apps/br229773.aspx)。
+哦不，我不是在谈论使用了 Promise 后，JavaScript 就可以解决所有问题，这点连我自己也不相信。我想谈论的是一些 JavaScript 库中用到的 Promise 概念，包括 [AngularJS](http://angularjs.org/), [jQuery](http://jquery.com/), [Dojo](http://dojotoolkit.org/) 和 [WinJS](http://msdn.microsoft.com/en-us/library/windows/apps/br229773.aspx)。
 
 [AngularJS]: http://angularjs.org/
 [jQuery]: http://jquery.com/

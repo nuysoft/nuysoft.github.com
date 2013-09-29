@@ -2,7 +2,7 @@
 layout: post
 title: "大型 JavaScript 应用架构中的模式"
 tagline: "Patterns For Large-Scale JavaScript Application Architecture"
-description: ""
+description: "解耦应用。架构/模块，外观和中介者模式。模块生产消息，中介者发布/订阅消息，外观处理安全问题。"
 category-substitution: 翻译
 tags: [翻译, JavaScript, Architecture, Web]
 ---
