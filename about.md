@@ -8,3 +8,5 @@ weight: 4
 {% include JB/setup %}
 
 A Combat Engineer.
+
+[GitHub](https://github.com/nuysoft/)
