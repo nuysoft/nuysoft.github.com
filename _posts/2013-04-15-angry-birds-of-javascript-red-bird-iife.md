@@ -34,7 +34,7 @@ pgroup: "前端 JavaScript 架构"
 ![](http://4.bp.blogspot.com/-JMM-_2Tl7Es/UUOFH81EAUI/AAAAAAAAX8k/GxsgENgc4kY/s200/red-bird.png)
 
 <!-- For ages the birds used to litter the global namespace (the window object) with their custom objects and functions. Over time the birds slowly learned techniques to protect their objects from the global namespace, however, since the recent pig invasion all of their anti-global secrets have been stolen! Thankfully the birds are fortunate that a one foul exists with the knowledge of this secret and plans to attack the pigs to unleash what is rightfully theirs. -->
-很长时间以来，小鸟们习惯了向全局命名空间（window 对象）乱丢它们的自定义对象和函数。随着时间的慢慢退役，小鸟们慢慢学会了利用全局命名空间保护它们的对象的技术，然而由于近期猪群的入侵，反全局的秘密都被偷走了！侥幸的是这项秘密技术仍然存在缺陷，小鸟们计划攻击猪群，解放原本属于它们的技术。
+很长时间以来，小鸟们习惯了向全局命名空间（window 对象）乱丢它们的自定义对象和函数。随着时间的慢慢推移，小鸟们逐渐学会了利用全局命名空间来保护它们的对象的技术，然而由于近期猪群的入侵，反全局的秘密都被偷走了！侥幸的是这项秘密技术仍然存在缺陷，小鸟们计划攻击猪群，解放原本属于它们的技术。
 
 <!-- ## How Objects Become Global? -->
 ## 对象是如何变为全局对象的？
