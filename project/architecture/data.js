@@ -9,6 +9,7 @@
     http://hikejun.com/blog/2011/09/25/d2%E6%8A%80%E6%9C%AF%E5%98%89%E5%B9%B4%E5%8D%8E%E5%88%86%E4%BA%AB%EF%BC%9A%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E8%B7%B5%E5%92%8C%E6%80%9D%E8%80%83/
     [Nicholas Zakas: Scalable JavaScript Application Architecture](http://www.youtube.com/watch?v=vXjVFPosQHw)
     https://github.com/joyent/node/wiki/modules
+    [How to keep up to date on Front-End Technologies - The Recipe](http://uptodate.frontendrescue.org/)
 
     ## Promises
     http://wiki.commonjs.org/wiki/Promises/A#Proposal
@@ -327,6 +328,7 @@ var data = {
         name: 'Old App'
     }],
     // https://leanpub.com/oopinjavascript
+    // http://it-ebooks.info/book/283/
     Book: [{
         name: 'The Definitive Guide'
     }, {
@@ -343,6 +345,10 @@ var data = {
     }, {
         name: 'Eloquent JavaScript',
         desc: 'A Modern Introduction to Programming'
+    }, {
+        name: ' Closure: The Definitive Guide',
+        home: 'http://www.amazon.cn/Closure-The-Definitive-Guide-Bolin-Michael/dp/1449381871/ref=sr_1_1?ie=UTF8&qid=1383373186&sr=8-1&keywords=Closure%3A+The+Definitive+Guide',
+        desc: ''
     }],
     Reference: [{
         name: 'IE API Reference',
@@ -352,12 +358,13 @@ var data = {
         home: 'https://developer.mozilla.org/en-US/docs/Web'
     }],
     'CheatSheet': [],
-    'BSS': [{
+    'BBS': [{
         name: 'lanyrd.com',
         home: 'http://lanyrd.com/topics/javascript/',
         desc: 'JavaScript conferences and events'
     }, {
         name: 'Volocity'
+        //  VelocityNY2013 http://yunpan.taobao.com/share/link/0112tTrNJ
     }, {
         name: 'D2 前端技术论坛',
         home: '',
@@ -373,6 +380,10 @@ var data = {
     }, {
         name: 'Edge NYC',
         home： 'http://lanyrd.com/2013/edge-nyc/',
+        desc: ''
+    }, {
+        name: 'Fluent',
+        home: 'http://fluentconf.com/fluent2013',
         desc: ''
     }],
     Blog: [],
@@ -431,6 +442,55 @@ var data = {
         name: 'art-of-node',
         home: 'https://github.com/maxogden/art-of-node',
         desc: 'a short introduction to node.js'
+    }],
+    'Test Framework': [{
+        name: 'QUnit',
+        home: 'http://qunitjs.com/',
+        desc: 'QUnit is a powerful, easy-to-use JavaScript unit testing framework.'
+    }, {
+        name: 'Jasmine',
+        home: 'http://pivotal.github.io/jasmine/',
+        desc: 'DOM-less simple JavaScript testing framework'
+    }, {
+        name: 'Mocha',
+        home: 'http://visionmedia.github.io/mocha/',
+        desc: 'simple, flexible, fun javascript test framework for node.js & the browser. (BDD, TDD, QUnit styles via interfaces)'
+    }],
+    'Test Platform': [{
+        name: 'BrowserSwarm',
+        home: 'http://www.browserswarm.com/',
+        desc: ''
+    }],
+
+    'Game': [{
+        home: 'http://jakearchibald.github.io/request-quest/'
+    }, {
+        home: 'http://jakearchibald.github.io/jank-invaders/'
+    }],
+
+    'Coding Guideline': [
+        'http://jscode.org/',
+        'https://github.com/styleguide',
+        'https://github.com/mdo/code-guide',
+        'http://sideeffect.kr/popularconvention',
+        'http://www.thinkful.com/learn/javascript-best-practices-1/',
+        'http://www.thinkful.com/learn/javascript-best-practices-2/'
+    ],
+
+    'Fun': [
+        'https://github.com/blog/1162-github-data-challenge-winners',
+        'https://github.com/blog/1544-data-challenge-ii-results',
+        'http://osrc.dfm.io/',
+        'http://stackoverflow.com/questions/84556/whats-your-favorite-programmer-cartoon'
+    ],
+
+    'Future': [
+        'https://speakerdeck.com/ariya',
+    ],
+
+    'History': [{
+        name: 'Frequently Misunderstood JavaScript Concepts',
+        home: 'http://bolinfest.com/javascript/misunderstood.html'
     }]
 }
 /*
@@ -446,4 +506,5 @@ http://linkedin.github.io/hopscotch/
 
 http://h5bp.github.io/
     团队官网
+
 */
