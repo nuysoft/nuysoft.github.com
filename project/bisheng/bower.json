@@ -1,0 +1,30 @@
+{
+  "name": "bisheng",
+  "version": "0.0.1",
+  "homepage": "https://github.com/nuysoft/bisheng",
+  "authors": [
+    "nuysoft <nuysoft@gmail.com>"
+  ],
+  "description": "BI-Directional / Two-Way Data-Binding with JavaScript",
+  "main": "dist/bisheng.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~1.1.2",
+    "jquery": "~1.9.0"
+  },
+  "devDependencies": {
+    "mockjs": "*",
+    "bootstrap": "~3.0.2",
+    "jquery": "~1.9.0",
+    "highlightjs": "~7.5.0",
+    "todomvc-common": "~0.1.9",
+    "js-beautify": "~1.4.2"
+  }
+}
