@@ -3,19 +3,32 @@
     样式参考 http://emmet.io/download/
 
     TODO
-    https://gist.github.com/dypsilon
-    https://github.com/dypsilon/frontend-dev-bookmarks
-    http://pinterest.com/eanakashima/learn-the-front-end/
-    http://hikejun.com/blog/2011/09/25/d2%E6%8A%80%E6%9C%AF%E5%98%89%E5%B9%B4%E5%8D%8E%E5%88%86%E4%BA%AB%EF%BC%9A%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E8%B7%B5%E5%92%8C%E6%80%9D%E8%80%83/
-    [Nicholas Zakas: Scalable JavaScript Application Architecture](http://www.youtube.com/watch?v=vXjVFPosQHw)
-    https://github.com/joyent/node/wiki/modules
-    [How to keep up to date on Front-End Technologies - The Recipe](http://uptodate.frontendrescue.org/)
+    * https://gist.github.com/dypsilon
+    * https://github.com/dypsilon/frontend-dev-bookmarks
+        * [直接拿来用！最火的前端开源项目（一）](http://www.csdn.net/article/2013-06-25/2815979-front-end-development)
+        * [直接拿来用！最火的前端开源项目（二）](http://www.csdn.net/article/2013-06-27/2816017-front-end-development)
+        * [直接拿来用！最火的前端开源项目（三）](http://www.csdn.net/article/2013-06-28/2816047-front-end-development)
+    * http://pinterest.com/eanakashima/learn-the-front-end/
+    * http://hikejun.com/blog/2011/09/25/d2%E6%8A%80%E6%9C%AF%E5%98%89%E5%B9%B4%E5%8D%8E%E5%88%86%E4%BA%AB%EF%BC%9A%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E7%9A%84%E5%AE%9E%E8%B7%B5%E5%92%8C%E6%80%9D%E8%80%83/
+    * [Nicholas Zakas: Scalable JavaScript Application Architecture](http://www.youtube.com/watch?v=vXjVFPosQHw)
+    * https://github.com/joyent/node/wiki/modules
+    * [How to keep up to date on Front-End Technologies - The Recipe](http://uptodate.frontendrescue.org/)
+    * [The Toolbox  a directory of the best time-saving apps and tools](http://thetoolbox.cc/)
 
     ## Promises
     http://wiki.commonjs.org/wiki/Promises/A#Proposal
     http://promises-aplus.github.io/promises-spec/
     http://jsbooks.revolunet.com/
     http://www.nczonline.net/
+    http://callbackhell.com/
+    https://github.com/substack/stream-handbook
+    
+    [ES6 Uncensored](https://speakerdeck.com/anguscroll/es6-uncensored)
+
+    GitHub 前 1000 名分类：
+    https://github.com/jquery/jquery        Sizzle, Cache, Queue, Promise, DOM, Attribute, CSS, Aja, Effect
+
+
 
 */
 var data = {
@@ -94,6 +107,10 @@ var data = {
         desc: ''
     }, {
         name: 'Compatiblity'
+    }, {
+        home: 'http://usablica.github.io/front-end-frameworks/compare.html?v=2.0'
+    }, {
+        home: 'http://www.cssflow.com/snippets'
     }],
     DOM: [{
         name: 'DOM 3',
@@ -129,6 +146,8 @@ var data = {
     }, {
         name: 'Lazy',
         desc: '-'
+    }, {
+        home: 'http://www.regexper.com/'
     }],
     SPA: [{
         name: 'ExtJS',
@@ -201,6 +220,10 @@ var data = {
     }, {
         name: 'CodePen',
         home: 'http://codepen.io/'
+    }, {
+        home: 'http://colourco.de/'
+    }, {
+        home: 'http://www.responsinator.com/'
     }],
     Testing: [{
         name: 'QUnit'
@@ -234,6 +257,9 @@ var data = {
     }, {
         name: 'Express',
         home: 'https://github.com/visionmedia/express'
+    }],
+    DataBase: [{
+        home: 'http://sequelizejs.com/'
     }],
     'IDE & Dev Tool': [{
         name: 'Sublime & Plugins'
@@ -349,6 +375,42 @@ var data = {
         name: ' Closure: The Definitive Guide',
         home: 'http://www.amazon.cn/Closure-The-Definitive-Guide-Bolin-Michael/dp/1449381871/ref=sr_1_1?ie=UTF8&qid=1383373186&sr=8-1&keywords=Closure%3A+The+Definitive+Guide',
         desc: ''
+    }, {
+        name: 'JavaScript权威指南 第6版（影印版）',
+        desc: ''
+    }, {
+        name: 'JavaScript高级程序设计(第2版)',
+        desc: ''
+    }, {
+        name: 'JavaScript DOM编程艺术(第2版)',
+        desc: ''
+    }, {
+        name: '高性能JavaScript',
+        desc: ''
+    }, {
+        name: 'JAVASCRIPT语言精髓与编程实践',
+        desc: ''
+    }, {
+        name: '测试驱动的JavaScript开发（JavaScript敏捷测试指南）',
+        desc: ''
+    }, {
+        name: '深入浅出JavaScript（中文版）',
+        desc: ''
+    }, {
+        name: 'JavaScript修炼之道',
+        desc: ''
+    }, {
+        name: 'JavaScript设计模式',
+        desc: ''
+    }, {
+        name: '悟透JavaScript',
+        desc: ''
+    }, {
+        name: 'JavaScript标准',
+        desc: ''
+    }, {
+        name: 'How to become an Advanced Front End Developer',
+        home: 'http://davidshariff.com/how-to-become-advanced-front-end-developer-ebook/'
     }],
     Reference: [{
         name: 'IE API Reference',
@@ -356,6 +418,12 @@ var data = {
     }, {
         name: 'Web technology for developers',
         home: 'https://developer.mozilla.org/en-US/docs/Web'
+    }, {
+        name: 'WebGL: Up and Running',
+        home: 'http://shop.oreilly.com/product/0636920024729.do'
+    }, {
+        name: 'Interactive 3D Graphics',
+        home: 'https://www.udacity.com/course/cs291'
     }],
     'CheatSheet': [],
     'BBS': [{
@@ -379,7 +447,7 @@ var data = {
         desc: 'Conferences for the JavaScript community.'
     }, {
         name: 'Edge NYC',
-        home： 'http://lanyrd.com/2013/edge-nyc/',
+        home: 'http://lanyrd.com/2013/edge-nyc/',
         desc: ''
     }, {
         name: 'Fluent',
@@ -465,6 +533,9 @@ var data = {
     'Game': [{
         home: 'http://jakearchibald.github.io/request-quest/'
     }, {
+        home: 'http://davidshariff.com/quiz/'
+        // http://www.w3cplus.com/css/front-end-web-development-quiz.html
+    }, {
         home: 'http://jakearchibald.github.io/jank-invaders/'
     }],
 
@@ -481,7 +552,8 @@ var data = {
         'https://github.com/blog/1162-github-data-challenge-winners',
         'https://github.com/blog/1544-data-challenge-ii-results',
         'http://osrc.dfm.io/',
-        'http://stackoverflow.com/questions/84556/whats-your-favorite-programmer-cartoon'
+        'http://osrc.dfm.io/nuysoft',
+        'http://stackoverflow.com/questions/84556/whats-your-favorite-programmer-cartoon',
     ],
 
     'Future': [
@@ -491,6 +563,11 @@ var data = {
     'History': [{
         name: 'Frequently Misunderstood JavaScript Concepts',
         home: 'http://bolinfest.com/javascript/misunderstood.html'
+    }],
+    CDN: [{
+        home: 'http://www.uiframe.com/jscss.html'
+    }, {
+        home: 'http://www.staticfile.org/'
     }]
 }
 /*

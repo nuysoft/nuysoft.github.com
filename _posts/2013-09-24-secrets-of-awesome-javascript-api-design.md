@@ -255,7 +255,7 @@ For the most part, these are loosely related features that have been stuffed int
     })(jQuery);
 
 <!-- Another example of extensibility is Backbone’s “extend” function, which we’ve looked at already in this article: -->
-可扩展性的另一个例子是 Backbone 的 “extend” 函数，我们已经在这边文章看过了：
+可扩展性的另一个例子是 Backbone 的 “extend” 函数，我们已经在这篇文章中看过了：
 
     var DocumentRow = Backbone.View.extend({
       tagName: "li",

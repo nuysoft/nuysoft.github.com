@@ -2,18 +2,25 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Front-End Architecture</title>
+    <title>Front-End Competency Model &amp; Solution &amp; Architecture</title>
     <link href="architecture/bootstrap.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style type="text/css">
         body {
-            background-color: #e6e6e6;
+            /*background-color: #e6e6e6;*/
+        }
+        .popover {
+            position: relative;
+            display: block;
+            float: left;
+            width: 260px;
+            margin: 0 20px 20px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>FRONT-END ARCHITECTURE  <small>Competency Model &amp; Solution</small></h1>
+        <h1>Front-End Competency Model &amp; Solution &amp; Architecture <small></small></h1>
         <hr>
     </div>
     <script type="text/javascript" src="architecture/jquery-1.10.2.js"></script>
@@ -23,11 +30,18 @@
         <h2><%=key%></h2>
         <div class="row">
             <% for( var j = 0, p; p = data[key][j]; j++ ) { %>
-            <div class="col-lg-3 well">
-                <a href="<%=p.home || '#'%>">
-                    <h4><%=p.name%></h4>
-                </a>
-                <div><%=p.desc || 'TODO'%></div>
+            <div class="col-lg-3">
+                <div class="popover">
+                    <h3 class="popover-title">
+                        <a href="<%=p.home || '#'%>">
+                            <%=p.name%>
+                        </a>
+                    </h3>
+                    <div class="popover-content">
+                        <p><%=p.desc || 'TODO'%></p>
+                    </div>
+                </div>
+                
             </div>
             <% } %>
         </div>

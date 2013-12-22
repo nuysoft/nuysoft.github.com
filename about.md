@@ -10,3 +10,7 @@ weight: 4
 A Combat Engineer.
 
 [GitHub](https://github.com/nuysoft/)
+
+[Open Source Report Card](http://osrc.dfm.io/nuysoft)
+
+
