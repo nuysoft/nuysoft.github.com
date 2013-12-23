@@ -454,7 +454,10 @@ var data = {
         home: 'http://fluentconf.com/fluent2013',
         desc: ''
     }],
-    Blog: [],
+    Blog: [
+        'https://blog.othree.net/',
+        'http://www.web-tinker.com/'
+    ],
     Resources: [{
         name: 'Echo JS',
         home: 'http://www.echojs.com/',

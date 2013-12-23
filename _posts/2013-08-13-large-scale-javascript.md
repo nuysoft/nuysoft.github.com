@@ -8,6 +8,8 @@ tags: [翻译, JavaScript, Architecture, Web]
 ---
 {% include JB/setup %}
 
+> 原文：[Patterns For Large-Scale JavaScript Application Architecture](http://addyosmani.com/largescalejavascript/) by [@Addy Osmani](https://twitter.com/addyosmani)
+
 <!-- **Today we're going to discuss an effective set of patterns for large-scale JavaScript application architecture. The material is based on my talk of the same name, last presented at LondonJS and inspired by [previous work](http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/) by Nicholas Zakas.** -->
 **今天我们要讨论大型 JavaScript 应用架构中的有效模式。这篇文章基于我最近在 LondonJS 的同名演讲，灵感则来自 Nicholas Zakas [之前的成果](http://yuilibrary.com/theater/nicholas-zakas/zakas-architecture/)。**
 
@@ -800,7 +802,6 @@ AER 通过引入基于命名约定的自动连接模式，解决了订阅者到�
 Thanks to Nicholas Zakas for his original work in bringing together many of the concepts presented today; Andrée Hansson for his kind offer to do a technical review of the post (as well as his feedback that helped improve it); Rebecca Murphey, Justin Meyer, John Hann, Peter Michaux, Paul Irish and Alex Sexton, all of whom have written material related to the topics discussed in the past and are a constant source of inspiration for both myself and others.-->
 
 <hr>
-> 原文：[Patterns For Large-Scale JavaScript Application Architecture](http://addyosmani.com/largescalejavascript/) by [@Addy Osmani](https://twitter.com/addyosmani)
 
 <link href="/assets/codemirror/lib/codemirror.css" rel="stylesheet">
 <link href="/assets/codemirror/theme/neat.css" rel="stylesheet">
