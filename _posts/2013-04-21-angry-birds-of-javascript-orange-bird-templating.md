@@ -84,7 +84,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## Why Use a Templating Engine? -->
 ## 为什么要使用模板引擎？
 <!-- Before we get into what templating engines I recommend let's first look into why we might need one in the first place. The more I develop I try to find ways to separate the various parts of my application. I start to feel dirty when too much stuff is going on in the same place. Take a look at the following piece of code and tell me how you feel... -->
-在开始模板引擎之前，我建议先看看为什么需要模板引擎。我开发的越多，就越想试图找到将应用的各个部分分开的方式。当太多的东西在同一个地方运行中，我开始觉得恶心。看看下面这段代码，然后告诉我你的感受...
+在开始模板引擎之前，我建议先看看为什么需要模板引擎。我开发的越多，就越想试图找到将应用的各个部分分开的方式。当太多的东西在同一个地方运行，我开始觉得恶心。看看下面这段代码，然后告诉我你的感受...
 
   <script src="https://gist.github.com/elijahmanor/5324961.js?file=before.js">
   </script>

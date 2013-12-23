@@ -70,8 +70,9 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
 * √ setTimeout vs setInterval
 * √ unwatch
 * √ unbind
-* 定位符优化（预编译）
-* 
+* 定位符优化（预编译），避免重复解析定位符
+* input 也需要定时检测吗？可以避免在通过代码修正 input 的值还需要触发 change 事件
+* select 中默认选中的 option 需要在初始化时同步 value 吗？
 * 数据与多个模板的绑定：
     * 绑定
     * 记录和跟踪
@@ -80,7 +81,7 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
 * X form: data-model=""
 * form
     * √ input 如果由 input 触发，则不修改 input 的属性 value
-    * radio 点击其中一个后，需要同步更新同名的其他 radio
+    * √ radio 点击其中一个后，需要同步更新同名的其他 radio
 * script > comment
 * block: √ array, object, primitive
 * array event: add delete update
