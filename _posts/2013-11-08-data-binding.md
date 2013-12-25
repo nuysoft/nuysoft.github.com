@@ -87,7 +87,7 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
 * array event: add delete update
 * object event: add delete update
 * img src
-* wrapper: 默认为模板包裹一层，否则会取不到更新后的元素
+* √ wrapper: 默认为模板包裹一层，否则会取不到更新后的元素
 * binding.js 的 DOM 操作代码移至 flush.js
 * 为属性单独定义响应代码
 * 测试用例增加名称 arguments.callee.name, test/loop.js
@@ -97,8 +97,11 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
     * 多了些标签，js操作时用的选择器可能会变
     * 那种有结构的，数据什么的都是有非常固定的绑定规则的
     * 如果我想数据改变后，隔1s再刷新
-* attribute-block
-* attribute-expression
+    * <div {{#if x}}class=ok{{/if}}>（不支持）
+    * 注释在 title 标签内无效（不需要处理）
+    * 注释在 textarea 标签内无效（会自动更新 value()）
+* √ attribute-block
+* √ attribute-expression
 
 # 窗口
 1. 数据
