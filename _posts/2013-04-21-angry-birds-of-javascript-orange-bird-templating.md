@@ -4,7 +4,7 @@ title: "模板 - 分离展现和逻辑"
 tagline: "Templating"
 description: "在代码中混入标记会导致一些让人讨厌的代码，这样的代码繁琐、单调，并且难以维护。像 Underscore 和 Handlebars 这样的库提供了一种清晰的方式，将展现描述从逻辑中分离出来。你可以自由选择使用什么库，但是我鼓励你多进行一些比较，找到最适合你的库。"
 category-substitution: 翻译
-tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "Templating"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "Templating", Architecture]
 
 short: "模板 - 分离展现和逻辑"
 pgroup: "前端 JavaScript 架构"

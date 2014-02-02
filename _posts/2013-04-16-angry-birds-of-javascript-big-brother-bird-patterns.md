@@ -4,7 +4,7 @@ title: "模式"
 tagline: "Patterns"
 description: "成熟的设计模式和有限状态机。"
 category-substitution: 翻译
-tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "jQuery"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "jQuery", Architecture]
 published: true
 
 short: "模式"
@@ -16,7 +16,8 @@ pgroup: "前端 JavaScript 架构"
 
 <!-- ## Introduction -->
 ## 简介
-![](http://3.bp.blogspot.com/-mwxJ0DGmvGI/UWCKOt-Lx6I/AAAAAAAAZ14/od_wDw_B5mk/s1600/angry-birds-big-red-bird.jpg)
+![](/assets/angry-birds/Jrmy6j.jpg)
+<!-- ![](http://3.bp.blogspot.com/-mwxJ0DGmvGI/UWCKOt-Lx6I/AAAAAAAAZ14/od_wDw_B5mk/s1600/angry-birds-big-red-bird.jpg) -->
 <!-- ![](http://3.bp.blogspot.com/-mwxJ0DGmvGI/UWCKOt-Lx6I/AAAAAAAAZ14/od_wDw_B5mk/s320/angry-birds-big-red-bird.jpg) -->
 
 <!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
@@ -35,8 +36,9 @@ pgroup: "前端 JavaScript 架构"
 
 [系列介绍文章]: http://www.elijahmanor.com/2013/03/angry-birds-of-javascript-series.html
 
+![](/assets/angry-birds/uiIFFr.png)
 <!-- ![](http://4.bp.blogspot.com/-wqME_pIXlMg/UWCKU5PVcVI/AAAAAAAAZ2A/yoODl8TYwKU/s1600/big-brother-bird.png) -->
-![](http://4.bp.blogspot.com/-wqME_pIXlMg/UWCKU5PVcVI/AAAAAAAAZ2A/yoODl8TYwKU/s1600/big-brother-bird.png)
+<!-- ![](http://4.bp.blogspot.com/-wqME_pIXlMg/UWCKU5PVcVI/AAAAAAAAZ2A/yoODl8TYwKU/s1600/big-brother-bird.png) -->
           
 <!-- ### Previous Attacks -->
 ### 战报
@@ -259,7 +261,8 @@ pgroup: "前端 JavaScript 架构"
 <!-- > Press the `space bar` to launch the Big Brother Bird and you can also use the arrow keys. -->
 > 按下`空格键`来发射大鸟哥，你也可以使用方向键。
 
-[![](http://1.bp.blogspot.com/-HjiGrN3B7jg/UWDO-fHTJgI/AAAAAAAAZ2Q/-sshCm882k4/s1600/big-brother-bird-game.png)](http://jsfiddle.net/k6VCt/show)
+[![](/assets/angry-birds/NNb6ri.png)](http://jsfiddle.net/k6VCt/show)
+<!-- [![](http://1.bp.blogspot.com/-HjiGrN3B7jg/UWDO-fHTJgI/AAAAAAAAZ2Q/-sshCm882k4/s1600/big-brother-bird-game.png)](http://jsfiddle.net/k6VCt/show) -->
 
 <!-- ## Conclusion -->
 ## 结论

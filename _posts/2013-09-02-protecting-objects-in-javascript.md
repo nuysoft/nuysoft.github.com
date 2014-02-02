@@ -4,7 +4,7 @@ title: "在 JavaScript 中保护对象"
 tagline: "Protecting Objects in JavaScript"
 description: "快速复习如何在 JavaScript 中保护对象：1) 阻止扩展 Object.preventExtensions(obj)，2) 封闭对象 Object.seal(obj)，3) 冻结对象 Object.freeze(obj)。"
 category-substitution: 翻译
-tags: [翻译, dev, javascript, jslang]
+tags: [翻译, JavaScript, dev, jslang]
 ---
 {% include JB/setup %}
 

@@ -4,7 +4,7 @@ title: "模块化 &amp; 依赖管理 &amp; 性能优化"
 tagline: "RequireJS"
 description: "Web 前端应用可以快速变得相当复杂。理想的做法是提供某种结构和依赖关系管理，以及用一种简单的方式优化最终结果。"
 category-substitution: 翻译
-tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "RequireJS"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "RequireJS", Architecture]
 
 short: "模块化 &amp; 依赖管理 &amp; 性能优化"
 pgroup: "前端 JavaScript 架构"
@@ -15,7 +15,10 @@ pgroup: "前端 JavaScript 架构"
 
 <!-- ## Introduction -->
 ## 简介
-![](http://4.bp.blogspot.com/-6p5Xgjlsmhk/UVZlEo_QOKI/AAAAAAAAY9k/BBXhjrfp42U/s1600/Angry-Birds-Logo.png)
+
+![](/assets/angry-birds/URFFBj.png)
+
+<!-- ![](http://4.bp.blogspot.com/-6p5Xgjlsmhk/UVZlEo_QOKI/AAAAAAAAY9k/BBXhjrfp42U/s1600/Angry-Birds-Logo.png) -->
 <!-- ![](http://4.bp.blogspot.com/-6p5Xgjlsmhk/UVZlEo_QOKI/AAAAAAAAY9k/BBXhjrfp42U/s320/Angry-Birds-Logo.png) -->
 
 <!-- A diabolical herd of pigs stole all of the front-end architecture from an innocent flock of birds and now they want it back! A team of special agent hero birds will attack those despicable pigs until they recover what is rightfully theirs, front-end JavaScript architecture! -->
@@ -43,8 +46,10 @@ pgroup: "前端 JavaScript 架构"
 
 <!-- ### Yellow Bird Attacks -->
 ### 黄色小鸟的攻击
+
+![](/assets/angry-birds/QNZFJb.png)
 <!-- ![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png) -->
-![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png)
+<!-- ![](http://4.bp.blogspot.com/-eBq1DHq7P64/UVZlP7q4zMI/AAAAAAAAY9s/g5Ii1ZrLIbs/s1600/yellow-bird.png) -->
 
 <!-- In this post we will take a look at the Yellow Bird who comes with a [RequireJS](http://requirejs.org/) speed booster and dynamically injects scripts against those pesky swine. Slowly, one by one, the birds will take back what it theirs to keep! -->
 在这片文章中，我们将看看黄色小鸟，它用速度助推器 [RequireJS] 和动态注入脚本攻击那些讨厌的猪。渐渐地，小鸟们将一个接一个地夺回属于它们的东西！
@@ -54,7 +59,7 @@ pgroup: "前端 JavaScript 架构"
 <!-- ## What Was Stolen by the Pigs? -->
 ## 猪偷走了什么？
 <!-- The birds used to manually add script tags to their HTML files. At first this wasn't an issue, but when their application started to grow larger and more complex it started to become difficult for them to organize their code, figure out dependencies, and determine a strategy for optimizing performance. Thankfully they were introduced to the [RequireJS](http://requirejs.org/) library which provided them a way to manage their code into modules, load their scripts asynchronously, manage their dependencies, and provide an easy way to optimize. Unfortunately the pigs, during a recent invasion, stole the RequireJS library from the birds. -->
-小鸟们过去经常手动向 HTML 文件中添加 script 标签。起初这不是一个问题，但是当它们的应用开始变得更大更复杂时，组织代码、解决依赖关系和确定性能优化策略变得困难重重。值得庆幸的是，小鸟们引入了 [RequireJS] 库，这个库可以管理代码模块、异步加载脚本、管理依赖关系，并提供了一种简单的优化方式。不幸的是，在最近的一次入侵中，猪群从小鸟们那里偷走了 RequireJS 库。
+小鸟们过去经常手动向 HTML 文件中添加 script 标签。起初这不是一个问题，但是当它们的应用开始变得更大更复杂时，组织代码、解决依赖关系和确定性能优化策略变得困难重重。值得庆幸的是，小鸟们引入了 [RequireJS] 库，这个库可以**管理代码模块、异步加载脚本、管理依赖关系**，并提供了一种**简单的优化方式**。不幸的是，在最近的一次入侵中，猪群从小鸟们那里偷走了 RequireJS 库。
 
 <!-- One of the yellow birds has been tasked to reclaim what has been stolen. He will use the optimization power of speed to help destroy the pigs in order to take back what is theirs. -->
 一只黄色小鸟被派去夺回被盗的 RequireJS 库。它将用加速度的力量摧毁猪群，夺回属于它们的东西。
@@ -70,19 +75,20 @@ pgroup: "前端 JavaScript 架构"
 <!-- The above code looks pretty straightforward, but when I end up running the page I get the following error in the dev tool's console... -->
 上面的代码看起来相当简单，但当我运行这个网页时，开发工具的控制台打印了下面的错误...
 
+![](/assets/angry-birds/zaq6ba.png)
 <!-- ![](http://1.bp.blogspot.com/-ry8ojeQF3OI/UVZosPNPtVI/AAAAAAAAY94/0Catr-PQzbo/s1600/3-29-2013+10-36-11+PM.png) -->
-![](http://1.bp.blogspot.com/-ry8ojeQF3OI/UVZosPNPtVI/AAAAAAAAY94/0Catr-PQzbo/s1600/3-29-2013+10-36-11+PM.png)
+<!-- ![](http://1.bp.blogspot.com/-ry8ojeQF3OI/UVZosPNPtVI/AAAAAAAAY94/0Catr-PQzbo/s1600/3-29-2013+10-36-11+PM.png) -->
 
 <!-- Fictitious Internal Dialog: "WHAT!?! I don't see any `each` method anywhere. What's up with that? Ohh man, it looks like the exception occurred in postal.min.js somewhere. FOUND A BUG... see if I use that library again. But, wait!?! Ohh, maybe something else is going on here." -->
 内心对白：“什么！？！我没有在任何地方看到 `each` 方法。这到底是怎么回事？哦，天啊，看起来像是在 postal.min.js 的某处发生的异常。发现了一个 BUG... 但是等等！？！哦，这里面可能还有别的东西。”
 
 <!-- So, the real issue isn't a bug in postal.js, the issue is in that postal.js has a dependency on underscore.js. The problem is that underscore should have been loaded before postal.js. Simply rearranging the script tags could easily solve this issue. In the above case the fix was trivial, but imagine how cumbersome this could be once the project starts to get large and requires lots of scripts. -->
-好吧，真正的问题并不是 postal.js 的 bug，而是 postal.js 依赖于 underscore.js。而 underscore.js 应该在 postal.js 之前就被加载。通过简单的重新排列 script 标签就能很容易地解决这个问题。在上述情况下的修复显然微不足道，但是想像一下，一旦项目开始变大，并且需要大量的脚本时，修复工作会变得多么繁重。
+好吧，真正的问题并不是 postal.js 的 bug，而是 postal.js 依赖于 underscore.js。而 underscore.js 应该在 postal.js 之前就被加载。通过简单的重新排列 script 标签，就能很容易地解决这个问题。在上述情况下的修复显然微不足道，但是想像一下，一旦项目开始变大，并且需要大量的脚本时，修复工作会变得多么繁重。
 
 <!-- ## RequireJS Basics -->
 ## RequireJS 基础
 <!-- Before we go and look at how we could fix the above situation using RequireJS, let's first take a high level overview of what the library is doing for us. RequireJS is an Asynchronous Module Loader and the API it provides allows us to define and require modules. Both functions are really easy to understand so let's take a look at them. -->
-在开始看如何用 RequireJS 解决上述情况之前，让我们先来高度概括一下这个库能为我们做些什么。RequireJS 时一个异步模块加载器，提供的 API 允许我们定义和请求模块。这两个功能都很好理解，所以我们看看它们。
+在开始看如何用 RequireJS 解决上述情况之前，让我们先来高度概括一下这个库能为我们做些什么。RequireJS 是一个异步模块加载器，提供的 API 允许我们定义和请求模块。这两个功能都很好理解，所以我们先看看它们。
 
 <!-- ### define method -->
 ### 定义方法
@@ -177,7 +183,8 @@ pgroup: "前端 JavaScript 架构"
 <!-- > Press the `space bar` to launch the Yellow Bird and you can also use the arrow keys. -->
 > 按下`空格键`来发射黄色小鸟，你也可以使用方向键。
 
-[![](http://1.bp.blogspot.com/-BvvbLg5ACrI/UVZoyYxCmSI/AAAAAAAAY-E/G7I6uezUKV0/s1600/3-29-2013+11-19-41+PM.png)](http://jsfiddle.net/Gue8x/show)
+[![](/assets/angry-birds/UBrIBn.png)](http://jsfiddle.net/Gue8x/show)
+<!-- [![](http://1.bp.blogspot.com/-BvvbLg5ACrI/UVZoyYxCmSI/AAAAAAAAY-E/G7I6uezUKV0/s1600/3-29-2013+11-19-41+PM.png)](http://jsfiddle.net/Gue8x/show) -->
 
 <!-- ## Conclusion -->
 ## 结论

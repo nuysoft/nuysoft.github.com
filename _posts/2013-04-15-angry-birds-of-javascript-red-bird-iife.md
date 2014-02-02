@@ -4,7 +4,7 @@ title: "立即调用的函数表达式"
 tagline: "Immediately-invoked Function Expression"
 description: "保护代码免受其他代码的干扰，并且通过封装的方式组织你的代码。"
 category-substitution: 翻译
-tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "IIFE"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "IIFE", Architecture]
 published: true
 
 short: "立即调用的函数表达式"

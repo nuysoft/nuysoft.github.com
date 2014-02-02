@@ -4,7 +4,7 @@ title: "如何设计出色的 JavaScript API"
 tagline: "Secrets of Awesome JavaScript API Design"
 description: "介绍艺术领域中常用的的 4 项设计原则：一致 & 协调、平衡、相衬、重点突出，并把它们应用到 API 设计中。"
 category-substitution: 翻译
-tags: [翻译, api, javascript]
+tags: [翻译, API, JavaScript]
 ---
 {% include JB/setup %}
 

@@ -4,7 +4,7 @@ title: "面向切面编程简介"
 tagline: Intro to Aspect Oriented Programming
 description: "面向切面编程（AOP）是一种增强对象和方法的行为的技术，可以无侵入地增加功能。AOP 允许你从“外部”增加新行为，以及合并和修改既有的行为。"
 category-substitution: 翻译
-tags: [翻译, aop, javascript]
+tags: [翻译, AOP, JavaScript]
 ---
 {% include JB/setup %}
 

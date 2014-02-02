@@ -4,7 +4,7 @@ title: "模拟请求 &amp; 模拟数据"
 tagline: "Mockjax &amp; mockJSON"
 description: "前端开发人员可以借助一些技术和库，从而独立于后端的进度进行开发和构建原型。模拟静态数据还可以帮助构建单元测试。"
 category-substitution: 翻译
-tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "jQuery"]
+tags: [翻译, "Angry Birds of JavaScript", "JavaScript", "Web", "jQuery", Architecture]
 published: true
 
 ready: false
