@@ -1,0 +1,48 @@
+blockquote p {
+    font-size: 14px;
+    font-weight: normal;
+    color: #777;
+}
+
+strong {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+/* 2013-year-end-summary */
+@font-face {
+    font-family: 'logo';
+    src: url('http://at.alicdn.com/t/font_1390195988_9420388.eot'); /* IE9*/
+    src: url('http://at.alicdn.com/t/font_1390195988_9420388.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('http://at.alicdn.com/t/font_1390195989_0386753.woff') format('woff'), /* chrome、firefox */
+    url('http://at.alicdn.com/t/font_1390195988_7969282.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('http://at.alicdn.com/t/font_1390195989_0668917.svg#svgFontName') format('svg'); /* iOS 4.1- */
+}
+.iconlogo {
+    font-family: "logo";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    display: inline-block;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.product {
+    margin-left: 0px;
+}
+.product .span2 {
+	text-align: center;
+}
+.product .span2:hover {
+	background-color: #ED4242;
+}
+.product .iconlogo {
+    font-size: 78px;
+    color: #BEBEBE;
+    /* #428BCA */
+}
+.product .span2:hover .iconlogo {
+	color: #FFF;
+}
