@@ -68,12 +68,14 @@ published: true
 
 <a href="/2013/04/15/angry-birds-of-javascript/"><img src="/assets/angry-birds/angrybirds_620x200.jpg" style="width: 100%"></a>
 
-翻译方面，基本每周会翻译一篇专业方面的文章，博客上更新了 30+ 篇。开始时只是些短小简单的文章，翻译质量很欢乐（烂到不行），后来逐渐尝试一些长篇和系列文章，诸如 [ECMAScript 6 系列]、[前端 JavaScript 架构系列]、[大型 JavaScript 应用架构中的模式]、[异步编程系列]、[如何设计出色的 JavaScript API]，算是尚能一观。大致是由于起点低的缘故，自我感觉收益颇丰，所以 2014 年还会继续糟蹋优秀文章的。
+翻译方面，基本每周会翻译一篇专业方面的文章，博客上更新了 30+ 篇。开始时只是些短小简单的文章，翻译质量很欢乐（烂到不行），后来逐渐尝试一些长篇和系列文章，诸如 [ECMAScript 6 系列]、[前端 JavaScript 架构之愤怒的小鸟系列]、[大型 JavaScript 应用架构中的模式]、[异步编程系列]、[如何设计出色的 JavaScript API]，算是尚能一观。大致是由于起点低的缘故，自我感觉收益颇丰，所以 2014 年还会继续糟蹋优秀文章的。
+
+![](/assets/2013-year-end-summary/white_book.jpg)
 
 原创博文倒退一大步，没有任何更新，2014 年边学边写吧。
 
 [ECMAScript 6 系列]: /2013/04/03/es6/
-[前端 JavaScript 架构系列]: /2013/04/15/angry-birds-of-javascript/
+[前端 JavaScript 架构之愤怒的小鸟系列]: /2013/04/15/angry-birds-of-javascript/
 [大型 JavaScript 应用架构中的模式]: /2013/08/13/large-scale-javascript/
 [异步编程系列]: /2013/08/29/async-programming/
 [如何设计出色的 JavaScript API]: /2013/09/24/secrets-of-awesome-javascript-api-design/
