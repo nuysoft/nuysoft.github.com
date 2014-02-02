@@ -28,33 +28,39 @@
     GitHub 前 1000 名分类：
     https://github.com/jquery/jquery        Sizzle, Cache, Queue, Promise, DOM, Attribute, CSS, Aja, Effect
 
+    [Publish Early, Publish Often](https://leanpub.com/)
 
+    [五种开源协议的比较(BSD,Apache,GPL,LGPL,MIT) – 整理](http://www.awflasher.com/blog/archives/939)
+
+    https://sourcegraph.com/nuysoft
+    http://howtonode.org/
 
 */
 var data = {
     'Specifications': [{
         name: 'HTML',
-        home: 'http://www.w3.org/html/',
+        url: 'http://www.w3.org/html/',
         desc: 'the Hypertext Markup Language'
     }, {
         name: 'CSS',
-        home: 'http://www.w3.org/Style/CSS/',
+        url: 'http://www.w3.org/Style/CSS/',
         desc: 'Cascading Style Sheets'
     }, {
         name: 'JAVASCRIPT WEB APIS',
-        home: 'http://www.w3.org/standards/webdesign/script',
+        url: 'http://www.w3.org/standards/webdesign/script',
         desc: ''
     }, {
         name: 'ECMAScript',
-        home: 'http://www.ecmascript.org/',
+        url: 'http://www.ecmascript.org/',
         desc: ['<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ES5</a>',
             '<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6</a>'
         ].join(' ')
     }, {
         name: 'HTTP',
-        home: 'http://www.w3.org/Protocols/rfc2616/rfc2616.html',
+        url: 'http://www.w3.org/Protocols/rfc2616/rfc2616.html',
         desc: 'Hypertext Transfer Protocol'
     }],
+
     JavaScript: [{
         name: 'ECMAScript 5'
     }, {
@@ -64,43 +70,45 @@ var data = {
     }, {
         name: 'CoffeeScript'
     }],
+
     HTML: [{
         name: 'HTML5',
-        home: 'http://www.w3.org/html/wg/drafts/html/master/',
+        url: 'http://www.w3.org/html/wg/drafts/html/master/',
         desc: ''
     }, {
         name: 'Markdown',
-        home: 'http://www.w3.org/html/wg/drafts/html/master/',
+        url: 'http://www.w3.org/html/wg/drafts/html/master/',
         desc: ''
     }, {
         name: 'YAML',
-        home: 'http://www.w3.org/html/wg/drafts/html/master/',
+        url: 'http://www.w3.org/html/wg/drafts/html/master/',
         desc: ''
     }],
+
     CSS: [{
         name: 'CSS2'
     }, {
         name: 'CSS3'
     }, {
         name: 'LESS',
-        home: 'http://lesscss.org/',
+        url: 'http://lesscss.org/',
         icon: '',
         desc: ''
     }, {
         name: 'SASS',
-        home: 'http://sass-lang.com/',
+        url: 'http://sass-lang.com/',
         icon: 'http://sass-lang.com/images/sass.gif',
         desc: 'Syntactically Awesome Stylesheets'
     }, {
         name: 'cssmin'
     }, {
         name: 'Stylus',
-        home: 'http://learnboost.github.io/stylus/',
+        url: 'http://learnboost.github.io/stylus/',
         icon: 'http://learnboost.github.io/stylus/assets/stylus.png',
         desc: 'Expressive, dynamic, robust CSS'
     }, {
         name: 'Bootstrap 3',
-        home: 'http://getbootstrap.com/',
+        url: 'http://getbootstrap.com/',
         desc: 'Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.'
     }, {
         name: 'Responsive Design',
@@ -108,54 +116,68 @@ var data = {
     }, {
         name: 'Compatiblity'
     }, {
-        home: 'http://usablica.github.io/front-end-frameworks/compare.html?v=2.0'
+        url: 'http://usablica.github.io/front-end-frameworks/compare.html?v=2.0'
     }, {
-        home: 'http://www.cssflow.com/snippets'
+        url: 'http://www.cssflow.com/snippets'
     }],
+
     DOM: [{
         name: 'DOM 3',
         desc: ['DOM', 'Event', 'Ajax'].join(' ')
     }, {
         name: 'DOM 2'
     }],
+
     Modularity: [{
         name: 'AMD', // https://github.com/amdjs/amdjs-api/wiki
-        home: 'http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition',
+        url: 'http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition',
         desc: 'Asynchronous Module Definition'
     }, {
         name: 'CMD',
-        home: 'http://wiki.commonjs.org/wiki/Modules/1.1.1',
+        url: 'http://wiki.commonjs.org/wiki/Modules/1.1.1',
         desc: 'Common Module Definition'
+        // [CMD 模块定义规范](https://github.com/seajs/seajs/issues/242)
+        // [Common Module Definition](https://github.com/cmdjs/specification/blob/master/draft/module.md)
     }, {
         name: 'RequireJS',
-        home: 'http://requirejs.org/',
+        url: 'http://requirejs.org/',
         desc: 'JavaScript file and module loader'
     }, {
         name: 'Sea.js',
-        home: 'http://seajs.org/',
+        url: 'http://seajs.org/',
         desc: 'A Module Loader for the Web'
+    }, {
+        name: 'SeaJS 所为何',
+        url: 'http://cyj.me/why-seajs/zh/'
     }],
+
     Tool: [{
         name: 'jQuery',
-        home: 'http://jquery.com/',
+        url: 'http://jquery.com/',
         desc: ['New Wave JavaScript', '<a href="http://sizzlejs.com/">Sizzle</a>'].join(' ')
     }, {
         name: 'Underscore',
-        home: 'http://underscorejs.org/',
+        url: 'http://underscorejs.org/',
         desc: 'A Utility-Belt Library'
     }, {
         name: 'Lazy',
         desc: '-'
     }, {
-        home: 'http://www.regexper.com/'
+        url: 'http://www.regexper.com/'
     }],
+
     SPA: [{
         name: 'ExtJS',
         desc: '-'
     }, {
         name: 'Angular.js',
-        desc: '-'
+        desc: '-',
+        other: [
+            ['Angular Tips - Join us in our way to learning Angular.js', 'http://angular-tips.com/']
+            ['$watch How the $apply Runs a $digest', 'http://angular-tips.com/blog/2013/08/watch-how-the-apply-runs-a-digest/']
+        ]
     }],
+
     'MV*': [{
         name: 'Backbone',
         desc: '-'
@@ -164,22 +186,30 @@ var data = {
     }, {
         name: 'Knockout',
         desc: '-'
+    }, {
+        name: 'BiSheng.js'
     }],
+
     Templating: [{
-        name: 'Template Engine Chooser'
+        name: 'Template Engine Chooser',
+        url: 'http://garann.github.io/template-chooser/'
     }, {
-        name: 'Mustache'
+        name: 'Mustache',
+        url: 'http://mustache.github.io/'
     }, {
-        name: 'Handlebars.js'
+        name: 'Handlebars.js',
+        url: 'http://handlebarsjs.com/'
     }, {
-        name: 'Dust.js'
+        name: 'Dust.js',
+        url: 'http://akdubya.github.io/dustjs/'
     }, {
         name: 'Micro-Templating',
-        home: 'http://ejohn.org/blog/javascript-micro-templating/'
+        url: 'http://ejohn.org/blog/javascript-micro-templating/'
     }],
+
     API: [{
         name: 'RESTful',
-        home: '',
+        url: '',
         desc: '',
     }],
 
@@ -196,7 +226,11 @@ var data = {
     }, {
         name: 'Coding Style',
         desc: ['<a href="https://github.com/airbnb/javascript">airbnb/javascript</a>'].join(' ')
+    }, {
+        name: 'Learning JavaScript Design Patterns',
+        desc: 'http://addyosmani.com/resources/essentialjsdesignpatterns/book/'
     }],
+
     Beautifier: [{
         name: 'CSS'
     }, {
@@ -204,27 +238,30 @@ var data = {
     }, {
         name: 'JavaScript'
     }],
+
     Editor: [{
         name: 'codemirror'
     }],
+
     'Online services': [{
         name: 'JSFiddle',
-        home: 'http://jsfiddle.net/'
+        url: 'http://jsfiddle.net/'
     }, {
         name: 'JS Bin',
-        home: 'http://jsbin.com/'
+        url: 'http://jsbin.com/'
     }, {
         name: 'Plunker',
-        home: 'http://plnkr.co/',
+        url: 'http://plnkr.co/',
         desc: 'Plunker is an online community for creating, collaborating on and sharing your web development ideas.'
     }, {
         name: 'CodePen',
-        home: 'http://codepen.io/'
+        url: 'http://codepen.io/'
     }, {
-        home: 'http://colourco.de/'
+        url: 'http://colourco.de/'
     }, {
-        home: 'http://www.responsinator.com/'
+        url: 'http://www.responsinator.com/'
     }],
+
     Testing: [{
         name: 'QUnit'
     }, {
@@ -233,34 +270,38 @@ var data = {
         name: 'Mocha'
     }, {
         name: 'WebDriver'
+    }, {
+        name: 'Mock.js'
     }],
+
     'Automation & Build': [{
         name: 'Grunt'
     }, {
         name: 'Twitter Bower',
-        home: ''
+        url: ''
     }, {
         name: 'Yeoman'
     }, {
         name: 'UglifyJS'
     }, {
         name: 'Semantic Versioning',
-        home: 'http://semver.org/',
+        url: 'http://semver.org/',
         desc: ''
     }, {
         name: 'node-semver',
-        home: 'https://github.com/isaacs/node-semver',
+        url: 'https://github.com/isaacs/node-semver',
         desc: 'The semantic versioner for npm'
     }],
     Server: [{
         name: 'Node.js'
     }, {
         name: 'Express',
-        home: 'https://github.com/visionmedia/express'
+        url: 'https://github.com/visionmedia/express'
     }],
     DataBase: [{
-        home: 'http://sequelizejs.com/'
+        url: 'http://sequelizejs.com/'
     }],
+
     'IDE & Dev Tool': [{
         name: 'Sublime & Plugins'
     }, {
@@ -291,6 +332,7 @@ var data = {
     }, {
         name: 'npm'
     }],
+
     Component: [],
 
     Chart: [{
@@ -304,59 +346,62 @@ var data = {
     }],
     'Community': [{
         name: 'stackoverflow',
-        home: 'http://stackoverflow.com/'
+        url: 'http://stackoverflow.com/'
     }],
     DOCS: [{
         name: 'MDN'
     }],
     'Email Group': [{
         name: 'JavaScript Weekly',
-        home: 'http://javascriptweekly.com/',
+        url: 'http://javascriptweekly.com/',
         desc: 'A free, once–weekly e-mail round-up of JavaScript news and articles.'
     }, {
         name: 'Responsive Design Weekly',
-        home: 'http://responsivedesignweekly.com/',
+        url: 'http://responsivedesignweekly.com/',
         desc: 'A free, once–weekly round-up of responsive design articles, tools, tips, tutorials and inspirational links.'
     }, {
         name: 'Sidebar',
-        home: 'http://sidebar.io/',
+        url: 'http://sidebar.io/',
         desc: 'The 5 best design links, every day'
     }, {
         name: 'CSS Weekly',
-        home: 'http://css-weekly.com/',
+        url: 'http://css-weekly.com/',
         desc: 'weekly e-mail roundup of css articles, tutorials, experiments and tools'
     }, {
         name: 'Web Design Weekly News',
-        home: 'http://web-design-weekly.com/',
+        url: 'http://web-design-weekly.com/',
         desc: 'A once a week email with no spam, no rambling. Just pure awesome links to the best news and articles to hit the interweb during the week.'
     }, {
         name: 'HTML5 Weekly',
-        home: 'http://html5weekly.com/',
+        url: 'http://html5weekly.com/',
         desc: 'Top browser technology news and links straight to your inbox, weekly'
     }, {
         name: 'Front-end Weekly',
-        home: 'http://www.frontendweekly.net/',
+        url: 'http://www.frontendweekly.net/',
         desc: ''
     }, {
         name: 'Web Tools Weekly',
-        home: 'http://webtoolsweekly.com/',
+        url: 'http://webtoolsweekly.com/',
         desc: 'A weekly newsletter for front-end developers'
     }, {
         name: 'Frontend Weekly',
-        home: 'http://netzartist.de/blog/',
+        url: 'http://netzartist.de/blog/',
         desc: ''
     }, {
         name: 'Frontend Weekly',
-        home: 'http://www.scoop.it/t/netzartist',
+        url: 'http://www.scoop.it/t/netzartist',
         desc: ''
     }],
     Browser: [{
-        name: 'Old App'
+        name: 'Old App',
+        url: 'http://www.oldapps.com/'
+
     }],
-    // https://leanpub.com/oopinjavascript
-    // http://it-ebooks.info/book/283/
+
+    // [Principles of Object-Oriented Programming in JavaScript](https://leanpub.com/oopinjavascript)
+    // [Beautiful Visualization](http://it-ebooks.info/book/283/)
     Book: [{
-        name: 'The Definitive Guide'
+        name: 'JavaScript - The Definitive Guide'
     }, {
         name: 'The Good Parts'
     }, {
@@ -372,8 +417,8 @@ var data = {
         name: 'Eloquent JavaScript',
         desc: 'A Modern Introduction to Programming'
     }, {
-        name: ' Closure: The Definitive Guide',
-        home: 'http://www.amazon.cn/Closure-The-Definitive-Guide-Bolin-Michael/dp/1449381871/ref=sr_1_1?ie=UTF8&qid=1383373186&sr=8-1&keywords=Closure%3A+The+Definitive+Guide',
+        name: 'Closure: The Definitive Guide',
+        url: 'http://www.amazon.cn/Closure-The-Definitive-Guide-Bolin-Michael/dp/1449381871/ref=sr_1_1?ie=UTF8&qid=1383373186&sr=8-1&keywords=Closure%3A+The+Definitive+Guide',
         desc: ''
     }, {
         name: 'JavaScript权威指南 第6版（影印版）',
@@ -388,70 +433,78 @@ var data = {
         name: '高性能JavaScript',
         desc: ''
     }, {
-        name: 'JAVASCRIPT语言精髓与编程实践',
+        name: 'JAVASCRIPT 语言精髓与编程实践',
         desc: ''
     }, {
-        name: '测试驱动的JavaScript开发（JavaScript敏捷测试指南）',
+        name: '测试驱动的 JavaScript 开发（JavaScript 敏捷测试指南）',
         desc: ''
     }, {
-        name: '深入浅出JavaScript（中文版）',
+        name: '深入浅出 JavaScript（中文版）',
         desc: ''
     }, {
-        name: 'JavaScript修炼之道',
+        name: 'JavaScript 修炼之道',
         desc: ''
     }, {
-        name: 'JavaScript设计模式',
+        name: 'JavaScript 设计模式',
         desc: ''
     }, {
         name: '悟透JavaScript',
         desc: ''
     }, {
-        name: 'JavaScript标准',
+        name: 'JavaScript 标准',
         desc: ''
     }, {
         name: 'How to become an Advanced Front End Developer',
-        home: 'http://davidshariff.com/how-to-become-advanced-front-end-developer-ebook/'
+        url: 'http://davidshariff.com/how-to-become-advanced-front-end-developer-ebook/'
+    }, {
+        name: 'jQuery 技术内幕'
+        url: ''
+    }, {
+        name: 'Developing JavaScript Web Applications',
+        url: ''
+        desc:'基于 MVC 的 JavaScript Web 富应用开发'
     }],
+
     Reference: [{
         name: 'IE API Reference',
-        home: 'http://msdn.microsoft.com/en-us/library/hh772374(v=vs.85).aspx'
+        url: 'http://msdn.microsoft.com/en-us/library/hh772374(v=vs.85).aspx'
     }, {
         name: 'Web technology for developers',
-        home: 'https://developer.mozilla.org/en-US/docs/Web'
+        url: 'https://developer.mozilla.org/en-US/docs/Web'
     }, {
         name: 'WebGL: Up and Running',
-        home: 'http://shop.oreilly.com/product/0636920024729.do'
+        url: 'http://shop.oreilly.com/product/0636920024729.do'
     }, {
         name: 'Interactive 3D Graphics',
-        home: 'https://www.udacity.com/course/cs291'
+        url: 'https://www.udacity.com/course/cs291'
     }],
     'CheatSheet': [],
     'BBS': [{
         name: 'lanyrd.com',
-        home: 'http://lanyrd.com/topics/javascript/',
+        url: 'http://lanyrd.com/topics/javascript/',
         desc: 'JavaScript conferences and events'
     }, {
         name: 'Volocity'
         //  VelocityNY2013 http://yunpan.taobao.com/share/link/0112tTrNJ
     }, {
         name: 'D2 前端技术论坛',
-        home: '',
+        url: '',
         desc: 'Designer & Developer Front End Technology Forum'
     }, {
         name: 'London JS',
-        home: 'http://lanyrd.com/series/londonjs/',
+        url: 'http://lanyrd.com/series/londonjs/',
         desc: ''
     }, {
         name: 'JSConf',
-        home: 'http://jsconf.com/',
+        url: 'http://jsconf.com/',
         desc: 'Conferences for the JavaScript community.'
     }, {
         name: 'Edge NYC',
-        home: 'http://lanyrd.com/2013/edge-nyc/',
+        url: 'http://lanyrd.com/2013/edge-nyc/',
         desc: ''
     }, {
         name: 'Fluent',
-        home: 'http://fluentconf.com/fluent2013',
+        url: 'http://fluentconf.com/fluent2013',
         desc: ''
     }],
     Blog: [
@@ -460,86 +513,97 @@ var data = {
     ],
     Resources: [{
         name: 'Echo JS',
-        home: 'http://www.echojs.com/',
+        url: 'http://www.echojs.com/',
         desc: ''
     }, {
         name: 'HOW TO KEEP UP TO DATE ON FRONT-END TECHNOLOGIES',
-        home: 'http://uptodate.frontendrescue.org/',
+        url: 'http://uptodate.frontendrescue.org/',
         desc: ''
+    }, {
+        name: 'JS The Right Way',
+        url: 'http://jstherightway.org/'
+    }, {
+        name: 'Performance Calendar - The speed geek\'s favorite time of the year',
+        url: 'http://calendar.perfplanet.com/'
     }],
     Other: [{
         name: 'MANIFESTO',
-        home: 'http://www.manifesto.asia/',
+        url: 'http://www.manifesto.asia/',
         desc: 'A declaration of fashion, design and pop culture'
     }, {
-        name: '',
-        home: 'https://github.com/dypsilon/frontend-dev-bookmarks',
+        name: 'frontend-dev-bookmarks',
+        url: 'https://github.com/dypsilon/frontend-dev-bookmarks',
         desc: ''
     }],
     'Compatibility': [{
         name: 'Can I use...',
-        home: 'http://caniuse.com/',
+        url: 'http://caniuse.com/',
         desc: 'Compatibility tables for support of HTML5, CSS3, SVG and more in desktop and mobile browsers.'
     }, {
         name: 'QuirksMode.org',
-        home: 'http://www.quirksmode.org/',
+        url: 'http://www.quirksmode.org/',
         desc: 'the prime source for browser compatibility information on the Internet. '
     }],
     'Read List': [{
         name: 'Web Design and Web Development Agency',
-        home: 'http://www.ma-no.org/',
+        url: 'http://www.ma-no.org/',
         desc: ''
     }],
     'Learn': [{
         name: 'Learn the Front End',
-        home: 'http://pinterest.com/eanakashima/learn-the-front-end/',
+        url: 'http://pinterest.com/eanakashima/learn-the-front-end/',
         desc: 'Resources for HTML, CSS, JavaScript, and other front-end learning.'
     }, {
         name: 'Codecademy',
-        home: 'http://www.codecademy.com/',
+        url: 'http://www.codecademy.com/',
         desc: 'Learn to code interactively, for free.'
     }, {
         name: 'Code School',
-        home: 'http://www.codeschool.com/',
+        url: 'http://www.codeschool.com/',
         desc: 'Learn by Doing'
     }, {
         name: 'JavaScript Garden',
-        home: 'http://bonsaiden.github.io/JavaScript-Garden/',
+        url: 'http://bonsaiden.github.io/JavaScript-Garden/',
         desc: 'a growing collection of documentation about the most quirky parts of the JavaScript programming language.'
     }, {
         name: 'John Resig\'s Learning app',
-        home: 'http://ejohn.org/apps/learn' // http://ejohn.org/
+        url: 'http://ejohn.org/apps/learn' // http://ejohn.org/
     }, {
         name: 'art-of-node',
-        home: 'https://github.com/maxogden/art-of-node',
+        url: 'https://github.com/maxogden/art-of-node',
         desc: 'a short introduction to node.js'
+    }, {
+        name: '开课吧',
+        url: 'http://www.kaikeba.com/',
+        // http://www.kaikeba.com/Contents/dx/dx_content196.aspx#6669708-tsina-1-87808-1d5dcdfa105b9c347882ca2e4825a657
+        desc: ''
     }],
     'Test Framework': [{
         name: 'QUnit',
-        home: 'http://qunitjs.com/',
+        url: 'http://qunitjs.com/',
         desc: 'QUnit is a powerful, easy-to-use JavaScript unit testing framework.'
     }, {
         name: 'Jasmine',
-        home: 'http://pivotal.github.io/jasmine/',
+        url: 'http://pivotal.github.io/jasmine/',
         desc: 'DOM-less simple JavaScript testing framework'
     }, {
         name: 'Mocha',
-        home: 'http://visionmedia.github.io/mocha/',
+        url: 'http://visionmedia.github.io/mocha/',
         desc: 'simple, flexible, fun javascript test framework for node.js & the browser. (BDD, TDD, QUnit styles via interfaces)'
     }],
     'Test Platform': [{
         name: 'BrowserSwarm',
-        home: 'http://www.browserswarm.com/',
+        url: 'http://www.browserswarm.com/',
         desc: ''
     }],
 
     'Game': [{
-        home: 'http://jakearchibald.github.io/request-quest/'
+        url: 'http://jakearchibald.github.io/request-quest/'
     }, {
-        home: 'http://davidshariff.com/quiz/'
+        url: 'http://davidshariff.com/quiz/'
         // http://www.w3cplus.com/css/front-end-web-development-quiz.html
     }, {
-        home: 'http://jakearchibald.github.io/jank-invaders/'
+        url: 'http://jakearchibald.github.io/jank-invaders/'
     }],
 
     'Coding Guideline': [
@@ -565,15 +629,17 @@ var data = {
 
     'History': [{
         name: 'Frequently Misunderstood JavaScript Concepts',
-        home: 'http://bolinfest.com/javascript/misunderstood.html'
+        url: 'http://bolinfest.com/javascript/misunderstood.html'
     }],
+
     CDN: [{
-        home: 'http://www.uiframe.com/jscss.html'
+        url: 'http://www.uiframe.com/jscss.html'
     }, {
-        home: 'http://www.staticfile.org/'
+        url: 'http://www.staticfile.org/'
     }]
 }
 /*
+
 https://github.com/novus/nvd3
     chart doc
 https://github.com/facebook/react

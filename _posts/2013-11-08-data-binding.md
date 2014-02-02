@@ -58,7 +58,6 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
 * √ {{^list}}{{/list}} 当没有数据时显示的内容
 * √ 去掉表达式 path 的 guid，避免预渲染时因为 guid 变化导致最终的重复渲染
 * X 预渲染比较时去掉高亮样式
-* √ 浏览器兼容性测试
 * √ AttributeNode
 * √ helper
 * √ checkbox
@@ -68,8 +67,23 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
 * √ 改造 src 代码的结构
 * √ Hyde > BiSheng
 * √ setTimeout vs setInterval
-* √ unwatch
-* √ unbind
+* API 和事件
+    * √ bind √unbind √watch √unwatch
+    * X 事件顺序：
+    * 事件类型：渲染前、渲染中、渲染后
+* √ script > comment
+* √ 浏览器兼容性测试：
+    * √ IE6 IE8 IE9 IE10 IE11
+    * √ Chrome 
+    * √ Safari
+    * √ Firefox 
+    * √ Opera 
+* 支持 [KISSY XTempalte](http://docs.kissyui.com/1.4/docs/html/api/xtemplate/index.html)
+* √ Loop.* > BiSheng
+* 优化性能，从修改语法树、扫描语法树、更新数据、更新视图等环节。
+* √ 解决兼容性问题（IE）
+* how.md 增加 comment 占位符：
+    * 用 script 作为占位符的缺点
 * 定位符优化（预编译），避免重复解析定位符
 * input 也需要定时检测吗？可以避免在通过代码修正 input 的值还需要触发 change 事件
 * select 中默认选中的 option 需要在初始化时同步 value 吗？
@@ -82,18 +96,17 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
 * form
     * √ input 如果由 input 触发，则不修改 input 的属性 value
     * √ radio 点击其中一个后，需要同步更新同名的其他 radio
-* script > comment
 * block: √ array, object, primitive
 * array event: add delete update
 * object event: add delete update
-* img src
+* √ img src
 * √ wrapper: 默认为模板包裹一层，否则会取不到更新后的元素
-* binding.js 的 DOM 操作代码移至 flush.js
+* √ binding.js 的 DOM 操作代码移至 flush.js
 * 为属性单独定义响应代码
-* 测试用例增加名称 arguments.callee.name, test/loop.js
+* √ 测试用例增加名称 arguments.callee.name, test/loop.js
 * Mocha 测试用例
 * @三冰：
-    * 插入了这么多标记，会影响 js操作吧
+    * 插入了这么多标记，会影响 js 操作吧
     * 多了些标签，js操作时用的选择器可能会变
     * 那种有结构的，数据什么的都是有非常固定的绑定规则的
     * 如果我想数据改变后，隔1s再刷新
@@ -102,6 +115,38 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
     * 注释在 textarea 标签内无效（会自动更新 value()）
 * √ attribute-block
 * √ attribute-expression
+* 不需要写代码就可以初始化？
+* √ BiSheng.watch(data, properties, fn(change))
+* √ BiSheng.unwatch(data, properties, fn(change))
+* √ BiSheng.apply(data, function)
+* √ tc:
+    * √ BiSheng.watch(data, properties, fn(change))
+    * √ BiSheng.unwatch(data, properties, fn(change))
+* √ tc: 
+    * √ BiSheng.auto(false)
+    * √ BiSheng.apply(data, function)
+* √ 准备在钻展中应用：
+    * √ 提取对 jQuery 的依赖
+    * √ 引入 Handlebars.js
+    * √ 引入 jQuery
+* 如果确保视图之间的独立性？
+    - setTimeout
+* BiSheng.setDomLibrary()
+* BiSheng.setTemplateEngine()
+* 写法：
+    * attributeNode.nodeName vs attr.name
+    * attributeNode.nodeValue vs attr.value
+* 重构代码：提取特殊属性为 hooks：
+    * √ style
+    * √ src
+    * √ checked
+    * href
+    * boolean attributes
+    * boolean elements
+* 规范化？
+    * 就像 Node.js 催生了 CommonJS，RequireJS 催生了 AMD，SeaJS 催生了 CMD
+* 自动 unbind
+* 自动 unwatch
 
 # 窗口
 1. 数据

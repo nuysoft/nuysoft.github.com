@@ -9,7 +9,7 @@ published: false
 ---
 {% include JB/setup %}
 
-> 原文：[2012/11/05 Writing Fast, Memory-Efficient JavaScript](http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/)
+> 原文：[2012/11/05 Writing Fast, Memory-Efficient JavaScript](http://coding.smashingmagazine.com/2012/11/05/writing-fast-memory-efficient-javascript/)。[其他翻译版本](http://blog.jobbole.com/31951/)。
 
 JavaScript engines such as Google’s [V8](http://code.google.com/p/v8/) (Chrome, Node) are specifically designed for the [fast execution](http://www.html5rocks.com/en/tutorials/speed/v8/) of large JavaScript applications. As you develop, if you care about memory usage and performance, you should be aware of some of what’s going on in your user’s browser’s JavaScript engine behind the scenes.
 
