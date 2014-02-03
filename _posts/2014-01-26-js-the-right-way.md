@@ -9,3 +9,4 @@ published: false
 {% include JB/setup %}
 
 http://jstherightway.org/
+<https://github.com/braziljs/js-the-right-way>

@@ -147,6 +147,8 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
     * 就像 Node.js 催生了 CommonJS，RequireJS 催生了 AMD，SeaJS 催生了 CMD
 * 自动 unbind
 * 自动 unwatch
+* https://ci.testling.com/
+    * run your browser tests on every push
 
 # 窗口
 1. 数据
