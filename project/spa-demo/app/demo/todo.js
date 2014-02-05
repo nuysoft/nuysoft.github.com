@@ -1,27 +1,11 @@
 define(function(require, exports) {
 	var _ = require('underscore'),
 		Backbone = require('backbone'),
-		Mustache = require('mustache'),
-		$ = require('$');
+		Handlebars = require('handlebars'),
+		$ = require('jquery');
 	return Backbone.View.extend({
 		events: {
-			'click #dialog': function(e) {
-				seajs.use(['./app/demo/dialog', './app/demo/dialog.html'], function(Dialog, template) {
-					var d = new Dialog({
-						title: 'Create Plan',
-						view: './app/demo/dialog-content',
-						content: 'test',
-						viewOptions: {
-							message: function(data) {
-								console.log(data);
-							},
-							name: Math.random(),
-							price: Math.random()
-						}
-					});
-					d.render(template);
-				});
-			}
+			'click #create': function(e) {}
 		},
 		render: function(template) {
 			var data = {
@@ -91,15 +75,14 @@ define(function(require, exports) {
 					priority: _.random(0, 3),
 					progress: _.random(0, 100) + '%',
 					desc: 'MDN, dochub.io; pre"x all your JS searches with “mdn” (or !js on duckduckgo)'
-				}]
+				}],
+				_priority: function() {
+					return ['', 'warning', 'success', 'error'][this.priority];
+				}
 			};
-			data['_priority'] = function() {
-				return ['-', 'low', 'medium', 'high'][this.priority];
-			}
-			data['_priority_color'] = function() {
-				return ['', 'warning', 'success', 'error'][this.priority];
-			}
-			$(this.el).empty().append(Mustache.to_html(template, data));
+			$(this.el).empty().append(
+				Handlebars.compile(template)(data)
+			)
 		}
 	});
 })

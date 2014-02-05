@@ -1,6 +1,6 @@
 define(function(require, exports) {
 	var Backbone = require('backbone'),
-		$ = require('$');
+		$ = require('jquery');
 	return Backbone.View.extend({
 		events: {
 			'click #create': function(e) {
@@ -21,7 +21,9 @@ define(function(require, exports) {
 			}
 		},
 		render: function(template) {
-			$(this.el).empty().append($(template));
+			$(this.el).empty().append(
+				$(template)
+			)
 		}
 	});
 })

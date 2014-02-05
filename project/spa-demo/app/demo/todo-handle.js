@@ -1,8 +1,8 @@
 define(function(require, exports) {
 	var _ = require('underscore'),
 		Backbone = require('backbone'),
-		Mustache = require('mustache'),
-		$ = require('$');
+		Handlebars = require('handlebars'),
+		$ = require('jquery');
 	return Backbone.View.extend({
 		events: {
 			'click #submit': function(e) {
@@ -15,9 +15,11 @@ define(function(require, exports) {
 			}
 		},
 		render: function(template) {
-			$(this.el).empty().append(Mustache.to_html(template, {
-				state: this.options.id ? 'Edit' : 'Create'
-			}));
+			$(this.el).empty().append(
+				Handlebars.compile(template)({
+					state: this.options.id ? 'Edit' : 'Create'
+				})
+			)
 		}
 	});
 })

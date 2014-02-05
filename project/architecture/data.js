@@ -35,6 +35,9 @@
     https://sourcegraph.com/nuysoft
     http://howtonode.org/
 
+    ## Architecture
+    http://blog.ponyfoo.com/2014/01/20/how-to-design-great-programs
+
 */
 var data = {
     'Specifications': [{
@@ -457,11 +460,11 @@ var data = {
         name: 'How to become an Advanced Front End Developer',
         url: 'http://davidshariff.com/how-to-become-advanced-front-end-developer-ebook/'
     }, {
-        name: 'jQuery 技术内幕'
+        name: 'jQuery 技术内幕',
         url: ''
     }, {
         name: 'Developing JavaScript Web Applications',
-        url: ''
+        url: '',
         desc:'基于 MVC 的 JavaScript Web 富应用开发'
     }],
 

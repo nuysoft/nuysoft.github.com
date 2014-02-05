@@ -2,10 +2,7 @@
 <hr>
 
 <div class="btn-toolbar" style="margin: 10px 0; ">
-    <div class="btn-group">
-        <a href="#!./app/demo/todo-handle/" id="create" class="btn">Create</a>
-        <a href="javascript: " id="dialog" class="btn">Dialog</a>
-    </div>
+    <a href="#!/app/demo/todo-handle/" id="create" class="btn">Create</a>
 </div>
 
 <hr>
@@ -21,13 +18,13 @@
             <th></th>
         </tr>
         {{#list}}
-        <tr class="{{_priority_color}}">
+        <tr class="{{_priority}}">
             <td>{{id}}</td>
             <td>{{title}}</td>
-            <td>{{_priority}}</td>
+            <td>{{priority}}</td>
             <td>{{progress}}</td>
             <td>{{desc}}</td>
-            <td><a href="#!./app/demo/todo-handle/id={{id}}">Edit</a></td>
+            <td><a href="#!/app/demo/todo-handle/id={{id}}">Edit</a></td>
         </tr>
         {{/list}}
         {{^list}}
