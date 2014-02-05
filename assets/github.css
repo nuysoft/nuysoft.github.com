@@ -29,6 +29,32 @@ strong {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+@font-face {
+    font-family: 'iconfont2014';
+    src: url('/assets/2013-year-end-summary/font/iconfont.eot'); /* IE9*/
+    src: url('/assets/2013-year-end-summary/font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('/assets/2013-year-end-summary/font/iconfont.woff') format('woff'), /* chrome、firefox */
+    url('/assets/2013-year-end-summary/font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url('/assets/2013-year-end-summary/font/iconfont.svg#svgFontName') format('svg'); /* iOS 4.1- */
+}
+.iconfont2014 { 
+    font-family: "iconfont2014";
+    font-size: 50px;
+    font-style: normal;
+    width: 100px;
+    display: inline-block;
+    margin-right: 5px;
+    color: #FFFFFF;
+}
+.wrapper2014 {
+    background-color: #FB0A2A; 
+    padding: 20px; 
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+}
 .product {
     margin-left: 0px;
 }
