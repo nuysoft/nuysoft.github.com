@@ -2,20 +2,20 @@
 layout: post
 title: "编写 AMD 模块"
 tagline: "Authoring AMD modules"
-description: "AMD 是最流行的 JavaScript 模块规范，专为浏览器环境而设计，也可以应用在非浏览器环境中。编写 AMD 模块只需要记住三点：把代码封装到 define()，列出依赖关系，返回一个值。"
+description: "AMD 是最流行的 JavaScript 模块规范，专为浏览器环境而设计，也可以应用在非浏览器环境中。编写 AMD 模块只需要记住三点：把代码封装到 define() 中，罗列出依赖关系，返回一个值。"
 category: 
 category-substitution: 翻译
-tags: [翻译, 模块化, modules, AMD, curl]
+tags: [翻译, 模块化, AMD, curl]
 
 short: "编写 AMD 模块"
 pgroup: "Learning modules"
 ---
 {% include JB/setup %}
 
-> 原文：<http://know.cujojs.com/tutorials/modules/authoring-amd-modules>
+> 原文：[Authoring AMD modules](http://know.cujojs.com/tutorials/modules/authoring-amd-modules)
 
 <!-- Asynchronous Module Definition (AMD) is the most widely supported JavaScript module format. It's used by cujo.js, jQuery, dojo, Mootools, and several dozens of other libraries and frameworks. AMD is specifically designed for browser environments, but you can also use it in non-browser environments. -->
-Asynchronous Module Definition（AMD）是最流行的 JavaScript 模块规范，被 [cujo.js]、[jQuery]、[dojo]、[Mootools]，以及其他无数的库和框架所采用。AMD 专为浏览器环境而设计，<!-- 不过 -->也可以应用在非浏览器环境中。
+AMD（Asynchronous Module Definition，异步模块定义）是最流行的 JavaScript 模块规范，被 [cujo.js]、[jQuery]、[dojo]、[Mootools]，以及无数其他的库和框架所采用。AMD 专为浏览器环境而设计，<!-- 不过 -->也可以应用在非浏览器环境中。
 
 [cujo.js]: http://cujojs.com/
 [jQuery]: http://jquery.com/
@@ -30,19 +30,19 @@ Asynchronous Module Definition（AMD）是最流行的 JavaScript 模块规范�
 2. List your dependencies.
 3. Return something!
  -->
-1. 把代码封装到 `define()`。
-2. 列出依赖关系。
+1. 把代码封装到 `define()` 中。
+2. 罗列出依赖关系。
 3. 返回一个值。
 
 ## define()
 
 <!-- Let's start with `define()`.  The `define` function announces to the AMD environment that you wish to declare a module.  The signature of this function is pretty flexible, but let's start by focusing on the most common usage. -->
-在 AMD 中，函数 `define()` 用来声明一个模块。它的参数签名非常灵活，不过我们先专注于最常见的用法。
+在 AMD 环境中，函数 `define()` 用来声明一个模块。它的参数签名非常灵活，不过我们先专注于最常见的用法：
 
-    define(dependencyIds, factoryFunction);
+    define(dependencyIds, factoryFunction)
 
 <!-- As you can see from the first parameter, `dependencyIds`, you can pass an array of ids into `define`.  These are the ids of other modules that your module requires to do its work.  The second parameter, `factoryFunction`, is a function that creates your module and will be run *exactly once*.  The factory is called with the dependent modules as parameters.  Furthermore, it is guaranteed to run only after all of the dependencies are known to be available.  In practice, the factory typically runs just before it's needed. -->
-第一个参数 `dependencyIds` 是一个模块名数组，指定了当前模块运行时所依赖的其他模块。第二个参数 `factoryFunction` 是一个工厂函数，用于创建当前模块，并且**只会运行一次**。工厂函数被调用时，它所依赖的模块被作为参数传入。并且，只有在所有依赖都就绪之后，工厂函数才会运行。事实上，工厂函数通常是在需要时才会运行。
+第一个参数 `dependencyIds` 是一个模块名（标识符）数组，指定了当前模块运行时所依赖的其他模块。第二个参数 `factoryFunction` 是一个工厂函数，用于创建当前模块，并且**只会运行一次**。工厂函数被调用时，它所依赖的模块被作为参数传入。并且，只有在所有依赖都就绪之后，工厂函数才会运行。事实上，通常工厂函数是在需要时才会运行。
 
 <!-- Here's a simple example. -->
 下面是一个简单的例子。
@@ -60,15 +60,18 @@ Asynchronous Module Definition（AMD）是最流行的 JavaScript 模块规范�
 模块“app/mime-client”依赖于另外两个模块：“rest” 和 “rest/interceptor/mime”。这两个模块被映射到了工厂函数的参数 `rest` 和 `mime`。当然，你也可以随意地重新命名它们。
 
 <!-- Note that slashes in a module id do not indicate it is an url.  AMD ids use slashes to indicate a *namespace*.  In this example, the "app/mime-client" module depends on a module in the "rest/interceptor" namespace.  (You're getting a sneak preview of AMD "packages" here.  We'll cover those in more detail in another tutorial.) -->
-请注意，在 AMD 中，模块名中的斜杠并不意味着它是一个 URL，而是用来表示*命名空间*。在前面的例子中，模块“app/mime-client”依赖于命名空间“rest/interceptor”下的一个模块。（这里只是预热一下 AMD 的“包”概念，更多细节将在另一篇教程中介绍。）
+请注意，模块名（标识符）中的斜杠并不意味着它是一个 URL，而是用来表示*命名空间*。在前面的例子中，模块“app/mime-client”依赖于命名空间“rest/interceptor”下的一个模块。（这里只是预热一下 AMD 的“包”概念，更多细节将在另一篇教程中介绍。）
 
 <!-- Inside the factory, we create the "app/mime-client" module *and return it*.  In this case, our module is a function since [rest.js](//github.com/cujojs/rest) is a suite of composable REST functions.  However, you can create modules that are *any valid Javascript type*. -->
 在工厂函数中，我们创建了“app/mime-client”模块，并*把它返回*。此时该模块是一个函数，因为 [rest.js](//github.com/cujojs/rest) 是一组 REST 功能的集合。不止如此，还可以创建*任何有效 JavaScript 类型*（即返回值）的模块。
 
-## AMD-wrapped CommonJS
+<!-- ## AMD-wrapped CommonJS -->
+## 兼容 CommonJS
 
 <!-- AMD supports another `define` signature that helps bridge the gap between AMD and [CommonJS](./authoring-cjs-modules.html.md).  If your factory function accepts parameters, but you omit the dependency array, the AMD environment assumes you wish to emulate a CommonJS module environment.  The standard `require`, `exports`, and `module` variables are injected as parameters to the factory.  This variation is often called "AMD-wrapped CommonJS", surprisingly. ;) -->
-AMD 的 `define` 还支持另外一种参数签名，以消除 AMD 和 [CommonJS](./authoring-cjs-modules.html.md) 之间的差异。工厂函数可以接受几个参数，其中，如果忽略了依赖模块数组 `dependencyIds`，AMD 会假设你想要模拟一个 CommonJS 模块。此时，CommonJS 规范中的 `require`、`exports` 和 `module` 会作为参数传给工作函数。这一变种通常被称为“AMD-wrapped CommonJS”，很神奇吧 ;)。
+AMD 的 `define` 还支持另外一种参数签名，以消除 AMD 和 [CommonJS](/2014/01/25/authoring-cjs-modules/) 之间的差异。工厂函数可以接受几个参数，其中，如果忽略了依赖模块数组 `dependencyIds`，AMD 会假设你想要模拟一个 CommonJS 模块。此时，CommonJS 规范中的 `require`、`exports` 和 `module` 会作为参数传给工作函数。这一变种通常被称为“AMD-wrapped CommonJS”，很神奇吧 ;)。
+
+    define(factoryFunction(require, exports, module))
 
 <!-- Here's the previous example as AMD-wrapped CommonJS. -->
 下面是前一个例子的 AMD-wrapped CommonJS 版本。
@@ -86,7 +89,7 @@ AMD 的 `define` 还支持另外一种参数签名，以消除 AMD 和 [CommonJS
     });
 
 <!-- Notice that the factory receives *up to* three arguments that emulate the CommonJS `require`, `exports`, and `module` variables. -->
-请注意，工厂函数接受了三个参数 `require`、`exports` 和 `module`，以此来模拟 CommonJS 变种（规范）。
+请注意，工厂函数接受了三个参数 `require`、`exports` 和 `module`，以此来模拟 CommonJS 规范（变种）。
 
 <!-- In CommonJS, dependencies are assigned to local variables using `require(id)`.  This convention is known as the *free require* (or less commonly, the *scoped require*). In AMD it is known as the *local require*. -->
 在 CommonJS 中，依赖关系通过为变量设置 `require(id)` 来指定，这一约定被称为 *free require* 或 *scoped require*（不常见），而在 AMD 中，则被称为 *local require*。

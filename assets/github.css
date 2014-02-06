@@ -4,7 +4,7 @@ blockquote p {
     color: #777;
 }
 
-strong {
+em, strong {
     margin-left: 3px;
     margin-right: 3px;
 }

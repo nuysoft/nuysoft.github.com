@@ -2,29 +2,31 @@
 layout: post
 title: "编写 UMD 模块"
 tagline: "Authoring UMD modules"
-description: ""
+description: "怎么编写 JavaScript 模块，才能让它在多个环境中执行？Universal Module Definition，UMD！UMD 模式可以兼容多种环境，并且通常只需要对现有模块做很少量的重构。"
 category: 
 category-substitution: 翻译
-tags: [翻译, 模块化, modules, AMD, CommonJS, UMD, curl]
+tags: [翻译, 模块化, AMD, CommonJS, UMD, curl]
 
 short: "编写 UMD 模块"
 pgroup: "Learning modules"
 ---
 {% include JB/setup %}
 
+> 原文：[Authoring UMD modules](http://know.cujojs.com/tutorials/modules/authoring-umd-modules)
+
 <!-- If you run your code in a browser, [AMD modules](./authoring-amd-modules.html.md) are a great choice.  If your code runs in a server-side environment, such as RingoJS or node.js, [CommonJS modules](./authoring-cjs-modules.html.md) are the easiest option. -->
 如果是在浏览器中运行代码，那么 [AMD 模块] 是个非常好的选择。如果运行在服务端环境，例如 [RingoJS] 或 [node.js]，那么 [CommonJS 模块] 是最简单的选择。
 
 [RingoJS]: http://ringojs.org/
 [node.js]: http://nodejs.org/
-[AMD 模块]: ./authoring-amd-modules.html.md
-[CommonJS 模块]: ./authoring-cjs-modules.html.md
+[AMD 模块]: /2014/01/26/authoring-amd-modules
+[CommonJS 模块]: /2014/01/25/authoring-cjs-modules
 
 <!-- > How can I write code that runs in both browsers and servers? -->
-> 怎么才能写出可以同时运行在浏览器和服务端的代码？
+> 怎么才能写出可以同时运行在浏览器和服务端的代码呢？
 
 <!-- Even if you never plan to use your code in a server-side environment, testing in node.js can be incredibly convenient.  Why not write it to work in both? -->
-也许你从没打算让代码运行在服务端环境中，但是在 node.js 中执行测试却是非常方便的。所以，为什么不让它同时支持两种环境呢？
+也许你从没打算让代码运行在服务端环境中，但是在 node.js 中执行测试却是非常方便的。所以，为什么不同时支持两种环境呢？
 
 <!-- 
 > Q: How do we write Javascript modules that will execute in multiple environments?
@@ -35,12 +37,12 @@ pgroup: "Learning modules"
 > *答：Universal Module Definition，UMD！*
 
 <!-- UMD patterns provide compatibility with multiple environments.  Many, but not all, UMD patterns do this by wrapping your module code in an [Immediately Invoked Functional Expression (IIFE)](http://benalman.com/news/2010/11/immediately-invoked-function-expression/).  The resulting environment inside the IIFE is normalized to the particular environment that your module code expects by mocking and/or injecting variables.  The code outside the function bridges the environment inside the IIFE to the outside environment.  The normalized environment inside the IIFE is very AMD-like or very CommonJS-like, depending on the specific UMD flavor. -->
-UMD 模式可以兼容多种环境。为了实现这一点，通常，但不总是，UMD 模式会把模块代码包裹进一个 [立即调用的函数表达式]（Immediately Invoked Function Expression，IIFE） 中。通过模拟或注入变量，IIFE 内部的环境最终被规格化为模块代码所期望的特定环境。IIFE 之外的代码则桥接了 IIFE 的内部环境和外部环境。规格化后的 IIFE 内部环境非常类似于 AMD 或 CommonJS，具体要取决于采用的 UMD 风格。
+UMD 模式可以兼容多种环境。为了实现这一点，通常，但不总是，UMD 模式会把模块代码包裹进一个 [立即调用的函数表达式]（Immediately Invoked Function Expression，IIFE） 中。通过模拟或注入变量，IIFE 内部的环境最终被规格化为模块代码所期望的特定环境。IIFE 之外的代码则桥接了 IIFE 的内部环境和外部环境。规格化后的 IIFE 内部环境非常类似于 AMD 或 CommonJS，具体类似于哪种则取决于所采用的 UMD 风格。
 
 [立即调用的函数表达式]: http://benalman.com/news/2010/11/immediately-invoked-function-expression/
 
 <!-- There are dozens of UMD variations in use in the wild.  You can find several samples in this [UMD repo](https://github.com/umdjs/umd), as well other [robust UMD patterns](https://gist.github.com/unscriptable/4118495) around the web. -->
-UMD 有很多“野生”变种。你可以在 [UMD 仓库] 以及 [强大的 UMD 模式] 找到一些示例。
+UMD 有很多“野生”的变种。你可以在 [UMD 仓库] 以及 [强大的 UMD 模式] 找到一些示例。
 
 [UMD 仓库]: https://github.com/umdjs/umd
 [强大的 UMD 模式]: https://gist.github.com/unscriptable/4118495
@@ -56,20 +58,20 @@ UMD 有很多“野生”变种。你可以在 [UMD 仓库] 以及 [强大的 UM
 ---
 
 <!-- If you haven't done so already, please review the tutorials on [Authoring AMD modules](./authoring-amd-modules.html.md) and [Authoring CommonJS modules](./authoring-cjs-modules.html.md) before proceeding. -->
-如果你不知道我在说些什么，说明你尚未准备好，请先温习下教程 [编写 AMD 模块] 和 [编写 CommonJS 模块]，然后再继续。
+如果你不知道我在说些什么，说明你尚未准备好，请先温习下教程 [编写 AMD 模块] 和 [编写 CommonJS 模块]，然后再继续这篇教程。
 
-[编写 AMD 模块]: ./authoring-amd-modules.html.md
-[编写 CommonJS 模块]: ./authoring-cjs-modules.html.md
+[编写 AMD 模块]: /2014/01/26/authoring-amd-modules
+[编写 CommonJS 模块]: /2014/01/25/authoring-cjs-modules
 
 ---
 
 <!-- ## Normalize to classic AMD -->
-## 重构为经典的 AMD
+## 重构为 AMD 经典格式
 
-    define(dependencyIds, factoryFunction(module1, module2 ...))
+    define(dependencyIds, factoryFunction(dependencyModule1, dependencyModule2 ...))
 
 <!-- If you're converting AMD modules with dependency lists, this pattern requires very little refactoring. -->
-如果你正在换转带有依赖列表的 AMD 模块，那么只需要很少量的重构。
+如果你正在换转带有依赖列表的 AMD 模块，那么只需要做很少量的重构。
 
     // app/CachingStore
     (function (define) {
@@ -100,10 +102,10 @@ UMD 有很多“野生”变种。你可以在 [UMD 仓库] 以及 [强大的 UM
     ));
 
 <!-- The entire module is wrapped in an IIFE, and the `define` function is passed in as a parameter.  At the bottom of the file, the code snippet, `typeof define == 'function' && define.amd`, is the standard "sniff" for an AMD environment.  If the sniff evaluates to `true`, then the environment is AMD and the global `define` is passed into the IIFE.  You "export" your module in the usual AMD way by returning something from the factory. -->
-整个模块被包裹在一个 IIFE 中，并且函数 `define` 被作为一个参数传入。文件最后的代码片段 `typeof define == 'function' && define.amd` 是嗅探 AMD 环境的标准方式。如果检测结果为 `true`，则说明当前环境是 AMD，可以把全局函数 `define` 传入 IIFE。通过由工厂函数返回一个值，模块“export”以正常的 AMD 方式输出。
+整个模块被包裹在一个 IIFE 中，并且函数 `define` 被作为一个参数传入。文件最后的代码片段 `typeof define == 'function' && define.amd` 是嗅探 AMD 环境的标准方式。如果检测结果为 `true`，则说明当前环境是 AMD，可以把全局函数 `define` 传入 IIFE。通过由工厂函数返回一个值，模块以正常的 AMD 方式输出。
 
 <!-- If the AMD-sniff evaluates to `false`, the code mimics a node-like CommonJS environment.  To work with your AMD code, the IIFE injects a function that behaves similarly to AMD's `define`: it resolves all ids to modules and injects them into the factory function as arguments.  It then takes the return value from the factory and sets `module.exports` in typical node.js fashion. -->
-如果 AMD 嗅探的结果为 `false`，代码则模拟一个类似 node.js 的 CommonJS 环境。为了使 AMD 代码能够运行，IIFE 注入了一个行为类似于 AMD `define` 的函数：把所有的 ids 加载为模块，并把它们作为参数注入工厂函数。然后，该函数获取到工厂函数的返回值，并以经典的 node.js 方式赋值给 `module.exports`。
+如果 AMD 环境嗅探的结果为 `false`，代码则模拟一个类似 node.js 的 CommonJS 环境。为了使 AMD 代码能够运行，IIFE 注入了一个行为类似于 AMD `define` 的函数：把所有的 `ids` 加载为模块，并把它们作为参数注入工厂函数。然后，函数 `define` 获取到工厂函数的返回值，并以经典的 node.js 方式赋值给 `module.exports`。
 
 <!-- ## Normalize to an AMD factory with injected require() -->
 ## 为 AMD 工厂函数注入 require()
@@ -111,7 +113,7 @@ UMD 有很多“野生”变种。你可以在 [UMD 仓库] 以及 [强大的 UM
     define(factoryFunction(require))
 
 <!-- If you already specify dependencies using AMD's "local require", this pattern won't feel like much of a change. -->
-如果已经通过 AMD 的“require”指定了依赖关系，也不需要太大的变化。
+如果已经通过 AMD 的“require”指定了依赖关系，那么重构过程也不需要太大的变化。
 
     // app/CachingStore
     (function (define) {
@@ -142,7 +144,7 @@ UMD 有很多“野生”变种。你可以在 [UMD 仓库] 以及 [强大的 UM
     ));
 
 <!-- Again, the entire module is wrapped in an IIFE, and the `define` function is injected as parameter.  The code at the bottom of the IIFE is a bit simpler this time because it more closely mimics CommonJS than the previous pattern.  In fact, it just injects CommonJS's scoped `require` in place of AMD's "local require".  Finally, `module.exports` receives the the return value of the factory. -->
-整个组件再次被包裹在一个 IIFE 中，并且函数 `define` 作为参数被注入。这次，IIFE 底部的代码稍微简单一些，因为在这种情况下，AMD 的参数签名原本就与 CommonJS 很相似。事实上，它只注入了 CommonJS 的 `require`，来替换掉 AMD 的 `require`。最后，`module.exports` 被赋予了工厂函数的返回值。
+整个组件再次被包裹在一个 IIFE 中，并且函数 `define` 作为参数被注入。这次，IIFE 底部的代码稍微简单一些，因为在这种情况下，AMD 的参数签名原本就与 CommonJS 很相似。事实上，它只是注入了 CommonJS 的 `require`，来替换掉 AMD 的 `require`。最后，`module.exports` 被赋予了工厂函数的返回值。
 
 <!-- The cujo.js team uses this pattern quite often. -->
 对于这种模式，cujo.js 使用的很频繁。
@@ -184,10 +186,10 @@ UMD 有很多“野生”变种。你可以在 [UMD 仓库] 以及 [强大的 UM
     ));
 
 <!-- This time, all three CommonJS scoped variables (require, exports, module) are injected.  The environment inside the IIFE mimics CommonJS and probably works for all modules that do not access environment-specific variables, such as node's `__dirname`. -->
-这一次，三个模块作用域变量（require, exports, module）都被注入。IIFE 中的环境模仿了 CommonJS，适用于所有不访问特定环境变量（例如 node.js 的 `__dirname`）的模块。
+这一次，三个模块作用域变量（`require`、`exports` 和 `module`）都被注入。IIFE 中的环境模仿了 CommonJS 环境，适用于所有不访问特定环境变量（例如 node.js 的 `__dirname`）的模块。
 
 <!-- Note that the factory *does not return the exports* in this variation.  It expects that you'll decorate the provided `exports` object or assign to `module.exports`. -->
-需要注意的是，在这个变种中，工厂函数*没有返回 exports*。它期望你动态的将功能附加到对象 `exports` 到上，或者复制给 `module.exports`。
+需要注意的是，在这个变种中，工厂函数*没有返回 exports*。它期望你动态的将功能附加到对象 `exports` 到上，或者赋值给 `module.exports`。
 
 <!-- 'Tis the season for wrapping! -->
 <!-- TODO 面向模块编程季 -->

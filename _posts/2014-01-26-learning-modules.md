@@ -4,7 +4,7 @@ title: "学习 Javascript 模块化编程"
 description: ""
 category-substitution: 翻译
 tags: [翻译, 模块化, modules]
-published: false
+published: 
 
 subgroup: "Learning modules"
 ---
@@ -13,7 +13,7 @@ subgroup: "Learning modules"
 > 原文：<http://know.cujojs.com/tutorials>, <https://github.com/know-cujojs/know/tree/master/src/documents/tutorials/modules>
 
 <!-- Modules are the cornerstone of cujoJS. They allow you to divide your application into manageable chunks that can be shared and reused. Just as importantly, you can consume modules that others have published. -->
-模块化是 cujoJS 的核心理念。模块化使得应用程序可以被分割为可管理、可共享、可复用的小块，也可以使用其他人已发布的模块。
+模块化是 cujoJS 的核心理念。模块化使应用程序可以被分割为可管理、可共享、可复用的小块，也使应用程序可以使用其他人已发布的模块。
 
 <!-- These tutorials cover module basics, including two popular module formats and how to load modules by their identifier. -->
 这些教程覆盖了模块的基础知识，其中，包含了两种流行的模块格式，以及如何通过标识符来加载模块。
