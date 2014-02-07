@@ -39,7 +39,7 @@ tagline:
     <span style="color: #999;">{{ post.date | date: "%Y-%m-%d" }}</span>
 
     {% if post.description != null %}
-    <p style="padding-left: 40px; " class="_description">{{ post.description }}</p>
+    <p style="padding-left: 40px; margin-top: 10px;" class="_description">{{ post.description }}</p>
     {% endif %}
 
     {% if post.subgroup != null %}
