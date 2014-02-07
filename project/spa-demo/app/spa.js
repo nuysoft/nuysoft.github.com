@@ -8,6 +8,10 @@
       通信：必须持有 View，才能通信
       加载：
       销毁：不需要
+
+    功能列表：
+    * 支持只加载模板文件
+    * 某个 View 抛出无错，不会影响其他 View 的加载和执行
   
 */
 define(function(require, exports, module) {
@@ -70,27 +74,36 @@ define(function(require, exports, module) {
         参数 el：View 绑定的元素
         参数 callback：挂载完成后的回调函数
     */
-	exports.mount = function(path, param, el, callback) {
-		console.log('[spa.mount]', arguments);
-		$(el).html('loading...');
+	exports.mount = function mount(path, param, el, callback) {
+		console.log('[spa.mount]', arguments)
+		$(el).html('loading...')
 
 		// delete last backslash
-		path = path.replace(/\/$/, '').replace(/^\//, '');
+		path = path.replace(/\/$/, '').replace(/^\//, '')
 		// load js、html file
-		console.log(path)
-		require([path + '.js', 'text!' + path + '.html'], function(View, template) {
+		require([path + '.js', 'text!' + path + '.html'], handle, errorHandle)
+
+		function errorHandle(error) {
+			require(['text!' + path + '.html'], function(template) {
+				handle(undefined, template)
+			}, function(error) {
+				console.log(error)
+			})
+		}
+
+		function handle(View, template) {
 			if (!View && !template) {
-				$(param.target).empty().append('<h1>404</h1>');
-				return;
+				$(param.target).empty().append('<h1>404</h1>')
+				return
 			}
 			// 只有模板
 			if (!View && template) {
-				$(param.target).empty().append(template);
-				return;
+				$(param.target).empty().append(template)
+				return
 			}
 
-			param.el = el;
-			var view = new View(param);
+			param.el = el
+			var view = new View(param)
 
 			// 非阻塞渲染
 			if (view.render(template) === false) {
@@ -98,21 +111,23 @@ define(function(require, exports, module) {
 					view.off('render'); // release memory
 					callback && callback();
 				});
-				return;
+				return
 			}
 
 			// 阻塞渲染 parse and render sub view
-			var attr = 'data-view';
+			var attr = 'data-view'
 			$(view.el).find('[' + attr + ']').each(function(index, elem) {
-				var path = $(elem).attr(attr);
+				var path = $(elem).attr(attr)
 				if (path) {
+					// 不会因为抛出错误，而导致其他脚本不执行
 					setTimeout(function() {
-						exports.mount(path, param, elem);
+						exports.mount(path, param, elem)
 					}, 0)
 				}
-			});
-			callback && callback();
-			return;
-		});
+			})
+			callback && callback()
+			return
+		}
+
 	}
-});
+})
