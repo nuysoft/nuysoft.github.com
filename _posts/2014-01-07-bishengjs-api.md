@@ -3,7 +3,7 @@ layout: post
 title: "BiSheng.js API"
 description: ""
 category: 
-tags: []
+tags: [工具, BiSheng.js, JavaScript, Web]
 
 short: "API"
 link: http://bishengjs.com/doc/bisheng.html

@@ -3,7 +3,7 @@ layout: post
 title: "BiSheng.js 工作原理"
 description: ""
 category: 
-tags: []
+tags: [工具, BiSheng.js, JavaScript, Web]
 
 short: "工作原理"
 link: http://bishengjs.com/doc/how.html
