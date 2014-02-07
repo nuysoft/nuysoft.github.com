@@ -9,6 +9,20 @@ em, strong {
     margin-right: 3px;
 }
 
+/* index.md */
+.index_recommended {
+    text-align: center;
+}
+.index_recommended img {
+    width: 150px;
+}
+.index_recommended .iconlogo {
+    font-size: 125px;
+}
+.index_recommended .title{
+    margin-top: 20px;
+}
+
 /* 2013-year-end-summary */
 @font-face {
     font-family: 'logo';

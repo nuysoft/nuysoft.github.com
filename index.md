@@ -5,6 +5,27 @@ tagline:
 ---
 {% include JB/setup %}
 
+<div class="row index_recommended">
+  <div class="span4">
+    <a href="http://product.china-pub.com/3769266" target="_blank"><img src="/assets/jquery_internals/shupi.jpg" width=256></a>
+    <div class="title">《jQuery 技术内幕》</div>
+    <div class="desc">新书预售</div>
+  </div>
+  <div class="span4">
+    <a href="http://mockjs.com/" target="_blank"><i class="iconlogo">&#x3435;</i></a>
+    <div class="title">Mock.js</div>
+    <div class="desc">一款模拟数据生成器</div>
+  </div>
+  <div class="span4">
+    <a href="http://bishengjs.com/" target="_blank"><i class="iconlogo">&#x3438;</i></a>
+    <div class="title">BiSheng.js</div>
+    <div class="desc">一款小巧轻便的数据双向绑定库</div>
+  </div>
+</div>
+<link rel="stylesheet" type="text/css" href="/assets/github.css">
+
+---
+
 {% for post in site.posts %}
 {% if post.pgroup == null %}
 <div>
