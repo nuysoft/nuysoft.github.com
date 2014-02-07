@@ -38,6 +38,15 @@
     ## Architecture
     http://blog.ponyfoo.com/2014/01/20/how-to-design-great-programs
 
+    ## README.md
+    https://github.com/mashery/iodocs
+
+    分类：
+    http://123.jser.us/
+        ["CDN", "HTTP", "MVVM", "UI库", "兼容性", "占位图", "原型设计", "字体", "安全", "工作流", "工具", "性能", "敏捷", "文档", "文档工具", "格式化", "正则", "测试框架", "浏览器", "浏览器插件", "演示", "社区", "类库", "编辑器", "调试", "跨平台", "配色"]
+    http://www.javascriptoo.com/
+        ["Add On / Plug In10", "AJAX15", "AMD10", "Animation15", "Async9", "Audio6", "Browser29", "Canvas18", "Charting7", "Code59", "CSS20", "Data27", "Events28", "Forms2", "Framework29", "Gaming3", "Geolocation2", "Images11", "Local Storage13", "Mobile7", "MVC5", "PubSub10", "Routing13", "Selector15", "String8", "SVG9", "Templating25", "Time4", "UI71", "Unit Testing7", "Utility97", "WebGL3"]
+
 */
 var data = {
     'Specifications': [{
@@ -141,6 +150,9 @@ var data = {
         desc: 'Common Module Definition'
         // [CMD 模块定义规范](https://github.com/seajs/seajs/issues/242)
         // [Common Module Definition](https://github.com/cmdjs/specification/blob/master/draft/module.md)
+    }, {
+        name: 'UMD',
+        url: 'http://nuysoft.com/2014/01/24/authoring-umd-modules/'
     }, {
         name: 'RequireJS',
         url: 'http://requirejs.org/',
@@ -465,7 +477,7 @@ var data = {
     }, {
         name: 'Developing JavaScript Web Applications',
         url: '',
-        desc:'基于 MVC 的 JavaScript Web 富应用开发'
+        desc: '基于 MVC 的 JavaScript Web 富应用开发'
     }],
 
     Reference: [{
@@ -639,6 +651,11 @@ var data = {
         url: 'http://www.uiframe.com/jscss.html'
     }, {
         url: 'http://www.staticfile.org/'
+    }],
+    Slide: [{
+        name: 'csss',
+        url: 'http://leaverou.github.io/csss/',
+        desc: 'CSS-based SlideShow System'
     }]
 }
 /*

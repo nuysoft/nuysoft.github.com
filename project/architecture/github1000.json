@@ -1,0 +1,19 @@
+// https://github.com/search?l=JavaScript&o=desc&p=1&q=stars%3A%22%3E%3D+1000%22&ref=advsearch&s=stars&type=Repositories
+[
+	'jquery/jquery': ['Tool'],
+	'joyent/node': ['Platform'],
+	'mbostock/d3': ['SVG', 'Chart'],
+	'angular/angular.js': ['Data-binding'],
+	'bartaz/impress.js': ['Presentation', 'CSS3', 'Transform', 'Transition'],
+	'jashkenas/backbone': ['MVC', 'Router'],
+	'blueimp/jQuery-File-Upload': ['jQuery', 'jQuery Plugin', 'Upload'],
+	'adobe/brackets': ['IDE', 'Live Editor'],
+	'mrdoob/three.js': ['WebGL', '3D', 'Canvas', 'SVG', 'CSS3D'],
+	'moment/moment': ['Date'],
+
+
+
+	'Treesaver/treesaver': ['UI'],
+	'guard/guard-livereload': ['Tool'],
+	'': [],
+]
