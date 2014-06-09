@@ -149,6 +149,25 @@ http://msdn.microsoft.com/zh-cn/library/ms752347.aspx#fbid=0kGH3sbx6bN
 * 自动 unwatch
 * https://ci.testling.com/
     * run your browser tests on every push
+* BiSheng.apply 的使用场景
+    * 由表单触发时不用包裹
+* 字符串 > String
+* 表单事件的范围，如何
+* 如何比对数据？
+    * Getter/Setter vs Clone & Diff
+* ！如何内置事件，不只是数据更新，包括其他的（普通元素）的交互事件？
+    * 必须要的功能，是目前影响 BiSheng.js 开发体验的唯一硬伤！
+    * 保留目前的事件机制，但是独立成模块，进行 Review
+    * 增加自定义事件的绑定、响应和移除
+* 每个文件用 expose 包裹，但是没有指定依赖，没有必要这么写！
+    * 用 (function(){})() 包裹就可以
+    * 或者指定依赖
+* 用自己封装的 jqLite 兼容 jQuery 和 KISSY。
+* 调整 what/why/how.md 的内容，使之符合各自的主体。
+* event
+* 参考 RiverJS
+* 介绍 http://anijs.github.io/
+* 支持的浏览器 https://github.com/dominictarr/through
 
 # 窗口
 1. 数据

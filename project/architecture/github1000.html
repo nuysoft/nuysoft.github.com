@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GitHub Stars 1000+</title>
+    <link href="bootstrap_3.1.0.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Stars 1000+</h1>
+        <hr>
+        <div class="tags"></div>
+        <hr>
+        <div class="repos"></div>
+    </div>
+    <hr>
+    <footer class="container" style="margin-bottom: 20px;">
+        nuysoft@gmail.com
+    </footer>
+
+    <script type="text/javascript" src="jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="jquery.ellipsis.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="github1000.json"></script>
+
+    <script type="text/template" id="tpl_tag">
+        <div class="row">
+            <% for( var i = 0; i < tags.length; i++ ) { %>
+            <div class="col-xs-3">
+                <a href="#"><%=tags[i]%></a>
+                <span class="badge pull-right"><%=tag_repos[tags[i]].length%></span>
+            </div>
+            <% } %>
+        </div>
+    </script>
+    <script type="text/javascript">
+        $('.tags').append(
+            _.template(
+                $('#tpl_tag').html(), 
+                {
+                    tags: tags
+                }
+            )
+        )
+    </script>
+
+    <script type="text/template" id="tpl_repos">
+        <div class="row">
+            <% for( var i = 0; i < repos.length; i++ ) { %>
+            <div class="col-xs-3">
+                <div class="panel panel-default" 
+                    data-key="<%=repos[i]%>" 
+                    data-user="<%=repos[i].split('/')[0]%>" 
+                    data-repo="<%=repos[i].split('/')[1]%>">
+                    <div class="panel-heading">
+                        <a href="https://github.com/<%=repos[i]%>">
+                            <%=repos[i].split('/')[1]%>
+                        </a>
+                    </div>
+                    <div class="panel-body"></div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </script>
+    
+    <script type="text/template" id="tpl_repo">
+        <div title="<%=description%>"><%=description%></div>
+        <hr>
+        <span>
+            <strong><%=stargazers_count%></strong> STARS
+            <strong><%=forks_count%></strong> FORKS
+        </span>
+    </script>
+
+    <script type="text/javascript">
+        $('.repos').append(
+            _.template(
+                $('#tpl_repos').html(),
+                {
+                    repos: repos
+                }
+            )
+        )
+        _.each(repos, function(repo, index){
+            $.ajax({
+                dataType: 'jsonp',
+                url: 'https://api.github.com/repos/' + repo,
+                data: {
+                    client_id: 'a11a1bda412d928fb39a',
+                    client_secret: '92b7cf30bc42c49d589a10372c3f9ff3bb310037'
+                }
+            }).success(function(data) {
+                $('[data-key="' + repo + '"]')
+                    .find('.panel-body')
+                    .append(
+                        _.template(
+                            $('#tpl_repo').html(),
+                            data.data
+                        )
+                    )
+                    .find('div')
+                    .ellipsis({
+                        row: 3,
+                        onlyFullWords: true
+                    })
+                    .css('height', 60)
+            })
+        })
+    </script>
+   
+</body>
+</html>

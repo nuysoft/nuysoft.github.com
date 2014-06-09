@@ -1,19 +1,85 @@
-// https://github.com/search?l=JavaScript&o=desc&p=1&q=stars%3A%22%3E%3D+1000%22&ref=advsearch&s=stars&type=Repositories
-[
-	'jquery/jquery': ['Tool'],
-	'joyent/node': ['Platform'],
-	'mbostock/d3': ['SVG', 'Chart'],
-	'angular/angular.js': ['Data-binding'],
-	'bartaz/impress.js': ['Presentation', 'CSS3', 'Transform', 'Transition'],
-	'jashkenas/backbone': ['MVC', 'Router'],
-	'blueimp/jQuery-File-Upload': ['jQuery', 'jQuery Plugin', 'Upload'],
-	'adobe/brackets': ['IDE', 'Live Editor'],
-	'mrdoob/three.js': ['WebGL', '3D', 'Canvas', 'SVG', 'CSS3D'],
-	'moment/moment': ['Date'],
+/*
+    https://github.com/search
+    https://github.com/search?l=JavaScript&o=desc&p=1&q=stars%3A%22%3E%3D+1000%22&ref=advsearch&s=stars&type=Repositories
 
+    $('.repolist .repolist-name').map(function() {
+        return $(this).text().replace(/\n|\s/g, '')
+    })
+ */
+var repo_tags = {
 
+    'jquery/jquery': ['Utility', 'DOM'],
+    'joyent/node': ['Platform'],
+    'mbostock/d3': ['SVG', 'Chart'],
+    'angular/angular.js': ['Bindings'],
+    'bartaz/impress.js': ['Presentations', 'CSS3', 'Transforms', 'Transition'],
+    'jashkenas/backbone': ['MVC', 'Router', 'RESTful', 'Model', 'View', 'Collection', 'Event'],
+    'blueimp/jQuery-File-Upload': ['jQuery', 'jQuery Plugin', 'Upload'],
+    'adobe/brackets': ['IDE', 'Live Editor'],
+    'mrdoob/three.js': ['WebGL', '3D', 'Canvas', 'SVG', 'CSS3D'],
+    'moment/moment': ['Date'],
 
-	'Treesaver/treesaver': ['UI'],
-	'guard/guard-livereload': ['Tool'],
-	'': [],
-]
+    'hakimel/reveal.js': ['Presentations', 'Markdown'],
+    'visionmedia/express': ['Node.js Framework', 'RESTful', 'Router'],
+    'meteor/meteor': ['Web Framework', 'Live Update'],
+    'Modernizr/Modernizr': ['Tool', 'HTML5', 'CSS3', 'Feature Detection'],
+    'LearnBoost/socket.io': ['Node.js Framework', 'Realtime'],
+    'jashkenas/underscore': ['Utility'],
+    'less/less.js': ['CSS'],
+    'ivaynberg/select2': ['jQuery', 'jQuery Plugin', 'UI', 'Select'],
+    'emberjs/ember.js': ['Web Framework', 'Bindings'],
+    'jquery/jquery-mobile': ['jQuery', 'Mobile Framework'],
+
+    'tastejs/todomvc': ['Tool', 'Todo', 'Web Framework', 'MV*'],
+    'bower/bower': ['Web Package Manager'],
+    'TryGhost/Ghost': ['Blogging Platform'],
+    'defunkt/jquery-pjax': ['jQuery', 'jQuery Plugin', 'pushState'],
+    'jquery/jquery-ui': ['jQuery', 'UI'],
+    'resume/resume.github.com': ['GitHub', 'Resume'],
+    'mozilla/pdf.js': ['PDF', 'Reader'],
+    'addyosmani/backbone-fundamentals': ['Book', 'Backbone'],
+    'caolan/async': ['Utility', 'Async'],
+    'gruntjs/grunt': ['Tool', 'Task Runner'],
+
+    'ajaxorg/ace': ['Editor'],
+    'Prinzhorn/skrollr': ['Parallax'],
+    'EightMedia/hammer.js': ['Gesture', 'Touch'],
+    'Leaflet/Leaflet': ['Map', 'Mobile'],
+    'nnnick/Chart.js': ['Chart', 'Canvas'],
+    'Semantic-Org/Semantic-UI': ['UI'],
+    'twitter/typeahead.js': ['AutoComplete', 'UI', 'Input'],
+    'usablica/intro.js': ['User Guide'],
+    'pivotal/jasmine': ['Testing', 'Framework'],
+    'scottjehl/Respond': ['CSS3', 'Media Queries'],
+
+    'rwaldron/idiomatic.js': ['Code Style'],
+    'madrobby/zepto': [],
+    'janl/mustache.js': [],
+    'visionmedia/jade': [],
+    'DmitryBaranovskiy/raphael': [],
+    'browserstate/history.js': [],
+    'NUKnightLab/TimelineJS': [],
+    'rstacruz/nprogress': [],
+    'wycats/handlebars.js': [],
+    'Shopify/dashing': [],
+
+    'Treesaver/treesaver': ['UI'],
+    'guard/guard-livereload': ['Tool'],
+
+    // 无法划分到 JavaScript 类别的
+    'airbnb/javascript': ['Code Style']
+}
+
+var tag_repos = function() {
+    var map = {}
+    _.each(repo_tags, function(tags, key) {
+        _.each(tags, function(tag, index) {
+            map[tag] = map[tag] || []
+            map[tag].push(key)
+        })
+    })
+    return map
+}()
+
+var tags = _.keys(tag_repos).sort()
+var repos = _.keys(repo_tags)

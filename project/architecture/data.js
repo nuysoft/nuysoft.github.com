@@ -40,6 +40,7 @@
 
     ## README.md
     https://github.com/mashery/iodocs
+    https://github.com/petkaantonov/bluebird
 
     分类：
     http://123.jser.us/
@@ -47,6 +48,46 @@
     http://www.javascriptoo.com/
         ["Add On / Plug In10", "AJAX15", "AMD10", "Animation15", "Async9", "Audio6", "Browser29", "Canvas18", "Charting7", "Code59", "CSS20", "Data27", "Events28", "Forms2", "Framework29", "Gaming3", "Geolocation2", "Images11", "Local Storage13", "Mobile7", "MVC5", "PubSub10", "Routing13", "Selector15", "String8", "SVG9", "Templating25", "Time4", "UI71", "Unit Testing7", "Utility97", "WebGL3"]
 
+    ## Grid
+    http://www.adamkaplan.me/grid/
+
+    浏览器的工作原理：新式网络浏览器幕后揭秘
+    http://taligarsiel.com/Projects/howbrowserswork1.htm
+    http://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/
+
+    [Let's Make a Framework: Free eBook](http://dailyjs.com/2010/12/02/framework-review/)
+    [Why I Hate NPM](http://jongleberry.com/why-i-hate-npm.html)
+
+    ## HTML5
+    [F7 - Full Featured HTML Framework For Building iOS7 Apps](http://ss14-team-15.divshot.io/)
+
+    TODO
+    https://github.com/undozen/bigpipe-on-node
+    http://sealedabstract.com/rants/why-mobile-web-apps-are-slow/
+    http://programmers.stackexchange.com/questions/46716/what-technical-details-should-a-programmer-of-a-web-application-consider-before
+    http://kangax.github.io/es5-compat-table/
+    http://www.sourcetreeapp.com/
+    https://github.com/audreyr/favicon-cheat-sheet
+    http://www.2ality.com/
+
+    http://e2.alibaba-inc.com/
+    http://e2.alibaba-inc.com/searchResult.htm?searchType=app&content=alimama_zuanshi_site
+    http://e2.alibaba-inc.com/pic.htm?pageId=354
+    
+    Git flow
+    [GIT 手册简介](http://gitref.org/zh/)
+    http://www.ruanyifeng.com/blog/2012/07/git.html
+    http://ihower.tw/blog/archives/5140
+    http://nvie.com/posts/a-successful-git-branching-model/
+    http://scottchacon.com/2011/08/31/github-flow.html
+    http://gitlab.alibaba-inc.com/mux/central/wikis/home#dev-doc
+    http://www.jsnice.org/
+
+    [EMOJI CHEAT SHEET](http://www.emoji-cheat-sheet.com/)
+    [Javascript编程指南](https://github.com/nuysoft/Programing-In-Javascript)
+
+    Animation
+    [GSAP GreenSock Animation Platfomr]http://www.greensock.com/gsap-js/
 */
 var data = {
     'Specifications': [{
@@ -65,7 +106,8 @@ var data = {
         name: 'ECMAScript',
         url: 'http://www.ecmascript.org/',
         desc: ['<a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">ES5</a>',
-            '<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6</a>'
+            '<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6</a>',
+            '<a href="http://kangax.github.io/es5-compat-table/">ECMAScript 5 compatibility table</a>'
         ].join(' ')
     }, {
         name: 'HTTP',
@@ -179,6 +221,8 @@ var data = {
         desc: '-'
     }, {
         url: 'http://www.regexper.com/'
+    }, {
+        url: 'https://github.com/adamschwartz/log'
     }],
 
     SPA: [{
@@ -627,7 +671,8 @@ var data = {
         'https://github.com/mdo/code-guide',
         'http://sideeffect.kr/popularconvention',
         'http://www.thinkful.com/learn/javascript-best-practices-1/',
-        'http://www.thinkful.com/learn/javascript-best-practices-2/'
+        'http://www.thinkful.com/learn/javascript-best-practices-2/',
+        'http://sideeffect.kr/popularconvention'
     ],
 
     'Fun': [
@@ -636,6 +681,7 @@ var data = {
         'http://osrc.dfm.io/',
         'http://osrc.dfm.io/nuysoft',
         'http://stackoverflow.com/questions/84556/whats-your-favorite-programmer-cartoon',
+        'http://javascript-puzzlers.herokuapp.com/' // JavaScript Puzzlers
     ],
 
     'Future': [

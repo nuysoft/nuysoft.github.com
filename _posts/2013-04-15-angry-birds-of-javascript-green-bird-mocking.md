@@ -68,7 +68,7 @@ pgroup: "前端 JavaScript 架构"
 我们来看一个简单的 Twiter 应用，这个应用将返回一个特定用户的消息。为什么是 Twitter？好吧，因为愤怒的小鸟们和 Twitter 的关系非同寻常，尤其是蓝色的小鸟 ;)
 
 <!-- The following application grabs data from Twitter using JSONP. I thought about using Backbone.js to write the little application, but thought that might be overkill to introduce the mocking concept. You will also notice I am not using a templating engine and that is on purpose. Another Angry Bird will be introducing that concept ;) -->
-下面的应用通过 JSONP 从 Twitter 抓取数据。我曾经考虑过用 Backbone.js 来编写这个小应用，但是又考虑到这种做法对于介绍模拟概念会是过渡设计。你也会注意到我并没有使用模板引擎，恩，我是故意这么做的。另一只愤怒的小鸟会介绍模板概念 ;)
+下面的应用通过 JSONP 从 Twitter 抓取数据。我曾经考虑过用 Backbone.js 来编写这个小应用，但是又考虑到这种做法对于介绍模拟概念会是过度设计。你也会注意到我并没有使用模板引擎，恩，我是故意这么做的。另一只愤怒的小鸟会介绍模板概念 ;)
 
   <script src="https://gist.github.com/elijahmanor/5321634.js?file=twitter.js">
   </script>
@@ -91,7 +91,7 @@ pgroup: "前端 JavaScript 架构"
 ## 模拟静态数据
 
 <!-- What if Twitter goes down, is unstable, or you just want to test your application without having internet access? This is where being able to mock the back-end service can be really helpful. Thankfully we can use a jQuery library called Mockjax. All you need to do is call <code>$.mockjax</code> and provide a URL that you want to listen for and a response that you want to be returned. The following is an example of mocking the call to api.twitter.com and passing back some static data. -->
-假使 Twitter 宕机或者不稳定，或者你只是想在没有互联网接入的情况下测试你的应用，会怎么样？这正是适合模拟后端服务大战拳脚的场景。而且庆幸的是我们可以使用一个称为 Mockjax 的 jQuery 库。你要做的所有事情是调用 `$.mockjax`，提供一个要监听的 url 和一个期望的响应。下面是一个模拟请求 api.twitter.com 的示例，将返回一些静态数据。
+假使 Twitter 宕机或者不稳定，或者你只是想在没有互联网接入的情况下测试你的应用，会怎么样？这正是适合模拟后端服务大展拳脚的场景。而且庆幸的是我们可以使用一个称为 Mockjax 的 jQuery 库。你要做的所有事情是调用 `$.mockjax`，提供一个要监听的 url 和一个期望的响应。下面是一个模拟请求 api.twitter.com 的示例，将返回一些静态数据。
 
   <script src="https://gist.github.com/elijahmanor/5321634.js?file=requests-mocked-static.js">
   </script>

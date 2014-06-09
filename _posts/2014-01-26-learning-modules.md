@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "学习 Javascript 模块化编程"
+title: "学习 JavaScript 模块化编程"
 description: ""
 category-substitution: 翻译
 tags: [翻译, 模块化, modules]
