@@ -79,7 +79,7 @@ tagline:
 {% endfor %}
 <hr>
 <p>[链接] 当年师友尽豪英</p>
-　　　[逸才](http://cyj.me/)、[逐飞](http://fizzwu.im/)、[凌征](http://yehao.diandian.com/)、[白汀](http://feliving.github.com/)、[崇志](http://www.ueder.net/)、[左莫](http://xubo.me/)、[黄龙](http://blog.iblack7.com/)、[巴韶](http://www.ibashao.com/)、[释剑](http://litao229.cnblogs.com/)、[柯拓](http://www.cnblogs.com/ziyunfei/)、[雪卒](http://luckydrq.com)、[如彼](http://q.pnq.cc/)、[胡伯](http://jser.me/)，谁还有？
+　　　[逸才](http://cyj.me/)、[逐飞](http://fizzwu.im/)、[凌征](http://yehao.diandian.com/)、[白汀](http://feliving.github.com/)、[崇志](http://www.ueder.net/)、[左莫](http://xubo.me/)、[黄龙](http://blog.iblack7.com/)、[巴韶](http://www.ibashao.com/)、[释剑](http://litao229.cnblogs.com/)、[柯拓](http://www.cnblogs.com/ziyunfei/)、[雪卒](http://luckydrq.com)、[如彼](http://q.pnq.cc/)、[胡伯](http://jser.me/)、[霍雍](http://bosn.me/)，谁还有？
 
 
 
