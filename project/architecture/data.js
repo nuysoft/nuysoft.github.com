@@ -69,6 +69,7 @@
     http://www.sourcetreeapp.com/
     https://github.com/audreyr/favicon-cheat-sheet
     http://www.2ality.com/
+    [粉丝排名](http://githubrank.com/)
 
     http://e2.alibaba-inc.com/
     http://e2.alibaba-inc.com/searchResult.htm?searchType=app&content=alimama_zuanshi_site
